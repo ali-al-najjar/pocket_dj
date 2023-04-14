@@ -1,0 +1,14 @@
+# Ignore environment variables
+.env
+
+# Ignore compiled Python files
+*.pyc
+
+# Ignore static files
+/staticfiles
+
+# Ignore log files
+/logs
+
+# Ignore database backups
+/db_backups
