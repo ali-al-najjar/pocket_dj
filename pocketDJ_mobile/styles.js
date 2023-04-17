@@ -39,7 +39,11 @@ const styles = StyleSheet.create({
   mood: {
     padding:40,
     borderRadius:10,
-    backgroundColor:primaryColor
+    backgroundColor:primaryColor,
+    marginVertical:10,
+    marginHorizontal:10,
+    justifyContent:'center',
+    alignItems:'center'
   }
 });
 

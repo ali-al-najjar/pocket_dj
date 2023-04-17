@@ -15,7 +15,7 @@ const MoodsList = () => {
       data= {DUMMY_DATA}
       keyExtractor={item=> item.id}
       renderItem = {renderItem}
-      numColumns={3}
+      numColumns={2}
       refreshControl={      
         <RefreshControl
           refreshing ={false}
