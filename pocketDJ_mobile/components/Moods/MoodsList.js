@@ -1,13 +1,27 @@
-import { View, Text, TextInput, TouchableOpacity, Image} from "react-native";
-import styles from '../../styles';
-import {useState} from 'react';
-import { useNavigation } from "@react-navigation/native";
+import { View, Text, FlatList, RefreshControl} from "react-native";
+import { DUMMY_DATA } from "../../data/dummy";
+import styles from "../../styles";
+import MoodItem from "./MoodItem";
 
 const MoodsList = () => {
-  const navigation = useNavigation();
+
+  const renderItem = ({item}) => {
+    return <MoodItem id={item.id} title={item.title}/>
+}
+
   return(
     <View>
-      <Text>List of Moods</Text>
+      <FlatList
+      data= {DUMMY_DATA}
+      keyExtractor={item=> item.id}
+      renderItem = {renderItem}
+      numColumns={3}
+      refreshControl={      
+        <RefreshControl
+          refreshing ={false}
+          />}
+      />
+
       
     </View>
   )

@@ -35,6 +35,11 @@ const styles = StyleSheet.create({
   },
   links: {
     color: tertiaryColor,
+  },
+  mood: {
+    padding:40,
+    borderRadius:10,
+    backgroundColor:primaryColor
   }
 });
 
