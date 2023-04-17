@@ -24,7 +24,7 @@ const LoginScreen = () => {
         defaultValue={password}
         onChangeText={pwd=>{setPassword(password)}}
         />
-        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Register')}>
+        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Pick your mood')}>
         <Text>Log in</Text>
         </TouchableOpacity>
         <Text>Don't have an account? </Text>
