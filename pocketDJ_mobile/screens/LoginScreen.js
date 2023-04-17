@@ -1,8 +1,11 @@
 import { View, Text, TextInput, TouchableOpacity, Image} from "react-native";
 import styles from '../styles';
 import {useState} from 'react';
+import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
+
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
   return(
@@ -21,7 +24,7 @@ const LoginScreen = () => {
         defaultValue={password}
         onChangeText={pwd=>{setPassword(password)}}
         />
-        <TouchableOpacity style={styles.btn} onPress={() => console.log(email)}>
+        <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Register')}>
           <Text>Click here</Text>
         </TouchableOpacity>
         </View>
