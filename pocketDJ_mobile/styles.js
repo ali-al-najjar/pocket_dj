@@ -32,6 +32,9 @@ const styles = StyleSheet.create({
     width:'80%',
     marginLeft:'auto',
     marginRight:'auto',
+  },
+  links: {
+    color: tertiaryColor,
   }
 });
 

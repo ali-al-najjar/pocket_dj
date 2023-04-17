@@ -12,7 +12,7 @@ const LoginScreen = () => {
     <View>
       <Image 
     source={require('../assets/banner.png')}/>
-      <Text>Welcome!</Text>
+      <Text>Login to your account</Text>
       <View style={styles.loginContainer}>
       <Text>Email Address</Text>
       <TextInput style={styles.textInput}
@@ -25,7 +25,11 @@ const LoginScreen = () => {
         onChangeText={pwd=>{setPassword(password)}}
         />
         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Register')}>
-          <Text>Click here</Text>
+        <Text>Log in</Text>
+        </TouchableOpacity>
+        <Text>Don't have an account? </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <Text style={styles.links}>Register Now</Text>
         </TouchableOpacity>
         </View>
     </View>
