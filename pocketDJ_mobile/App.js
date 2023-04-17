@@ -1,13 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import {useState} from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Platform, ScrollView, TextInput, Button, TouchableOpacity } from 'react-native';
-import HomeScreen from './screens/HomeScreen';
+import LoginScreen from './screens/LoginScreen';
 
 export default function App() {
   
   return (
     <SafeAreaView>
-    <HomeScreen></HomeScreen>
+    <LoginScreen></LoginScreen>
     <StatusBar style="dark" />
     </SafeAreaView>
   );

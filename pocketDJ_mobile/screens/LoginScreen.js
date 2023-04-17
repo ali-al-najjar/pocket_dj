@@ -2,8 +2,9 @@ import { View, Text, TextInput, TouchableOpacity, Image} from "react-native";
 import styles from '../styles';
 import {useState} from 'react';
 
-const HomeScreen = () => {
-  const [text,setText] = useState("")
+const LoginScreen = () => {
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
   return(
     <View>
       <Image 
@@ -11,18 +12,16 @@ const HomeScreen = () => {
       <Text>Welcome!</Text>
       <View style={styles.loginContainer}>
       <Text>Email Address</Text>
-      <TextInput
-        defaultValue={text}
-        onChangeText={txt=>{setText(text)}}
-        style = {{borderWidth:1, padding:10}}
+      <TextInput style={styles.textInput}
+        defaultValue={email}
+        onChangeText={email=>{setEmail(email)}}
         />
       <Text>Password</Text>
-      <TextInput
-        defaultValue={text}
-        onChangeText={txt=>{setText(text)}}
-        style = {{borderWidth:1, padding:10}}
+      <TextInput style={styles.textInput}
+        defaultValue={password}
+        onChangeText={pwd=>{setPassword(password)}}
         />
-        <TouchableOpacity style={styles.btn} onPress={() => console.log("hello")}>
+        <TouchableOpacity style={styles.btn} onPress={() => console.log(email)}>
           <Text>Click here</Text>
         </TouchableOpacity>
         </View>
@@ -30,4 +29,4 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen;
+export default LoginScreen;

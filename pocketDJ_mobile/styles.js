@@ -23,6 +23,11 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
   },
+  textInput: {
+    borderRadius: 10,
+    borderWidth:1, 
+    padding:10,
+  },
   loginContainer: {
     width:'80%',
     marginLeft:'auto',
