@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
     borderRadius:10,
     justifyContent:'center',
     alignItems:'center',
+  },
+  loginContainer: {
+    width:'80%',
+    marginLeft:'auto',
+    marginRight:'auto',
   }
 });
 
