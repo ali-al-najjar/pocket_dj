@@ -17,20 +17,20 @@ class Song(models.Model):
     song_bpm = models.IntegerField(max_length=255)
     language = models.CharField(max_length=255)
     mood = models.CharField(max_length=255)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE,on_update=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Request(models.Model):
     name = models.CharField(max_length=255)
     description=models.CharField(max_length=255)
     is_approved=models.BooleanField()
-    user_id = models.ForeignKey(User,on_delete=models.CASCADE,on_update=models.CASCADE)
+    user_id = models.ForeignKey(User,on_delete=models.CASCADE)
 
 class Remix(models.Model):
     name = models.CharField(max_length=255)
     date = models.DateTimeField("date published")
-    user_id = models.ForeignKey(User,on_delete=models.CASCADE,on_update=models.CASCADE)
+    user_id = models.ForeignKey(User,on_delete=models.CASCADE)
 
 class Favorite(models.Model):
-    user_id = models.ForeignKey(User,on_delete=models.CASCADE,on_update=models.CASCADE)
-    song_id = models.ForeignKey(Song,on_delete=models.CASCADE,on_update=models.CASCADE)
+    user_id = models.ForeignKey(User,on_delete=models.CASCADE)
+    song_id = models.ForeignKey(Song,on_delete=models.CASCADE)
 
