@@ -1,5 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from .serializers import UserSerializer
+from django.contrib.auth import get_user_model
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import viewsets
 
-def say_hello(request):
-    return HttpResponse('Hello World!')
+class UserViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = UserSerializer
+    queryset = get_user_model().objects.all()
+
+
