@@ -30,9 +30,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pocketdj',
     'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'api'
 ]
 
 REST_FRAMEWORK = {
