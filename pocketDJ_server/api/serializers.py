@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import User
+from .models import Song
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.validators import UniqueValidator
@@ -48,3 +49,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     user.save()
     return user
   
+class SongSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Song
+        fields = '__all__'
