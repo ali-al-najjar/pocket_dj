@@ -8,6 +8,14 @@ from .models import Remix
 from .models import Request
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import permissions
+
+class IsAdmin(permissions.BasePermission):
+    def has_permission(self, request, view):
+        if request.user.is_authenticated:
+            return request.user.role == "Admin"
+        return False
 
 
 # Class based view to Get User Details using Token Authentication
@@ -27,6 +35,6 @@ class RegisterUserAPIView(generics.CreateAPIView):
 
 class SongCreateAPIView(generics.CreateAPIView):
     authentication_classes = (TokenAuthentication,)
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAdmin,)
     queryset = Song.objects.all()
     serializer_class = SongSerializer

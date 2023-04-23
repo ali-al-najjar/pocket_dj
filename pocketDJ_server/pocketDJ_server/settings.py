@@ -134,3 +134,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "api.User"
+
+
+MEDIA_URL = '/media/'
+
+# For images
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/images')
+
+# For music
+MUSIC_ROOT = os.path.join(BASE_DIR, 'media/music')

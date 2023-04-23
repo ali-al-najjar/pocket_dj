@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from .models import User
 from .models import Song
+from .models import Request
+from .models import Remix
+from .models import Favorite
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.validators import UniqueValidator
@@ -52,4 +55,9 @@ class RegisterSerializer(serializers.ModelSerializer):
 class SongSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song
-        fields = '__all__'
+        fields = '__all__' 
+
+class RequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Request
+        fields = '__all__' 
