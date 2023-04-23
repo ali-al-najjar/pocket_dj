@@ -5,9 +5,11 @@ import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
-
+  
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
+
+
   return(
     <View>
       <Image 
