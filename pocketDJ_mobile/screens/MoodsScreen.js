@@ -9,7 +9,7 @@ const MoodsScreen = () => {
   return(
     <View>
     <Image 
-    source={require('../assets/banner.png')}/>
+    source={require('../assets/mood.svg')}/>
     <Text>What are you up to?</Text>
     <MoodsList></MoodsList>
     </View>

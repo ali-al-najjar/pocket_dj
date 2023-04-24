@@ -13,7 +13,7 @@ const LoginScreen = () => {
   return(
     <View>
       <Image 
-    source={require('../assets/banner.png')}/>
+    source={require('../assets/mixer.svg')}/>
       <Text>Login to your account</Text>
       <View style={styles.loginContainer}>
       <Text>Email Address</Text>
