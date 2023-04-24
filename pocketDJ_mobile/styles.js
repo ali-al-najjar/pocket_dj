@@ -6,6 +6,7 @@ const secondaryColor = '#87F966';
 const tertiaryColor = '#FC1CFD';
 const textColor = '#000000';
 const white ='white';
+const black = '#1E1E1E';
 
 
 const styles = StyleSheet.create({
@@ -41,11 +42,12 @@ const styles = StyleSheet.create({
   mood: {
     padding:40,
     borderRadius:10,
-    backgroundColor:primaryColor,
+    backgroundColor:black,
     marginVertical:10,
     marginHorizontal:10,
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    textColor:white
   },
   header: {
     borderBottomColor:secondaryColor,
@@ -60,6 +62,18 @@ const styles = StyleSheet.create({
     marginTop:10,
     marginBottom:20,
 
+  },
+  registerBanner:{
+    backgroundColor:primaryColor,
+    marginLeft:'auto',
+    marginRight:'auto',
+    height:250,
+    width:350,
+    margin:30
+  },
+
+  imageContainer:{
+    backgroundColor:primaryColor,
   }
 });
 

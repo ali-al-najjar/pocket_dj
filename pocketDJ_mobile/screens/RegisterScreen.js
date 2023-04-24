@@ -10,11 +10,9 @@ const RegisterScreen = () => {
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
   return(
-    <View>
-      <Image 
-    source={require('../assets/banner.png')}/>
+    <View >
+    <View style={styles.loginContainer}>
       <Text>Create a new account</Text>
-      <View style={styles.loginContainer}>
       <Text>First Name</Text>
       <TextInput style={styles.textInput}
         defaultValue={first_name}
