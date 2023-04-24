@@ -13,9 +13,12 @@ const LoginScreen = () => {
   return(
     <View>
       <Image 
-    source={require('../assets/mixer.svg')}/>
-      <Text>Login to your account</Text>
-      <View style={styles.loginContainer}>
+    source={require('../assets/mixer.png')}
+    style={styles.mixer}
+    />
+    <View style={styles.loginContainer}>
+      <Text style={styles.header}>Login to your account</Text>
+      
       <Text>Email Address</Text>
       <TextInput style={styles.textInput}
         defaultValue={email}

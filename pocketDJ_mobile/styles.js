@@ -9,14 +9,14 @@ const white ='white';
 
 
 const styles = StyleSheet.create({
-  pinkContainer: {
+  container: {
     backgroundColor: white,
     height:1600,
     padding:20,
   },
 
   btn: {
-    backgroundColor: secondaryColor,
+    backgroundColor: primaryColor,
     width:132,
     height:46,
     borderRadius:10,
@@ -29,12 +29,14 @@ const styles = StyleSheet.create({
     padding:10,
   },
   loginContainer: {
-    width:'80%',
+    width:'90%',
     marginLeft:'auto',
     marginRight:'auto',
+    gap:10
   },
   links: {
-    color: tertiaryColor,
+    color: primaryColor,
+    fontWeight: 'bold'
   },
   mood: {
     padding:40,
@@ -44,6 +46,19 @@ const styles = StyleSheet.create({
     marginHorizontal:10,
     justifyContent:'center',
     alignItems:'center'
+  },
+  header: {
+    borderBottomColor:secondaryColor,
+    borderBottomWidth:1
+  },
+  mixer:{
+    height:280,
+    width:370,
+    marginLeft:'auto',
+    marginRight:'auto',
+    marginTop:10,
+    marginBottom:20,
+
   }
 });
 
