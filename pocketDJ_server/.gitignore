@@ -12,3 +12,6 @@
 
 # Ignore database backups
 /db_backups
+
+#Ignore media 
+/api/media
