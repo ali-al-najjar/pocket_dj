@@ -11,7 +11,7 @@ const MoodsList = () => {
 
   return(
     <View style={styles.moods_list}>
-      <FlatList
+      <FlatList style={styles.container}
       data= {DUMMY_DATA}
       keyExtractor={item=> item.id}
       renderItem = {renderItem}
