@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { HomeStack } from './navigation/stack';
+import { HomeStack } from './src/navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 
 export default function App() {

@@ -1,8 +1,9 @@
 import { View, Text, TextInput, TouchableOpacity, Image} from "react-native";
-import styles from '../styles';
+import styles from './styles';
+import constants from '../../constants/styles';
 import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
-import MoodsList from "../components/Moods/MoodsList";
+import MoodsList from "../../components/Moods/Moods/MoodsList";
 
 const MoodsScreen = () => {
   const navigation = useNavigation();
@@ -10,7 +11,7 @@ const MoodsScreen = () => {
     <View>
     <View style={styles.imageContainer}>
     <Image 
-      source={require('../assets/mood.png')}
+      source={require('../../../assets/mood.png')}
       style={styles.registerBanner}/>
     </View>
     <View style={styles.loginContainer}>

@@ -1,6 +1,6 @@
 import { View, Text, FlatList, RefreshControl} from "react-native";
-import { DUMMY_DATA } from "../../data/dummy";
-import styles from "../../styles";
+import { DUMMY_DATA } from "../../../../data/dummy";
+import styles from "./styles";
 import MoodItem from "./MoodItem";
 
 const MoodsList = () => {
@@ -10,12 +10,12 @@ const MoodsList = () => {
 }
 
   return(
-    <View>
+    <View style={styles.moods_list}>
       <FlatList
       data= {DUMMY_DATA}
       keyExtractor={item=> item.id}
       renderItem = {renderItem}
-      numColumns={2}
+      numColumns={3}
       refreshControl={      
         <RefreshControl
           refreshing ={false}

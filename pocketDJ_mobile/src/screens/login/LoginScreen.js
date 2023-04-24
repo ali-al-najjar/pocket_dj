@@ -1,5 +1,5 @@
 import { View, Text, TextInput, TouchableOpacity, Image} from "react-native";
-import styles from '../styles';
+import styles from './styles';
 import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
 
@@ -13,7 +13,7 @@ const LoginScreen = () => {
   return(
     <View>
       <Image 
-    source={require('../assets/mixer.png')}
+    source={require('../../../assets/mixer.png')}
     style={styles.mixer}
     />
     <View style={styles.loginContainer}>

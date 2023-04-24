@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
     width:'90%',
     marginLeft:'auto',
     marginRight:'auto',
-    gap:10
+    gap:10,
+    marginTop:20
   },
   links: {
     color: primaryColor,
@@ -44,6 +45,9 @@ const styles = StyleSheet.create({
   },
   links_text:{
     color: white
+  },
+  moods_list:{
+    width:'100%'
   },
   mood: {
     padding:40,
@@ -53,7 +57,10 @@ const styles = StyleSheet.create({
     marginHorizontal:10,
     justifyContent:'center',
     alignItems:'center',
-    textColor:white
+    flex:1
+  },
+  mood_text:{
+    color:white,
   },
   h1_view: {
     borderBottomWidth :2,
@@ -74,7 +81,7 @@ const styles = StyleSheet.create({
     width:380,
     marginLeft:'auto',
     marginRight:'auto',
-    marginTop:10,
+    marginTop:40,
     marginBottom:20,
 
   },
