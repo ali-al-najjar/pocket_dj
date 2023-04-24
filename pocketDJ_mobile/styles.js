@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   mixer:{
     height:280,
-    width:370,
+    width:380,
     marginLeft:'auto',
     marginRight:'auto',
     marginTop:10,
