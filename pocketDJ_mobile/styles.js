@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
   },
   header: {
     borderBottomColor:secondaryColor,
-    borderBottomWidth:1
+    borderBottomWidth:3,
+    
   },
   mixer:{
     height:280,
