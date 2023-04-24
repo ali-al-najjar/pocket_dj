@@ -12,17 +12,16 @@ const styles = StyleSheet.create({
     width:'100%'
   },
   mood: {
-    padding:40,
+    height:100,
+    width:150,
     borderRadius:10,
     backgroundColor:black,
-    marginVertical:10,
-    marginHorizontal:10,
+    margin:5,
     justifyContent:'center',
-    alignItems:'center',
-    flex:1
+    alignItems:'center'
   },
   mood_text:{
-    color:white,
+    color:white
   }
 });
 

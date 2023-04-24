@@ -2,6 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../screens/login/LoginScreen';
 import RegisterScreen from '../screens/register/RegisterScreen';
 import MoodsScreen from '../screens/moods/MoodsScreen';
+import TabStack from './TabStack';
 
 const Stack = createStackNavigator();
 
@@ -10,7 +11,7 @@ export const HomeStack = () => {
     <Stack.Navigator>
       <Stack.Screen name="Back" component={LoginScreen} options={{headerShown: false}}/>
       <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown: true}}/>
-      <Stack.Screen name="Pick your mood" component={MoodsScreen} options={{headerShown: false}}/>
+      <Stack.Screen name="Pick your mood" component={TabStack} options={{headerShown: false}}/>
     </Stack.Navigator>
   );
 }

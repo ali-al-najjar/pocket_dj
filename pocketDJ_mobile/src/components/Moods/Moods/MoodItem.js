@@ -5,7 +5,7 @@ const MoodItem = ({id , title}) => {
   return (
     <TouchableOpacity onPress={() => {}}>
       <View style={styles.mood}>
-      <Text style={styles.mood_text} >{title}</Text>
+      <Text style={styles.mood_text} >{title} {id}</Text>
       </View>
       </TouchableOpacity>
 

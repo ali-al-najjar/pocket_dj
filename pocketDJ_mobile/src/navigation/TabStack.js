@@ -1,39 +1,44 @@
-import HomeScreen from "../screens/moods/MoodsScreen";
-// import Screen2 from "../screens/screen2";
-// import Screen3 from "../screens/screen3";
+import MoodsScreen from "../screens/moods/MoodsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text } from "react-native";
-// import Ionicons from "react-native-vector-icons/Ionicons";
-// import Screen2Stack from "./Screen2Stack";
+import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 
 const TabStack = () => {
   const Tabs = createBottomTabNavigator();
   return (
     <Tabs.Navigator screenOptions={{ headerShown: false }}>
       <Tabs.Screen
+        name="Create"
+        component={MoodsScreen}
         options={{
-          tabBarIcon: () => (
-            <Text>HO</Text>
-            // <Ionicons name={"home"} size />
+          tabBarIcon: ({ color, size }) => (
+            <AntDesign name="pluscircleo" size={24} color="black" />
           ),
+          
         }}
-        name="Home"
-        component={HomeScreen}
-      />
-      {/* <Tabs.Screen
-        options={{
-          tabBarIcon: () => <Text>S2</Text>,
-        }}
-        name="Screen 2"
-        component={Screen2}
       />
       <Tabs.Screen
+        name="Search"
+        component={MoodsScreen}
         options={{
-          tabBarIcon: () => <Text>S3</Text>,
+          tabBarIcon: ({ color, size }) => (
+            <Octicons name="search" size={24} color="black" />
+          ),
+          
         }}
-        name="Screen 3"
-        component={Screen3}
-      /> */}
+        />
+        <Tabs.Screen
+        name="My Remixes"
+        component={MoodsScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Octicons name="search" size={24} color="black" />
+          ),
+          
+        }}
+        />
     </Tabs.Navigator>
   );
 };
