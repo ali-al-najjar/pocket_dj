@@ -7,10 +7,10 @@ const Stack = createStackNavigator();
 
 export const HomeStack = () => {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Home" component={LoginScreen} />
-      <Stack.Screen name="Register" component={RegisterScreen} />
-      <Stack.Screen name="Pick your mood" component={MoodsScreen} />
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={LoginScreen} options={{headerShown: false}}/>
+      <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown: true}}/>
+      <Stack.Screen name="Pick your mood" component={MoodsScreen} options={{headerShown: false}}/>
     </Stack.Navigator>
   );
 }
