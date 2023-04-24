@@ -5,6 +5,7 @@ import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import MoodsList from "../../components/Moods/Moods/MoodsList";
 
+
 const MoodsScreen = () => {
   const navigation = useNavigation();
   return(
@@ -12,11 +13,12 @@ const MoodsScreen = () => {
     <View style={styles.imageContainer}>
     <Image 
       source={require('../../../assets/mood.png')}
-      style={styles.registerBanner}/>
+      style={styles.moodsContainer}
+    />
     </View>
-    <View style={styles.loginContainer}>
-    <View style={styles.h1_view}>
-    <Text style={styles.h1_text}>What are you up to?</Text>
+    <View style={constants.formContainer}>
+    <View style={constants.h1_view}>
+    <Text style={constants.h1_text}>What are you up to?</Text>
     </View>
     <MoodsList></MoodsList>
     </View>
