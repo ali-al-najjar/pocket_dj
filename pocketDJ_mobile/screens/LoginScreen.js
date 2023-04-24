@@ -17,8 +17,9 @@ const LoginScreen = () => {
     style={styles.mixer}
     />
     <View style={styles.loginContainer}>
-      <Text style={styles.header}>Login to your account</Text>
-      
+      <View style={styles.h1_view}>
+      <Text style={styles.h1_text}>Login to your account</Text>
+      </View>
       <Text>Email Address</Text>
       <TextInput style={styles.textInput}
         defaultValue={email}
@@ -30,7 +31,7 @@ const LoginScreen = () => {
         onChangeText={pwd=>{setPassword(password)}}
         />
         <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Pick your mood')}>
-        <Text>Log in</Text>
+        <Text style={styles.btn_text}>Log in</Text>
         </TouchableOpacity>
         <Text>Don't have an account? </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Register')}>

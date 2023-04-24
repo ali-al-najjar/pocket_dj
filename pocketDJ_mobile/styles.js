@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
   },
+  btn_text:{
+    color: white
+  },
   textInput: {
     borderRadius: 10,
     borderWidth:1, 
@@ -37,7 +40,10 @@ const styles = StyleSheet.create({
   },
   links: {
     color: primaryColor,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+  },
+  links_text:{
+    color: white
   },
   mood: {
     padding:40,
@@ -49,10 +55,19 @@ const styles = StyleSheet.create({
     alignItems:'center',
     textColor:white
   },
-  header: {
-    borderBottomColor:secondaryColor,
-    borderBottomWidth:3,
-    
+  h1_view: {
+    borderBottomWidth :2,
+    borderBottomColor: secondaryColor,
+    marginTop:10,
+    width:'80%',
+    marginTop:20,
+    marginBottom:10
+  },
+  h1_text:{
+    fontSize:24,
+    color:black,
+    fontWeight:'bold',
+    paddingBottom:10
   },
   mixer:{
     height:280,

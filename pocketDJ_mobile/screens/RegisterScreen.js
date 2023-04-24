@@ -12,7 +12,9 @@ const RegisterScreen = () => {
   return(
     <View >
     <View style={styles.loginContainer}>
-      <Text>Create a new account</Text>
+    <View style={styles.h1_view}>
+      <Text style={styles.h1_text}>Create a new account</Text>
+      </View>
       <Text>First Name</Text>
       <TextInput style={styles.textInput}
         defaultValue={first_name}
@@ -34,7 +36,7 @@ const RegisterScreen = () => {
         onChangeText={pwd=>{setPassword(password)}}
         />
         <TouchableOpacity style={styles.btn} onPress={() => console.log("hello")}>
-          <Text>Register</Text>
+          <Text style={styles.btn_text}>Register</Text>
         </TouchableOpacity>
         <Text>Already have an account? </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>

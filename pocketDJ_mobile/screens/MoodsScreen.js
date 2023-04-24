@@ -14,7 +14,9 @@ const MoodsScreen = () => {
       style={styles.registerBanner}/>
     </View>
     <View style={styles.loginContainer}>
-    <Text>What are you up to?</Text>
+    <View style={styles.h1_view}>
+    <Text style={styles.h1_text}>What are you up to?</Text>
+    </View>
     <MoodsList></MoodsList>
     </View>
     </View>
