@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     flex:1,
-    gap:20
+    gap:20,
+    marginBottom:20
   },
   innerContainer: {
     flex:1,

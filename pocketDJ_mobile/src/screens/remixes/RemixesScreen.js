@@ -14,11 +14,8 @@ const renderItem = ({item}) => {
 const RemixesScreen = () => {
   const navigation = useNavigation();
   return(
-    <SafeAreaView>
+    <SafeAreaView style={constants.formContainer}>
     <View>
-    <View style={styles.imageContainer}>
-    </View>
-    <View style={constants.formContainer}>
     <View style={constants.h1_view}>
     <Text style={constants.h1_text}>My Remixes</Text>
     </View>
@@ -27,7 +24,6 @@ const RemixesScreen = () => {
       keyExtractor={item => item.id}
       renderItem = {renderItem}
       />
-    </View>
     </View>
     </SafeAreaView>
   )
