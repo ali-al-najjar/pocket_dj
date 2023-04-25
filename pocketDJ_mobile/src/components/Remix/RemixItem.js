@@ -1,8 +1,10 @@
 import { Text, TouchableOpacity, View } from "react-native"
 import styles from "./styles";
 import { FontAwesome5 } from '@expo/vector-icons';
+import { useNavigation } from "@react-navigation/native";
 
 const RemixItem = ({id , title, mood,date}) => {
+  const navigation = useNavigation();
   return (
       <View style={styles.remixContainer}>
       <View style={styles.remixInfo}>
