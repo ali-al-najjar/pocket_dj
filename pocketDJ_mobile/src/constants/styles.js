@@ -9,12 +9,6 @@ const white ='white';
 const black = '#1E1E1E';
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: white,
-    height:1600,
-    padding:20,
-  },
-
   btn: {
     backgroundColor: primaryColor,
     width:132,
@@ -34,9 +28,7 @@ const styles = StyleSheet.create({
   h1_view: {
     borderBottomWidth :2,
     borderBottomColor: secondaryColor,
-    marginTop:10,
     width:'80%',
-    marginTop:20,
     marginBottom:10
   },
   h1_text:{
@@ -62,10 +54,15 @@ const styles = StyleSheet.create({
     padding:10,
   },
   formContainer: {
+    flex:1,
+    gap:20
+  },
+  innerContainer: {
+    flex:1,
+    gap:10,
     width:'90%',
     marginLeft:'auto',
-    marginRight:'auto',
-    gap:10
+    marginRight:'auto'
   },
   links: {
     color: primaryColor,

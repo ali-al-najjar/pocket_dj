@@ -15,14 +15,14 @@ const renderItem = ({item}) => {
 const MoodsScreen = () => {
   const navigation = useNavigation();
   return(
-    <SafeAreaView>
+    <SafeAreaView style={constants.formContainer}>
     <View style={styles.imageContainer}>
     <Image 
       source={require('../../../assets/mood.png')}
       style={styles.moodsContainer}
     />
     </View>
-    <View style={constants.formContainer}>
+    <View >
     <View style={constants.h1_view}>
     <Text style={constants.h1_text}>What are you up to?</Text>
     </View>

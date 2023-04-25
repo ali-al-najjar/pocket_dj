@@ -3,6 +3,7 @@ import styles from './styles';
 import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import constants from '../../constants/styles';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -11,9 +12,10 @@ const RegisterScreen = () => {
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
   const [confirm_password,setConfirmPassword] = useState("")
+  
   return(
-    <View >
-    <View style={constants.formContainer}>
+    <SafeAreaView style={constants.formContainer}>
+    <View style={constants.innerContainer}>
     <View style={constants.h1_view}>
       <Text style={constants.h1_text}>Create a new account</Text>
       </View>
@@ -50,7 +52,7 @@ const RegisterScreen = () => {
         <Text style={constants.links}>Login Now</Text>
         </TouchableOpacity>
         </View>
-    </View>
+        </SafeAreaView>
   )
 }
 

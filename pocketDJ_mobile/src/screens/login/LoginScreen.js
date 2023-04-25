@@ -3,6 +3,7 @@ import styles from './styles';
 import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import constants from '../../constants/styles';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -12,12 +13,12 @@ const LoginScreen = () => {
 
 
   return(
-    <View>
+    <SafeAreaView style={constants.formContainer}>
       <Image 
     source={require('../../../assets/mixer.png')}
     style={styles.mixer}
     />
-    <View style={constants.formContainer}>
+      <View style={constants.innerContainer}>
       <View style={constants.h1_view}>
       <Text style={constants.h1_text}>Login to your account</Text>
       </View>
@@ -39,7 +40,7 @@ const LoginScreen = () => {
         <Text style={constants.links}>Register Now</Text>
         </TouchableOpacity>
         </View>
-    </View>
+        </SafeAreaView>
   )
 }
 
