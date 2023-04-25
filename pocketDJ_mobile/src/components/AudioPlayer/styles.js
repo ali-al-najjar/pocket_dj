@@ -10,9 +10,12 @@ const black = '#1E1E1E';
 const styles = StyleSheet.create({
   audio_player:{
     flexDirection:'row',
-    justifyContent:"center",
     alignItems:'center',
     gap:40
+  },
+  audioScreenContainer:{
+    alignItems:'center',
+    gap:20
   }
 });
 

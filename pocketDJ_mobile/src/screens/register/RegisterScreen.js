@@ -47,7 +47,7 @@ const RegisterScreen = () => {
         />
         <Button title="Register" onPress={() => console.log("hello")} />
         <Text>Already have an account? </Text> 
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text style={constants.links}>Login Now</Text>
         </TouchableOpacity>
         </View>
