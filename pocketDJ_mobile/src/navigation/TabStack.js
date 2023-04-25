@@ -1,4 +1,5 @@
 import MoodsScreen from "../screens/moods/MoodsScreen";
+import RemixesScreen from "../screens/remixes/RemixesScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
@@ -33,7 +34,7 @@ const TabStack = () => {
         />
         <Tabs.Screen
         name="My Remixes"
-        component={MoodsScreen}
+        component={RemixesScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Entypo name="folder-music" size={24} color="black" />
