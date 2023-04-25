@@ -4,11 +4,12 @@ import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import constants from '../../constants/styles';
 import { SafeAreaView } from "react-native-safe-area-context";
+import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
 
 const PlayerScreen = () => {
   return (
   <SafeAreaView>
-  <Text>This is the player page</Text>
+  <AudioPlayer />
   </SafeAreaView>
 
   )}
