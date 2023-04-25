@@ -9,16 +9,13 @@ const black = '#1E1E1E';
 
 const styles = StyleSheet.create({
   mood: {
-    justifyContent:'center',
-    alignItems:'center',
+    height:100,
+    width:150,
     borderRadius:10,
     backgroundColor:black,
-    padding:20,
     margin:5,
-    width:'80%',
-    marginLeft:'auto',
-    marginRight:'auto',
-    
+    justifyContent:'center',
+    alignItems:'center',
   },
   mood_text:{
     color:white

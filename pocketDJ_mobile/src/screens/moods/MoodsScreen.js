@@ -32,6 +32,7 @@ const MoodsScreen = () => {
       data= {DUMMY_DATA}
       keyExtractor={item => item.id}
       renderItem = {renderItem}
+      numColumns={2}
       />
 
     </SafeAreaView>
