@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
   play_icon:{
     backgroundColor:black,
     borderRadius:50,
-    width:70,
-    height:70,
+    width:60,
+    height:60,
     alignItems:'center',
     justifyContent:'center'
   },
@@ -36,12 +36,14 @@ const styles = StyleSheet.create({
   },
   remixMood:{
     fontSize:15,
-    fontWeight:'bold'
+    fontWeight:'bold',
+    color:white
   },
   remixDate:{
-    fontSize:13,
+    fontSize:12,
     fontStyle:'italic',
-    color:white
+    color:black,
+    fontWeight:'bold'
   }
 
 
