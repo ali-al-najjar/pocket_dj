@@ -8,17 +8,17 @@ const white ='white';
 const black = '#1E1E1E';
 
 const styles = StyleSheet.create({
-  moods_list:{
-    width:'100%'
-  },
   mood: {
-    height:100,
-    width:150,
+    justifyContent:'center',
+    alignItems:'center',
     borderRadius:10,
     backgroundColor:black,
+    padding:20,
     margin:5,
-    justifyContent:'center',
-    alignItems:'center'
+    width:'80%',
+    marginLeft:'auto',
+    marginRight:'auto',
+    
   },
   mood_text:{
     color:white

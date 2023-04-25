@@ -4,16 +4,17 @@ import constants from '../../constants/styles';
 import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { DUMMY_DATA } from "../../../data/remixes";
-import RemixItem from "../../components/Remixe/RemixItem";
-import { FontAwesome } from '@expo/vector-icons'; 
+import RemixItem from "../../components/Remix/RemixItem";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const renderItem = ({item}) => {
   console.log("Rendering item with ID:", item.id);
   return <RemixItem id={item.id} title={item.title} mood={item.mood} date={item.date} />}
 
-const MoodsScreen = () => {
+const RemixesScreen = () => {
   const navigation = useNavigation();
   return(
+    <SafeAreaView>
     <View>
     <View style={styles.imageContainer}>
     </View>
@@ -28,7 +29,8 @@ const MoodsScreen = () => {
       />
     </View>
     </View>
+    </SafeAreaView>
   )
 }
 
-export default MoodsScreen;
+export default RemixesScreen;

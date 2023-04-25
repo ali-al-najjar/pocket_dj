@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     marginRight:'auto',
     height:250,
     width:350,
-    marginTop:50,
-    marginBottom:50}
+    marginTop:10,
+    marginBottom:10}
 });
 
 export default styles;

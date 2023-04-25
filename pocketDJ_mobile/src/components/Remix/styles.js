@@ -31,15 +31,15 @@ const styles = StyleSheet.create({
   },
   remixTitle:{
     fontWeight:'bold',
-    fontSize:'24',
+    fontSize:25,
     color:white,
   },
   remixMood:{
-    fontSize:18,
+    fontSize:15,
     fontWeight:'bold'
   },
   remixDate:{
-    fontSize:12,
+    fontSize:13,
     fontStyle:'italic',
     color:white
   }

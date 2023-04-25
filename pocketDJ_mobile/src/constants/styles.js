@@ -65,8 +65,7 @@ const styles = StyleSheet.create({
     width:'90%',
     marginLeft:'auto',
     marginRight:'auto',
-    gap:10,
-    marginTop:20
+    gap:10
   },
   links: {
     color: primaryColor,
