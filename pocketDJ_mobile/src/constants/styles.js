@@ -28,14 +28,19 @@ const styles = StyleSheet.create({
   h1_view: {
     borderBottomWidth :2,
     borderBottomColor: secondaryColor,
-    width:'80%',
+    width:'auto',
+    marginLeft:10,
     marginBottom:10
+
   },
   h1_text:{
     fontSize:24,
     color:black,
     fontWeight:'bold',
-    paddingBottom:10
+    paddingBottom:10,
+    width:'90%'
+    
+    
   },
     btn: {
     backgroundColor: primaryColor,
