@@ -4,6 +4,7 @@ import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import constants from '../../constants/styles';
 import { SafeAreaView } from "react-native-safe-area-context";
+import Button from "../../components/Button/Button";
 
 const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -44,10 +45,8 @@ const RegisterScreen = () => {
         defaultValue={confirm_password}
         onChangeText={pwd=>{setConfirmPassword(confirm_password)}}
         />
-        <TouchableOpacity style={constants.btn} onPress={() => console.log("hello")}>
-          <Text style={constants.btn_text}>Register</Text>
-        </TouchableOpacity>
-        <Text>Already have an account? </Text>
+        <Button title="Register" onPress={() => console.log("hello")} />
+        <Text>Already have an account? </Text> 
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
         <Text style={constants.links}>Login Now</Text>
         </TouchableOpacity>

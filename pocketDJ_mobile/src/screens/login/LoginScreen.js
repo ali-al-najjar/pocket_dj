@@ -4,6 +4,7 @@ import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import constants from '../../constants/styles';
 import { SafeAreaView } from "react-native-safe-area-context";
+import Button from "../../components/Button/Button";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -32,15 +33,14 @@ const LoginScreen = () => {
         defaultValue={password}
         onChangeText={pwd=>{setPassword(password)}}
         />
-        <TouchableOpacity style={constants.btn} onPress={() => navigation.navigate('Pick your mood')}>
-        <Text style={constants.btn_text}>Log in</Text>
-        </TouchableOpacity>
-        <Text>Don't have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-        <Text style={constants.links}>Register Now</Text>
-        </TouchableOpacity>
-        </View>
-        </SafeAreaView>
+      <Button title="Log In" onPress={() => navigation.navigate('Pick your mood')} /> 
+        
+      <Text>Don't have an account? </Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+      <Text style={constants.links}>Register Now</Text>
+      </TouchableOpacity>
+      </View>
+      </SafeAreaView>
   )
 }
 
