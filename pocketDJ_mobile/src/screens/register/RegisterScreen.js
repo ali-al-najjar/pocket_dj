@@ -6,6 +6,7 @@ import constants from '../../constants/styles';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "../../components/Button/Button";
 import { MaterialIcons } from '@expo/vector-icons';
+import axios from "axios";
 
 const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -29,20 +30,38 @@ const RegisterScreen = () => {
 
       const handleSubmit = (e) => {
         e.preventDefault()
+        if (username || first_name || last_name || email || password || confirm_password){
         if (validateEmail(email)){
           if(validatePassword(password)){
-        const data = {
-          first_name: first_name,
-          last_name: last_name,
-          username:username,
-          email: email,
-          password: password,
-          password2: confirm_password,
-          role:"User"
-        };
-        console.log(data)
-    }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your password is malformed</Text></View>))
-  }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your email is malformed</Text></View>))}
+            if(password === confirm_password) {
+                const data = {
+                  first_name: first_name,
+                  last_name: last_name,
+                  username:username,
+                  email: email,
+                  password: password,
+                  password2: confirm_password,
+                  role:"User"
+                };
+            console.log(data)
+            axios.post("http://192.168.1.127:8000/api/register",data,{
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            })
+            .then((res)=>{
+              console.log(res.data);
+              setError("");
+            })
+            .catch((err=>{
+              console.log(err.request.response);
+            }))
+            setError("");
+              }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your passwords don't match</Text></View>))
+            }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your password is malformed</Text></View>))
+          }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your email is malformed</Text></View>))
+        }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>No Empty fields are allowed</Text></View>))
+}
 
   return(
     <SafeAreaView style={constants.formContainer}>

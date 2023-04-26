@@ -41,6 +41,7 @@ const LoginScreen = () => {
         })
         .then((res)=>{
           console.log(res.data);
+          setError("");
         })
         .catch((err=>{
           console.log(err.request.response);
