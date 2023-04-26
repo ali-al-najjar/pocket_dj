@@ -18,7 +18,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '192.168.1.127'
+    ]
 
 
 # Application definition
@@ -32,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'api'
+    'api',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -49,11 +54,13 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'pocketDJ_server.urls'
@@ -143,3 +150,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/images')
 
 # For music
 MUSIC_ROOT = os.path.join(BASE_DIR, 'media/music')
+
+
+CORS_ALLOWED_ORIGINS = [    
+    'exp://192.168.1.127:19000',
+    'http://192.168.1.127:19000',
+    'http://localhost:19000',
+    'http://127.0.0.1:19000',
+    'http://localhost:19006',
+    'http://127.0.0.1:19006',]
+
+CORS_ALLOW_ALL_ORIGINS = True

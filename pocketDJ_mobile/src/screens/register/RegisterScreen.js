@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import constants from '../../constants/styles';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "../../components/Button/Button";
+import { MaterialIcons } from '@expo/vector-icons';
 
 const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -38,8 +39,8 @@ const RegisterScreen = () => {
           role:"User"
         };
         console.log(data)
-    }else(setError("Your password is malformed"))
-  }else(setError("Your email is malformed"))}
+    }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your password is malformed</Text></View>))
+  }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your email is malformed</Text></View>))}
 
   return(
     <SafeAreaView style={constants.formContainer}>
@@ -79,7 +80,9 @@ const RegisterScreen = () => {
           onChangeText={(text) => setConfirmPassword(text)}
           value={confirm_password}
         />
+      <View>
       <Text>{error}</Text>
+      </View>
         <Button title="Register" onPress={handleSubmit} />
         <Text>Already have an account? </Text> 
         <TouchableOpacity onPress={() => navigation.goBack()}>

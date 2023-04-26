@@ -5,12 +5,49 @@ import { useNavigation } from "@react-navigation/native";
 import constants from '../../constants/styles';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "../../components/Button/Button";
+import { MaterialIcons } from '@expo/vector-icons';
+import axios from "axios";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
   
-  const [email,setEmail] = useState("")
+  const [username,setUsername] = useState("")
   const [password,setPassword] = useState("")
+  const[error,setError]=useState("");
+
+
+  // const validateEmail=(email) =>{
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   return emailRegex.test(email);}
+
+  const validatePassword=(password)=> {
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        return passwordRegex.test(password);
+      }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if(username){
+     if(validatePassword(password)){
+        const data = {
+          username: username,
+          password: password
+        };
+        console.log(data)
+        axios.post("http://192.168.1.127:8000/api/login",data,{
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then((res)=>{
+          console.log(res.data);
+        })
+        .catch((err=>{
+          console.log(err.request.response);
+        }))
+        
+    }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your password is malformed</Text></View>))
+  }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your username cannot be empty</Text></View>))}
 
 
   return(
@@ -23,17 +60,22 @@ const LoginScreen = () => {
       <View style={constants.h1_view}>
       <Text style={constants.h1_text}>Login to your account</Text>
       </View>
-      <Text>Email Address</Text>
+      <Text>Usernam</Text>
       <TextInput style={constants.textInput}
-        defaultValue={email}
-        onChangeText={email=>{setEmail(email)}}
+          placeholder="Enter your username"
+          onChangeText={(text) => setUsername(text)}
+          value={username}
         />
       <Text>Password</Text>
       <TextInput style={constants.textInput}
-        defaultValue={password}
-        onChangeText={pwd=>{setPassword(password)}}
+          placeholder="Enter your password"
+          secureTextEntry={true}
+          onChangeText={(text) => setPassword(text)}
+          value={password}
         />
-      <Button title="Log In" onPress={() => navigation.navigate('Pick your mood')} /> 
+
+      <Text>{error}</Text>
+      <Button title="Log In" onPress={handleSubmit} /> 
       <Text>Don't have an account? </Text>
       <TouchableOpacity onPress={() => navigation.navigate('Register')}>
       <Text style={constants.links}>Register Now</Text>

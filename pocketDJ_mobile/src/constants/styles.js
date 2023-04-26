@@ -76,6 +76,14 @@ const styles = StyleSheet.create({
   },
   links_text:{
     color: white
+  },
+  error:{
+    color:'red'
+  },
+  error_container:{
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center'
   }
 })
 
