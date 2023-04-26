@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const primaryColor = '#FC6422';
-const rgbaPrimary = 'rgba(252, 100, 34, 0.66)'
+const rgbaPrimary = 'rgba(252, 100, 34, 0.75)'
 const secondaryColor = '#87F966';
 const tertiaryColor = '#FC1CFD';
 const textColor = '#000000';
@@ -11,9 +11,8 @@ const black = '#1E1E1E';
 const styles = StyleSheet.create({
   mood: {
     flex:1,
-    height:150,
-    width:150,
-    // borderRadius:10,
+    height:185,
+    width:185,
     margin:10,
     justifyContent:'center',
     alignItems:'center',

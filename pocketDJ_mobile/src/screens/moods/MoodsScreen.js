@@ -22,8 +22,8 @@ const MoodsScreen = () => {
       style={styles.innerImageContainer}
     />
     </SafeAreaView>
-    <View style={constants.h1_view}>
-    <Text style={constants.h1_text}>What are you up to?</Text>
+    <View style={styles.h1_view}>
+    <Text style={styles.h1_text}>What are you up to?</Text>
     </View>
     <FlatList 
       style={styles.flatlist}

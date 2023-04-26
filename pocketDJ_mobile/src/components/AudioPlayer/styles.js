@@ -7,6 +7,7 @@ const textColor = '#000000';
 const white ='white';
 const black = '#1E1E1E';
 
+
 const styles = StyleSheet.create({
   audio_player:{
     flexDirection:'row',

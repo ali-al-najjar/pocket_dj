@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 topSafeArea: {
   flex: 0, 
   backgroundColor: primaryColor,
-  marginBottom:20
+  marginBottom:10
 },
   imageContainer:{
     backgroundColor:primaryColor,
@@ -25,10 +25,19 @@ topSafeArea: {
     width:350
   },
   flatlist:{
-    flex:1,
-    marginLeft:'auto',
-    marginRight:'auto'
+    flex:1
 
+  },
+  h1_view:{
+    margin:10,
+    borderBottomWidth :6,
+    borderBottomColor: secondaryColor,
+  },
+  h1_text:{
+    fontSize:24,
+    color:black,
+    fontWeight:'bold',
+    paddingBottom:10
   }
 });
 

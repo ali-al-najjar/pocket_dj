@@ -28,9 +28,7 @@ const styles = StyleSheet.create({
   h1_view: {
     borderBottomWidth :6,
     borderBottomColor: secondaryColor,
-    width:'auto',
-    marginLeft:10,
-    marginBottom:10
+    width:'auto'
 
   },
   h1_text:{
@@ -40,12 +38,9 @@ const styles = StyleSheet.create({
     paddingBottom:10,
     width:'90%'
     
-    
   },
     btn: {
     backgroundColor: primaryColor,
-    // width:132,
-    // height:46,
     width:'100%',
     padding:10,
     borderRadius:10,
