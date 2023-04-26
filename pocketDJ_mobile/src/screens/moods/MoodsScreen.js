@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, Image, FlatList,RefreshControl} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image, FlatList,RefreshControl,StatusBar} from "react-native";
 import styles from './styles';
 import constants from '../../constants/styles';
 import {useState} from 'react';
@@ -15,17 +15,15 @@ const renderItem = ({item}) => {
 const MoodsScreen = () => {
   const navigation = useNavigation();
   return(
-    <SafeAreaView style={constants.formContainer}>
-    <View style={styles.imageContainer}>
+    <>
+    <SafeAreaView style={styles.topSafeArea} >
     <Image 
       source={require('../../../assets/mood.png')}
-      style={styles.moodsContainer}
+      style={styles.innerImageContainer}
     />
-    </View>
-    <View >
+    </SafeAreaView>
     <View style={constants.h1_view}>
     <Text style={constants.h1_text}>What are you up to?</Text>
-    </View>
     </View>
     <FlatList 
       style={styles.flatlist}
@@ -34,8 +32,7 @@ const MoodsScreen = () => {
       renderItem = {renderItem}
       numColumns={2}
       />
-
-    </SafeAreaView>
+    </>
   )
 }
 

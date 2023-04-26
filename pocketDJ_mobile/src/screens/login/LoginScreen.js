@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, Image} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image, StatusBar} from "react-native";
 import styles from './styles';
 import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
@@ -34,7 +34,6 @@ const LoginScreen = () => {
         onChangeText={pwd=>{setPassword(password)}}
         />
       <Button title="Log In" onPress={() => navigation.navigate('Pick your mood')} /> 
-        
       <Text>Don't have an account? </Text>
       <TouchableOpacity onPress={() => navigation.navigate('Register')}>
       <Text style={constants.links}>Register Now</Text>

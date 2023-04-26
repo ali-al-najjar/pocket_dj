@@ -6,7 +6,7 @@ export default function App() {
   
   return (
     <NavigationContainer>
-      <StatusBar style = "dark"></StatusBar>
+      <StatusBar style = "dark" ></StatusBar>
       <HomeStack></HomeStack>
     </NavigationContainer>
   );

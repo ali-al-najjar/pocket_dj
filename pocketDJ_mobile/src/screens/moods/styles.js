@@ -8,17 +8,27 @@ const white ='white';
 const black = '#1E1E1E';
 
 const styles = StyleSheet.create({
+  
+topSafeArea: {
+  flex: 0, 
+  backgroundColor: primaryColor,
+  marginBottom:20
+},
   imageContainer:{
     backgroundColor:primaryColor,
   },
-  moodsContainer:{
+  innerImageContainer:{
     backgroundColor:primaryColor,
     marginLeft:'auto',
     marginRight:'auto',
     height:250,
-    width:350,
-    marginTop:10,
-    marginBottom:10}
+    width:350
+  },
+  flatlist:{
+    flex:1,
+
+
+  }
 });
 
 export default styles;
