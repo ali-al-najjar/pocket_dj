@@ -11,6 +11,7 @@ const RegisterScreen = () => {
   const navigation = useNavigation();
   const [first_name,setFirstName] = useState("")
   const [last_name,setLastName] = useState("")
+  const [username,setUserName] = useState("")
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
   const [confirm_password,setConfirmPassword] = useState("")
@@ -33,6 +34,7 @@ const RegisterScreen = () => {
         const data = {
           first_name: first_name,
           last_name: last_name,
+          username:username,
           email: email,
           password: password,
           password2: confirm_password,
@@ -59,6 +61,12 @@ const RegisterScreen = () => {
           placeholder="Enter your last name"
           onChangeText={(text) => setLastName(text)}
           value={last_name}
+        />
+      <Text>Username</Text>
+      <TextInput style={constants.textInput}
+          placeholder="choose a username"
+          onChangeText={(text) => setUserName(text)}
+          value={username}
         />
       <Text>Email Address</Text>
       <TextInput style={constants.textInput}

@@ -60,7 +60,7 @@ const LoginScreen = () => {
       <View style={constants.h1_view}>
       <Text style={constants.h1_text}>Login to your account</Text>
       </View>
-      <Text>Usernam</Text>
+      <Text>Username</Text>
       <TextInput style={constants.textInput}
           placeholder="Enter your username"
           onChangeText={(text) => setUsername(text)}
