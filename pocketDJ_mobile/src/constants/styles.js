@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     padding:10,
   },
   h1_view: {
-    borderBottomWidth :2,
+    borderBottomWidth :6,
     borderBottomColor: secondaryColor,
     width:'auto',
     marginLeft:10,
