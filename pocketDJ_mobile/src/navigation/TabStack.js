@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import Colors from "../constants/colors";
 
 
 const TabStack = () => {
@@ -18,7 +19,7 @@ const TabStack = () => {
         component={MoodsScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <AntDesign name="pluscircleo" size={24} color="black" />
+            <AntDesign name="pluscircleo" size={24} color = {Colors.black} />
           ),
           
         }}
@@ -28,7 +29,7 @@ const TabStack = () => {
         component={SearchScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Octicons name="search" size={24} color="black" />
+            <Octicons name="search" size={24} color={Colors.black} />
           ),
           
         }}
@@ -38,7 +39,7 @@ const TabStack = () => {
         component={RemixesScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Entypo name="folder-music" size={24} color="black" />
+            <Entypo name="folder-music" size={24} color={Colors.black} />
           ),
           
         }}

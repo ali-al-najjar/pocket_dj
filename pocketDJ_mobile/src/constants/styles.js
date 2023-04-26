@@ -1,16 +1,9 @@
 import { StyleSheet } from 'react-native';
-
-
-const primaryColor = '#FC6422';
-const secondaryColor = '#87F966';
-const tertiaryColor = '#FC1CFD';
-const textColor = '#000000';
-const white ='white';
-const black = '#1E1E1E';
-
+import Colors from './colors';
+ 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: primaryColor,
+    backgroundColor: Colors.primaryColor,
     width:132,
     height:46,
     borderRadius:10,
@@ -18,7 +11,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
   },
   btn_text:{
-    color: white
+    color: Colors.white
   },
   textInput: {
     borderRadius: 10,
@@ -27,20 +20,20 @@ const styles = StyleSheet.create({
   },
   h1_view: {
     borderBottomWidth :6,
-    borderBottomColor: secondaryColor,
+    borderBottomColor: Colors.secondaryColor,
     width:'auto'
 
   },
   h1_text:{
     fontSize:24,
-    color:black,
+    color:Colors.black,
     fontWeight:'bold',
     paddingBottom:10,
     width:'90%'
     
   },
     btn: {
-    backgroundColor: primaryColor,
+    backgroundColor: Colors.primaryColor,
     width:'100%',
     padding:10,
     borderRadius:10,
@@ -48,7 +41,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
   },
   btn_text:{
-    color: white,
+    color: Colors.white,
     fontSize:24
   },
   textInput: {
@@ -69,11 +62,11 @@ const styles = StyleSheet.create({
     marginRight:'auto'
   },
   links: {
-    color: primaryColor,
+    color: Colors.primaryColor,
     fontWeight: 'bold',
   },
   links_text:{
-    color: white
+    color: Colors.white
   },
   error:{
     color:'red'

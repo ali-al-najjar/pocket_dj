@@ -1,16 +1,10 @@
 import { StyleSheet } from 'react-native';
+import Colors from '../../constants/colors';
 
-
-const primaryColor = '#FC6422';
-const secondaryColor = '#87F966';
-const tertiaryColor = '#FC1CFD';
-const textColor = '#000000';
-const white ='white';
-const black = '#1E1E1E';
 
 const styles = StyleSheet.create({
   play_icon:{
-    backgroundColor:black,
+    backgroundColor:Colors.black,
     borderRadius:50,
     width:60,
     height:60,
@@ -19,7 +13,7 @@ const styles = StyleSheet.create({
   },
   remixContainer:{
     padding:20,
-    backgroundColor:primaryColor,
+    backgroundColor:Colors.primaryColor,
     margin:10,
     borderRadius:15,
     flexDirection:'row',
@@ -32,17 +26,17 @@ const styles = StyleSheet.create({
   remixTitle:{
     fontWeight:'bold',
     fontSize:25,
-    color:white,
+    color:Colors.white,
   },
   remixMood:{
     fontSize:15,
     fontWeight:'bold',
-    color:white
+    color:Colors.white
   },
   remixDate:{
     fontSize:12,
     fontStyle:'italic',
-    color:black,
+    color:Colors.black,
     fontWeight:'bold'
   }
 

@@ -1,12 +1,5 @@
 import { StyleSheet } from 'react-native';
-
-const primaryColor = '#FC6422';
-const rgbaPrimary = 'rgba(252, 100, 34, 0.75)'
-const secondaryColor = '#87F966';
-const tertiaryColor = '#FC1CFD';
-const textColor = '#000000';
-const white ='white';
-const black = '#1E1E1E';
+import Colors from '../../../constants/colors';
 
 const styles = StyleSheet.create({
   mood: {
@@ -18,9 +11,9 @@ const styles = StyleSheet.create({
     alignItems:'center',
   },
   mood_text:{
-    color:white,
+    color:Colors.white,
     fontSize:20,
-    backgroundColor:rgbaPrimary,
+    backgroundColor:Colors.rgbaPrimary,
     padding:10,
     width:120,
     textAlign:'center'
