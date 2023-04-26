@@ -20,17 +20,17 @@ const AudioPlayer = () => {
     <SafeAreaView style={styles.audioScreenContainer}>
     <View style={styles.audio_player}>
     <TouchableOpacity>
-    <Ionicons name="ios-play-back-circle-outline" size={70} color="black" />
+    <Ionicons name="ios-play-back-circle-outline" size={70} color="#FC6422" />
     </TouchableOpacity>
     <TouchableOpacity onPress={togglePlayer}>
       {isPlaying ? (
-            <Ionicons name="ios-pause-circle-outline" size={120} color="black" />
+            <Ionicons name="ios-pause-circle-outline" size={120} color="#FC6422" />
           ) : (
-            <Ionicons name="ios-play-circle-outline" size={120} color="black" />
+            <Ionicons name="ios-play-circle-outline" size={120} color="#FC6422" />
           )}
     </TouchableOpacity>
     <TouchableOpacity>
-    <Ionicons name="ios-play-forward-circle-outline" size={70} color="black" />
+    <Ionicons name="ios-play-forward-circle-outline" size={70} color="#FC6422" />
     </TouchableOpacity>
     </View>
     <Button title="Save" onPress={() => console.log("Your Remix is saved")} />

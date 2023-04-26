@@ -8,8 +8,8 @@ import MoodItem from "../../components/Moods/Moods/MoodItem";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const renderItem = ({item}) => {
-  console.log("Rendering item with ID:", item.id);
-  return <MoodItem id={item.id} title={item.title}/>
+  console.log("Rendering item with ID:", item.image);
+  return <MoodItem id={item.id} title={item.title} image={item.image} />
 }
 
 const MoodsScreen = () => {

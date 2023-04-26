@@ -8,7 +8,12 @@ import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
 
 const PlayerScreen = () => {
   return (
-  <SafeAreaView>
+  <SafeAreaView style={styles.container}>
+  <Image source={require('../../../assets/images/happy.jpg')}
+  style={{height:300}}></Image>
+  <View style={styles.mood_title}>
+    <Text style={styles.mood_title_text}>Party</Text>
+  </View>
   <AudioPlayer />
   </SafeAreaView>
 

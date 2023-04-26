@@ -26,7 +26,8 @@ topSafeArea: {
   },
   flatlist:{
     flex:1,
-
+    marginLeft:'auto',
+    marginRight:'auto'
 
   }
 });
