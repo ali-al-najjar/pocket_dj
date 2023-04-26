@@ -18,6 +18,7 @@ const AudioPlayer = () => {
   
   return (
     <SafeAreaView style={styles.audioScreenContainer}>
+    <View style={styles.container}>
     <View style={styles.audio_player}>
     <TouchableOpacity>
     <Ionicons name="ios-play-back-circle-outline" size={70} color="#FC6422" />
@@ -34,6 +35,7 @@ const AudioPlayer = () => {
     </TouchableOpacity>
     </View>
     <Button title="Save" onPress={() => console.log("Your Remix is saved")} />
+    </View>
     </SafeAreaView>
   )
 }

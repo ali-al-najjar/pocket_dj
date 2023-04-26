@@ -16,6 +16,12 @@ const styles = StyleSheet.create({
   audioScreenContainer:{
     alignItems:'center',
     gap:20
+  },
+  container:{
+    width:"80%",
+    gap:20,
+    alignItems:'center',
+    justifyContent:'center'
   }
 });
 

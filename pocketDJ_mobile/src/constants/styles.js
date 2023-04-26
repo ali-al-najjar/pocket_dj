@@ -44,14 +44,17 @@ const styles = StyleSheet.create({
   },
     btn: {
     backgroundColor: primaryColor,
-    width:132,
-    height:46,
+    // width:132,
+    // height:46,
+    width:'100%',
+    padding:10,
     borderRadius:10,
     justifyContent:'center',
     alignItems:'center',
   },
   btn_text:{
-    color: white
+    color: white,
+    fontSize:24
   },
   textInput: {
     borderRadius: 10,
