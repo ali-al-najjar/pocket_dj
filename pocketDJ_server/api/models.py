@@ -8,7 +8,7 @@ class User(AbstractUser):
         ARTIST = "Artist", 'Artist'
 
     role = models.CharField(max_length=255, choices = Role.choices)
-    profile = models.CharField(max_length=255)
+    # profile = models.CharField(max_length=255)
 
     def save(self, *args,**kwargs):
             return super().save(*args, **kwargs)
