@@ -15,11 +15,6 @@ const LoginScreen = () => {
   const [password,setPassword] = useState("")
   const[error,setError]=useState("");
 
-
-  // const validateEmail=(email) =>{
-  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  //   return emailRegex.test(email);}
-
   const validatePassword=(password)=> {
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
         return passwordRegex.test(password);
@@ -42,6 +37,7 @@ const LoginScreen = () => {
         .then((res)=>{
           console.log(res.data);
           setError("");
+          navigation.navigate("Pick your mood")
         })
         .catch((err=>{
           console.log(err.request.response);

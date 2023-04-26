@@ -52,6 +52,7 @@ const RegisterScreen = () => {
             .then((res)=>{
               console.log(res.data);
               setError("");
+              navigation.goBack();
             })
             .catch((err=>{
               console.log(err.request.response);
