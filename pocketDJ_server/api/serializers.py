@@ -3,21 +3,18 @@ from .models import User
 from .models import Song
 from .models import Request
 from .models import Remix
-from .models import Favorite
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 
 
-#Serializer to Get User Details using Django Token Authentication
 class UserSerializer(serializers.ModelSerializer):
   class Meta:
     model = User
     fields = ["id", "first_name", "last_name", "username","password","role","profile"]
 
 
-#Serializer to Register User
 class RegisterSerializer(serializers.ModelSerializer):
   email = serializers.EmailField(
     required=True,
@@ -29,7 +26,7 @@ class RegisterSerializer(serializers.ModelSerializer):
   class Meta:
     model = User
     fields = ('username', 'password', 'password2',
-         'email', 'first_name', 'last_name','role')
+         'email', 'first_name', 'last_name','role','profile')
     extra_kwargs = {
       'first_name': {'required': True},
       'last_name': {'required': True}
@@ -45,7 +42,8 @@ class RegisterSerializer(serializers.ModelSerializer):
       email=validated_data['email'],
       first_name=validated_data['first_name'],
       last_name=validated_data['last_name'],
-      role=validated_data['role']
+      role=validated_data['role'],
+      profile=validated_data['profile']
     )
     user.set_password(validated_data['password'])
     user.save()

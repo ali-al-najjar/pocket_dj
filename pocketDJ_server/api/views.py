@@ -18,7 +18,6 @@ class IsAdmin(permissions.BasePermission):
         return False
 
 
-# Class based view to Get User Details using Token Authentication
 class UserDetailAPI(APIView):
   authentication_classes = (TokenAuthentication,)
   permission_classes = (AllowAny,)
@@ -27,7 +26,6 @@ class UserDetailAPI(APIView):
     serializer = UserSerializer(user)
     return Response(serializer.data)
 
-#Class based view to register user
 class RegisterUserAPIView(generics.CreateAPIView):
   permission_classes = (AllowAny,)
   serializer_class = RegisterSerializer
