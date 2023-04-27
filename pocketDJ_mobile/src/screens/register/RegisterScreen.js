@@ -44,7 +44,7 @@ const RegisterScreen = () => {
                   role:"User"
                 };
             console.log(data)
-            axios.post("http://192.168.1.127:8000/api/register",data,{
+            axios.post("http://192.168.1.127:8000/register",data,{
               headers: {
                 'Content-Type': 'application/json'
               }

@@ -1,11 +1,12 @@
 from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserSerializer,RegisterSerializer,SongSerializer
+from .serializers import UserSerializer,RegisterSerializer,SongSerializer,MoodSerializer,RemixSerializer
 from .models import User
 from .models import Song
 from .models import Remix
 from .models import Request
+from .models import Mood
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
@@ -36,3 +37,15 @@ class SongCreateAPIView(generics.CreateAPIView):
     permission_classes = (IsAdmin,)
     queryset = Song.objects.all()
     serializer_class = SongSerializer
+
+class MoodCreateAPIView(generics.CreateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAdmin,)
+    queryset = Mood.objects.all()
+    serializer_class = MoodSerializer
+
+class RemixCreateAPIView(generics.CreateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (AllowAny,)
+    queryset = Remix.objects.all()
+    serializer_class = RemixSerializer

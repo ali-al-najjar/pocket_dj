@@ -3,11 +3,12 @@ from .models import User
 from .models import Song
 from .models import Request
 from .models import Remix
+from .models import Mood
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
-
+from django.core.validators import FileExtensionValidator
 
 class UserSerializer(serializers.ModelSerializer):
   class Meta:
@@ -52,9 +53,23 @@ class RegisterSerializer(serializers.ModelSerializer):
 class SongSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song
-        fields = '__all__' 
+        fields = ('name', 'cover', 'scale', 'bpm', 'language','users_favorite','artist')
+        extra_kwargs = {
+                    'link': {'validators': [FileExtensionValidator(allowed_extensions=['mp3', 'wav'])]},
+                }
+        
 
 class RequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Request
         fields = '__all__' 
+
+class MoodSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = Mood
+      fields = '__all__'
+
+class RemixSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = Remix
+      fields = '__all__'

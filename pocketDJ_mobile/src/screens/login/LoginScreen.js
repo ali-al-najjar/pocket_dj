@@ -29,7 +29,7 @@ const LoginScreen = () => {
           password: password
         };
         console.log(data)
-        axios.post("http://192.168.1.127:8000/api/login",data,{
+        axios.post("http://192.168.1.127:8000/login",data,{
           headers: {
             'Content-Type': 'application/json'
           }

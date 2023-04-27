@@ -22,9 +22,11 @@ from rest_framework_simplejwt.views import (
 )
 from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include('api.urls')),
-    path('api/login', views.obtain_auth_token)
-]
+    path('',include('api.urls')),
+    path('login', views.obtain_auth_token)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
