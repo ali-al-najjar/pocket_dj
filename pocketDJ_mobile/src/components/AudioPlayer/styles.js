@@ -7,14 +7,21 @@ const styles = StyleSheet.create({
     gap:40
   },
   audioScreenContainer:{
-    alignItems:'center',
-    gap:20
+    alignItems:'center'
   },
   container:{
-    width:"80%",
-    gap:20,
+    width:360,
     alignItems:'center',
     justifyContent:'center'
+  },
+  progressBar:{
+    flexDirection:'row',
+    width:360
+  },
+  progressBarCounter:{
+    flexDirection:'row',
+    width:360,
+    justifyContent:'space-between'
   }
 });
 

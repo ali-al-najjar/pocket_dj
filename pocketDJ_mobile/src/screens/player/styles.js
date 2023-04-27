@@ -5,12 +5,12 @@ import Colors from '../../constants/colors';
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    gap:30,
+    gap:15,
   },
   mood_title:{
     alignItems:'center',
     borderWidth:2,
-    width:'80%',
+    width:360,
     borderColor:Colors.rgbaPrimary,
     padding:10,
     marginLeft:'auto',
@@ -22,15 +22,15 @@ const styles = StyleSheet.create({
     color:Colors.primaryColor
   },
   imageStyle:{
-    height:350,
-    width:350,
+    height:360,
+    width:360,
     marginLeft:'auto',
     marginRight:'auto',
     borderRadius:10
   },
   cover_container:{
-    height:350,
-    width:350,
+    height:360,
+    width:360,
     marginLeft:'auto',
     marginRight:'auto',
     borderRadius:10,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.5,
     shadowRadius: 7,
-    marginTop:-20}
+    marginTop:-25}
 
 });
 
