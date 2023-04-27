@@ -10,7 +10,7 @@ const PlayerScreen = () => {
   return (
   <SafeAreaView style={styles.container}>
   <View style={styles.cover_container}>
-  <Image source={require('../../../assets/images/study.jpg')}
+  <Image source={require('../../../assets/images/chill.jpg')}
   style={styles.imageStyle}></Image>
   </View>
   <View style={styles.mood_title}>

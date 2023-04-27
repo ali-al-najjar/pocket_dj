@@ -24,7 +24,7 @@ const AudioPlayer = () => {
     <View>
       <Slider
         style={styles.progressBar}
-        value={10}
+        value={0}
         minimumValue={0}
         maximumValue={100}
         thumbTintColor={Colors.secondaryColor}
