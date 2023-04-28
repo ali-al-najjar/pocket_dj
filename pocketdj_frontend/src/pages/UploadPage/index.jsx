@@ -68,25 +68,18 @@ const UploadSong = () => {
     };
     
     const getCamelot = (key) => {
-      let index = 0;
       const keyName = key.replace("b", "♭");
-      const keysArray = Object.keys(camelotArray);
-    
-      for(let i=0; i<keysArray.length; i++) {
-        if(keysArray[i] === keyName) {
-          index = i;
-          break;
-        }
-      }
-    
-      const majorCamelot = camelotArray[keysArray[(index+7)%12]].major;
-      const minorCamelot = camelotArray[keysArray[(index+5)%12]].minor;
+      const camelotObj = camelotArray[keyName];
       
-      return {
-        major: majorCamelot,
-        minor: minorCamelot
-      };
-    }
+      if (camelotObj) {
+        return {
+          major: camelotObj.major,
+          minor: camelotObj.minor
+        };
+      } else {
+        return null;
+      }
+    };
     
   
   
