@@ -3,6 +3,8 @@ import  './loginform.css';
 import Button from "../Button/button";
 import {useState } from "react";
 import { Navigate } from "react-router-dom";
+import Logo from '../../assets/logo.svg';
+import Settings from '../../assets/settings.svg'
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -15,9 +17,6 @@ const handleUsername=(e)=>{
  const handlePassword=(e)=>{
      setPassword(e.target.value)
   }
-  // const validateEmail=(email) =>{
-  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  //   return emailRegex.test(email);}
 
   const validatePassword=(password)=> {
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
@@ -46,15 +45,22 @@ const handleUsername=(e)=>{
 // }else(setError("Invalid credentials"))
 
   }}
-
+ 
     return(
       <>
         <div className="form_container">
-        <h1>Sign In</h1>
+        <div className="left_box">
+        <img src={Logo} alt="logo" />
+        <div className="app_title">Pocket DJAI</div>
+        <img src={Settings} alt="settings"/>
+        </div>
+        <div className="right_box">
+        <h1>Admin Portal</h1>
         <Input name={"Username"} type={"text"} onChange={handleUsername} size="40" />
         <Input name={"password"} type={"password"} onChange={handlePassword}/>
         <Button name={"Login"} onSubmit={handleSubmit}/>
         <p className="error"><br/>{error}</p>
+        </div>
         </div>
         </> 
     );}
