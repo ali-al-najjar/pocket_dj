@@ -52,7 +52,42 @@ const UploadSong = () => {
       console.log(error);
     });
   
- 
+    const camelotArray = {
+      'A': { major: '11B', minor: '8A' },
+      'Bb': { major: '6B', minor: '3A' },
+      'B': { major: '1B', minor: '10A' },
+      'C': { major: '8B', minor: '5A' },
+      'C#': { major: '3B', minor: '12A' },
+      'D': { major: '10B', minor: '7A' },
+      'Eb': { major: '5B', minor: '2A' },
+      'E': { major: '12B', minor: '9A' },
+      'F': { major: '7B', minor: '4A' },
+      'F#': { major: '2B', minor: '11A' },
+      'G': { major: '9B', minor: '6A' },
+      'Ab': { major: '4B', minor: '1A' }
+    };
+    
+    const getCamelot = (key) => {
+      let index = 0;
+      const keyName = key.replace("b", "♭");
+      const keysArray = Object.keys(camelotArray);
+    
+      for(let i=0; i<keysArray.length; i++) {
+        if(keysArray[i] === keyName) {
+          index = i;
+          break;
+        }
+      }
+    
+      const majorCamelot = camelotArray[keysArray[(index+7)%12]].major;
+      const minorCamelot = camelotArray[keysArray[(index+5)%12]].minor;
+      
+      return {
+        major: majorCamelot,
+        minor: minorCamelot
+      };
+    }
+    
   
   
   }
