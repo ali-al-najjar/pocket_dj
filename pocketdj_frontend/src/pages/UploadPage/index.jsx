@@ -1,14 +1,17 @@
 import axios from "axios"
 
+
+const client = process.env.REACT_APP_CLIENT_KEY
+const secret = process.env.REACT_APP_CLIENT_SECRET
+
 const UploadSong = () => {
 
   const getDetails = async (e) =>{
   e.preventDefault()
-  
   await axios.post("https://accounts.spotify.com/api/token", "grant_type=client_credentials", {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
-      "Authorization": "Basic " + btoa("9047ddd2f2a047e18fb78c8c62585c8c:8fe2b6521eb04d748be2beb2469a532d")
+      "Authorization": "Basic " + btoa(`${client}:${secret}`)
     }
   })
     .then(async response => {
