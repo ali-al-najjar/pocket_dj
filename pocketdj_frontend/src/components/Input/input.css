@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap:5px;
-  width:50%;
 }
 
 input {
@@ -10,6 +9,7 @@ input {
   font-size:20px;
   border-radius:10px;
   border-width: 1px;
+  
 }
 
 .single_input_label{
