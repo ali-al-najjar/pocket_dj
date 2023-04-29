@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:50px;
+  gap: 80px;
   background-color: var(--primaryColor);
 }
 
@@ -20,23 +20,37 @@
   flex-direction: column;
   justify-content: center;
   margin-left:20px;
-  gap:50px;
+  gap:80px;
 }
 
 .app_title{
   font-weight: bold;
-  font-size: 34px;
+  font-size: 40px;
   padding:10px;
 }
 
+
+.heading_box{
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+}
+.page_title{
+  font-size:38px;
+}
 .heading{
   border-bottom:3px solid var(--secondaryColor);
   width:fit-content;
   padding-bottom:3px;
+  font-size: 34px;
 }
 
 .input_box{
   display: flex;
   flex-direction: column;
   gap:20px;
+}
+
+.decorative_image{
+  width:100px;
 }

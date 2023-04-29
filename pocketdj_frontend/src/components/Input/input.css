@@ -4,3 +4,15 @@
   gap:5px;
   width:50%;
 }
+
+input {
+  padding:10px;
+  font-size:20px;
+  border-radius:10px;
+  border-width: 1px;
+}
+
+.single_input_label{
+  font-size:20px;
+  margin-bottom:3px;
+}
