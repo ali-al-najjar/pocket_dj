@@ -26,6 +26,7 @@ class Song(models.Model):
     tempo = models.DecimalField(max_digits=15, decimal_places=10,blank=True)
     time_signature = models.IntegerField(blank=True)
     valence = models.DecimalField(max_digits=15, decimal_places=10,blank=True)
+    camelot = models.TextField(max_length=255)
     users_favorite = models.ManyToManyField(User, related_name='favorite_songs',blank=True,null=True)
     artist = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
 
