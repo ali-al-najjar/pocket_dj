@@ -47,6 +47,7 @@ const handleUsername=(e)=>{
           })
           .catch((err=>{
             console.log(err.request.response);
+            setError("Invalid Credentials")
           }))
       }else(setError("Invalid Password"))
 

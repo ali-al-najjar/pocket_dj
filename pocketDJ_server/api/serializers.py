@@ -9,6 +9,7 @@ from rest_framework import status
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 from django.core.validators import FileExtensionValidator
+from django.contrib.auth.validators import UnicodeUsernameValidator
 
 class UserSerializer(serializers.ModelSerializer):
   class Meta:
@@ -17,6 +18,13 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class RegisterSerializer(serializers.ModelSerializer):
+  username = serializers.CharField(
+        required=True,
+        validators=[
+            UnicodeUsernameValidator(),
+            UniqueValidator(queryset=User.objects.all())
+        ]
+    )
   email = serializers.EmailField(
     required=True,
     validators=[UniqueValidator(queryset=User.objects.all())]
