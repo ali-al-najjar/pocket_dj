@@ -2,7 +2,7 @@ import Input from "../Input/input";
 import  './loginform.css';
 import Button from "../Button/button";
 import {useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -52,6 +52,7 @@ const handleUsername=(e)=>{
         <Button name={"Login"} onSubmit={handleSubmit}/>
         <p className="error"><br/>{error}</p>
         </div>
+        <p className="links_p">New to Artists portal? <Link className="links" to ="/artist/register">Sign up</Link></p>
         </> 
     );}
 

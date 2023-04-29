@@ -2,7 +2,7 @@ import Input from "../Input/input";
 import  '../LoginForm/loginform.css';
 import Button from "../Button/button";
 import {useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
   const [first_name, setFirstName] = useState("");
@@ -89,6 +89,7 @@ const handleProfile = (e)=>{
         <Button name={"Register"} onSubmit={handleSubmit}/>
         <p className="error"><br/>{error}</p>
         </div>
+        <p className="links_p">Already have an account? <Link className="links" to ="/artist">Login instead</Link></p>
         </> 
     );}
 

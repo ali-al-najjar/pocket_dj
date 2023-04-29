@@ -48,10 +48,15 @@
 .input_box{
   display: flex;
   flex-direction: column;
-  gap:20px;
+  gap:10px;
   width:50%;
 }
 
 .decorative_image{
   width:100px;
+}
+
+.links{
+  font-weight: bold;
+  color:var(--primaryColor);
 }
