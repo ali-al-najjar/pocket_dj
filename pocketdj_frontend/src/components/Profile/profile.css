@@ -1,0 +1,13 @@
+.profile_page {
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+  transition: 0.5s;
+}
+
+.user_image{
+  width:200px;
+  height:200px;
+  background-color: var(--rgbaPrimary);
+  border-radius:10px;
+}

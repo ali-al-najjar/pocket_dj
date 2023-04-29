@@ -1,6 +1,6 @@
-import LoginForm from "../../../components/LoginForm/loginform";
 import Navigation from "../../../components/Navigation/navigation";
-import "./index.css"
+import "./profilePage.css"
+import ProfileInput from "../../../components/Profile/profile";
 
 const ProfilePage = () => {
     return (
@@ -10,7 +10,7 @@ const ProfilePage = () => {
         </div>
         <div className="page_box">
         <h2 className="heading">Edit your profile</h2>
-        <LoginForm/>
+        <ProfileInput/>
         </div>
         
         </div>

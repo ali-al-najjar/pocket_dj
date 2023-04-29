@@ -11,6 +11,7 @@
   align-items: center;
   width:20%;
   background-color: var(--primaryColor);
+  border-right: 5px solid var(--black);
 }
 
 .page_box {
