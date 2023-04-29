@@ -1,6 +1,7 @@
 import RegisterForm from "../../../components/RegisterForm/registerform";
 import Logo from '../../../assets/logo.svg';
-import Artist from '../../../assets/artist.svg'
+import Artist from '../../../assets/artist.svg';
+import { Link } from "react-router-dom";
 
 const Register = () => {
     return (
