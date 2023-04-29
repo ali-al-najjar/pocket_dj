@@ -11,7 +11,8 @@ const Login = () => {
         <img src={Artist} alt="settings"/>
         </div>
         <div className="right_box">
-        <h1>Artist Portal</h1>
+        <h1 className="page_title">Artist Portal</h1>
+        <h2 className="heading">Log in to your account</h2>
         <LoginForm/>
         </div>
         </div>

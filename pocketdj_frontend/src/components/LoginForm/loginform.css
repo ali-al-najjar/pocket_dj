@@ -10,6 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap:50px;
   background-color: var(--primaryColor);
 }
 
@@ -18,5 +19,24 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  margin-left:20px;
+  gap:50px;
+}
+
+.app_title{
+  font-weight: bold;
+  font-size: 34px;
+  padding:10px;
+}
+
+.heading{
+  border-bottom:3px solid var(--secondaryColor);
+  width:fit-content;
+  padding-bottom:3px;
+}
+
+.input_box{
+  display: flex;
+  flex-direction: column;
+  gap:20px;
 }

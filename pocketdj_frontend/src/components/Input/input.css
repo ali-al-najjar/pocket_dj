@@ -1,0 +1,6 @@
+.single_input{
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+  width:50%;
+}

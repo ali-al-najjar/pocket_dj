@@ -46,10 +46,12 @@ const handleUsername=(e)=>{
  
     return(
       <>
-        <Input name={"Username"} type={"text"} onChange={handleUsername} size="40" />
-        <Input name={"password"} type={"password"} onChange={handlePassword}/>
+        <div className="input_box">
+        <Input name={"Username"} type={"text"} onChange={handleUsername} />
+        <Input name={"Password"} type={"password"} onChange={handlePassword}/>
         <Button name={"Login"} onSubmit={handleSubmit}/>
         <p className="error"><br/>{error}</p>
+        </div>
         </> 
     );}
 
