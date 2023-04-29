@@ -1,4 +1,4 @@
-import Navigation from "../../../components/Navigation/navigation";
+import Navigation from "../../../components/ArtistNavigation/navigation";
 import "./profilePage.css"
 import ProfileInput from "../../../components/Profile/profile";
 

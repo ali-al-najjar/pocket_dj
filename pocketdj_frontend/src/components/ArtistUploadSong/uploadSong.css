@@ -1,10 +1,4 @@
-.profile_page {
-  display: flex;
-  flex-direction: column;
-  gap:20px;
-}
-
-.user_image{
+.song_cover{
   width:200px;
   height:200px;
   background-color: var(--rgbaPrimary);
