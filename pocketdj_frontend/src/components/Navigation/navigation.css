@@ -1,0 +1,24 @@
+.navigation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  justify-content: space-between;
+  margin-top:10vh;
+  }
+
+.navigation_links{
+  display:flex;
+  gap:4vh;
+  flex-direction: column;
+}
+
+.logout{
+  font-size:20px;
+  text-decoration: none;
+  color:white;
+}
+
+.logout:hover{
+  opacity:0.8;
+}
