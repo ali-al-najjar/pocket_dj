@@ -53,7 +53,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class SongSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song
-        fields = ('name', 'cover','link', 'scale', 'bpm', 'language','users_favorite','artist')
+        fields = ('name', 'cover','link', 'danceability','duration','energy','instrumentalness','key','liveness','loudness','mode','speechiness','tempo','time_signature','valence', 'tempo','users_favorite','artist')
         extra_kwargs = {
                     'link': {'validators': [FileExtensionValidator(allowed_extensions=['mp3', 'wav'])]},
                 }
