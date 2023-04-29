@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom"
-import AdminLoginPage from "./pages/AdminLoginPage";
-import ArtistLoginPage from "./pages/ArtistLoginPage";
-import ArtistRegisterPage from "./pages/ArtistRegisterPage";
+import AdminLoginPage from "./pages/Admin/LoginPage";
+import ArtistLoginPage from "./pages/Artist/LoginPage";
+import ArtistRegisterPage from "./pages/Artist/RegisterPage";
 import UploadPage from "./pages/UploadPage";
 
 

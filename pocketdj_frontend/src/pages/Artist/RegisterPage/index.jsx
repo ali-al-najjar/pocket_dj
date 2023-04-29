@@ -1,6 +1,6 @@
-import RegisterForm from "../../components/RegisterForm/registerform";
-import Logo from '../../assets/logo.svg';
-import Artist from '../../assets/artist.svg'
+import RegisterForm from "../../../components/RegisterForm/registerform";
+import Logo from '../../../assets/logo.svg';
+import Artist from '../../../assets/artist.svg'
 
 const Register = () => {
     return (

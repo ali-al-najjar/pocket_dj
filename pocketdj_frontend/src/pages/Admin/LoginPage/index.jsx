@@ -1,6 +1,6 @@
-import LoginForm from "../../components/LoginForm/loginform";
-import Logo from '../../assets/logo.svg';
-import Settings from '../../assets/settings.svg'
+import LoginForm from "../../../components/LoginForm/loginform";
+import Logo from '../../../assets/logo.svg';
+import Settings from '../../../assets/settings.svg'
 
 const Login = () => {
     return (

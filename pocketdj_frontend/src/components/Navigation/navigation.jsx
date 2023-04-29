@@ -1,7 +1,7 @@
 import './navigation.css';
 import { Link } from "react-router-dom";
 
-const Navigation = ({name,onSubmit}) => {
+const Navigation = () => {
     return (
         <div className="navigation">
         <div className="navigation_links">

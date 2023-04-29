@@ -52,7 +52,6 @@ const handleUsername=(e)=>{
         <Button name={"Login"} onSubmit={handleSubmit}/>
         <p className="error"><br/>{error}</p>
         </div>
-        <p className="links_p">New to Artists portal? <Link className="links" to ="/artist/register">Sign up</Link></p>
         </> 
     );}
 

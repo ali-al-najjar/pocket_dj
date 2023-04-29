@@ -1,6 +1,7 @@
-import LoginForm from "../../components/LoginForm/loginform";
-import Logo from '../../assets/logo.svg';
-import Artist from '../../assets/artist.svg'
+import LoginForm from "../../../components/LoginForm/loginform";
+import Logo from '../../../assets/logo.svg';
+import Artist from '../../../assets/artist.svg'
+import { Link } from "react-router-dom";
 
 const Login = () => {
     return (
@@ -18,7 +19,9 @@ const Login = () => {
         <h2 className="heading">Log in to your account</h2>
         </div>
         <LoginForm/>
+        <p className="links_p">New to Artists portal? <Link className="links" to ="/artist/register">Sign up</Link></p>
         </div>
+
         </div>
     );
 }
