@@ -66,3 +66,7 @@ class CreateRequest(generics.CreateAPIView):
 class GetUsers(generics.ListAPIView):
     queryset = User.objects.filter(role='User')
     serializer_class = UserSerializer
+
+class GetArtists(generics.ListAPIView):
+    queryset = User.objects.filter(role='Artist')
+    serializer_class = UserSerializer
