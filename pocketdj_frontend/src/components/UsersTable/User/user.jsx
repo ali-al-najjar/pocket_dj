@@ -3,11 +3,7 @@ import axios from "axios";
 import Button from '../../Button/button';
 
 const User = ({user_id, first_name , last_name, email}) => {
-  // const [feedback, setFeedback] = useState("");
-
-  const token = localStorage.getItem('token');
-
-
+  
     return(
         <div className='user'>
         <p>{first_name}</p>
