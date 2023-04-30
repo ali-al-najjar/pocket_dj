@@ -22,3 +22,27 @@
 .logout:hover{
   opacity:0.8;
 }
+
+.nav_link--active{
+  background-color:var(--primaryColor) !important;
+  border:2px solid var(--darkPrimary) !important;
+  color:var(--darkPrimary) !important;
+}
+
+
+.nav_link {
+  border-radius: 10px;
+  font-size: 20px;
+  width: 200px;
+  padding: 20px;
+  cursor: pointer;
+  background-color: var(--darkPrimary);
+  color: var(--white);
+  text-align: center;
+  text-decoration: none;
+  border:2px solid var(--darkPrimary);
+}
+
+.nav_link:hover{
+opacity:0.8;
+}

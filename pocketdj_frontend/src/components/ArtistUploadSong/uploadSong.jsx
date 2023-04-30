@@ -2,7 +2,7 @@ import Button from "../Button/button";
 import Input from "../Input/input";
 import './uploadSong.css'
 
-const UploadSong = ({ onChange, onSubmit, onUpload,first_name,bio,image,message}) => {
+const UploadSong = ({onChange, onSubmit, onUpload,first_name,bio,image,message}) => {
 
   return (
     <div className="profile_page">
