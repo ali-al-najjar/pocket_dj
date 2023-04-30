@@ -1,5 +1,4 @@
 import Navigation from "../../../components/ArtistNavigation/navigation";
-import "./profilePage.css"
 import Users from "../../../components/UsersTable/users";
 
 const ViewAllUsers = () => {

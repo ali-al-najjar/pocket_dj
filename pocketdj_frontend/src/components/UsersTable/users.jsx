@@ -23,7 +23,7 @@ const Users = () => {
   };
 
   useEffect(() => {
-    getCourses();
+    getUsers();
   }, []);
 
   return (
