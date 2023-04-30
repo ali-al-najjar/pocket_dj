@@ -1,11 +1,11 @@
 from django.urls import path
-from .views import UserDetailAPI,RegisterUserAPIView,SongCreateAPIView,MoodCreateAPIView,RemixCreateAPIView,RequestCreateAPIView,UserList
+from .views import UserDetails,RegisterUser,CreateSong,CreateMood,CreateRemix,CreateRequest,GetUsers
 urlpatterns = [
-  path('get-details',UserDetailAPI.as_view()),
-  path('register',RegisterUserAPIView.as_view()),
-  path('song/create', SongCreateAPIView.as_view()),
-  path('mood/create', MoodCreateAPIView.as_view()),
-  path('remix/create', RemixCreateAPIView.as_view()),
-  path('request/create', RequestCreateAPIView.as_view()),
-  path('users/', UserList.as_view()),
+  path('get-details',UserDetails.as_view()),
+  path('register',RegisterUser.as_view()),
+  path('song/create', CreateSong.as_view()),
+  path('mood/create', CreateMood.as_view()),
+  path('remix/create', CreateRemix.as_view()),
+  path('request/create', CreateRequest.as_view()),
+  path('users/', GetUsers.as_view()),
 ]

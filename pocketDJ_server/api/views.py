@@ -24,7 +24,7 @@ class IsArtist(permissions.BasePermission):
             return request.user.role == "Artist"
         return False
 
-class UserDetailAPI(APIView):
+class UserDetails(APIView):
   authentication_classes = (TokenAuthentication,)
   permission_classes = (AllowAny,)
   def get(self,request,*args,**kwargs):
@@ -32,37 +32,37 @@ class UserDetailAPI(APIView):
     serializer = UserSerializer(user)
     return Response(serializer.data)
 
-class RegisterUserAPIView(generics.CreateAPIView):
+class RegisterUser(generics.CreateAPIView):
   permission_classes = (AllowAny,)
   serializer_class = RegisterSerializer
 
 
-class SongCreateAPIView(generics.CreateAPIView):
+class CreateSong(generics.CreateAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAdmin,IsArtist)
     queryset = Song.objects.all()
     serializer_class = SongSerializer
 
-class MoodCreateAPIView(generics.CreateAPIView):
+class CreateMood(generics.CreateAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAdmin,)
     queryset = Mood.objects.all()
     serializer_class = MoodSerializer
 
-class RemixCreateAPIView(generics.CreateAPIView):
+class CreateRemix(generics.CreateAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (AllowAny,)
     queryset = Remix.objects.all()
     serializer_class = RemixSerializer
 
 
-class RequestCreateAPIView(generics.CreateAPIView):
+class CreateRequest(generics.CreateAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (AllowAny,)
     queryset = Request.objects.all()
     serializer_class = RequestSerializer
 
 
-class UserList(generics.ListAPIView):
+class GetUsers(generics.ListAPIView):
     queryset = User.objects.filter(role='User')
     serializer_class = UserSerializer
