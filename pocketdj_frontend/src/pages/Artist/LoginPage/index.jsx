@@ -18,7 +18,8 @@ const Login = () => {
         <h1 className="page_title">Artist Portal</h1>
         <h2 className="heading">Log in to your account</h2>
         </div>
-        <LoginForm/>
+        <LoginForm
+        role = "Artist" />
         <p className="links_p">New to Artists portal? <Link className="links" to ="/artist/register">Sign up</Link></p>
         </div>
 

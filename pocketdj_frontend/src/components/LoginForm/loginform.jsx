@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const LoginForm = () => {
+const LoginForm = ({role}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const[error,setError]=useState("");
@@ -43,7 +43,13 @@ const handleUsername=(e)=>{
           .then((res)=>{
             console.log(res.data);
             setError("");
+            if (role == "Artist" && res.data.role == role)
             navigator("/artist/upload")
+            else if (role == "Admin" && res.data.role == role)
+            navigator("/")
+            else (
+              setError(`Access Denied. You're not an ${role}`)
+            )
           })
           .catch((err=>{
             console.log(err.request.response);

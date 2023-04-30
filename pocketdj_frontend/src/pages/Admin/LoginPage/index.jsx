@@ -17,7 +17,8 @@ const Login = () => {
         <h1 className="page_title">Admin Portal</h1>
         <h2 className="heading">Log in to your account</h2>
         </div>
-        <LoginForm/>
+        <LoginForm
+        role = "Admin" />
         </div>
         </div>
     );
