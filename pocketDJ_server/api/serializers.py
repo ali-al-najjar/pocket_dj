@@ -14,7 +14,7 @@ from django.contrib.auth.validators import UnicodeUsernameValidator
 class UserSerializer(serializers.ModelSerializer):
   class Meta:
     model = User
-    fields = ["id", "first_name", "last_name", "username","password","role","profile"]
+    fields = ["id","username", "first_name", "last_name", "email","profile"]
 
 
 class RegisterSerializer(serializers.ModelSerializer):

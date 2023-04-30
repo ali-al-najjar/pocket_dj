@@ -61,3 +61,8 @@ class RequestCreateAPIView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     queryset = Request.objects.all()
     serializer_class = RequestSerializer
+
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.filter(role='User')
+    serializer_class = UserSerializer
