@@ -79,6 +79,6 @@ class GetRemixes(generics.ListAPIView):
     queryset = Remix.objects.filter()
     serializer_class = RemixSerializer
 
-# class GetRequests(generics.ListAPIView):
-#     queryset = User.objects.filter(role='Artist')
-#     serializer_class = UserSerializer
+class GetRequests(generics.ListAPIView):
+    queryset = Request.objects.filter()
+    serializer_class = RequestSerializer
