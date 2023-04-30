@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import UserDetails,RegisterUser,CreateSong,CreateMood,CreateRemix,CreateRequest,GetUsers,GetArtists
+from .views import UserDetails,RegisterUser,CreateSong,CreateMood,CreateRemix,CreateRequest,GetUsers,GetArtists,GetSongs
 urlpatterns = [
   path('get-details',UserDetails.as_view()),
   path('register',RegisterUser.as_view()),

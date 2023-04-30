@@ -70,3 +70,15 @@ class GetUsers(generics.ListAPIView):
 class GetArtists(generics.ListAPIView):
     queryset = User.objects.filter(role='Artist')
     serializer_class = UserSerializer
+
+class GetSongs(generics.ListAPIView):
+    queryset = Song.objects.all
+    serializer_class = SongSerializer
+
+# class GetRemixes(generics.ListAPIView):
+#     queryset = User.objects.filter(role='Artist')
+#     serializer_class = UserSerializer
+
+# class GetRequests(generics.ListAPIView):
+#     queryset = User.objects.filter(role='Artist')
+#     serializer_class = UserSerializer
