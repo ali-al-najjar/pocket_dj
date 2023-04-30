@@ -1,12 +1,32 @@
 import axios from "axios"
 import Navigation from "../../../components/ArtistNavigation/navigation"
 import UploadSong from "../../../components/ArtistUploadSong/uploadSong"
-
+import {useState } from "react";
+import Button from "../../../components/Button/button";
 
 const client = process.env.REACT_APP_CLIENT_KEY
 const secret = process.env.REACT_APP_CLIENT_SECRET
 
 const UploadSongPage = () => {
+  const [name, setName] = useState("");
+  const [cover, setCover] = useState("");
+  const [link, setLink] = useState("");
+  const [danceability, setDanceability] = useState("");
+  const [duration, setDuration] = useState("");
+  const [energy, setEnergy] = useState("");
+  const [instrumentalness, setInstrumentalness] = useState("");
+  const [key, setKey] = useState("");
+  const [liveness, setLiveness] = useState("");
+  const [loudness, setLoudness] = useState("");
+  const [mode, setMode] = useState("");
+  const [speechiness, setSpeechiness] = useState("");
+  const [tempo, setTempo] = useState("");
+  const [time_signature, setTimeSignature] = useState("");
+  const [valence, setValence] = useState("");
+  const [camelot, setCamelot] = useState("");
+  const[error,setError]=useState("");
+  const[message,setMessage]=useState("");
+
 
   const getDetails = async (e) =>{
   e.preventDefault()
@@ -41,6 +61,18 @@ const UploadSongPage = () => {
           })
           .then(response => {
             console.log(response.data);
+            setDanceability(response.data.danceability);
+            setDuration(response.data.duration_ms/60000);
+            setEnergy(response.data.energy);
+            setInstrumentalness(response.data.instrumentalness);
+            setKey(response.data.key);
+            setLiveness(response.data.liveness);
+            setLoudness(response.data.loudness);
+            setMode(response.data.mode);
+            setSpeechiness(response.data.speechiness);
+            setTempo(response.data.tempo);
+            setTimeSignature(response.data.time_signature);
+            setValence(response.data.valence);
           })
           .catch(error => {
             console.log(error);
@@ -54,38 +86,34 @@ const UploadSongPage = () => {
       console.log(error);
     });}
   
-  //   const camelotArray = {
-  //     'A': { major: '11B', minor: '8A' },
-  //     'Bb': { major: '6B', minor: '3A' },
-  //     'B': { major: '1B', minor: '10A' },
-  //     'C': { major: '8B', minor: '5A' },
-  //     'C#': { major: '3B', minor: '12A' },
-  //     'D': { major: '10B', minor: '7A' },
-  //     'Eb': { major: '5B', minor: '2A' },
-  //     'E': { major: '12B', minor: '9A' },
-  //     'F': { major: '7B', minor: '4A' },
-  //     'F#': { major: '2B', minor: '11A' },
-  //     'G': { major: '9B', minor: '6A' },
-  //     'Ab': { major: '4B', minor: '1A' }
-  //   };
+    const camelotArray = {
+      'A': { major: '11B', minor: '8A' },
+      'Bb': { major: '6B', minor: '3A' },
+      'B': { major: '1B', minor: '10A' },
+      'C': { major: '8B', minor: '5A' },
+      'C#': { major: '3B', minor: '12A' },
+      'D': { major: '10B', minor: '7A' },
+      'Eb': { major: '5B', minor: '2A' },
+      'E': { major: '12B', minor: '9A' },
+      'F': { major: '7B', minor: '4A' },
+      'F#': { major: '2B', minor: '11A' },
+      'G': { major: '9B', minor: '6A' },
+      'Ab': { major: '4B', minor: '1A' }
+    };
     
-  //   const getCamelot = (key) => {
-  //     const keyName = key.replace("b", "♭");
-  //     const camelotObj = camelotArray[keyName];
+    const getCamelot = (key) => {
+      const keyName = key.replace("b", "♭");
+      const camelotObj = camelotArray[keyName];
       
-  //     if (camelotObj) {
-  //       return {
-  //         major: camelotObj.major,
-  //         minor: camelotObj.minor
-  //       };
-  //     } else {
-  //       return null;
-  //     }
-  //   };
-    
-  
-  
-  // }
+      if (camelotObj) {
+        return {
+          major: camelotObj.major,
+          minor: camelotObj.minor
+        };
+      } else {
+        return null;
+      }
+    };
 
 
 return (
@@ -95,8 +123,11 @@ return (
     </div>
     <div className="page_box">
     <h2 className="heading">Upload your Song</h2>
+    <h2 className="heading">{danceability}</h2>
+    <h2 className="heading">{duration}</h2>
     <UploadSong
     />
+    <Button name="Get Details" onSubmit={getDetails} />
     </div>
     
     </div>
