@@ -6,7 +6,8 @@ const ProfilePage = () => {
     return (
         <div className="profile_container">
         <div className="nav_box">
-        <Navigation />
+        <Navigation
+        role ="Artist" />
         </div>
         <div className="page_box">
         <h2 className="heading">Edit your profile</h2>

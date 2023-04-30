@@ -6,7 +6,8 @@ const ViewAllArtists = () => {
     return (
         <div className="profile_container">
         <div className="nav_box">
-        <Navigation />
+        <Navigation
+        role ="Admin" />
         </div>
         <div className="page_box">
         <h2 className="heading">View All Artists</h2>

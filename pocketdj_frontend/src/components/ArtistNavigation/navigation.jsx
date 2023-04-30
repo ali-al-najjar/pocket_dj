@@ -1,9 +1,10 @@
 import './navigation.css';
 import { Link, useLocation } from "react-router-dom";
 
-const Navigation = () => {
+const Navigation = ({role}) => {
   const location = useLocation();
   const activeClass = "nav_link--active";
+  if (role == "Artist"){
     return (
         <div className="navigation">
         <div className="navigation_links">
@@ -14,6 +15,19 @@ const Navigation = () => {
           <Link to="/artist" className="logout">Log out</Link>
         </div>
         </div>
+    );}
+    else {
+      return (
+        <div className="navigation">
+        <div className="navigation_links">
+        <Link to="/admin/users" className={`nav_link ${location.pathname === "/admin/users" ? activeClass : ""}`}>View All Users</Link>
+        <Link to="/admin/artists" className={`nav_link ${location.pathname === "/admin/artists" ? activeClass : ""}`}>View All Artists</Link>
+        </div>
+        <div>
+          <Link to="/admin" className="logout">Log out</Link>
+        </div>
+        </div>
     );
+    }
 }
 export default Navigation;
