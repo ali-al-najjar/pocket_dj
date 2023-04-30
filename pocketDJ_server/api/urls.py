@@ -9,8 +9,8 @@ urlpatterns = [
   path('request/create', CreateRequest.as_view()),
   path('users/', GetUsers.as_view()),
   path('songs/', GetSongs.as_view()),
-  path('remixes/', GetRemixes.as_view()),
+  # path('remixes/', GetRemixes.as_view()),
   path('artists/', GetArtists.as_view()),
-  path('favorites/', GetFavorites.as_view()),
-  path('requests/', GetRequests.as_view()),
+  # path('favorites/', GetFavorites.as_view()),
+  # path('requests/', GetRequests.as_view()),
 ]

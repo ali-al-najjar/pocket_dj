@@ -72,7 +72,7 @@ class GetArtists(generics.ListAPIView):
     serializer_class = UserSerializer
 
 class GetSongs(generics.ListAPIView):
-    queryset = Song.objects.all
+    queryset = Song.objects.all()
     serializer_class = SongSerializer
 
 # class GetRemixes(generics.ListAPIView):
