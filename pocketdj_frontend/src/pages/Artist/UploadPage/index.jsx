@@ -59,7 +59,7 @@ const UploadSongPage = () => {
           .then(response => {
             console.log(response.data);
             setDanceability(response.data.danceability);
-            setDuration(response.data.duration_ms/60000);
+            setDuration(response.data.duration_ms);
             setEnergy(response.data.energy);
             setInstrumentalness(response.data.instrumentalness);
             setKey(response.data.key);
