@@ -4,6 +4,7 @@ import ArtistLoginPage from "./pages/Artist/LoginPage";
 import ArtistRegisterPage from "./pages/Artist/RegisterPage";
 import ArtistProfilePage from "./pages/Artist/EditProfilePage";
 import UploadPage from "./pages/Artist/UploadPage";
+import ViewAllUsers from "./pages/Admin/Users";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <Routes>
 
       <Route path="/admin" element={<AdminLoginPage />} />
+      <Route path="/admin/users" element={<ViewAllUsers />} />
       <Route path="/artist" element={<ArtistLoginPage />} />
       <Route path="/artist/register" element={<ArtistRegisterPage />} />
       <Route path="/artist/profile" element={<ArtistProfilePage/>} />
