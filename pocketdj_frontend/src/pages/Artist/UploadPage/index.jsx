@@ -95,7 +95,8 @@ return (
     </div>
     <div className="page_box">
     <h2 className="heading">Upload your Song</h2>
-    <UploadSong/>
+    <UploadSong
+    />
     </div>
     
     </div>
