@@ -64,6 +64,8 @@ class CreateRequest(generics.CreateAPIView):
 
 
 class GetUsers(generics.ListAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAdmin,)
     queryset = User.objects.filter(role='User')
     serializer_class = UserSerializer
 
