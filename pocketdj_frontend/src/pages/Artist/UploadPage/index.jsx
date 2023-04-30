@@ -8,9 +8,6 @@ const client = process.env.REACT_APP_CLIENT_KEY
 const secret = process.env.REACT_APP_CLIENT_SECRET
 
 const UploadSongPage = () => {
-  const [name, setName] = useState("");
-  const [cover, setCover] = useState("");
-  const [link, setLink] = useState("");
   const [danceability, setDanceability] = useState("");
   const [duration, setDuration] = useState("");
   const [energy, setEnergy] = useState("");
@@ -123,9 +120,20 @@ return (
     </div>
     <div className="page_box">
     <h2 className="heading">Upload your Song</h2>
-    <h2 className="heading">{danceability}</h2>
-    <h2 className="heading">{duration}</h2>
     <UploadSong
+      danceability = {danceability}
+      duration = {duration}
+      energy = {energy}
+      instrumentalness = {instrumentalness}
+      key = {key}
+      liveness = {liveness}
+      loudness = {loudness}
+      mode = {mode}
+      speechiness = {speechiness}
+      tempo = {tempo}
+      time_signature = {time_signature}
+      valence = {valence}
+      camelot = {camelot}
     />
     <Button name="Get Details" onSubmit={getDetails} />
     </div>

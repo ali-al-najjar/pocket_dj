@@ -39,7 +39,8 @@ const handleProfile = (e)=>{
     const base64String = reader.result;
     setProfile(base64String);
   };
-  reader.readAsDataURL(picture);setProfile(e.target.value)
+  reader.readAsDataURL(picture);
+  setProfile(e.target.value)
 }
 
 
