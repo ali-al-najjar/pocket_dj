@@ -43,10 +43,14 @@ const handleUsername=(e)=>{
           .then((res)=>{
             console.log(res.data);
             setError("");
-            if (role == "Artist" && res.data.role == role)
+            if (role == "Artist" && res.data.role == role){
+            window.localStorage.setItem('token',res.data.token)
             navigator("/artist/upload")
-            else if (role == "Admin" && res.data.role == role)
-            navigator("/")
+          }
+            else if (role == "Admin" && res.data.role == role){
+            window.localStorage.setItem('token',res.data.token)
+            navigator("/admin/users")
+          }
             else (
               setError(`Access Denied. You're not an ${role}`)
             )
