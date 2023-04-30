@@ -18,6 +18,11 @@ class IsAdmin(permissions.BasePermission):
             return request.user.role == "Admin"
         return False
 
+class IsArtist(permissions.BasePermission):
+    def has_permission(self, request, view):
+        if request.user.is_authenticated:
+            return request.user.role == "Artist"
+        return False
 
 class UserDetailAPI(APIView):
   authentication_classes = (TokenAuthentication,)
@@ -34,7 +39,7 @@ class RegisterUserAPIView(generics.CreateAPIView):
 
 class SongCreateAPIView(generics.CreateAPIView):
     authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAdmin,)
+    permission_classes = (IsAdmin,IsArtist)
     queryset = Song.objects.all()
     serializer_class = SongSerializer
 
