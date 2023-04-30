@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import User from './User/user';
+import './users.css'
 
 const Users = () => {
   const [responses, setResponses] = useState([]);
@@ -27,7 +28,7 @@ const Users = () => {
   }, []);
 
   return (
-  <div className='fetch-users'>
+  <div className='fetch_users'>
                 <div className='fetch'>
                     {responses.map((response) => {
                         return <User key={response.id} first_name={response.first_name} last_name={response.last_name} email={response.email}/>

@@ -1,5 +1,6 @@
 import Navigation from "../../../components/ArtistNavigation/navigation";
 import Users from "../../../components/UsersTable/users";
+import './users.css';
 
 const ViewAllUsers = () => {
     return (
