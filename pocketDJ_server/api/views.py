@@ -1,7 +1,7 @@
 from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserSerializer,RegisterSerializer,SongSerializer,MoodSerializer,RemixSerializer
+from .serializers import UserSerializer,RegisterSerializer,SongSerializer,MoodSerializer,RemixSerializer,RequestSerializer
 from .models import User
 from .models import Song
 from .models import Remix
@@ -54,3 +54,10 @@ class RemixCreateAPIView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     queryset = Remix.objects.all()
     serializer_class = RemixSerializer
+
+
+class RequestCreateAPIView(generics.CreateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (AllowAny,)
+    queryset = Request.objects.all()
+    serializer_class = RequestSerializer
