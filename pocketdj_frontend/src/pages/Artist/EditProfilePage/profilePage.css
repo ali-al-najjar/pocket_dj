@@ -21,19 +21,3 @@
   margin-left:40px;
   gap:50px;
 }
-
-.nav_link {
-  border-radius: 10px;
-  font-size: 20px;
-  width: 200px;
-  padding: 20px;
-  cursor: pointer;
-  background-color: var(--darkPrimary);
-  color: var(--white);
-  text-align: center;
-  text-decoration: none;
-}
-
-.nav_link:hover{
-opacity:0.8;
-}
