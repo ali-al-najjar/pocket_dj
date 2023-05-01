@@ -5,9 +5,11 @@ import ArtistRegisterPage from "./pages/Artist/RegisterPage";
 import ArtistProfilePage from "./pages/Artist/EditProfilePage";
 import ArtistUploadPage from "./pages/Artist/UploadSongPage";   
 import AdminUploadPage from "./pages/Admin/UploadSongPage";   
+import AdminUploadMoodPage from "./pages/Admin/UploadMoodPage";   
 import ViewAllUsers from "./pages/Admin/Users";
 import ViewAllArtists from "./pages/Admin/Artists";
 import ViewAllSongs from "./pages/Admin/Songs";
+
 
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
       <Route path="/admin/artists" element={<ViewAllArtists />} />
       <Route path="/admin/songs" element={<ViewAllSongs />} />
       <Route path="/admin/song" element={<AdminUploadPage />} />
-      <Route path="/admin/mood" element={<ViewAllSongs />} />
+      <Route path="/admin/mood" element={<AdminUploadMoodPage />} />
       <Route path="/artist" element={<ArtistLoginPage />} />
       <Route path="/artist/register" element={<ArtistRegisterPage />} />
       <Route path="/artist/profile" element={<ArtistProfilePage/>} />
