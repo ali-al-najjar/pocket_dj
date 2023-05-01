@@ -1,6 +1,6 @@
 import LoginForm from "../../../components/LoginForm/loginform";
 import Logo from '../../../assets/logo.svg';
-import Admin from '../../../assets/admin.svg'
+import Settings from '../../../assets/settings.svg'
 
 const Login = () => {
     return (
@@ -10,7 +10,7 @@ const Login = () => {
         <img src={Logo} alt="logo" />
         <div className="app_title">Pocket DJAI</div>
         </div>
-        <img className="decorative_image" src={Admin} alt="settings"/>
+        <img className="decorative_image" src={Settings} alt="settings"/>
         </div>
         <div className="right_box">
         <div className="heading_box">

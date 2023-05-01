@@ -68,10 +68,12 @@ const handleUsername=(e)=>{
         <div className="input_box">
         <Input name={"Username"} type={"text"} onChange={handleUsername} />
         <Input name={"Password"} type={"password"} onChange={handlePassword}/>
+        </div>
+        <div className = "bottom_box">
         <Button className ={"button"} name={"Login"} onSubmit={handleSubmit}/>
         <p className="error"><br/>{error}</p>
         </div>
-        </> 
+      </> 
     );}
 
 export default LoginForm;

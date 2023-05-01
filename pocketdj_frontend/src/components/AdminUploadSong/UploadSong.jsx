@@ -29,7 +29,14 @@ const UploadSong = () => {
   const [valence, setValence] = useState("");
   const [camelot, setCamelot] = useState("");
   const[error,setError]=useState("");
+  const [selectedArtist, setSelectedArtist] = useState({ id: null, name: "" });
 
+  const handleArtistChange = (event) => {
+    const selectedId = event.target.value;
+    const selectedName = event.target.options[event.target.selectedIndex].text;
+    setSelectedArtist({ id: selectedId, name: selectedName });
+  };
+  
   const handleCover = (e) => {
     const file = e.target.files[0];
     const data = new FormData();
@@ -52,13 +59,12 @@ const UploadSong = () => {
   const handleMood = (e) =>{
 
   }
-  const handleArtist = (e) =>{
-
-  }
 
   const handleSubmit = () =>{
 
   }
+
+  
 
   const getDetails = async (e) =>{
   e.preventDefault()
@@ -73,7 +79,7 @@ const UploadSong = () => {
       const token = response.data.access_token
       await axios.get('https://api.spotify.com/v1/search', {
           params: {
-            q: `track:${name} artist:`,
+            q: `track:${name} artist:${selectedArtist.name}`,
             type: 'track',
             market: 'US',
             limit: 1
@@ -157,8 +163,7 @@ const UploadSong = () => {
       <Input name="Song Name" type ="text" onChange={handleName} />
       <Input name="Song Audio File" type ="file" onChange={handleAudio} />
       <Input name="Mood" type ="text" onChange={handleMood} />
-      <Input name="Artist" type ="text" onChange={handleArtist} />
-      <ArtistsSelectList/>
+      <ArtistsSelectList onChange={handleArtistChange} value={selectedArtist.id} />
       <Button className ={"button"} name ={'Submit'} onClick={handleSubmit}/>
       {/* <Button name="Get Details" onSubmit={getDetails} /> */}
     </div>
