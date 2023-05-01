@@ -34,47 +34,6 @@ const UploadSong = () => {
   const [selectedArtist, setSelectedArtist] = useState({ id: null, name: "" });
   const [selectedMood, setSelectedMood] = useState({ id: null, name: "" });
 
-  const handleArtistChange = (event) => {
-    const selectedId = event.target.value;
-    const selectedName = event.target.options[event.target.selectedIndex].text;
-    setSelectedArtist({ id: selectedId, name: selectedName });
-  };
-
-  const handleMoodChange = (event) => {
-    const selectedId = event.target.value;
-    const selectedName = event.target.options[event.target.selectedIndex].text;
-    setSelectedMood({ id: selectedId, name: selectedName });
-  };
-  
-  const handleCover = (e) => {
-    const file = e.target.files[0];
-    const data = new FormData();
-    data.append("cover", file);
-    setCover(file);
-    setURL(URL.createObjectURL(file))
-  }
-
-  const handleName = (e) =>{
-    setName(e.target.value)
-  }
-
-  const handleAudio = (e) =>{
-    const file = e.target.files[0];
-    const data = new FormData();
-    data.append("link", file);
-    setLink(file);
-  }
-
-  const handleMood = (e) =>{
-
-  }
-
-  const handleSubmit = () =>{
-
-  }
-
-  
-
   const getDetails = async (e) =>{
   e.preventDefault()
   await axios.post("https://accounts.spotify.com/api/token", "grant_type=client_credentials", {
@@ -120,6 +79,7 @@ const UploadSong = () => {
             setTempo(response.data.tempo);
             setTimeSignature(response.data.time_signature);
             setValence(response.data.valence);
+            handleSubmit();
           })
           .catch(error => {
             console.log(error);
@@ -161,9 +121,51 @@ const UploadSong = () => {
         return null;
       }
     };
+    
+  const handleArtistChange = (event) => {
+    const selectedId = event.target.value;
+    const selectedName = event.target.options[event.target.selectedIndex].text;
+    setSelectedArtist({ id: selectedId, name: selectedName });
+  };
 
+  const handleMoodChange = (event) => {
+    const selectedId = event.target.value;
+    const selectedName = event.target.options[event.target.selectedIndex].text;
+    setSelectedMood({ id: selectedId, name: selectedName });
+  };
+  
+  const handleCover = (e) => {
+    const file = e.target.files[0];
+    const data = new FormData();
+    data.append("cover", file);
+    setCover(file);
+    setURL(URL.createObjectURL(file))
+  }
 
+  const handleName = (e) =>{
+    setName(e.target.value)
+  }
 
+  const handleAudio = (e) =>{
+    const file = e.target.files[0];
+    const data = new FormData();
+    data.append("link", file);
+    setLink(file);
+  }
+
+  const handleSubmit = () =>{
+      const data = {
+        "name" : name,
+        "cover" : cover,
+        "link" : link,
+        "mood" : selectedMood.name,
+        "artist" : selectedArtist.name,
+        "danceability" : danceability,
+        "duration"  : duration
+      }
+      
+      console.log(data);
+  }
 
   return (
     <div className="profile_page">
@@ -171,12 +173,16 @@ const UploadSong = () => {
       <Input name="Song Cover" type ="file" onChange={handleCover} />
       <Input name="Song Name" type ="text" onChange={handleName} />
       <Input name="Song Audio File" type ="file" onChange={handleAudio} />
-      <MoodsSelectList onChange={handleMoodChange} value={selectedMood.id} />
-      <ArtistsSelectList onChange={handleArtistChange} value={selectedArtist.id} />
-      <Button className ={"button"} name ={'Submit'} onClick={handleSubmit}/>
-      {/* <Button name="Get Details" onSubmit={getDetails} /> */}
+      <MoodsSelectList onChange={handleMoodChange} value={selectedMood} />
+      <ArtistsSelectList onChange={handleArtistChange} value={selectedArtist} />
+      <Button className ={"button"} name ={'Submit'} onSubmit={getDetails}/>
     </div>
   )
 }
 
 export default UploadSong;
+
+
+
+
+

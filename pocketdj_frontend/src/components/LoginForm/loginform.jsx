@@ -28,7 +28,6 @@ const handleUsername=(e)=>{
       
   
   const handleSubmit=()=>{
-    // if (validateEmail(username)){
         if(validatePassword(password)){
           const data = {
             username: username,

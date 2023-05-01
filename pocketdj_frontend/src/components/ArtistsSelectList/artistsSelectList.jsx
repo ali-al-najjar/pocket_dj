@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const ArtistsSelectList = () => {
+const ArtistsSelectList = ({ value, onChange }) => {
   const [artists, setArtists] = useState([]);
-  const [selectedArtist, setSelectedArtist] = useState("");
-
+  const [selectedArtist, setSelectedArtist] = useState({ id: null, name: "" });
   const token = localStorage.getItem('token');
 
   const getArtists = async () => {
@@ -27,13 +26,15 @@ const ArtistsSelectList = () => {
     getArtists();
   }, []);
 
-  const handleSelect = (event) => {
-    setSelectedArtist(event.target.value);
-  };
+const handleSelect = (event) => {
+  setSelectedArtist(event.target.value);
+  onChange(event);
+};
+
 
   return (
     <div>
-      <select value={selectedArtist} onChange={handleSelect}>
+      <select className='select_list' value={value.id} onChange={handleSelect}>
         <option value="">Select an artist</option>
         {artists.map((artist) => (
           <option key={artist.id} value={artist.id}>

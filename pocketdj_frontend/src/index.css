@@ -23,3 +23,9 @@
   font-weight: bold;
   font-size:15px;
 }
+
+.select_list{
+  font-size:25px;
+  padding:10px;
+  border-radius:10px;
+}

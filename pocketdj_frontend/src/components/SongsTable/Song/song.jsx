@@ -14,7 +14,6 @@ const Song = ({song_id, name , artist_name}) => {
         <div className='user'>
         <p>{name}</p>
         <p>{artist_name}</p>
-        {/* <p>{email}</p> */}
         <Button className = {"delete_button"} name={"Delete"} onSubmit={handleSubmit}/>
         </div>
     )

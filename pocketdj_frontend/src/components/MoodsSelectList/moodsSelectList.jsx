@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const MoodsSelectList = () => {
+const MoodsSelectList = ({ value, onChange }) => {
   const [moods, setMoods] = useState([]);
   const [selectedMood, setSelectedMood] = useState("");
 
@@ -29,11 +29,12 @@ const MoodsSelectList = () => {
 
   const handleSelect = (event) => {
     setSelectedMood(event.target.value);
+    onChange(event);
   };
 
   return (
     <div>
-      <select value={selectedMood} onChange={handleSelect}>
+      <select className='select_list' value={value.id} onChange={handleSelect}>
         <option value="">Select a Mood</option>
         {moods.map((mood) => (
           <option key={mood.id} value={mood.id}>
