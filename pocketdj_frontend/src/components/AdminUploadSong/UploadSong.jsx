@@ -4,6 +4,8 @@ import './UploadSong.css'
 import {useState } from "react";
 import axios from "axios"
 import ArtistsSelectList from "../ArtistsSelectList/artistsSelectList";
+import MoodsSelectList from "../MoodsSelectList/moodsSelectList";
+
 
 const client = process.env.REACT_APP_CLIENT_KEY
 const secret = process.env.REACT_APP_CLIENT_SECRET
@@ -30,11 +32,18 @@ const UploadSong = () => {
   const [camelot, setCamelot] = useState("");
   const[error,setError]=useState("");
   const [selectedArtist, setSelectedArtist] = useState({ id: null, name: "" });
+  const [selectedMood, setSelectedMood] = useState({ id: null, name: "" });
 
   const handleArtistChange = (event) => {
     const selectedId = event.target.value;
     const selectedName = event.target.options[event.target.selectedIndex].text;
     setSelectedArtist({ id: selectedId, name: selectedName });
+  };
+
+  const handleMoodChange = (event) => {
+    const selectedId = event.target.value;
+    const selectedName = event.target.options[event.target.selectedIndex].text;
+    setSelectedMood({ id: selectedId, name: selectedName });
   };
   
   const handleCover = (e) => {
@@ -162,7 +171,7 @@ const UploadSong = () => {
       <Input name="Song Cover" type ="file" onChange={handleCover} />
       <Input name="Song Name" type ="text" onChange={handleName} />
       <Input name="Song Audio File" type ="file" onChange={handleAudio} />
-      <Input name="Mood" type ="text" onChange={handleMood} />
+      <MoodsSelectList onChange={handleMoodChange} value={selectedMood.id} />
       <ArtistsSelectList onChange={handleArtistChange} value={selectedArtist.id} />
       <Button className ={"button"} name ={'Submit'} onClick={handleSubmit}/>
       {/* <Button name="Get Details" onSubmit={getDetails} /> */}
