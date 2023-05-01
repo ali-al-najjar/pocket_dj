@@ -3,6 +3,7 @@ import  '../LoginForm/loginform.css';
 import Button from "../Button/button";
 import {useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const RegisterForm = () => {
   const [first_name, setFirstName] = useState("");
@@ -43,6 +44,10 @@ const handleProfile = (e)=>{
   setProfile(e.target.value)
 }
 
+  const validateEmail=(email) =>{
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);}
+
 
   const validatePassword=(password)=> {
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
@@ -51,7 +56,7 @@ const handleProfile = (e)=>{
       
   
   const handleSubmit=()=>{
-    // if (validateEmail(username)){
+    if (validateEmail(email)){
         if(validatePassword(password)){
           const data = {
             first_name: first_name,
@@ -60,22 +65,27 @@ const handleProfile = (e)=>{
             username: username,
             password: password,
             password2: password2,
+            role: 'Artist',
             profile: profile
           };
           console.log(data)
-//     axios.post("http://127.0.0.1:8000/api/v0.0.1/auth/login",data).then((res) => {
-//         console.log(res)
-//         localStorage.setItem('token',res.data.authorisation.token);
-//         localStorage.setItem('email',res.data.user.email);
-//         window.location.href="http://localhost:3000/code_editor"  
-// }
-//     ).catch((err) => {
-//         console.log(err);
-//     })
-// }else(setError("Invalid credentials"))
-// }else(setError("Invalid credentials"))
+          axios.post("http://192.168.1.127:8000/register",data,{
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then((res)=>{
+            console.log(res.data);
+            setError("");
+            navigator("/artist/login")
+          })
+          .catch((err=>{
+            console.log(err.request.response);
+          }))
 
   }}
+  // console.log(profile)
+}
  
     return(
       <>
