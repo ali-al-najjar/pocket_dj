@@ -8,6 +8,7 @@ const UploadMood = () => {
   const token = localStorage.getItem('token');
   const [name, setName] = useState("");
   const [cover, setCover] = useState("");
+  const [coverURL,setURL] = useState("");
   const [message, setMessage] = useState("");
 
   const handleCover = (event) => {
@@ -15,6 +16,7 @@ const UploadMood = () => {
     const data = new FormData();
     data.append("cover", file);
     setCover(file);
+    setURL(URL.createObjectURL(file));
   }
 
   const handleName = (e) =>{
@@ -48,11 +50,11 @@ const UploadMood = () => {
 
   return (
     <div className="profile_page">
-    <img className='song_cover'/>
+    <img className='song_cover'src={coverURL}/>
       <Input name="Mood Cover" type ="file" onChange={handleCover} />
       <Input name="Mood Name" type ="text" onChange={handleName} />
       <Button className ={"button"} name ={'Submit'} onSubmit={handleSubmit}/>
-      <p>{message}</p>
+      <p className="message">{message}</p>
     
     </div>
   )
