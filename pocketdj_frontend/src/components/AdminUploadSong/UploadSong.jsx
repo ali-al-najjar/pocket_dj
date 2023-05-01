@@ -79,6 +79,7 @@ const UploadSong = () => {
             setTempo(response.data.tempo);
             setTimeSignature(response.data.time_signature);
             setValence(response.data.valence);
+            setCamelot(getCamelot(key,mode))
             handleSubmit();
           })
           .catch(error => {
@@ -108,20 +109,22 @@ const UploadSong = () => {
       'Ab': { major: '4B', minor: '1A' }
     };
     
-    const getCamelot = (key) => {
-      const keyName = key.replace("b", "♭");
-      const camelotObj = camelotArray[keyName];
+    const getCamelot = (key,mode) => {
+      if (key === 6){
+      key = "F#";
+      const camelotObj = camelotArray[key];
       
       if (camelotObj) {
-        return {
-          major: camelotObj.major,
-          minor: camelotObj.minor
+        if (mode === 0){
+        return camelotObj.major}
+        else{
+           return camelotObj.minor}
         };
       } else {
         return null;
       }
     };
-    
+
   const handleArtistChange = (event) => {
     const selectedId = event.target.value;
     const selectedName = event.target.options[event.target.selectedIndex].text;
@@ -161,7 +164,18 @@ const UploadSong = () => {
         "mood" : selectedMood.name,
         "artist" : selectedArtist.name,
         "danceability" : danceability,
-        "duration"  : duration
+        "duration"  : duration,
+        "energy" : energy,
+        "instrumentalness" :instrumentalness,
+        "key" : key,
+        "liveness" :liveness,
+        "loudness" : loudness,
+        "mode" : mode,
+        "speechiness" : speechiness,
+        "tempo" : tempo,
+        "time_signature" : time_signature,
+        "valence" : valence,
+        "camelot" : camelot
       }
       
       console.log(data);
