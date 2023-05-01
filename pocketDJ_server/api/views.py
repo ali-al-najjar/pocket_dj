@@ -98,3 +98,7 @@ class GetRemixes(generics.ListAPIView):
 class GetRequests(generics.ListAPIView):
     queryset = Request.objects.filter()
     serializer_class = RequestSerializer
+
+class GetMoods(generics.ListAPIView):
+    queryset = Mood.objects.filter()
+    serializer_class = MoodSerializer

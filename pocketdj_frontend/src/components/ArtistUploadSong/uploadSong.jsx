@@ -10,15 +10,11 @@ const UploadSong = ({danceability,duration,energy,instrumentalness,key,liveness,
   const [cover, setCover] = useState("");
   const [link, setLink] = useState("");
 
-  const handleCover = (e)=>{
-    const picture = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      const base64String = reader.result;
-      setCover(base64String);
-    };
-    reader.readAsDataURL(picture);
-    setCover(e.target.value)
+  const handleCover = (event) => {
+    const file = event.target.files[0];
+    const data = new FormData();
+    data.append("cover", file);
+    setCover(file);
   }
 
   const handleName = (e) =>{
