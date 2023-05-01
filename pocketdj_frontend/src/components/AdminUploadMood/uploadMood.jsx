@@ -8,7 +8,7 @@ const UploadMood = () => {
   const token = localStorage.getItem('token');
   const [name, setName] = useState("");
   const [cover, setCover] = useState("");
-  const [coverURL,setURL] = useState("");
+  const [coverURL,setURL] = useState(" ");
   const [message, setMessage] = useState("");
 
   const handleCover = (event) => {

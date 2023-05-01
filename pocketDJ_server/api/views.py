@@ -35,20 +35,7 @@ class UserDetails(APIView):
 class RegisterUser(generics.CreateAPIView):
   permission_classes = (AllowAny,)
   serializer_class = RegisterSerializer
-  def create(self, request, *args, **kwargs):
-    serializer = self.get_serializer(data=request.data)
-    serializer.is_valid(raise_exception=True)
-
-    # Add profile pic file to validated_data
-    validated_data = serializer.validated_data
-    profile_pic = request.FILES.get('profile')
-    if profile_pic:
-        validated_data['profile_pic'] = profile_pic
-
-    self.perform_create(serializer)
-
-    headers = self.get_success_headers(serializer.data)
-    return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+  queryset = User.objects.all()
 
 
 class CreateSong(generics.CreateAPIView):
