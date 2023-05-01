@@ -7,9 +7,6 @@ import Button from "../../../components/Button/button";
 
 const UploadMoodPage = () => {
 
-const handleSubmit = () =>{
-
-}
 
 return (
     <div className="profile_container">

@@ -10,6 +10,10 @@ class User(AbstractUser):
     role = models.CharField(max_length=255, choices = Role.choices)
     profile = models.ImageField(upload_to='images/profiles/', blank=True)
 
+class Mood(models.Model):
+    name = models.CharField(max_length=255)
+    cover = models.ImageField(upload_to='images/covers/', blank=True)
+
 class Song(models.Model):
     name = models.CharField(max_length=255)
     cover = models.ImageField(upload_to='images/covers/', blank=True)
@@ -27,8 +31,8 @@ class Song(models.Model):
     time_signature = models.IntegerField(blank=True)
     valence = models.DecimalField(max_digits=15, decimal_places=10,blank=True)
     camelot = models.TextField(max_length=255)
-    users_favorite = models.ManyToManyField(User, related_name='favorite_songs',blank=True,null=True)
     artist = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
+    mood = models.ForeignKey(Mood,on_delete=models.CASCADE,blank=True,null=True)
 
 class Request(models.Model):
     name = models.CharField(max_length=255)
@@ -41,7 +45,9 @@ class Remix(models.Model):
     date = models.DateTimeField("date published")
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
-class Mood(models.Model):
-    name = models.CharField(max_length=255)
-    cover = models.ImageField(upload_to='images/covers/', blank=True)
-    songs = models.ManyToManyField(Song, related_name='moods')
+
+class Favorites(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    song = models.ForeignKey(Song,on_delete=models.CASCADE)
+
+
