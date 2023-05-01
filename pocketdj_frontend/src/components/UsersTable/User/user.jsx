@@ -15,7 +15,7 @@ const User = ({user_id, first_name , last_name, email}) => {
         <p>{first_name}</p>
         <p>{last_name}</p>
         <p>{email}</p>
-        <Button name={"Delete"} onSubmit={handleSubmit}/>
+        <Button className = {"delete_button"} name={"Delete"} onSubmit={handleSubmit}/>
         </div>
     )
       

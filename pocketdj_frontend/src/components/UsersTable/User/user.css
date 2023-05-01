@@ -8,7 +8,7 @@
   border-radius: 5px;
 }
 
-.button {
+.delete_button {
   height: 40px;
   width: 150px;
   border-radius: 10px;
@@ -17,4 +17,8 @@
   cursor: pointer;
   background-color: var(--primaryColor);
   color: var(--white);
+}
+
+.delete_button:hover{
+  opacity:0.8;
 }

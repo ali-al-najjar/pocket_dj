@@ -87,7 +87,7 @@ const handleProfile = (e)=>{
         <Input name={"Password"} type={"password"} onChange={handlePassword}/>
         <Input name={"Confirm Password"} type={"password"} onChange={handleConfirmPassword}/>
         <Input name={"Profile Picture"} type={"file"} onChange={handleProfile}/>
-        <Button name={"Register"} onSubmit={handleSubmit}/>
+        <Button className = {"button"} name={"Register"} onSubmit={handleSubmit}/>
         <p className="error"><br/>{error}</p>
         </div>
         <p className="links_p">Already have an account? <Link className="links" to ="/artist">Login instead</Link></p>

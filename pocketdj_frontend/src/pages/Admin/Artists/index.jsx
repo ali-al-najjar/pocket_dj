@@ -1,4 +1,4 @@
-import Navigation from "../../../components/ArtistNavigation/navigation";
+import Navigation from "../../../components/Navigation/navigation";
 import Artists from "../../../components/ArtistsTable/artists";
 import './artists.css';
 

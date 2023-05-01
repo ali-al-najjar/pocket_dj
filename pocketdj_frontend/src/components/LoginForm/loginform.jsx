@@ -52,7 +52,7 @@ const handleUsername=(e)=>{
             navigator("/admin/users")
           }
             else (
-              setError(`Access Denied. You're not an ${role}`)
+              setError(`Access Denied.`)
             )
           })
           .catch((err=>{
@@ -68,7 +68,7 @@ const handleUsername=(e)=>{
         <div className="input_box">
         <Input name={"Username"} type={"text"} onChange={handleUsername} />
         <Input name={"Password"} type={"password"} onChange={handlePassword}/>
-        <Button name={"Login"} onSubmit={handleSubmit}/>
+        <Button className ={"button"} name={"Login"} onSubmit={handleSubmit}/>
         <p className="error"><br/>{error}</p>
         </div>
         </> 

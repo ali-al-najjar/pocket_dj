@@ -40,7 +40,7 @@ const UploadSong = ({danceability,duration,energy,instrumentalness,key,liveness,
       <Input name="Song Cover" type ="file" onChange={handleCover} />
       <Input name="Song Name" type ="text" onChange={handleName} />
       <Input name="Song Audio File" type ="file" onChange={handleAudio} />
-      <Button className ="button" name ={'Submit'} onClick={handleSubmit}/>
+      <Button className ={"button"} name ={'Submit'} onClick={handleSubmit}/>
     
     </div>
   )

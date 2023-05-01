@@ -1,5 +1,5 @@
 import axios from "axios"
-import Navigation from "../../../components/ArtistNavigation/navigation"
+import Navigation from "../../../components/Navigation/navigation"
 import UploadSong from "../../../components/ArtistUploadSong/uploadSong"
 import {useState } from "react";
 import Button from "../../../components/Button/button";
