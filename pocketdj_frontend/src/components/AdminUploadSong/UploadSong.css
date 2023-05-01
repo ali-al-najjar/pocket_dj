@@ -1,0 +1,6 @@
+.song_cover{
+  width:200px;
+  height:200px;
+  background-color: var(--rgbaPrimary);
+  border-radius:10px;
+}

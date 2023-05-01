@@ -9,7 +9,7 @@ const Navigation = ({role}) => {
         <div className="navigation">
         <div className="navigation_links">
         <Link to="/artist/profile" className={`nav_link ${location.pathname === "/artist/profile" ? activeClass : ""}`}>Edit Profile</Link>
-        <Link to="/artist/upload" className={`nav_link ${location.pathname === "/artist/upload" ? activeClass : ""}`}>Upload a song</Link>
+        <Link to="/artist/upload" className={`nav_link ${location.pathname === "/artist/upload" ? activeClass : ""}`}>Upload your song</Link>
         </div>
         <div>
           <Link to="/artist" className="logout">Log out</Link>
@@ -23,6 +23,8 @@ const Navigation = ({role}) => {
         <Link to="/admin/users" className={`nav_link ${location.pathname === "/admin/users" ? activeClass : ""}`}>View All Users</Link>
         <Link to="/admin/artists" className={`nav_link ${location.pathname === "/admin/artists" ? activeClass : ""}`}>View All Artists</Link>
         <Link to="/admin/songs" className={`nav_link ${location.pathname === "/admin/songs" ? activeClass : ""}`}>View All Songs</Link>
+        <Link to="/admin/mood" className={`nav_link ${location.pathname === "/admin/mood" ? activeClass : ""}`}>Upload a Mood</Link>
+        <Link to="/admin/song" className={`nav_link ${location.pathname === "/admin/song" ? activeClass : ""}`}>Upload a Song</Link>
         </div>
         <div>
           <Link to="/admin" className="logout">Log out</Link>
