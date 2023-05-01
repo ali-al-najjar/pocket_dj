@@ -4,6 +4,7 @@ import Button from "../Button/button";
 import {useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
   const [first_name, setFirstName] = useState("");
@@ -14,6 +15,7 @@ const RegisterForm = () => {
   const [password2, setConfirmPassword] = useState("");
   const [profile, setProfile] = useState("");
   const[error,setError]=useState("");
+  const navigator = useNavigate();
 
 const handleFirstName=(e)=>{
       setFirstName(e.target.value)
@@ -33,16 +35,23 @@ const handlePassword=(e)=>{
 const handleConfirmPassword=(e)=>{
      setConfirmPassword(e.target.value)
   }
-const handleProfile = (e)=>{
-  const picture = e.target.files[0];
-  const reader = new FileReader();
-  reader.onload = () => {
-    const base64String = reader.result;
-    setProfile(base64String);
-  };
-  reader.readAsDataURL(picture);
-  setProfile(e.target.value)
+// const handleProfile = (e)=>{
+//   const picture = e.target.files[0];
+//   const reader = new FileReader();
+//   reader.onload = () => {
+//     const base64String = reader.result;
+//     setProfile(base64String);
+//   };
+//   reader.readAsDataURL(picture);
+//   setProfile(e.target.value)
+// }
+const handleProfile = (event) => {
+  const file = event.target.files[0];
+  const data = new FormData();
+  data.append("profile", file);
+  setProfile(file);
 }
+
 
   const validateEmail=(email) =>{
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -58,26 +67,26 @@ const handleProfile = (e)=>{
   const handleSubmit=()=>{
     if (validateEmail(email)){
         if(validatePassword(password)){
-          const data = {
-            first_name: first_name,
-            last_name: last_name,
-            email: email,
-            username: username,
-            password: password,
-            password2: password2,
-            role: 'Artist',
-            profile: profile
-          };
+          const data = new FormData();
+          data.append("first_name", first_name);
+          data.append("last_name", last_name);
+          data.append("email", email);
+          data.append("username", username);
+          data.append("password", password);
+          data.append("password2", password2);
+          data.append("role", "Artist");
+          data.append("profile", profile);
           console.log(data)
+          
           axios.post("http://192.168.1.127:8000/register",data,{
             headers: {
-              'Content-Type': 'application/json'
+              "Content-Type": "multipart/form-data"
             }
           })
           .then((res)=>{
             console.log(res.data);
             setError("");
-            navigator("/artist/login")
+            navigator("/artist")
           })
           .catch((err=>{
             console.log(err.request.response);

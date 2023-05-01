@@ -10,6 +10,9 @@ from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth.validators import UnicodeUsernameValidator
+import base64
+from django.core.files.base import ContentFile
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 class UserSerializer(serializers.ModelSerializer):
   class Meta:
@@ -52,7 +55,7 @@ class RegisterSerializer(serializers.ModelSerializer):
       first_name=validated_data['first_name'],
       last_name=validated_data['last_name'],
       role=validated_data['role'],
-      profile=validated_data['profile']
+      profile = validated_data['profile']
     )
     user.set_password(validated_data['password'])
     user.save()

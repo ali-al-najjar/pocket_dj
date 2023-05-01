@@ -1,7 +1,7 @@
 .profile_container{
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: 100%;
 }
 
 .nav_box {
@@ -20,4 +20,7 @@
   justify-content: center;
   margin-left:40px;
   gap:50px;
+  height: 100%;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
