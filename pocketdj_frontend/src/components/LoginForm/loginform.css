@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 80px;
+  gap: 60px;
   background-color: var(--primaryColor);
 }
 
@@ -61,7 +61,7 @@
 }
 
 .decorative_image{
-  width:100px;
+  width:150px;
 }
 
 .links{

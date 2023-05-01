@@ -9,13 +9,13 @@ import AdminUploadMoodPage from "./pages/Admin/UploadMoodPage";
 import ViewAllUsers from "./pages/Admin/Users";
 import ViewAllArtists from "./pages/Admin/Artists";
 import ViewAllSongs from "./pages/Admin/Songs";
-
+import LandingPage  from "./pages/LandingPage"
 
 
 function App() {
   return (
     <Routes>
-
+      <Route path="/" element={<LandingPage />} />
       <Route path="/admin" element={<AdminLoginPage />} />
       <Route path="/admin/users" element={<ViewAllUsers />} />
       <Route path="/admin/artists" element={<ViewAllArtists />} />
