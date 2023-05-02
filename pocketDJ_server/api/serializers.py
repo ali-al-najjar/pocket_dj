@@ -13,6 +13,7 @@ from django.contrib.auth.validators import UnicodeUsernameValidator
 import base64
 from django.core.files.base import ContentFile
 from django.core.files.uploadedfile import SimpleUploadedFile
+from rest_framework.serializers import SerializerMethodField
 
 class UserSerializer(serializers.ModelSerializer):
   class Meta:
@@ -65,6 +66,7 @@ class SongSerializer(serializers.ModelSerializer):
     artist_name = serializers.CharField(source='artist.first_name', read_only=True)
     artist_last_name = serializers.CharField(source='artist.last_name', read_only=True)
     mood_name = serializers.CharField(source='mood.name', read_only=True)
+    
     class Meta:
         model = Song
         fields = ('id','name', 'cover','link', 'danceability','duration','energy','instrumentalness','key','liveness','loudness','mode','speechiness','tempo','time_signature','valence', 'tempo','artist','artist_name','artist_last_name','camelot','mood','mood_name')

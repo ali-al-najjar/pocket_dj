@@ -46,6 +46,7 @@ const ProfileInput = () => {
     const file = event.target.files[0];
     const data = new FormData();
     data.append("profile", file);
+    setProfile("");
     setProfile(file);
   }
   
@@ -56,7 +57,7 @@ const ProfileInput = () => {
   return (
     <div className="profile_page">
     <h2 className="profile_title">Hello {first_name}</h2>
-    <img className='user_image' src={`${base_url}/${profile}`}/>
+    <img className='user_image' src={profile}/>
       <Input name="Profile Picture" type ="file" onChange={handleProfile} />
       <Input name="First Name" type ="text" value={first_name} onChange={updateFirstName} />
       <Input name="Last Name" type ="text" value={last_name} onChange={updateLastName} />

@@ -63,7 +63,7 @@ class UserDetails(APIView):
   permission_classes = (AllowAny,)
   def get(self,request,*args,**kwargs):
     user = User.objects.get(id=request.user.id)
-    serializer = UserSerializer(user)
+    serializer = UserSerializer(user,context={'request': request})
     return Response(serializer.data)
 
 class RegisterUser(generics.CreateAPIView):
