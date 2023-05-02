@@ -36,6 +36,24 @@ class GetUsers(generics.ListAPIView):
     queryset = User.objects.filter(role='User',isDeleted=True)
     serializer_class = UserSerializer
 
+class DeleteUser(generics.UpdateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAdmin,)
+    serializer_class = UserSerializer
+
+    def update(self, request, *args, **kwargs):
+        try:
+            user = User.objects.get(pk=kwargs['pk'])
+        except User.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        user.isDeleted = False
+        user.save()
+
+        serializer = self.get_serializer(user)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
 class GetArtists(generics.ListAPIView):
     queryset = User.objects.filter(isDeleted=True)
     serializer_class = UserSerializer

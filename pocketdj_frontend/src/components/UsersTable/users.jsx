@@ -31,7 +31,7 @@ const Users = () => {
   <div className='fetch_users'>
                 <div className='fetch'>
                     {responses.map((response) => {
-                        return <User key={response.id} first_name={response.first_name} last_name={response.last_name} email={response.email}/>
+                        return <User key={response.id} user_id={response.id} first_name={response.first_name} last_name={response.last_name} email={response.email}/>
                     })}
                 </div>
                 </div>)
