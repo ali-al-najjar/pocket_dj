@@ -68,7 +68,7 @@ const UploadSong = () => {
           .then(response => {
             console.log(response.data);
             setDanceability(response.data.danceability);
-            setDuration(response.data.duration_ms);
+            setDuration(parseFloat((response.data.duration_ms/60000).toFixed(2)));
             setEnergy(response.data.energy);
             setInstrumentalness(response.data.instrumentalness);
             setKey(response.data.key);
@@ -108,19 +108,33 @@ const UploadSong = () => {
       'G': { major: '9B', minor: '6A' },
       'Ab': { major: '4B', minor: '1A' }
     };
+
+    const KeysArray = {
+      '0': 'C',
+      '1': 'C#',
+      '2': 'D',
+      '3': 'Eb',
+      '4': 'E',
+      '5': 'F',
+      '6': 'F#',
+      '7': 'G',
+      '8': 'Ab',
+      '9': 'A',
+      '10': 'Bb',
+      '11': 'B'
+    };
     
     const getCamelot = (key,mode) => {
-      if (key === 6){
-      key = "F#";
-      const camelotObj = camelotArray[key];
+      const keyName = KeysArray[key];
+      const camelotObj = camelotArray[keyName];
       
       if (camelotObj) {
         if (mode === 0){
         return camelotObj.major}
         else{
            return camelotObj.minor}
-        };
-      } else {
+        }
+        else {
         return null;
       }
     };
@@ -157,12 +171,13 @@ const UploadSong = () => {
   }
 
   const handleSubmit = () =>{
+    const token = localStorage.getItem('token');
       const data = {
         "name" : name,
         "cover" : cover,
         "link" : link,
-        "mood" : selectedMood.name,
-        "artist" : selectedArtist.name,
+        "mood" : selectedMood.id,
+        "artist" : selectedArtist.id,
         "danceability" : danceability,
         "duration"  : duration,
         "energy" : energy,
@@ -177,8 +192,22 @@ const UploadSong = () => {
         "valence" : valence,
         "camelot" : camelot
       }
-      
       console.log(data);
+      axios.post("http://192.168.1.127:8000/song/create",data,{
+        headers: {
+          Authorization: 'Token ' + token,
+          "Content-Type": "multipart/form-data"
+        }
+      })
+      .then((res)=>{
+        console.log(res.data);
+        setMessage("Succefully Added")
+      })
+      .catch((err=>{
+        console.log(err.request.response);
+      }))
+      
+      
   }
 
   return (

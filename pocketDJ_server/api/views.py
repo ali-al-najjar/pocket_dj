@@ -40,7 +40,7 @@ class RegisterUser(generics.CreateAPIView):
 
 class CreateSong(generics.CreateAPIView):
     authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAdmin,IsArtist)
+    permission_classes = (IsAdmin,)
     queryset = Song.objects.all()
     serializer_class = SongSerializer
 
