@@ -24,7 +24,6 @@ const ProfileInput = () => {
         Authorization: 'Token ' + token,
       },
     });
-    console.log(res.data);
     setFirstName(res.data.first_name);
     setLastName(res.data.last_name);
     setProfileURL(res.data.profile);
@@ -58,7 +57,6 @@ const ProfileInput = () => {
     .then((res)=>{
       console.log(res.data);
       setMessage("Succefully Updated")
-      console.log(profileData)
     })
     .catch((err=>{
       console.log(err.request.response);
