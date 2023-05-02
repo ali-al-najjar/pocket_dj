@@ -4,14 +4,12 @@ import { useState ,useEffect } from 'react';
 import Input from "../Input/input";
 import './profile.css'
 
-// { onChange, onSubmit, onUpload,first_name,image,message}
-
 const ProfileInput = () => {
  const token =localStorage.getItem('token');
- const base_url = "http://192.168.1.127:8000/"
  const [first_name, setFirstName] = useState();
  const [last_name, setLastName] = useState();
- const [profile, setProfile] = useState();
+ const [profileData, setProfile] = useState();
+ const [profile,setProfileURL] = useState();
  const [message,setMessage] = useState();
 
   const getDetails = async() =>{
@@ -26,13 +24,32 @@ const ProfileInput = () => {
     console.log(res.data);
     setFirstName(res.data.first_name);
     setLastName(res.data.last_name);
-    setProfile(res.data.profile);
+    setProfileURL(res.data.profile);
   } catch (err) {
     console.log(err);
   }
   }
-  const onSubmit = () =>{
 
+
+  const onSubmit = () =>{
+    const data = new FormData();
+    data.append("first_name", first_name);
+    data.append("last_name", last_name);
+    data.append("profile", profileData);
+
+    axios.put("http://192.168.1.127:8000/update/profile",data,{
+      headers: {
+        Authorization: 'Token ' + token,
+        "Content-Type": "multipart/form-data"
+      }
+    })
+    .then((res)=>{
+      console.log(res.data);
+      setMessage("Succefully Updated")
+    })
+    .catch((err=>{
+      console.log(err.request.response);
+    }))
   }
 
   const updateFirstName = (e) =>{
@@ -42,21 +59,25 @@ const ProfileInput = () => {
     setLastName(e.target.value)
   }
   
-  // const handleProfile = (event) => {
-  //   const file = event.target.files[0];
-  //   const data = new FormData();
-  //   data.append("profile", file);
-  //   setProfile(file);
-  // }
+  const handleProfileData = (event) => {
+    const file = event.target.files[0];
+    // const data = new FormData();
+    // data.append("profile", file);
+    setProfile(file);
+  }
 
-  const handleProfile = (event) => {
+  const handleProfileDOM = (event) => {
     const file = event.target.files[0];
     const imageUrl = URL.createObjectURL(file);
-    setProfile(imageUrl);
+    setProfileURL(imageUrl);
     console.log(profile);
   }
   
-  
+  const handleProfile = (event) =>{
+    handleProfileDOM(event);
+    handleProfileData(event);
+  }
+
   useEffect(() => {
     getDetails();
   }, []);
@@ -68,7 +89,7 @@ const ProfileInput = () => {
       <Input name="Profile Picture" type ="file" onChange={handleProfile} />
       <Input name="First Name" type ="text" value={first_name} onChange={updateFirstName} />
       <Input name="Last Name" type ="text" value={last_name} onChange={updateLastName} />
-      <Button className ={"button"} name ={'Submit'} onClick={onSubmit}/>
+      <Button className ={"button"} name ={'Submit'} onSubmit={onSubmit}/>
       <p className="message">{message}</p>
     
     </div>

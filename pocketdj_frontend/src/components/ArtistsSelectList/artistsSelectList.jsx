@@ -15,7 +15,7 @@ const ArtistsSelectList = ({ value, onChange }) => {
           Authorization: 'Token ' + token,
         },
       });
-      console.log(res.data); // log the response data
+      console.log(res.data);
       setArtists(res.data);
     } catch (err) {
       console.log(err);

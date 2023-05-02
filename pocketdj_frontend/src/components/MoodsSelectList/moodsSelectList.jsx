@@ -16,7 +16,7 @@ const MoodsSelectList = ({ value, onChange }) => {
           Authorization: 'Token ' + token,
         },
       });
-      console.log(res.data); // log the response data
+      console.log(res.data);
       setMoods(res.data);
     } catch (err) {
       console.log(err);
