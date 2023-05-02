@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import UserDetails,RegisterUser,CreateSong,CreateMood,CreateRemix,CreateRequest,GetUsers,GetArtists,GetSongs,GetRemixes,GetRequests,GetMoods,DeleteSong,DeleteMood,DeleteRemix,DeleteRequest
+from .views import UserDetails,RegisterUser,CreateSong,CreateMood,CreateRemix,CreateRequest,GetUsers,GetArtists,GetSongs,GetRemixes,GetRequests,GetMoods,DeleteSong,DeleteMood,DeleteRemix,DeleteRequest,DeleteUser
 urlpatterns = [
   path('get-details',UserDetails.as_view()),
   path('register',RegisterUser.as_view()),
@@ -12,6 +12,7 @@ urlpatterns = [
   path('request/create', CreateRequest.as_view()),
   path('request/delete/<int:pk>',DeleteRequest.as_view()),
   path('users/', GetUsers.as_view()),
+  path('user/delete/<int:pk>',DeleteUser.as_view()),
   path('songs/', GetSongs.as_view()),
   path('remixes/', GetRemixes.as_view()),
   path('artists/', GetArtists.as_view()),
