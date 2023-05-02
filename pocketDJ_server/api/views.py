@@ -50,6 +50,25 @@ class CreateSong(generics.CreateAPIView):
     queryset = Song.objects.all()
     serializer_class = SongSerializer
 
+class DeleteSong(generics.UpdateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAdmin,)
+    serializer_class = SongSerializer
+
+    def update(self, request, *args, **kwargs):
+        try:
+            song = Song.objects.get(pk=kwargs['pk'])
+        except Song.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        song.isDeleted = False
+        song.save()
+
+        serializer = self.get_serializer(song)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 class CreateMood(generics.CreateAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAdmin,)
