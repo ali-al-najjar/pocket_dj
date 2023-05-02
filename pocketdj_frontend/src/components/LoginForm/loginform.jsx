@@ -5,10 +5,12 @@ import {useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../redux/slices/UserDetailSlice';
 
 
 const LoginForm = ({role}) => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const[error,setError]=useState("");
@@ -42,10 +44,12 @@ const handleUsername=(e)=>{
             setError("");
             if (role == "Artist" && res.data.role == role){
             window.localStorage.setItem('token',res.data.token)
+            dispatch(setUser(res.data.user));
             navigator("/artist/upload")
           }
             else if (role == "Admin" && res.data.role == role){
             window.localStorage.setItem('token',res.data.token)
+            dispatch(setUser(res.data.user));
             navigator("/admin/users")
           }
             else (
