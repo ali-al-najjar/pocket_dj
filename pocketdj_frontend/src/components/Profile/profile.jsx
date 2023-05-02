@@ -42,13 +42,20 @@ const ProfileInput = () => {
     setLastName(e.target.value)
   }
   
+  // const handleProfile = (event) => {
+  //   const file = event.target.files[0];
+  //   const data = new FormData();
+  //   data.append("profile", file);
+  //   setProfile(file);
+  // }
+
   const handleProfile = (event) => {
     const file = event.target.files[0];
-    const data = new FormData();
-    data.append("profile", file);
-    setProfile("");
-    setProfile(file);
+    const imageUrl = URL.createObjectURL(file);
+    setProfile(imageUrl);
+    console.log(profile);
   }
+  
   
   useEffect(() => {
     getDetails();
