@@ -30,7 +30,6 @@ const ProfileInput = () => {
   }
   }
 
-
   const onSubmit = () =>{
     const data = new FormData();
     data.append("first_name", first_name);
