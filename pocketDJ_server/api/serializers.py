@@ -67,7 +67,7 @@ class SongSerializer(serializers.ModelSerializer):
     mood_name = serializers.CharField(source='mood.name', read_only=True)
     class Meta:
         model = Song
-        fields = ('name', 'cover','link', 'danceability','duration','energy','instrumentalness','key','liveness','loudness','mode','speechiness','tempo','time_signature','valence', 'tempo','artist','artist_name','artist_last_name','camelot','mood','mood_name')
+        fields = ('id','name', 'cover','link', 'danceability','duration','energy','instrumentalness','key','liveness','loudness','mode','speechiness','tempo','time_signature','valence', 'tempo','artist','artist_name','artist_last_name','camelot','mood','mood_name')
         extra_kwargs = {
                     'link': {'validators': [FileExtensionValidator(allowed_extensions=['mp3', 'wav'])]},
                 }
