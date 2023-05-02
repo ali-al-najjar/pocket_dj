@@ -36,6 +36,27 @@ class GetUsers(generics.ListAPIView):
     queryset = User.objects.filter(role='User',isDeleted=True)
     serializer_class = UserSerializer
 
+class UpdateUserProfile(generics.UpdateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    serializer_class = UserSerializer
+
+    def update(self, request, *args, **kwargs):
+        user = self.request.user
+        
+        if request.data.get('first_name'):
+            user.first_name = request.data['first_name']
+        if request.data.get('last_name'):
+            user.last_name = request.data['last_name']
+        if request.data.get('profile'):
+            user.profile = request.data['profile']
+        
+        user.save()
+
+        serializer = self.get_serializer(user)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 class DeleteUser(generics.UpdateAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAdmin,)
