@@ -55,7 +55,6 @@ const ProfileInput = () => {
       }
     })
     .then((res)=>{
-      console.log(res.data);
       setMessage("Succefully Updated")
     })
     .catch((err=>{

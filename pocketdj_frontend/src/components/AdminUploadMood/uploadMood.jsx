@@ -27,7 +27,6 @@ const UploadMood = () => {
             const data = new FormData();
             data.append("name", name);
             data.append("cover", cover);
-            console.log(data)
             
             axios.post("http://192.168.1.127:8000/mood/create",data,{
               headers: {

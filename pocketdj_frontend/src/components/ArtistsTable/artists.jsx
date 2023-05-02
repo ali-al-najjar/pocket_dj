@@ -16,7 +16,6 @@ const Artists = () => {
           Authorization: 'Token ' + token,
         },
       });
-      console.log(res.data); // log the response data
       setResponses(res.data);
     } catch (err) {
       console.log(err);
@@ -28,13 +27,11 @@ const Artists = () => {
   }, []);
 
   return (
-  // <div className='fetch_users'>
                 <div className='fetch'>
                     {responses.map((response) => {
                         return <Artist key={response.id} user_id = {response.id} first_name={response.first_name} last_name={response.last_name} email={response.email}/>
                     })}
                 </div>
-                // </div>
                 )
 };
 

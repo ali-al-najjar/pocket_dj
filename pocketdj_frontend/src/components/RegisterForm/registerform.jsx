@@ -67,7 +67,6 @@ const handleProfile = (event) => {
           data.append("password2", password2);
           data.append("role", "Artist");
           data.append("profile", profile);
-          console.log(data)
           
           axios.post("http://192.168.1.127:8000/register",data,{
             headers: {
@@ -75,7 +74,6 @@ const handleProfile = (event) => {
             }
           })
           .then((res)=>{
-            console.log(res.data);
             setError("");
             navigator("/artist")
           })
@@ -84,7 +82,6 @@ const handleProfile = (event) => {
           }))
 
   }}
-  // console.log(profile)
 }
  
     return(

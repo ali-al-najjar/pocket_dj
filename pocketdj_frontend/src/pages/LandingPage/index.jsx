@@ -1,7 +1,5 @@
 import "./index.css"
 
-
-
 const Landing = () => {
     return (
         <div className="landing_container">

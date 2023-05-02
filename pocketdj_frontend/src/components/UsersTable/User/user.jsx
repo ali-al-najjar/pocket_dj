@@ -19,7 +19,6 @@ const User = ({user_id, first_name , last_name, email}) => {
             Authorization: 'Token ' + token,
           },
         });
-        console.log(res.data);
         setDeleted(true);
       } catch (err) {
         console.log(err);

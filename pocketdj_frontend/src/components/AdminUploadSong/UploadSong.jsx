@@ -43,7 +43,6 @@ const UploadSong = () => {
     }
   })
     .then(async response => {
-      console.log(response.data);
       const token = response.data.access_token
       await axios.get('https://api.spotify.com/v1/search', {
           params: {
@@ -57,16 +56,13 @@ const UploadSong = () => {
           }
         })
         .then(async response => {
-          console.log(response.data.tracks.items[0].id);
           const id = response.data.tracks.items[0].id
-          console.log(token)
           await axios.get(`https://api.spotify.com/v1/audio-features/${id}`, {
             headers: {
               'Authorization': 'Bearer ' + token
             }
           })
           .then(async response => {
-            console.log(response.data);
             setDanceability(response.data.danceability);
             setDuration(parseFloat((response.data.duration_ms/60000).toFixed(2)));
             setEnergy(response.data.energy);
@@ -192,7 +188,6 @@ const UploadSong = () => {
         "valence" : valence,
         "camelot" : camelot
       }
-      console.log(data);
       axios.post("http://192.168.1.127:8000/song/create",data,{
         headers: {
           Authorization: 'Token ' + token,
@@ -200,7 +195,6 @@ const UploadSong = () => {
         }
       })
       .then((res)=>{
-        console.log(res.data);
         setMessage("Succefully Added")
       })
       .catch((err=>{

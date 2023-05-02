@@ -19,7 +19,6 @@ const Song = ({song_id, name , artist_name}) => {
             Authorization: 'Token ' + token,
           },
         });
-        console.log(res.data);
         setDeleted(true);
       } catch (err) {
         console.log(err);

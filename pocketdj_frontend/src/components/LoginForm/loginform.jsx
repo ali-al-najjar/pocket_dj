@@ -33,14 +33,12 @@ const handleUsername=(e)=>{
             username: username,
             password: password
           };
-          console.log(data)
           axios.post("http://192.168.1.127:8000/login",data,{
             headers: {
               'Content-Type': 'application/json'
             }
           })
           .then((res)=>{
-            console.log(res.data);
             setError("");
             if (role == "Artist" && res.data.role == role){
             window.localStorage.setItem('token',res.data.token)

@@ -16,7 +16,6 @@ const Users = () => {
           Authorization: 'Token ' + token,
         },
       });
-      console.log(res.data);
       setResponses(res.data);
     } catch (err) {
       console.log(err);
