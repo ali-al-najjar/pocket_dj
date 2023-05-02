@@ -73,25 +73,25 @@ class CreateRequest(generics.CreateAPIView):
 class GetUsers(generics.ListAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAdmin,)
-    queryset = User.objects.filter(role='User')
+    queryset = User.objects.filter(role='User',isDeleted=True)
     serializer_class = UserSerializer
 
 class GetArtists(generics.ListAPIView):
-    queryset = User.objects.filter(role='Artist')
+    queryset = User.objects.filter(isDeleted=True)
     serializer_class = UserSerializer
 
 class GetSongs(generics.ListAPIView):
-    queryset = Song.objects.all()
+    queryset = Song.objects.filter(isDeleted=True)
     serializer_class = SongSerializer
 
 class GetRemixes(generics.ListAPIView):
-    queryset = Remix.objects.filter()
+    queryset = Remix.objects.filter(isDeleted=True)
     serializer_class = RemixSerializer
 
 class GetRequests(generics.ListAPIView):
-    queryset = Request.objects.filter()
+    queryset = Request.objects.filter(isDeleted=True)
     serializer_class = RequestSerializer
 
 class GetMoods(generics.ListAPIView):
-    queryset = Mood.objects.filter()
+    queryset = Mood.objects.filter(isDeleted=True)
     serializer_class = MoodSerializer

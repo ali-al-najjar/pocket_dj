@@ -9,10 +9,12 @@ class User(AbstractUser):
 
     role = models.CharField(max_length=255, choices = Role.choices)
     profile = models.ImageField(upload_to='images/profiles/', blank=True)
+    isDeleted = models.BooleanField(default=True)
 
 class Mood(models.Model):
     name = models.CharField(max_length=255)
     cover = models.ImageField(upload_to='images/covers/', blank=True)
+    isDeleted = models.BooleanField(default=True)
 
 class Song(models.Model):
     name = models.CharField(max_length=255)
@@ -33,21 +35,25 @@ class Song(models.Model):
     camelot = models.TextField(max_length=255)
     artist = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
     mood = models.ForeignKey(Mood,on_delete=models.CASCADE,blank=True,null=True)
+    isDeleted = models.BooleanField(default=True)
 
 class Request(models.Model):
     name = models.CharField(max_length=255)
     description=models.CharField(max_length=255)
     is_approved=models.BooleanField()
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    isDeleted = models.BooleanField(default=True)
 
 class Remix(models.Model):
     name = models.CharField(max_length=255)
     date = models.DateTimeField("date published")
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    isDeleted = models.BooleanField(default=True)
 
 
 class Favorites(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     song = models.ForeignKey(Song,on_delete=models.CASCADE)
+    isDeleted = models.BooleanField(default=True)
 
 
