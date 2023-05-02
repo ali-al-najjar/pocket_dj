@@ -1,14 +1,34 @@
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import axios from "axios";
 import Button from '../../Button/button';
 import './artist.css';
 
 const Artist = ({user_id, first_name , last_name, email}) => {
+  const token = localStorage.getItem('token');
+  const [deleted, setDeleted] = useState(false);
 
+  useEffect(() => {
+  }, []);
 
-  const handleSubmit = () =>{
+  const handleSubmit = async() =>{
+      try {
+        const res = await axios({
+          method: 'Put',
+          url: `http://192.168.1.127:8000/user/delete/${user_id}`,
+          headers: {
+            Authorization: 'Token ' + token,
+          },
+        });
+        console.log(res.data);
+        setDeleted(true);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
-  }
+    if (deleted) {
+      return null;
+    }
 
     return(
         <div className='user'>
@@ -20,4 +40,4 @@ const Artist = ({user_id, first_name , last_name, email}) => {
     )
       
       }
-export default Artist
+export default Artist;
