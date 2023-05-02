@@ -131,7 +131,7 @@ const UploadSong = () => {
       if (camelotObj) {
         if (mode === 0){
         return camelotObj.major}
-        else{
+        else if (mode ===1){
            return camelotObj.minor}
         }
         else {
