@@ -65,7 +65,7 @@ const UploadSong = () => {
               'Authorization': 'Bearer ' + token
             }
           })
-          .then(response => {
+          .then(async response => {
             console.log(response.data);
             setDanceability(response.data.danceability);
             setDuration(parseFloat((response.data.duration_ms/60000).toFixed(2)));
@@ -79,7 +79,7 @@ const UploadSong = () => {
             setTempo(response.data.tempo);
             setTimeSignature(response.data.time_signature);
             setValence(response.data.valence);
-            setCamelot(getCamelot(key,mode))
+            setCamelot(await getCamelot(key,mode))
             handleSubmit();
           })
           .catch(error => {
@@ -124,19 +124,19 @@ const UploadSong = () => {
       '11': 'B'
     };
     
-    const getCamelot = (key,mode) => {
+    const getCamelot = (key, mode) => {
       const keyName = KeysArray[key];
-      const camelotObj = camelotArray[keyName];
+      const camelot = camelotArray[keyName];
       
-      if (camelotObj) {
-        if (mode === 0){
-        return camelotObj.major}
-        else if (mode ===1){
-           return camelotObj.minor}
+      if (camelot) {
+        if (mode === 0) {
+          return camelot.minor;
+        } else if (mode === 1) {
+          return camelot.major;
         }
-        else {
-        return null;
       }
+      
+      return null;
     };
 
   const handleArtistChange = (event) => {
@@ -176,7 +176,7 @@ const UploadSong = () => {
         "name" : name,
         "cover" : cover,
         "link" : link,
-        "mood" : selectedMood.id,
+        "mood_id" : selectedMood.id,
         "artist" : selectedArtist.id,
         "danceability" : danceability,
         "duration"  : duration,
