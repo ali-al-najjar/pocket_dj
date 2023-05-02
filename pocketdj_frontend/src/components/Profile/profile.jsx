@@ -6,6 +6,9 @@ import './profile.css'
 
 const ProfileInput = () => {
  const token =localStorage.getItem('token');
+ const [original_first_name, setOriginalFirstName] = useState();
+ const [original_last_name, setOriginalLastName] = useState();
+ const [original_profileData, setOriginalProfile] = useState();
  const [first_name, setFirstName] = useState();
  const [last_name, setLastName] = useState();
  const [profileData, setProfile] = useState();
@@ -25,6 +28,10 @@ const ProfileInput = () => {
     setFirstName(res.data.first_name);
     setLastName(res.data.last_name);
     setProfileURL(res.data.profile);
+    setProfile(res.data.profileData);
+    setOriginalFirstName(res.data.first_name);
+    setOriginalLastName(res.data.last_name);
+    setOriginalProfile(res.data.profile);
   } catch (err) {
     console.log(err);
   }
@@ -32,11 +39,17 @@ const ProfileInput = () => {
 
   const onSubmit = () =>{
     const data = new FormData();
-    data.append("first_name", first_name);
-    data.append("last_name", last_name);
-    data.append("profile", profileData);
+    if (first_name !== original_first_name) {
+      data.append("first_name", first_name);
+    }
+    if (last_name !== original_last_name) {
+      data.append("last_name", last_name);
+    }
+    if (profileData) {
+      data.append("profile", profileData);
+    }
 
-    axios.put("http://192.168.1.127:8000/update/profile",data,{
+    if (data.has("first_name") || data.has("last_name") || data.has("profile")) {axios.put("http://192.168.1.127:8000/update/profile",data,{
       headers: {
         Authorization: 'Token ' + token,
         "Content-Type": "multipart/form-data"
@@ -45,10 +58,13 @@ const ProfileInput = () => {
     .then((res)=>{
       console.log(res.data);
       setMessage("Succefully Updated")
+      console.log(profileData)
     })
     .catch((err=>{
       console.log(err.request.response);
-    }))
+    }))}else{
+      setMessage("No Changes are made!")
+    }
   }
 
   const updateFirstName = (e) =>{
@@ -60,21 +76,21 @@ const ProfileInput = () => {
   
   const handleProfileData = (event) => {
     const file = event.target.files[0];
-    // const data = new FormData();
-    // data.append("profile", file);
-    setProfile(file);
+    if(file){setProfile(file)};
   }
 
   const handleProfileDOM = (event) => {
     const file = event.target.files[0];
     const imageUrl = URL.createObjectURL(file);
     setProfileURL(imageUrl);
-    console.log(profile);
   }
   
   const handleProfile = (event) =>{
-    handleProfileDOM(event);
-    handleProfileData(event);
+    const file = event.target.files[0];
+    if (file) {
+      handleProfileDOM(event);
+      handleProfileData(event);
+    }
   }
 
   useEffect(() => {
