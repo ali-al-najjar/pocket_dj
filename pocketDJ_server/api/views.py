@@ -29,6 +29,16 @@ class IsArtist(permissions.BasePermission):
         if request.user.is_authenticated:
             return request.user.role == "Artist"
         return False
+    
+class GetUsers(generics.ListAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAdmin,)
+    queryset = User.objects.filter(role='User',isDeleted=True)
+    serializer_class = UserSerializer
+
+class GetArtists(generics.ListAPIView):
+    queryset = User.objects.filter(isDeleted=True)
+    serializer_class = UserSerializer
 
 class UserDetails(APIView):
   authentication_classes = (TokenAuthentication,)
@@ -50,6 +60,10 @@ class CreateSong(generics.CreateAPIView):
     queryset = Song.objects.all()
     serializer_class = SongSerializer
 
+class GetSongs(generics.ListAPIView):
+    queryset = Song.objects.filter(isDeleted=True)
+    serializer_class = SongSerializer
+    
 class DeleteSong(generics.UpdateAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAdmin,)
@@ -75,11 +89,55 @@ class CreateMood(generics.CreateAPIView):
     queryset = Mood.objects.all()
     serializer_class = MoodSerializer
 
+class GetMoods(generics.ListAPIView):
+    queryset = Mood.objects.filter(isDeleted=True)
+    serializer_class = MoodSerializer
+
+class DeleteMood(generics.UpdateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAdmin,)
+    serializer_class = MoodSerializer
+
+    def update(self, request, *args, **kwargs):
+        try:
+            mood = Mood.objects.get(pk=kwargs['pk'])
+        except Mood.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        mood.isDeleted = False
+        mood.save()
+
+        serializer = self.get_serializer(mood)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 class CreateRemix(generics.CreateAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (AllowAny,)
     queryset = Remix.objects.all()
     serializer_class = RemixSerializer
+
+class GetRemixes(generics.ListAPIView):
+    queryset = Remix.objects.filter(isDeleted=True)
+    serializer_class = RemixSerializer
+
+class DeleteRemix(generics.UpdateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAdmin,)
+    serializer_class = RemixSerializer
+
+    def update(self, request, *args, **kwargs):
+        try:
+            remix = Remix.objects.get(pk=kwargs['pk'])
+        except Remix.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        remix.isDeleted = False
+        remix.save()
+
+        serializer = self.get_serializer(remix)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class CreateRequest(generics.CreateAPIView):
@@ -88,29 +146,33 @@ class CreateRequest(generics.CreateAPIView):
     queryset = Request.objects.all()
     serializer_class = RequestSerializer
 
-
-class GetUsers(generics.ListAPIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAdmin,)
-    queryset = User.objects.filter(role='User',isDeleted=True)
-    serializer_class = UserSerializer
-
-class GetArtists(generics.ListAPIView):
-    queryset = User.objects.filter(isDeleted=True)
-    serializer_class = UserSerializer
-
-class GetSongs(generics.ListAPIView):
-    queryset = Song.objects.filter(isDeleted=True)
-    serializer_class = SongSerializer
-
-class GetRemixes(generics.ListAPIView):
-    queryset = Remix.objects.filter(isDeleted=True)
-    serializer_class = RemixSerializer
-
 class GetRequests(generics.ListAPIView):
     queryset = Request.objects.filter(isDeleted=True)
     serializer_class = RequestSerializer
 
-class GetMoods(generics.ListAPIView):
-    queryset = Mood.objects.filter(isDeleted=True)
-    serializer_class = MoodSerializer
+class DeleteRequest(generics.UpdateAPIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAdmin,)
+    serializer_class = RequestSerializer
+
+    def update(self, request, *args, **kwargs):
+        try:
+            request = Request.objects.get(pk=kwargs['pk'])
+        except Request.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        request.isDeleted = False
+        request.save()
+
+        serializer = self.get_serializer(request)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+
+
+
+
+
+
+
