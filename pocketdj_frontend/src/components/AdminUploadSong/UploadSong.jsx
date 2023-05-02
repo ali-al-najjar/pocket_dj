@@ -176,7 +176,7 @@ const UploadSong = () => {
         "name" : name,
         "cover" : cover,
         "link" : link,
-        "mood_id" : selectedMood.id,
+        "mood" : selectedMood.id,
         "artist" : selectedArtist.id,
         "danceability" : danceability,
         "duration"  : duration,
