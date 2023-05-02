@@ -136,7 +136,6 @@ return (
       valence = {valence}
       camelot = {camelot}
     />
-    <Button name="Get Details" onSubmit={getDetails} />
     </div>
     
     </div>

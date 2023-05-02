@@ -10,10 +10,12 @@ import ViewAllUsers from "./pages/Admin/Users";
 import ViewAllArtists from "./pages/Admin/Artists";
 import ViewAllSongs from "./pages/Admin/Songs";
 import LandingPage  from "./pages/LandingPage"
-
+import { store } from "../src/redux/store.jsx";
+import { Provider } from "react-redux";
 
 function App() {
   return (
+    <Provider store={store}>
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/admin" element={<AdminLoginPage />} />
@@ -28,6 +30,7 @@ function App() {
       <Route path="/artist/upload" element={<ArtistUploadPage />} />
 
     </Routes> 
+    </Provider>
   );
 }
 
