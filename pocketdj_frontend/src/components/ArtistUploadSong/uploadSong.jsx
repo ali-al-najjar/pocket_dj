@@ -12,6 +12,7 @@ const secret = process.env.REACT_APP_CLIENT_SECRET
 const UploadSong = () => {
   const user = useSelector((state) => state.user);
 
+  const [isFirstButtonClicked, setIsFirstButtonClicked] = useState(false);
   const [name, setName] = useState("");
   const [cover, setCover] = useState("");
   const [link, setLink] = useState("");
@@ -44,10 +45,9 @@ const UploadSong = () => {
   })
     .then(async response => {
       const token = response.data.access_token
-      console.log(user.name)
       await axios.get('https://api.spotify.com/v1/search', {
           params: {
-            q: `track:${name} artist:${user.first_name}`,
+            q: `track:${name} artist:${user.first_name}" "${user.last_name}`,
             type: 'track',
             market: 'US',
             limit: 1
@@ -76,7 +76,8 @@ const UploadSong = () => {
             setTempo(response.data.tempo);
             setTimeSignature(response.data.time_signature);
             setValence(response.data.valence);
-            handleSubmit();
+            handleFirstButtonClick();
+            
           })
           .catch(error => {
             console.log(error);
@@ -135,6 +136,16 @@ const UploadSong = () => {
       return null;
     };
 
+  const handleFirstButtonClick = () => {
+      setIsFirstButtonClicked(true);
+    }
+
+
+  const handleArtistChange = (event) => {
+    const selectedId = event.target.value;
+    const selectedName = event.target.options[event.target.selectedIndex].text;
+    setSelectedArtist({ id: selectedId, name: selectedName });
+  };
 
   const handleMoodChange = (event) => {
     const selectedId = event.target.value;
@@ -162,7 +173,8 @@ const UploadSong = () => {
   }
 
   const handleSubmit = () =>{
-    setCamelot(getCamelot(key,mode))
+    const camelot = getCamelot(key, mode);
+    setCamelot(camelot);
     const token = localStorage.getItem('token');
       const data = {
         "name" : name,
@@ -207,7 +219,10 @@ const UploadSong = () => {
       <Input name="Song Name" type ="text" onChange={handleName} />
       <Input name="Song Audio File" type ="file" onChange={handleAudio} />
       <MoodsSelectList onChange={handleMoodChange} value={selectedMood} />
-      <Button className ={"button"} name ={'Submit'} onSubmit={getDetails}/>
+      <div className = "buttons">
+      <Button className ={"button"} name ={'Prepare Song to Upload'} onSubmit={getDetails}/>
+      <Button className ={"button"} name ={'Submit'} onSubmit={handleSubmit} isDisabled={!isFirstButtonClicked}/>
+      </div>
     </div>
   )
 }
