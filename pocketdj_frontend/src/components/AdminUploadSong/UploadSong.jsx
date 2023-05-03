@@ -76,18 +76,21 @@ const UploadSong = () => {
             setTimeSignature(response.data.time_signature);
             setValence(response.data.valence);
             handleFirstButtonClick();
-            
+            setMessage("You're ready to submit.")
           })
           .catch(error => {
             console.log(error);
+            setMessage("Try again.")
           });
         })
         .catch(error => {
           console.log(error);
+          setMessage("Empty Fields are not allowed.")
         });
       })
     .catch(error => {
       console.log(error);
+      setMessage("Empty Fields are not allowed.")
     });}
   
     const camelotArray = {
@@ -206,6 +209,7 @@ const UploadSong = () => {
       })
       .catch((err=>{
         console.log(err.request.response);
+        setMessage("Empty Fields are not allowed")
       }))
       
       
@@ -226,6 +230,7 @@ const UploadSong = () => {
       <Button className ={"button"} name ={'Prepare Song to Upload'} onSubmit={getDetails}/>
       <Button className ={"button"} name ={'Submit'} onSubmit={handleSubmit} isDisabled={!isFirstButtonClicked}/>
       </div>
+      <p className="message">{message}</p>
       </div>
     </div>
   )
