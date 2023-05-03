@@ -65,7 +65,7 @@ const RegisterScreen = () => {
 }
 
   return(
-    <SafeAreaView style={constants.formContainer}>
+    <SafeAreaView style={styles.registerContainer}>
     <View style={constants.innerContainer}>
     <View style={constants.h1_view}>
       <Text style={constants.h1_text}>Create a new account</Text>
@@ -112,10 +112,12 @@ const RegisterScreen = () => {
       <Text>{error}</Text>
       </View>
         <Button title="Register" onPress={handleSubmit} />
+        <View style={constants.linksSection}>
         <Text>Already have an account? </Text> 
         <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text style={constants.links}>Login Now</Text>
         </TouchableOpacity>
+        </View>
         </View>
         </SafeAreaView>
   )
