@@ -11,7 +11,6 @@ const secret = process.env.REACT_APP_CLIENT_SECRET
 
 const UploadSong = () => {
   const user = useSelector((state) => state.user);
-
   const [isFirstButtonClicked, setIsFirstButtonClicked] = useState(false);
   const [name, setName] = useState("");
   const [cover, setCover] = useState("");

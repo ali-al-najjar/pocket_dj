@@ -7,6 +7,7 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/slices/UserDetailSlice';
+import { setToken } from '../../redux/slices/UserAuthSlice';
 
 
 const LoginForm = ({role}) => {
@@ -44,10 +45,12 @@ const handleUsername=(e)=>{
             setError("");
             if (role == "Artist" && res.data.role == role){
             window.localStorage.setItem('token',res.data.token)
+            dispatch(setToken(res.data.token));
             dispatch(setUser(res.data.user));
             navigator("/artist/upload")
           }
             else if (role == "Admin" && res.data.role == role){
+            dispatch(setToken(res.data.token));
             window.localStorage.setItem('token',res.data.token)
             dispatch(setUser(res.data.user));
             navigator("/admin/users")
