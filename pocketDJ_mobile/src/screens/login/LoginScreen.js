@@ -72,11 +72,13 @@ const LoginScreen = () => {
         />
 
       <Text>{error}</Text>
-      <Button title="Log In" onPress={handleSubmit} /> 
+      <Button title="Log In" onPress={handleSubmit} />
+      <View style={constants.linksSection}>
       <Text>Don't have an account? </Text>
       <TouchableOpacity onPress={() => navigation.navigate('Register')}>
       <Text style={constants.links}>Register Now</Text>
       </TouchableOpacity>
+      </View>
       </View>
       </SafeAreaView>
   )

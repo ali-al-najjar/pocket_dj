@@ -51,15 +51,19 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     flex:1,
-    gap:20,
-    marginBottom:20
+    gap:30,
+    marginBottom:20,
+    marginTop:10
   },
   innerContainer: {
     flex:1,
-    gap:10,
+    gap:15,
     width:'90%',
     marginLeft:'auto',
     marginRight:'auto'
+  },
+  linksSection: {
+    flexDirection:'row',
   },
   links: {
     color: Colors.primaryColor,
