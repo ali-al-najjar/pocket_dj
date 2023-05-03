@@ -1,12 +1,12 @@
 import Navigation from "../../../components/Navigation/navigation";
-import Songs from "../../../components/SongsTable/songs";
-import './songs.css';
+import Moods from "../../../components/MoodsTable/moods";
+import './moods.css';
 import { useState } from 'react';
 import Button from "../../../components/Button/button";
 import AddModal from "../../../components/Modal/modal";
-import UploadSong from "../../../components/AdminUploadSong/UploadSong";
+import UploadMood from "../../../components/AdminUploadMood/uploadMood";
 
-const ViewAllSongs = () => {
+const ViewAllMoods = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -26,17 +26,17 @@ const ViewAllSongs = () => {
         </div>
         <div className="page_box">
         <div className="header">
-        <h2 className="heading">View All Songs</h2>
-        <Button className ={"button add_song"} name ={'Add Song'} onSubmit={handleOpenModal}>Add Song</Button>
+        <h2 className="heading">View All Moods</h2>
+        <Button className ={"button add_song"} name ={'Add Mood'} onSubmit={handleOpenModal}></Button>
         </div>
-        <Songs/>
+        <Moods/>
         </div>
         <AddModal
           isModalOpen={isModalOpen}
           onClose={handleCloseModal}
-          Component={UploadSong}
-          name={"song"} />
+          Component={UploadMood} 
+          name={"mood"}/>
         </div>
     );
 }
-export default ViewAllSongs;
+export default ViewAllMoods;

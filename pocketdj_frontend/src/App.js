@@ -12,6 +12,7 @@ import ViewAllSongs from "./pages/Admin/Songs";
 import LandingPage  from "./pages/LandingPage"
 import { store } from "../src/redux/store.jsx";
 import { Provider } from "react-redux";
+import ViewAllMoods from "./pages/Admin/Moods";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/admin/songs" element={<ViewAllSongs />} />
       <Route path="/admin/song" element={<AdminUploadPage />} />
       <Route path="/admin/mood" element={<AdminUploadMoodPage />} />
+      <Route path="/admin/moods" element={<ViewAllMoods />} />
       <Route path="/artist" element={<ArtistLoginPage />} />
       <Route path="/artist/register" element={<ArtistRegisterPage />} />
       <Route path="/artist/profile" element={<ArtistProfilePage/>} />
