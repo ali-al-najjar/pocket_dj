@@ -1,0 +1,10 @@
+.name_inputs {
+  display: flex;
+  gap: 20px;
+}
+
+.register_input_box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

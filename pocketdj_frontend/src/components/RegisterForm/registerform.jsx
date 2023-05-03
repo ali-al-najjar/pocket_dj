@@ -1,5 +1,6 @@
 import Input from "../Input/input";
 import  '../LoginForm/loginform.css';
+import './registerform.css'
 import Button from "../Button/button";
 import {useState } from "react";
 import { Link } from "react-router-dom";
@@ -86,9 +87,11 @@ const handleProfile = (event) => {
  
     return(
       <>
-        <div className="input_box">
+        <div className="register_input_box">
+        <div className="name_inputs">
         <Input name={"First Name"} type={"text"} onChange={handleFirstName} />
         <Input name={"Last Name"} type={"text"} onChange={handleLastName} />
+        </div>
         <Input name={"Email"} type={"email"} onChange={handleEmail} />
         <Input name={"Username"} type={"text"} onChange={handleUsername} />
         <Input name={"Password"} type={"password"} onChange={handlePassword}/>
