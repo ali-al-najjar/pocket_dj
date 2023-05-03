@@ -3,8 +3,10 @@ import Button from "../Button/button";
 import { useState ,useEffect } from 'react';
 import Input from "../Input/input";
 import './profile.css'
+import { useSelector } from 'react-redux';
 
 const ProfileInput = () => {
+const user = useSelector((state) => state.user);
  const token =localStorage.getItem('token');
  const [original_first_name, setOriginalFirstName] = useState();
  const [original_last_name, setOriginalLastName] = useState();
