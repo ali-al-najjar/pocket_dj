@@ -10,7 +10,7 @@ const ViewAllArtists = () => {
         role ="Admin" />
         </div>
         <div className="page_box">
-        <h2 className="heading">View All Artists</h2>
+        <h2 className="page_heading">All Artists</h2>
         <Artists />
         </div>
         

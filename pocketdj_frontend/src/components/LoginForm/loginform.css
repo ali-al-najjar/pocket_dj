@@ -47,11 +47,11 @@
   font-size:38px;
 }
 .heading{
-  border-bottom:3px solid var(--secondaryColor);
+  border-bottom:5px solid var(--secondaryColor);
   width:fit-content;
-  padding-bottom:3px;
+  padding-bottom:5px;
   font-size: 34px;
-  margin-left: 40px;
+  /* margin-left: 40px; */
 }
 
 .input_box{

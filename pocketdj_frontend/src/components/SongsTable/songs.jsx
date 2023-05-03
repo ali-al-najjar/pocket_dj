@@ -27,13 +27,12 @@ const Songs = () => {
   }, []);
 
   return (
-  <div className='fetch_users'>
                 <div className='fetch'>
                     {responses.map((response) => {
                         return <Song key={response.id} song_id={response.id} name={response.name} artist_name={response.artist_name + ' ' + response.artist_last_name}/>
                     })}
                 </div>
-                </div>)
+                )
 };
 
 export default Songs;

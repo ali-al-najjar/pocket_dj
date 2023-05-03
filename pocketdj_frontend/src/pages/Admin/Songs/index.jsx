@@ -26,7 +26,7 @@ const ViewAllSongs = () => {
         </div>
         <div className="page_box">
         <div className="header">
-        <h2 className="heading">View All Songs</h2>
+        <h2 className="page_heading">All Songs</h2>
         <Button className ={"button add_song"} name ={'Add Song'} onSubmit={handleOpenModal}>Add Song</Button>
         </div>
         <Songs/>

@@ -36,4 +36,7 @@ button:disabled:hover{
   flex-direction: column;
   gap: 30px;
   flex: 1;
+  border-right: 5px solid var(--secondaryColor);
+  padding-right: 30px;
 }
+

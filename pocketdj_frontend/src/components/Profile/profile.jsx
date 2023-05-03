@@ -98,14 +98,17 @@ const user = useSelector((state) => state.user);
 
   return (
     <div className="profile_page">
+    <div className="cover_image">
     <h2 className="profile_title">Hello {first_name}</h2>
     <img className='user_image' src={profile}/>
       <Input name="Profile Picture" type ="file" onChange={handleProfile} />
+    </div>
+    <div className="profile_inputs">
       <Input name="First Name" type ="text" value={first_name} onChange={updateFirstName} />
       <Input name="Last Name" type ="text" value={last_name} onChange={updateLastName} />
       <Button className ={"button"} name ={'Submit'} onSubmit={onSubmit}/>
       <p className="message">{message}</p>
-    
+      </div>
     </div>
   )
 }

@@ -214,14 +214,19 @@ const UploadSong = () => {
 
   return (
     <div className="profile_page">
+    <div className="cover_image">
     <img className='song_cover' src={coverURL}/>
       <Input name="Song Cover" type ="file" onChange={handleCover} />
+    </div>
+    <div className="inputs">
       <Input name="Song Name" type ="text" onChange={handleName} />
       <Input name="Song Audio File" type ="file" onChange={handleAudio} />
       <MoodsSelectList onChange={handleMoodChange} value={selectedMood} />
       <div className = "buttons">
       <Button className ={"button"} name ={'Prepare Song to Upload'} onSubmit={getDetails}/>
       <Button className ={"button"} name ={'Submit'} onSubmit={handleSubmit} isDisabled={!isFirstButtonClicked}/>
+      </div>
+      <p className="message">{message}</p>
       </div>
     </div>
   )

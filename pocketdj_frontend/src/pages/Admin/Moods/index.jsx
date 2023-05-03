@@ -26,7 +26,7 @@ const ViewAllMoods = () => {
         </div>
         <div className="page_box">
         <div className="header">
-        <h2 className="heading">View All Moods</h2>
+        <h2 className="page_heading">All Moods</h2>
         <Button className ={"button add_song"} name ={'Add Mood'} onSubmit={handleOpenModal}></Button>
         </div>
         <Moods/>

@@ -25,6 +25,7 @@ const Navigation = ({role}) => {
         <Link to="/admin/users" className={`nav_link ${location.pathname === "/admin/users" ? activeClass : ""}`}>All Users</Link>
         <Link to="/admin/artists" className={`nav_link ${location.pathname === "/admin/artists" ? activeClass : ""}`}>All Artists</Link>
         <Link to="/admin/songs" className={`nav_link ${location.pathname === "/admin/songs" ? activeClass : ""}`}>All Songs</Link>
+        <Link to="/admin/moods" className={`nav_link ${location.pathname === "/admin/moods" ? activeClass : ""}`}>All Moods</Link>
         <Link to="/admin/mood" className={`nav_link ${location.pathname === "/admin/mood" ? activeClass : ""}`}>Upload a Mood</Link>
         <Link to="/admin/song" className={`nav_link ${location.pathname === "/admin/song" ? activeClass : ""}`}>Upload a Song</Link>
         </div>

@@ -27,13 +27,12 @@ const Moods = () => {
   }, []);
 
   return (
-  <div className='fetch_users'>
                 <div className='fetch'>
                     {responses.map((response) => {
                         return <MoodItem key={response.id} mood_id={response.id} name={response.name}/>
                     })}
                 </div>
-                </div>)
+                )
 };
 
 export default Moods;

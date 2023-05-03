@@ -11,3 +11,11 @@
   background-color: var(--rgbaPrimary);
   border-radius:10px;
 }
+
+.profile_inputs {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 6vh;
+}

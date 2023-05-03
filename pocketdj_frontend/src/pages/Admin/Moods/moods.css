@@ -7,3 +7,12 @@
   padding: 0px 10px;
   font-weight: normal;
 }
+
+.page_heading {
+  border-bottom: 5px solid var(--secondaryColor);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-bottom: 5px;
+  font-size: 34px;
+  margin-left: 40px;
+}

@@ -15,7 +15,7 @@ return (
     role = "Admin"/>
     </div>
     <div className="page_box">
-    <h2 className="heading">Upload a Song</h2>
+    <h2 className="page_heading">Upload a Song</h2>
     <UploadSong/>
     </div>
     
