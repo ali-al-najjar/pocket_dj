@@ -202,7 +202,7 @@ const UploadSong = () => {
         }
       })
       .then((res)=>{
-        setMessage("Succefully Added")
+        setMessage("Successfully Added")
       })
       .catch((err=>{
         console.log(err.request.response);
