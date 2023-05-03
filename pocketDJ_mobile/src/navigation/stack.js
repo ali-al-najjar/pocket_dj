@@ -6,6 +6,7 @@ import TabStack from './TabStack';
 import PlayerScreen from '../screens/player/PlayerScreen';
 import styles from '../constants/styles';
 import Colors from '../constants/colors';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Stack = createStackNavigator();
 

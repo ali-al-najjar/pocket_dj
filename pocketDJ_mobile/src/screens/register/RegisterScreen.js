@@ -1,21 +1,28 @@
-import { View, Text, TextInput, TouchableOpacity, Image} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image,ScrollView, KeyboardAvoidingView} from "react-native";
 import styles from './styles';
 import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import constants from '../../constants/styles';
+import colors from '../../constants/colors';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "../../components/Button/Button";
 import { MaterialIcons } from '@expo/vector-icons';
 import axios from "axios";
+import * as ImagePicker from 'expo-image-picker';
+import { Feather } from '@expo/vector-icons'; 
+import * as FileSystem from 'expo-file-system';
 
 const RegisterScreen = () => {
+
   const navigation = useNavigation();
   const [first_name,setFirstName] = useState("")
   const [last_name,setLastName] = useState("")
+  const [selectedImage, setSelectedImage] = useState(null);
   const [username,setUserName] = useState("")
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
   const [confirm_password,setConfirmPassword] = useState("")
+  const [profile,setProfile] = useState("")
   const[error,setError]=useState("");
 
 
@@ -27,6 +34,51 @@ const RegisterScreen = () => {
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
         return passwordRegex.test(password);
       }
+    
+      const handleChoosePhoto = async () => {
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== 'granted') {
+          alert('Sorry, Camera roll permissions neededto make this work!');
+          return;
+        }
+        
+        let result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.Images,
+          allowsEditing: true,
+          quality: 1,
+        });
+      
+        if (!result.canceled) {
+          setSelectedImage(result.assets[0].uri)
+          const cacheDirectory = FileSystem.cacheDirectory;
+          const fileName = result.assets[0].uri.split('/').pop();
+          const filePath = `${cacheDirectory}${fileName}`;
+          try {
+            // Write the image data to a file
+            await FileSystem.copyAsync({
+              from: result.assets[0].uri,
+              to: filePath,
+            });
+    
+            // Set the profile state to the file data
+            setProfile({
+              uri: filePath,
+              type: 'image/jpeg, image/png',
+              name: fileName,
+            });
+          } catch (error) {
+            console.error(error);
+          }
+        }
+        } 
+      
+      // const handleProfile = async() =>{
+      //   const url = URL.createObjectURL(selectedImage)
+      //   const data = new FormData();
+      //   data.append("profile", url)
+      //   setProfile(url);
+      //   console.log(profile)
+      // }
 
       const handleSubmit = (e) => {
         e.preventDefault()
@@ -34,19 +86,20 @@ const RegisterScreen = () => {
         if (validateEmail(email)){
           if(validatePassword(password)){
             if(password === confirm_password) {
-                const data = {
-                  first_name: first_name,
-                  last_name: last_name,
-                  username:username,
-                  email: email,
-                  password: password,
-                  password2: confirm_password,
-                  role:"User"
-                };
+              const data = new FormData();
+              data.append("first_name", first_name);
+              data.append("last_name", last_name);
+              data.append("email", email);
+              data.append("username", username);
+              data.append("password", password);
+              data.append("password2", confirm_password);
+              data.append("role", "User");
+              data.append("profile", profile);
+
             console.log(data)
             axios.post("http://192.168.1.127:8000/register",data,{
               headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "multipart/form-data"
               }
             })
             .then((res)=>{
@@ -62,10 +115,16 @@ const RegisterScreen = () => {
             }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your password is malformed</Text></View>))
           }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your email is malformed</Text></View>))
         }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>No Empty fields are allowed</Text></View>))
+
 }
 
   return(
-    <SafeAreaView style={styles.registerContainer}>
+    <SafeAreaView style={styles.registerContainer} forceInset={{ bottom: 'never' }}>
+    <KeyboardAvoidingView       
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      enabled>
+    <ScrollView >
     <View style={constants.innerContainer}>
     <View style={constants.h1_view}>
       <Text style={constants.h1_text}>Create a new account</Text>
@@ -82,6 +141,15 @@ const RegisterScreen = () => {
           onChangeText={(text) => setLastName(text)}
           value={last_name}
         />
+      <TouchableOpacity onPress={handleChoosePhoto}>
+        <View><Text><Feather name="image" size={30} color={colors.primaryColor} /> Choose Photo</Text></View>
+      </TouchableOpacity>
+      {selectedImage && (
+        <Image
+          source={{ uri: selectedImage }}
+          style={{ width: 200, height: 200 , borderRadius:10 }}
+        />
+      )}
       <Text>Username</Text>
       <TextInput style={constants.textInput}
           placeholder="choose a username"
@@ -119,10 +187,13 @@ const RegisterScreen = () => {
         </TouchableOpacity>
         </View>
         </View>
+        </ScrollView>
+        </KeyboardAvoidingView>
         </SafeAreaView>
   )
 }
 
 export default RegisterScreen;
+
 
 

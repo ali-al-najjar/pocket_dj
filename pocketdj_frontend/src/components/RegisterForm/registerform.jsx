@@ -42,6 +42,7 @@ const handleProfile = (event) => {
   const data = new FormData();
   data.append("profile", file);
   setProfile(file);
+  
 }
 
 
@@ -68,7 +69,6 @@ const handleProfile = (event) => {
           data.append("password2", password2);
           data.append("role", "Artist");
           data.append("profile", profile);
-          
           axios.post("http://192.168.1.127:8000/register",data,{
             headers: {
               "Content-Type": "multipart/form-data"
