@@ -75,8 +75,6 @@ const UploadSong = () => {
             setTempo(response.data.tempo);
             setTimeSignature(response.data.time_signature);
             setValence(response.data.valence);
-            // setCamelot(getCamelot(key,mode))
-            // handleSubmit();
             handleFirstButtonClick();
             
           })
