@@ -63,11 +63,11 @@
 | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
 
 ### Admin Screens (Web)
-| Login screen  | Register screen |  Landing screen |
+| Login screen  | View All Users screen |  View all artists screen | View all songs screen | Upload Mood screen | Upload Song screen
 | ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
-| Home screen  | Menu Screen | Order Screen |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| ![Landing](./readme/demo/AdminLandingpage.png) | ![fsdaf](./readme/demo/admin-allusers.png) | ![fsdaf](./readme/demo/admin-allartists.png) | ![fsdaf](./readme/demo/admin-allsongs.png) | ![fsdaf](./readme/demo/adminUploadMood.png) | ![fsdaf](./readme/demo/adminUploadSong.png) |
+<!-- | Home screen  | Menu Screen | Order Screen |
+| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | -->
 
 <br><br>
 
