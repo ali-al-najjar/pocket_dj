@@ -1,7 +1,7 @@
 import './button.css';
-const Button = ({name,onSubmit,className}) => {
+const Button = ({name,onSubmit,className,isDisabled}) => {
     return (
-        <button className={className} onClick={onSubmit}>
+        <button className={className} onClick={onSubmit} disabled = {isDisabled}>
             {name}
         </button>
     );

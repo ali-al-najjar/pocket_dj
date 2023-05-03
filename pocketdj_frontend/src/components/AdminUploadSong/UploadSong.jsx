@@ -1,7 +1,7 @@
 import Button from "../Button/button";
 import Input from "../Input/input";
 import './UploadSong.css'
-import {useState } from "react";
+import {useState ,useEffect} from "react";
 import axios from "axios"
 import ArtistsSelectList from "../ArtistsSelectList/artistsSelectList";
 import MoodsSelectList from "../MoodsSelectList/moodsSelectList";
@@ -11,7 +11,7 @@ const client = process.env.REACT_APP_CLIENT_KEY
 const secret = process.env.REACT_APP_CLIENT_SECRET
 
 const UploadSong = () => {
-
+  const [isFirstButtonClicked, setIsFirstButtonClicked] = useState(false);
   const [name, setName] = useState("");
   const [cover, setCover] = useState("");
   const [link, setLink] = useState("");
@@ -75,8 +75,10 @@ const UploadSong = () => {
             setTempo(response.data.tempo);
             setTimeSignature(response.data.time_signature);
             setValence(response.data.valence);
-            setCamelot(await getCamelot(key,mode))
-            handleSubmit();
+            // setCamelot(getCamelot(key,mode))
+            // handleSubmit();
+            handleFirstButtonClick();
+            
           })
           .catch(error => {
             console.log(error);
@@ -135,6 +137,11 @@ const UploadSong = () => {
       return null;
     };
 
+  const handleFirstButtonClick = () => {
+      setIsFirstButtonClicked(true);
+    }
+
+
   const handleArtistChange = (event) => {
     const selectedId = event.target.value;
     const selectedName = event.target.options[event.target.selectedIndex].text;
@@ -167,6 +174,8 @@ const UploadSong = () => {
   }
 
   const handleSubmit = () =>{
+    const camelot = getCamelot(key, mode);
+    setCamelot(camelot);
     const token = localStorage.getItem('token');
       const data = {
         "name" : name,
@@ -212,7 +221,10 @@ const UploadSong = () => {
       <Input name="Song Audio File" type ="file" onChange={handleAudio} />
       <MoodsSelectList onChange={handleMoodChange} value={selectedMood} />
       <ArtistsSelectList onChange={handleArtistChange} value={selectedArtist} />
-      <Button className ={"button"} name ={'Submit'} onSubmit={getDetails}/>
+      <div className = "buttons">
+      <Button className ={"button"} name ={'Prepare Song to Upload'} onSubmit={getDetails}/>
+      <Button className ={"button"} name ={'Submit'} onSubmit={handleSubmit} isDisabled={!isFirstButtonClicked}/>
+      </div>
     </div>
   )
 }
