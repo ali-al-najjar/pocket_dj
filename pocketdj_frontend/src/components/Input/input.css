@@ -13,6 +13,15 @@ input {
 }
 
 .single_input_label{
-  font-size:25px;
+  font-size:22px;
   margin-bottom:3px;
+}
+
+input[type="file"] {
+  background-color: #f9f9f9;
+  border: 1px solid var(--black);
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
 }

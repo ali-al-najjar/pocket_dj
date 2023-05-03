@@ -2,3 +2,11 @@
   color: var(--secondaryColor);
   font-weight: bold;
 }
+
+.mood_page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 40px;
+  width: 50%;
+}

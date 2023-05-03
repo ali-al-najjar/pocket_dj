@@ -1,7 +1,8 @@
 .profile_page {
   display: flex;
-  flex-direction: column;
-  gap:20px;
+  flex-direction: row;
+  gap: 40px;
+  margin-left: 40px;
 }
 
 .user_image{

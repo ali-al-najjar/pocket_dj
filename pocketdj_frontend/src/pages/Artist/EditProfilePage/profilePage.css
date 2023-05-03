@@ -20,7 +20,7 @@
   margin-left:40px;
   gap:50px;
   width:70%;
-  margin-top: 10vh;
+  padding-top: 10vh;
   overflow-y: auto;
   overflow-x: hidden;
 }

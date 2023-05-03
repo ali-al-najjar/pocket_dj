@@ -48,7 +48,7 @@ const UploadMood = () => {
 
 
   return (
-    <div className="profile_page">
+    <div className="mood_page">
     <img className='song_cover'src={coverURL}/>
       <Input name="Mood Cover" type ="file" onChange={handleCover} />
       <Input name="Mood Name" type ="text" onChange={handleName} />

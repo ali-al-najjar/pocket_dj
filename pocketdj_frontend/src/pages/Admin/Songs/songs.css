@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 3%;
+}
+.add_song {
+  padding: 0px 10px;
+  font-weight: normal;
+}

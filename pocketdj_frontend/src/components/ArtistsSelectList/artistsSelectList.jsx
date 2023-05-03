@@ -32,7 +32,8 @@ const handleSelect = (event) => {
 
 
   return (
-    <div>
+    <div className='select_input'>
+      <div className="single_input_label">Select song's Artist</div>
       <select className='select_list' value={value.id} onChange={handleSelect}>
         <option value="">Select an artist</option>
         {artists.map((artist) => (

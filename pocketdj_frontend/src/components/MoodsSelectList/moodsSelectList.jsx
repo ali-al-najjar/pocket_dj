@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const MoodsSelectList = ({ value, onChange }) => {
+const MoodsSelectList = ({value, onChange }) => {
   const [moods, setMoods] = useState([]);
   const [selectedMood, setSelectedMood] = useState("");
 
@@ -32,7 +32,8 @@ const MoodsSelectList = ({ value, onChange }) => {
   };
 
   return (
-    <div>
+    <div className='select_input'>
+      <div className="single_input_label">Select song's Mood</div>
       <select className='select_list' value={value.id} onChange={handleSelect}>
         <option value="">Select a Mood</option>
         {moods.map((mood) => (

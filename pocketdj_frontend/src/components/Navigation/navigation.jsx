@@ -1,5 +1,6 @@
 import './navigation.css';
 import { Link, useLocation } from "react-router-dom";
+import logo from '../../assets/logo.svg'
 
 const Navigation = ({role}) => {
   const location = useLocation();
@@ -20,9 +21,10 @@ const Navigation = ({role}) => {
       return (
         <div className="navigation">
         <div className="navigation_links">
-        <Link to="/admin/users" className={`nav_link ${location.pathname === "/admin/users" ? activeClass : ""}`}>View All Users</Link>
-        <Link to="/admin/artists" className={`nav_link ${location.pathname === "/admin/artists" ? activeClass : ""}`}>View All Artists</Link>
-        <Link to="/admin/songs" className={`nav_link ${location.pathname === "/admin/songs" ? activeClass : ""}`}>View All Songs</Link>
+        <div ><img className= "logo" src = {logo}></img></div>
+        <Link to="/admin/users" className={`nav_link ${location.pathname === "/admin/users" ? activeClass : ""}`}>All Users</Link>
+        <Link to="/admin/artists" className={`nav_link ${location.pathname === "/admin/artists" ? activeClass : ""}`}>All Artists</Link>
+        <Link to="/admin/songs" className={`nav_link ${location.pathname === "/admin/songs" ? activeClass : ""}`}>All Songs</Link>
         <Link to="/admin/mood" className={`nav_link ${location.pathname === "/admin/mood" ? activeClass : ""}`}>Upload a Mood</Link>
         <Link to="/admin/song" className={`nav_link ${location.pathname === "/admin/song" ? activeClass : ""}`}>Upload a Song</Link>
         </div>
