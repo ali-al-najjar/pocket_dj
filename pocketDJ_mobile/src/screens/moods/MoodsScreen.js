@@ -1,14 +1,11 @@
-import { View, Text, TextInput, TouchableOpacity, Image, FlatList,RefreshControl,StatusBar} from "react-native";
+import { View, Text,Image, FlatList} from "react-native";
 import styles from './styles';
-import constants from '../../constants/styles';
 import {useState, useEffect} from 'react';
 import { useNavigation } from "@react-navigation/native";
-import { DUMMY_DATA } from "../../../data/dummy";
 import MoodItem from "../../components/Moods/Moods/MoodItem";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getToken } from "../../auth/auth";
 import axios from 'axios';
-import { ScrollView } from "react-native-gesture-handler";
 
 const renderItem = ({item}) => {
   console.log("Rendering item with ID:", item.image);
@@ -30,7 +27,6 @@ const MoodsScreen = () => {
         },
       });
       setResponses(res.data);
-      console.log(res.data)
     } catch (err) {
       console.log(err);
     }

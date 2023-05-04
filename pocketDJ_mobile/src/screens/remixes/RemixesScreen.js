@@ -1,12 +1,9 @@
-import { View, Text, TextInput, TouchableOpacity, Image, FlatList,RefreshControl} from "react-native";
+import { View, Text,FlatList} from "react-native";
 import styles from './styles';
-import constants from '../../constants/styles';
-import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import { DUMMY_DATA } from "../../../data/remixes";
 import RemixItem from "../../components/Remix/RemixItem";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native-gesture-handler";
 import EmptyState from "../../components/EmptyState/emptyState";
 
 const renderItem = ({item}) => {

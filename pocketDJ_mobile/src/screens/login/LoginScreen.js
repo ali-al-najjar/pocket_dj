@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, Image, StatusBar} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image} from "react-native";
 import styles from './styles';
 import {useState} from 'react';
 import { useNavigation } from "@react-navigation/native";
@@ -7,7 +7,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "../../components/Button/Button";
 import { MaterialIcons } from '@expo/vector-icons';
 import axios from "axios";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { storeToken } from "../../auth/auth"
 import { useDispatch } from "react-redux";
 import { setUser } from '../../redux/slices/userSlice'
@@ -39,11 +38,9 @@ const LoginScreen = () => {
           }
         })
         .then((res)=>{
-          console.log(res.data);
           setError("");
           storeToken(res.data.token);
-          console.log(res.data.user);
-          setUser(res.data.user);
+          dispatch(setUser(res.data.user));
           navigation.navigate("Pick your mood")
         })
         .catch((err=>{
