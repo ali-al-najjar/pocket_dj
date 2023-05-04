@@ -8,6 +8,7 @@ import MoodItem from "../../components/Moods/Moods/MoodItem";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getToken } from "../../auth/auth";
 import axios from 'axios';
+import { ScrollView } from "react-native-gesture-handler";
 
 const renderItem = ({item}) => {
   console.log("Rendering item with ID:", item.image);
@@ -40,7 +41,7 @@ const MoodsScreen = () => {
   }, []);
 
   return(
-    <>
+    <ScrollView>
     <SafeAreaView style={styles.topSafeArea} >
     <Image 
       source={require('../../../assets/mood.png')}
@@ -57,7 +58,7 @@ const MoodsScreen = () => {
       renderItem = {renderItem}
       numColumns={2}
       />
-    </>
+    </ScrollView>
   )
 }
 
