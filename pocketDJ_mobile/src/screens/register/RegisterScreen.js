@@ -138,7 +138,7 @@ const RegisterScreen = () => {
       {selectedImage && (
         <Image
           source={{ uri: selectedImage }}
-          style={{ width: 200, height: 200 , borderRadius:10 }}
+          style={styles.imageStyle}
         />
       )}
       <Text>Username</Text>

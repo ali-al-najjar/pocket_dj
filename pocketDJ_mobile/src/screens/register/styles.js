@@ -11,6 +11,11 @@ uploadImageButton:{
   backgroundColor:Colors.secondaryColor,
   flexDirection:'row',
   justifyContent:'center'
+},
+imageStyle:{
+  width: 200,
+  height: 200 ,
+  borderRadius:10
 }
 })
 
