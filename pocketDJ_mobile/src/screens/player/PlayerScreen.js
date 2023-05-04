@@ -1,8 +1,6 @@
-import { View, Text, TextInput, TouchableOpacity, Image} from "react-native";
+import { View, Text,Image} from "react-native";
 import styles from './styles';
 import {useState,useEffect} from 'react';
-import { useNavigation } from "@react-navigation/native";
-import constants from '../../constants/styles';
 import { SafeAreaView } from "react-native-safe-area-context";
 import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
 import { useRoute } from '@react-navigation/native';
