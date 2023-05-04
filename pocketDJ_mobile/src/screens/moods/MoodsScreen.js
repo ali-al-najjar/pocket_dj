@@ -39,26 +39,31 @@ const MoodsScreen = () => {
   useEffect(() => {
     getMoods();
   }, []);
-
+  
+  const header = () =>{
+    return (
+      <>
+      <SafeAreaView style={styles.topSafeArea} >
+      <Image 
+        source={require('../../../assets/mood.png')}
+        style={styles.innerImageContainer}
+      />
+      </SafeAreaView>
+      <View style={styles.h1_view}>
+      <Text style={styles.h1_text}>What are you up to?</Text>
+      </View>
+      </>
+    )
+  }
   return(
-    <ScrollView>
-    <SafeAreaView style={styles.topSafeArea} >
-    <Image 
-      source={require('../../../assets/mood.png')}
-      style={styles.innerImageContainer}
-    />
-    </SafeAreaView>
-    <View style={styles.h1_view}>
-    <Text style={styles.h1_text}>What are you up to?</Text>
-    </View>
     <FlatList 
+      ListHeaderComponent ={header}
       style={styles.flatlist}
       data= {responses}
       keyExtractor={item => item.id}
       renderItem = {renderItem}
       numColumns={2}
       />
-    </ScrollView>
   )
 }
 
