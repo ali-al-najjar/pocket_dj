@@ -10,9 +10,11 @@ const user = useSelector((state) => state.user);
  const token =localStorage.getItem('token');
  const [original_first_name, setOriginalFirstName] = useState();
  const [original_last_name, setOriginalLastName] = useState();
+ const [original_username, setOriginalUsername] = useState();
  const [original_profileData, setOriginalProfile] = useState();
  const [first_name, setFirstName] = useState();
  const [last_name, setLastName] = useState();
+ const [username, setUsername] = useState();
  const [profileData, setProfile] = useState();
  const [profile,setProfileURL] = useState();
  const [message,setMessage] = useState();
@@ -28,8 +30,10 @@ const user = useSelector((state) => state.user);
     });
     setFirstName(res.data.first_name);
     setLastName(res.data.last_name);
+    setUsername(res.data.username);
     setProfileURL(res.data.profile);
     setProfile(res.data.profileData);
+    setOriginalUsername(res.data.username)
     setOriginalFirstName(res.data.first_name);
     setOriginalLastName(res.data.last_name);
     setOriginalProfile(res.data.profile);
@@ -49,8 +53,11 @@ const user = useSelector((state) => state.user);
     if (profileData) {
       data.append("profile", profileData);
     }
+    if (username) {
+      data.append("username", username);
+    }
 
-    if (data.has("first_name") || data.has("last_name") || data.has("profile")) {axios.put("http://192.168.1.127:8000/update/profile",data,{
+    if (data.has("first_name") || data.has("last_name") || data.has("profile") || data.has("username")) {axios.put("http://192.168.1.127:8000/update/profile",data,{
       headers: {
         Authorization: 'Token ' + token,
         "Content-Type": "multipart/form-data"
@@ -68,6 +75,9 @@ const user = useSelector((state) => state.user);
 
   const updateFirstName = (e) =>{
     setFirstName(e.target.value)
+  }
+  const updateUsername = (e) =>{
+    setUsername(e.target.value)
   }
   const updateLastName = (e) =>{
     setLastName(e.target.value)
@@ -104,6 +114,7 @@ const user = useSelector((state) => state.user);
       <Input name="Profile Picture" type ="file" onChange={handleProfile} />
     </div>
     <div className="profile_inputs">
+      <Input name="Username" type ="text" value={username} onChange={updateUsername} />  
       <Input name="First Name" type ="text" value={first_name} onChange={updateFirstName} />
       <Input name="Last Name" type ="text" value={last_name} onChange={updateLastName} />
       <Button className ={"button"} name ={'Submit'} onSubmit={onSubmit}/>
