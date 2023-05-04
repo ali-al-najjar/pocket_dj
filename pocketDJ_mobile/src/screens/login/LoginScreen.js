@@ -9,10 +9,12 @@ import { MaterialIcons } from '@expo/vector-icons';
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { storeToken } from "../../auth/auth"
+import { useDispatch } from "react-redux";
+import { setUser } from '../../redux/slices/userSlice'
 
 const LoginScreen = () => {
   const navigation = useNavigation();
-  
+  const dispatch = useDispatch();
   const [username,setUsername] = useState("")
   const [password,setPassword] = useState("")
   const[error,setError]=useState("");
@@ -40,6 +42,8 @@ const LoginScreen = () => {
           console.log(res.data);
           setError("");
           storeToken(res.data.token);
+          console.log(res.data.user);
+          setUser(res.data.user);
           navigation.navigate("Pick your mood")
         })
         .catch((err=>{
