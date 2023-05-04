@@ -11,14 +11,14 @@ const MoodItem = ({id , name ,cover}) => {
   const handleMood=()=>{
     navigation.navigate('Player', {
       title: name,
-      image: cover,
+      image: { uri: cover },
       });
   }
   
   return (
     <TouchableOpacity onPress={handleMood}>
     <ImageBackground 
-    source={cover}
+    source={{ uri: cover }}
     imageStyle={{ borderRadius: 10}}
     style = {[styles.mood, { borderRadius: 5 }]}>
     <Text style={styles.mood_text}>{name}</Text>
