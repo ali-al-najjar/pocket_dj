@@ -53,7 +53,7 @@ const user = useSelector((state) => state.user);
     if (profileData) {
       data.append("profile", profileData);
     }
-    if (username) {
+    if (username!== original_username) {
       data.append("username", username);
     }
 

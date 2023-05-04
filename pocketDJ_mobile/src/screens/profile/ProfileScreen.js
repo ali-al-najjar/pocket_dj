@@ -8,17 +8,72 @@ import { Feather } from '@expo/vector-icons';
 import * as FileSystem from 'expo-file-system';
 import * as ImagePicker from 'expo-image-picker';
 import axios from "axios";
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import colors from '../../constants/colors';
+import { getToken } from "../../auth/auth";
 
 
 const ProfileScreen = () => {
   const user = useSelector(state => state.user);
   const [selectedImage, setSelectedImage] = useState(null);
   const [profile,setProfile] = useState(user.profile)
-  const handleSubmit = () => {
+  const [original_first_name, setOriginalFirstName] = useState(user.first_name);
+  const [original_last_name, setOriginalLastName] = useState(user.last_name);
+  const [original_username, setOriginalUsername] = useState(user.username);
+  const [original_profile, setOriginalProfile] = useState(user.profile);
+  const [first_name, setFirstName] = useState(user.first_name);
+  const [last_name, setLastName] = useState(user.last_name);
+  const [username, setUsername] = useState(user.username)
+  const [message,setMessage] = useState();
 
+  const token = getToken();
+  const tokenString = JSON.stringify(token)
+
+  const updateFirstName = (text) =>{
+    setFirstName(text)
   }
+  const updateUsername = (text) =>{
+    setUsername(text)
+  }
+  const updateLastName = (text) =>{
+    setLastName(text)
+  }
+
+  useEffect(() => {
+  }, [handleSubmit]);
+
+  const handleSubmit = () => {
+    const data = new FormData();
+    if (first_name !== original_first_name) {
+      data.append("first_name", first_name);
+    }
+    if (last_name !== original_last_name) {
+      data.append("last_name", last_name);
+    }
+    if (profile !== original_profile) {
+      data.append("profile", profile);
+    }
+    if (username!== original_username) {
+      data.append("username", username);
+    }
+
+    if (data.first_name !== "" || data.last_name !== "" || data.profile !== "" || data.username !== ""){
+      axios.put("http://192.168.1.127:8000/update/profile",data,{
+            headers: {
+            Authorization: 'Token ' + token._j,
+            "Content-Type": "multipart/form-data"
+      }
+    })
+    .then((res)=>{
+      setMessage("Succefully Updated")
+    })
+    .catch((err=>{
+      console.log(err.request.response);
+    }))}else{
+      setMessage("No Changes are made!")
+    }}
+
+
 
   const handleChoosePhoto = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -91,22 +146,23 @@ const ProfileScreen = () => {
   <Text>First Name</Text>
   <TextInput style={constants.textInput}
           placeholder={user.first_name}
-          onChangeText={(text) => setFirstName(text)}
-          value={user.first_name}
+          onChangeText={updateFirstName}
+          value={first_name}
         />
       <Text>Last Name</Text>
       <TextInput style={constants.textInput}
           placeholder={user.last_name}
-          onChangeText={(text) => setLastName(text)}
-          value={user.last_name}
+          onChangeText={updateLastName}
+          value={last_name}
         />
         <Text>Username</Text>
           <TextInput style={constants.textInput}
           placeholder={user.username}
-          onChangeText={(text) => setFirstName(text)}
-          value={user.username}
+          onChangeText={updateUsername}
+          value={username}
         />
   </View>
+  <Text>{message}</Text>
   <Button title="Submit Updates" onPress={handleSubmit} />
   </View>
   </SafeAreaView>
