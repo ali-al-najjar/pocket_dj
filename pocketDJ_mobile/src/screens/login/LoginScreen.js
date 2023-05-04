@@ -7,6 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "../../components/Button/Button";
 import { MaterialIcons } from '@expo/vector-icons';
 import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -14,6 +15,14 @@ const LoginScreen = () => {
   const [username,setUsername] = useState("")
   const [password,setPassword] = useState("")
   const[error,setError]=useState("");
+
+  const storeToken = async (token) => {
+    try {
+      await AsyncStorage.setItem('token', token);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const validatePassword=(password)=> {
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
@@ -37,6 +46,7 @@ const LoginScreen = () => {
         .then((res)=>{
           console.log(res.data);
           setError("");
+          storeToken(res.data.token);
           navigation.navigate("Pick your mood")
         })
         .catch((err=>{
