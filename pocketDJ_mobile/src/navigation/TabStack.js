@@ -8,6 +8,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import Colors from "../constants/colors";
+import ProfileScreen from "../screens/profile/ProfileScreen";
 
 
 const TabStack = () => {
@@ -52,7 +53,7 @@ const TabStack = () => {
         />
         <Tabs.Screen
         name="Profile"
-        component={RemixesScreen}
+        component={ProfileScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Entypo name="user" size={24} color={color} />
