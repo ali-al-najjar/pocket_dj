@@ -6,8 +6,8 @@ import Button from '../Button/Button';
 const EmptyState = ({ title, description,buttonName, onPress}) => {
   return (
     <View style={styles.container}>
-      <Text>{title}</Text>
-      <Text>{description}</Text>
+      <Text style ={styles.title}>{title}</Text>
+      <Text style={styles.description}>{description}</Text>
       <Button title={buttonName} onPress={onPress}></Button>
     </View>
   )
