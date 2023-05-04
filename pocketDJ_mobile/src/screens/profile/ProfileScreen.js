@@ -83,7 +83,7 @@ const ProfileScreen = () => {
         <Feather name="image" size={30} color={colors.primaryColor} />
         </View>
         <View>
-        <Text>Update Photo</Text>
+        <Text style={constants.links}>Update Photo</Text>
         </View>
     </View>
   </TouchableOpacity>
