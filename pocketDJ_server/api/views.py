@@ -50,6 +50,8 @@ class UpdateUserProfile(generics.UpdateAPIView):
             user.last_name = request.data['last_name']
         if request.data.get('profile'):
             user.profile = request.data['profile']
+        if request.data.get('username'):
+            user.username = request.data['username']
         
         user.save()
 
