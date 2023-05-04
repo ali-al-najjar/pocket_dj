@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   remixesContainer: {
     flex:1,
     gap:30,
-    marginTop:10
+    marginTop:10,
   },
   h1_view: {
     borderBottomWidth :6,
@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
     color:Colors.black,
     fontWeight:'bold',
     paddingBottom:10,
+  },
+  flatList:{
+    
   }
 })
 

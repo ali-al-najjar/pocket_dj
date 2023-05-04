@@ -28,6 +28,7 @@ const RemixesScreen = () => {
     <>
     <SafeAreaView style={{ flex: 1, marginBottom: 0 }} edges={[]}>
     <FlatList 
+      style={styles.flatList}
       ListHeaderComponent ={header}
       ListEmptyComponent={
       <EmptyState     

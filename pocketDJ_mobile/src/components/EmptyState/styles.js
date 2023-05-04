@@ -3,10 +3,12 @@ import Colors from '../../constants/colors';
  
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
+    padding:20,
+    marginTop:"60%",
+    gap:10,
   },
   title: {
     width: '100%',
