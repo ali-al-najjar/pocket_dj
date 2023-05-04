@@ -19,6 +19,14 @@ imageUpload:{
   alignItems:'center',
   flexDirection:'row',
   gap:5
+},
+messageText:{
+  color:Colors.primaryColor,
+  fontWeight:'bold'
+},
+cancelButton:{
+  width:'20%',
+  fontSize:"12px"
 }
 
 

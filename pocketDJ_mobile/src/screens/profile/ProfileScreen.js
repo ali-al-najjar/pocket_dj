@@ -1,7 +1,7 @@
 import { View, Text,Image,TextInput,TouchableOpacity} from "react-native";
 import styles from './styles';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch } from "react-redux";
 import Button from "../../components/Button/Button";
 import constants from "../../constants/styles"
 import { Feather } from '@expo/vector-icons'; 
@@ -11,10 +11,11 @@ import axios from "axios";
 import {useState,useEffect} from 'react';
 import colors from '../../constants/colors';
 import { getToken } from "../../auth/auth";
-
+import { setUser } from '../../redux/slices/userSlice'
 
 const ProfileScreen = () => {
   const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
   const [selectedImage, setSelectedImage] = useState(null);
   const [profile,setProfile] = useState(user.profile)
   const [original_first_name, setOriginalFirstName] = useState(user.first_name);
@@ -24,7 +25,7 @@ const ProfileScreen = () => {
   const [first_name, setFirstName] = useState(user.first_name);
   const [last_name, setLastName] = useState(user.last_name);
   const [username, setUsername] = useState(user.username)
-  const [message,setMessage] = useState();
+  const [message,setMessage] = useState("");
 
   const token = getToken();
   const tokenString = JSON.stringify(token)
@@ -39,8 +40,7 @@ const ProfileScreen = () => {
     setLastName(text)
   }
 
-  useEffect(() => {
-  }, [handleSubmit]);
+
 
   const handleSubmit = () => {
     const data = new FormData();
@@ -65,7 +65,12 @@ const ProfileScreen = () => {
       }
     })
     .then((res)=>{
-      setMessage("Succefully Updated")
+      setTimeout(() => {
+        setMessage("Successfully Updated")
+      }, 2000);
+      
+      dispatch(setUser(res.data));
+      setSelectedImage(null);
     })
     .catch((err=>{
       console.log(err.request.response);
@@ -126,7 +131,7 @@ const ProfileScreen = () => {
   {selectedImage ? (
     <View>
       <Image source={{ uri: selectedImage }} style={styles.imageStyle} />
-      <Button title ={"Cancel"} onPress={() => setSelectedImage(null)} />
+      <Button style={styles.cancelButton} title ={"Cancel"} onPress={() => setSelectedImage(null)} />
     </View>
   ) : (
     <Image source={{ uri: user.profile }} style={styles.imageStyle} />
@@ -162,7 +167,7 @@ const ProfileScreen = () => {
           value={username}
         />
   </View>
-  <Text>{message}</Text>
+  <View ><Text className={styles.messageText}>{message}</Text></View>
   <Button title="Submit Updates" onPress={handleSubmit} />
   </View>
   </SafeAreaView>
