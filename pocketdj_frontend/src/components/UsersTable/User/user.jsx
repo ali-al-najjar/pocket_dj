@@ -31,12 +31,12 @@ const User = ({user_id, first_name , last_name, email}) => {
 
     return(
         <div className='user'>
-        <p>{first_name}</p>
-        <p>{last_name}</p>
-        <p>{email}</p>
+        <div className="first_name"><div className="inner">{first_name}</div></div>
+        <div className="last_name"><div className="inner">{last_name}</div></div>
+        <div className="email"><div className="inner">{email}</div></div>
         <Button className = {"delete_button"} name={"Delete"} onSubmit={handleSubmit}/>
         </div>
     )
       
       }
-export default User
+export default User;
