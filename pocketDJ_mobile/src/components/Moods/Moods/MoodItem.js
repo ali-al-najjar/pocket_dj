@@ -4,24 +4,24 @@ import { useNavigation } from "@react-navigation/native";
 
 
 
-const MoodItem = ({id , title ,image}) => {
+const MoodItem = ({id , name ,cover}) => {
   const navigation = useNavigation();
-  console.log(image)
+  console.log(cover)
 
   const handleMood=()=>{
     navigation.navigate('Player', {
-      title: title,
-      image: image,
+      title: name,
+      image: cover,
       });
   }
   
   return (
     <TouchableOpacity onPress={handleMood}>
     <ImageBackground 
-    source={image}
+    source={cover}
     imageStyle={{ borderRadius: 10}}
     style = {[styles.mood, { borderRadius: 5 }]}>
-    <Text style={styles.mood_text}>{title}</Text>
+    <Text style={styles.mood_text}>{name}</Text>
     </ImageBackground>
     </TouchableOpacity>
   )
