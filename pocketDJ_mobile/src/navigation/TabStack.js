@@ -13,13 +13,19 @@ import Colors from "../constants/colors";
 const TabStack = () => {
   const Tabs = createBottomTabNavigator();
   return (
-    <Tabs.Navigator screenOptions={{ headerShown: false }}>
+    <Tabs.Navigator 
+    screenOptions={{ headerShown: false }}
+    tabBarOptions={{
+      activeTintColor: Colors.primaryColor, // set the active icon color
+      inactiveTintColor: Colors.black // set the inactive icon color
+    }}>
+
       <Tabs.Screen
         name="Create"
         component={MoodsScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <AntDesign name="pluscircleo" size={24} color = {Colors.black} />
+            <AntDesign name="pluscircleo" size={24} color = {color} />
           ),
           
         }}
@@ -29,7 +35,7 @@ const TabStack = () => {
         component={SearchScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Octicons name="search" size={24} color={Colors.black} />
+            <Octicons name="search" size={24} color={color} />
           ),
           
         }}
@@ -39,7 +45,17 @@ const TabStack = () => {
         component={RemixesScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Entypo name="folder-music" size={24} color={Colors.black} />
+            <Entypo name="folder-music" size={24} color={color} />
+          ),
+          
+        }}
+        />
+        <Tabs.Screen
+        name="Profile"
+        component={RemixesScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="user" size={24} color={color} />
           ),
           
         }}

@@ -54,13 +54,11 @@ const RegisterScreen = () => {
           const fileName = result.assets[0].uri.split('/').pop();
           const filePath = `${cacheDirectory}${fileName}`;
           try {
-            // Write the image data to a file
             await FileSystem.copyAsync({
               from: result.assets[0].uri,
               to: filePath,
             });
-    
-            // Set the profile state to the file data
+
             setProfile({
               uri: filePath,
               type: 'image/jpeg, image/png',
@@ -71,14 +69,7 @@ const RegisterScreen = () => {
           }
         }
         } 
-      
-      // const handleProfile = async() =>{
-      //   const url = URL.createObjectURL(selectedImage)
-      //   const data = new FormData();
-      //   data.append("profile", url)
-      //   setProfile(url);
-      //   console.log(profile)
-      // }
+
 
       const handleSubmit = (e) => {
         e.preventDefault()
