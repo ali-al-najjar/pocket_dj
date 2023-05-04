@@ -132,15 +132,16 @@ const RegisterScreen = () => {
           onChangeText={(text) => setLastName(text)}
           value={last_name}
         />
-      <TouchableOpacity onPress={handleChoosePhoto}>
-        <View><Text><Feather name="image" size={30} color={colors.primaryColor} /> Choose Photo</Text></View>
-      </TouchableOpacity>
+
       {selectedImage && (
         <Image
           source={{ uri: selectedImage }}
           style={styles.imageStyle}
         />
       )}
+        <TouchableOpacity onPress={handleChoosePhoto}>
+        <View><Text><Feather name="image" size={30} color={colors.primaryColor} /> Choose Photo</Text></View>
+        </TouchableOpacity>
       <Text>Username</Text>
       <TextInput style={constants.textInput}
           placeholder="choose a username"
