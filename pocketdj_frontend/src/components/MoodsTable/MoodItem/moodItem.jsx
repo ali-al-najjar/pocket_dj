@@ -30,8 +30,8 @@ const MoodItem = ({mood_id, name}) => {
     }
 
     return(
-        <div className='user'>
-        <p>{name}</p>
+        <div className='mood'>
+        <div className="mood_name">{name}</div>
         <Button className = {"delete_button"} name={"Delete"} onSubmit={handleSubmit}/>
         </div>
     )
