@@ -24,7 +24,8 @@ const RemixesScreen = () => {
     )
   }
   return(
-    <SafeAreaView style={styles.remixesContainer}>
+    <>
+    <SafeAreaView style={{ flex: 1, marginBottom: 0 }} edges={[]}>
     <FlatList 
       ListHeaderComponent ={header}
       data= {DUMMY_DATA}
@@ -32,6 +33,7 @@ const RemixesScreen = () => {
       renderItem = {renderItem}
       />
     </SafeAreaView>
+    </>
   )
 }
 
