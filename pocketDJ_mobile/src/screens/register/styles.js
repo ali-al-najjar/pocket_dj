@@ -16,6 +16,11 @@ imageStyle:{
   width: 200,
   height: 200 ,
   borderRadius:10
+},
+imageUpload:{
+  alignItems:'center',
+  flexDirection:'row',
+  gap:5
 }
 })
 
