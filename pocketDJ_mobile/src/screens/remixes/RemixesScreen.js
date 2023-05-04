@@ -29,7 +29,15 @@ const RemixesScreen = () => {
     <SafeAreaView style={{ flex: 1, marginBottom: 0 }} edges={[]}>
     <FlatList 
       ListHeaderComponent ={header}
-      ListEmptyComponent={<EmptyState title={"No Remixes Created!"} description={"This page will show all your saved remixes"} buttonName={"Create"} action={navigation.navigate("Pick your mood")} />}
+      ListEmptyComponent={
+      <EmptyState     
+        title={"No Remixes Created!"}
+        description={"This page will show all your saved remixes"}
+        buttonName={"Create"}
+        onPress={()=> {
+          console.log("Button pressed!");
+          navigation.navigate("Pick your mood");}}
+      />}
       data= {DUMMY_DATA}
       keyExtractor={item => item.id}
       renderItem = {renderItem}
