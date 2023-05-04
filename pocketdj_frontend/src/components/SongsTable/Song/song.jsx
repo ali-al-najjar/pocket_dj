@@ -30,9 +30,9 @@ const Song = ({song_id, name , artist_name}) => {
     }
 
     return(
-        <div className='user'>
-        <p>{name}</p>
-        <p>{artist_name}</p>
+        <div className='song'>
+        <div className="song_name">{name}</div>
+        <div className="artist_name">{artist_name}</div>
         <Button className = {"delete_button"} name={"Delete"} onSubmit={handleSubmit}/>
         </div>
     )
