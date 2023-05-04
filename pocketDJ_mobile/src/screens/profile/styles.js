@@ -3,9 +3,8 @@ import Colors from '../../constants/colors';
  
 const styles = StyleSheet.create({
 profileContainer:{
- gap:20,
+ gap:10,
  justifyContent:'center',
- margin:20
 },
 imageStyle:{
   width: 200,
@@ -13,20 +12,30 @@ imageStyle:{
   borderRadius:10,
 },
 updateInputs:{
-  gap:10
+  gap:10,
+  margin:10
 },
 imageUpload:{
   alignItems:'center',
   flexDirection:'row',
-  gap:5
+  gap:5,
+  margin:10
 },
 messageText:{
   color:Colors.primaryColor,
   fontWeight:'bold'
 },
 cancelButton:{
-  width:'20%',
-  fontSize:"12px"
+  width:'20px',
+  fontSize:12
+},
+uploadContainer:{
+  gap:20,
+  margin:10
+},
+header:{
+  width:'90%',
+  marginLeft:'2%'
 }
 
 

@@ -1,4 +1,4 @@
-import { View, Text,Image,TextInput,TouchableOpacity} from "react-native";
+import { View, Text,Image,TextInput,TouchableOpacity, ScrollView} from "react-native";
 import styles from './styles';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useSelector , useDispatch } from "react-redux";
@@ -28,7 +28,6 @@ const ProfileScreen = () => {
   const [message,setMessage] = useState("");
 
   const token = getToken();
-  const tokenString = JSON.stringify(token)
 
   const updateFirstName = (text) =>{
     setFirstName(text)
@@ -122,19 +121,24 @@ const ProfileScreen = () => {
 
   console.log(user)
   return (
-  <SafeAreaView >
+  <ScrollView>
+  <SafeAreaView>
   <View style = {styles.profileContainer} >
+  <View style={styles.header}>
   <View style={constants.h1_view}>
     <Text style={constants.h1_text}>Hello {user.first_name} {user.last_name}</Text>
   </View>
+  </View>
   <View style={styles.cover_container}>
   {selectedImage ? (
-    <View>
+    <View style={styles.uploadContainer}>
       <Image source={{ uri: selectedImage }} style={styles.imageStyle} />
       <Button style={styles.cancelButton} title ={"Cancel"} onPress={() => setSelectedImage(null)} />
     </View>
   ) : (
+    <View style={styles.uploadContainer}>
     <Image source={{ uri: user.profile }} style={styles.imageStyle} />
+    </View>
   )}
   </View>
   <TouchableOpacity onPress={handleChoosePhoto}>
@@ -171,7 +175,7 @@ const ProfileScreen = () => {
   <Button title="Submit Updates" onPress={handleSubmit} />
   </View>
   </SafeAreaView>
-
+  </ScrollView>
   )}
 
 export default ProfileScreen;
