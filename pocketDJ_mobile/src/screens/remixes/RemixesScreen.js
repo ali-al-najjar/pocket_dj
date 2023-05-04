@@ -7,6 +7,7 @@ import { DUMMY_DATA } from "../../../data/remixes";
 import RemixItem from "../../components/Remix/RemixItem";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
+import EmptyState from "../../components/EmptyState/emptyState";
 
 const renderItem = ({item}) => {
   console.log("Rendering item with ID:", item.id);
@@ -28,6 +29,7 @@ const RemixesScreen = () => {
     <SafeAreaView style={{ flex: 1, marginBottom: 0 }} edges={[]}>
     <FlatList 
       ListHeaderComponent ={header}
+      ListEmptyComponent={<EmptyState title={"No Remixes Created!"} description={"This page will show all your saved remixes"} buttonName={"Create"} action={navigation.navigate("Pick your mood")} />}
       data= {DUMMY_DATA}
       keyExtractor={item => item.id}
       renderItem = {renderItem}
