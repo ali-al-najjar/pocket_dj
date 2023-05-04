@@ -78,10 +78,13 @@ const ProfileScreen = () => {
   )}
   </View>
   <TouchableOpacity onPress={handleChoosePhoto}>
-    <View>
-      <Text>
-        <Feather name="image" size={30} color={colors.primaryColor} /> Update Photo
-      </Text>
+    <View style={styles.imageUpload}>
+      <View>
+        <Feather name="image" size={30} color={colors.primaryColor} />
+        </View>
+        <View>
+        <Text>Update Photo</Text>
+        </View>
     </View>
   </TouchableOpacity>
   <View style={styles.updateInputs}>

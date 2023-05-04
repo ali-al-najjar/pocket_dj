@@ -14,6 +14,11 @@ imageStyle:{
 },
 updateInputs:{
   gap:10
+},
+imageUpload:{
+  alignItems:'center',
+  flexDirection:'row',
+  gap:5
 }
 
 
