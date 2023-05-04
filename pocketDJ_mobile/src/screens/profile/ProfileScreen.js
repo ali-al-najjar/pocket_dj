@@ -121,7 +121,6 @@ const ProfileScreen = () => {
 
   console.log(user)
   return (
-  <ScrollView>
   <SafeAreaView>
   <View style = {styles.profileContainer} >
   <View style={styles.header}>
@@ -170,12 +169,12 @@ const ProfileScreen = () => {
           onChangeText={updateUsername}
           value={username}
         />
-  </View>
+  
   <View ><Text className={styles.messageText}>{message}</Text></View>
   <Button title="Submit Updates" onPress={handleSubmit} />
   </View>
+  </View>
   </SafeAreaView>
-  </ScrollView>
   )}
 
 export default ProfileScreen;
