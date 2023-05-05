@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/slices/UserDetailSlice';
 import { setToken } from '../../redux/slices/UserAuthSlice';
+import { setRole } from "../../redux/slices/UserRoleSlice";
 
 
 const LoginForm = ({role}) => {
@@ -43,16 +44,18 @@ const handleUsername=(e)=>{
           })
           .then((res)=>{
             setError("");
-            if (role == "Artist" && res.data.role == role){
+            if (role === "Artist" && res.data.role === role){
             window.localStorage.setItem('token',res.data.token)
             dispatch(setToken(res.data.token));
             dispatch(setUser(res.data.user));
+            dispatch(setRole(res.data.role));
             navigator("/artist/upload")
           }
-            else if (role == "Admin" && res.data.role == role){
+            else if (role === "Admin" && res.data.role === role){
             dispatch(setToken(res.data.token));
             window.localStorage.setItem('token',res.data.token)
             dispatch(setUser(res.data.user));
+            dispatch(setRole(res.data.role));
             navigator("/admin/users")
           }
             else (
