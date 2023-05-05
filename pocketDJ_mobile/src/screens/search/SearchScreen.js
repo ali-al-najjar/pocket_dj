@@ -9,11 +9,9 @@ import { getToken } from "../../auth/auth";
 import axios from 'axios';
 
 const renderSong = ({item}) => {
-  console.log("Rendering item with ID:", item.image);
   return <MoodItem id={item.id} name={item.name} cover={item.cover} />
 }
 const renderArtist = ({item}) => {
-  console.log("Rendering item with ID:", item.image);
   return <MoodItem id={item.id} name={item.first_name +" " + item.last_name}  cover={item.profile} />
 }
 
@@ -32,6 +30,7 @@ const SearchScreen = () => {
 
   const handleSearch = (text) => {
     setSearch(text);
+    console.log(search);
   };
 
   const onRefresh = useCallback(() => {

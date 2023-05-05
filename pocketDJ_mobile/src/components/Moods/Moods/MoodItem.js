@@ -6,7 +6,6 @@ import { useNavigation } from "@react-navigation/native";
 
 const MoodItem = ({id , name ,cover}) => {
   const navigation = useNavigation();
-  console.log(cover)
 
   const handleMood=()=>{
     navigation.navigate('Player', {
