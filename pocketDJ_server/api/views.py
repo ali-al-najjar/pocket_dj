@@ -78,7 +78,7 @@ class DeleteUser(generics.UpdateAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 class GetArtists(generics.ListAPIView):
-    queryset = User.objects.filter(isDeleted=True)
+    queryset = User.objects.filter(role='Artist',isDeleted=True)
     serializer_class = UserSerializer
 
 class UserDetails(APIView):
