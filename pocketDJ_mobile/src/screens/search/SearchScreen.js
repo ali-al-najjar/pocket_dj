@@ -1,6 +1,6 @@
-import { View, Text,Image, FlatList, ScrollView} from "react-native";
+import { React,View, Text,Image, FlatList, ScrollView,RefreshControl} from "react-native";
 import styles from './styles';
-import {useState, useEffect} from 'react';
+import {useState, useEffect,useCallback} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import MoodItem from "../../components/Moods/Moods/MoodItem";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -21,6 +21,16 @@ const SearchScreen = () => {
   const token = getToken();
   const [songs, setSongs] = useState([]);
   const [artists, setArtists] = useState([]);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+      getArtists();
+      getSongs();
+    }, 1000);
+  }, []);
 
   const getSongs = async () => {
     try {
@@ -73,7 +83,11 @@ const SearchScreen = () => {
     )
   }
   return(
-    <ScrollView>
+    <SafeAreaView>
+    <ScrollView
+    refreshControl={
+      <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+      >
       <SafeAreaView style={styles.topSafeArea} >
       <Image 
         source={require('../../../assets/mood.png')}
@@ -89,6 +103,7 @@ const SearchScreen = () => {
     keyExtractor={item => item.id}
     renderItem = {renderArtist}
     horizontal
+    showsHorizontalScrollIndicator={false}
     />
     <FlatList 
       style={styles.flatlist}
@@ -96,8 +111,10 @@ const SearchScreen = () => {
       keyExtractor={item => item.id}
       renderItem = {renderSong}
       horizontal
+      showsHorizontalScrollIndicator={false}
       />
       </ScrollView>
+      </SafeAreaView>
   )
 }
 
