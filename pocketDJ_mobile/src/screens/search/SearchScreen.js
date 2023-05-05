@@ -26,10 +26,7 @@ const SearchScreen = () => {
     cover:""
   })
   const [search, setSearch] = useState('');
-  const [searchResult, setSearchResult] = useState({
-    songs: [],
-    artists: []
-  });
+  const [searchResult, setSearchResult] = useState([]);
 
   const handleSearch = (text) => {
     setSearch(text);
@@ -76,16 +73,12 @@ const SearchScreen = () => {
     }
   };
 
-  // useEffect(() => {
-  //   getArtists();
-  //   getSongs();
-  // }, []);
-
   useEffect(() => {
     const getSearch = async () => {
       if (search ==""){
-        getArtists();
         getSongs();
+        getArtists();
+        
       }
       try {
         const res = await axios({
@@ -151,9 +144,6 @@ const SearchScreen = () => {
       />
       </SafeAreaView>
       </ScrollView>
-      
-      
-      
   )
 }
 

@@ -38,7 +38,7 @@ const RegisterScreen = () => {
       const handleChoosePhoto = async () => {
         const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
         if (status !== 'granted') {
-          alert('Sorry, Camera roll permissions neededto make this work!');
+          alert('Sorry, Camera roll permissions needed to make this work!');
           return;
         }
         
