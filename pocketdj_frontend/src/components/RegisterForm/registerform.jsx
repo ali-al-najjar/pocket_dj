@@ -58,8 +58,10 @@ const handleProfile = (event) => {
       
   
   const handleSubmit=()=>{
+    if (username || first_name || email || password || password2){
     if (validateEmail(email)){
         if(validatePassword(password)){
+          if(password === password2){
           const data = new FormData();
           data.append("first_name", first_name);
           data.append("last_name", last_name);
@@ -82,9 +84,11 @@ const handleProfile = (event) => {
             console.log(err.request.response);
           }))
 
-  }}
+  }else(setError("Your don't match!"))
+}else(setError("Invalid Password"))
+}else(setError("Invalid Email"))
+}else(setError("No Empty Fields other than Last Name are allowed!"))
 }
- 
     return(
       <>
         <div className="register_input_box">
