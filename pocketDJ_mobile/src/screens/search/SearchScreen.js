@@ -1,5 +1,6 @@
-import { React,View, Text,Image, FlatList, ScrollView,RefreshControl} from "react-native";
+import { React,View, Text,Image, FlatList, ScrollView,RefreshControl,TextInput} from "react-native";
 import styles from './styles';
+import constants from '../../constants/styles';
 import {useState, useEffect,useCallback} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import MoodItem from "../../components/Moods/Moods/MoodItem";
@@ -26,6 +27,12 @@ const SearchScreen = () => {
     name:"",
     cover:""
   })
+  const [search, setSearch] = useState('');
+
+
+  const handleSearch = (text) => {
+    setSearch(text);
+  };
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -72,31 +79,24 @@ const SearchScreen = () => {
     getSongs();
   }, []);
   
-  const header = () =>{
-    return (
-      <>
-      <SafeAreaView style={styles.topSafeArea} >
-        <Text>{latest_song.name}</Text>
-      <Image 
-        source={{uri:latest_song.cover}}
-        style={styles.innerImageContainer}
-      />
-      </SafeAreaView>
-      <View style={styles.h1_view}>
-      <Text style={styles.h1_text}>What are you up to?</Text>
-      </View>
-      </>
-    )
-  }
   return(
-    <SafeAreaView
-    >
+    
     <ScrollView
     contentcontainerstyles = {styles.contentContainer}
     refreshControl={
       <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       >
+    <SafeAreaView>
       <SafeAreaView style={styles.topSafeArea} >
+      <View style={styles.search}>
+      <View>
+      <TextInput
+        placeholder="Search"
+        value={search}
+        onChangeText={handleSearch}
+      />
+      </View>
+      </View>
       <Text>{latest_song.name}</Text>
       <Image 
         source={{uri:latest_song.cover}}
@@ -122,8 +122,9 @@ const SearchScreen = () => {
       horizontal
       showsHorizontalScrollIndicator={false}
       />
-      </ScrollView>
       </SafeAreaView>
+      </ScrollView>
+      
   )
 }
 

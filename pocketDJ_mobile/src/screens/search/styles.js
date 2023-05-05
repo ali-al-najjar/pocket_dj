@@ -8,7 +8,15 @@ const styles = StyleSheet.create({
     width:"100%"
   },
   contentContainer:{
-   backgroundColor:Colors.primaryColor
+    marinTop:10
+  },
+  search:{
+      borderRadius: 10,
+      borderWidth:1, 
+      padding:10,
+      width:'80%',
+      alignItems:'center',
+      flex:1
   }
 });
 
