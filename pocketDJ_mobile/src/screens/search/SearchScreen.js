@@ -8,9 +8,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { getToken } from "../../auth/auth";
 import axios from 'axios';
 import ArtistItem from "../../components/Artists/ArtistItem";
+import SongItem from "../../components/Songs/SongItem";
 
 const renderSong = ({item}) => {
-  return <MoodItem id={item.id} name={item.name} cover={item.cover} />
+  return <SongItem id={item.id} name={item.name} cover={item.cover} />
 }
 const renderArtist = ({item}) => {
   return <ArtistItem id={item.id} name={item.first_name +" " + item.last_name}  cover={item.profile} />
