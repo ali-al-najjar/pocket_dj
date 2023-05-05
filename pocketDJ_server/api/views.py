@@ -211,31 +211,6 @@ class DeleteRequest(generics.UpdateAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-# class SearchView(APIView):
-#     permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
-    
-#     def get_queryset(self):
-#         return User.objects.none()
-    
-#     def get(self, request, format=None):
-#         query = request.GET.get('q')
-#         if not query:
-#             return Response(status=status.HTTP_400_BAD_REQUEST)
-#         songs = Song.objects.filter(Q(name__icontains=query))
-#         artists = User.objects.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query),role="Artist")
-#         song_serializer = SongSerializer(songs, many=True)
-#         artist_serializer = UserSerializer(artists, many=True)
-#         artist_data = dict(artist_serializer.data)
-#         for song in song_serializer.data:
-#             artist_id = song.pop('artist', None)
-#             if artist_id:
-#                 song['artist'] = artist_data.get(artist_id)
-                    
-#         return Response({
-#             'songs': song_serializer.data,
-#             'artists': artist_serializer.data
-#         })
-
 class SearchView(APIView):
     permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
     
