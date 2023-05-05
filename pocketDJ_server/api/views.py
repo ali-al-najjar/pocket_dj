@@ -9,8 +9,9 @@ from .models import Request
 from .models import Mood
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import generics , status
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,DjangoModelPermissionsOrAnonReadOnly
 from rest_framework import permissions
+from django.db.models import Q
 
 class IsAdmin(permissions.BasePermission):
     def has_permission(self, request, view):
@@ -210,7 +211,69 @@ class DeleteRequest(generics.UpdateAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+# class SearchView(APIView):
+#     permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
+    
+#     def get_queryset(self):
+#         return User.objects.none()
+    
+#     def get(self, request, format=None):
+#         query = request.GET.get('q')
+#         if not query:
+#             return Response(status=status.HTTP_400_BAD_REQUEST)
+#         songs = Song.objects.filter(Q(name__icontains=query))
+#         artists = User.objects.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query),role="Artist")
+#         song_serializer = SongSerializer(songs, many=True)
+#         artist_serializer = UserSerializer(artists, many=True)
+#         artist_data = dict(artist_serializer.data)
+#         for song in song_serializer.data:
+#             artist_id = song.pop('artist', None)
+#             if artist_id:
+#                 song['artist'] = artist_data.get(artist_id)
+                    
+#         return Response({
+#             'songs': song_serializer.data,
+#             'artists': artist_serializer.data
+#         })
 
+class SearchView(APIView):
+    permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
+    
+    def get_queryset(self):
+        return User.objects.none()
+    
+    def get(self, request, format=None):
+        query = request.GET.get('q')
+        if not query:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+        songs = Song.objects.filter(Q(name__icontains=query))
+        artists = User.objects.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query), role="Artist")
+
+        if songs:
+            song_serializer = SongSerializer(songs, many=True,context={'request': request})
+            artist_ids = songs.values_list('artist_id', flat=True)
+            artists = User.objects.filter(id__in=artist_ids, role="Artist")
+            artist_serializer = UserSerializer(artists, many=True,context={'request': request})
+            return Response({
+                'songs': song_serializer.data,
+                'artists': artist_serializer.data
+            })
+
+        if artists:
+            artist_serializer = UserSerializer(artists, many=True)
+            song_ids = Song.objects.filter(artist_id__in=artists).values_list('id', flat=True)
+            songs = Song.objects.filter(id__in=song_ids)
+            song_serializer = SongSerializer(songs, many=True)
+            return Response({
+                'songs': song_serializer.data,
+                'artists': artist_serializer.data
+            })
+
+        return Response({
+            'songs': [],
+            'artists': []
+    })
 
 
 

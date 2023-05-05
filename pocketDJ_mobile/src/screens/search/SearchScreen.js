@@ -22,6 +22,10 @@ const SearchScreen = () => {
   const [songs, setSongs] = useState([]);
   const [artists, setArtists] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
+  const [latest_song, setLatestSong] = useState({
+    name:"",
+    cover:""
+  })
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -42,6 +46,7 @@ const SearchScreen = () => {
         },
       });
       setSongs(res.data);
+      setLatestSong({name: res.data[0].name, cover:res.data[0].cover} )
     } catch (err) {
       console.log(err);
     }
@@ -71,8 +76,9 @@ const SearchScreen = () => {
     return (
       <>
       <SafeAreaView style={styles.topSafeArea} >
+        <Text>{latest_song.name}</Text>
       <Image 
-        source={require('../../../assets/mood.png')}
+        source={{uri:latest_song.cover}}
         style={styles.innerImageContainer}
       />
       </SafeAreaView>
@@ -83,15 +89,18 @@ const SearchScreen = () => {
     )
   }
   return(
-    <SafeAreaView>
+    <SafeAreaView
+    >
     <ScrollView
+    contentcontainerstyles = {styles.contentContainer}
     refreshControl={
       <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       >
       <SafeAreaView style={styles.topSafeArea} >
+      <Text>{latest_song.name}</Text>
       <Image 
-        source={require('../../../assets/mood.png')}
-        style={styles.innerImageContainer}
+        source={{uri:latest_song.cover}}
+        style={styles.songImageContainer}
       />
       </SafeAreaView>
       <View style={styles.h1_view}>
