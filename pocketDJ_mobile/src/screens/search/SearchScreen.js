@@ -30,7 +30,6 @@ const SearchScreen = () => {
 
   const handleSearch = (text) => {
     setSearch(text);
-    console.log(search);
   };
 
   const onRefresh = useCallback(() => {
@@ -73,10 +72,30 @@ const SearchScreen = () => {
     }
   };
 
+  // useEffect(() => {
+  //   getArtists();
+  //   getSongs();
+  // }, []);
+
   useEffect(() => {
-    getArtists();
-    getSongs();
-  }, []);
+    const getSearch = async () => {
+      try {
+        const res = await axios({
+          method: 'GET',
+          url: `http://192.168.1.127:8000/search?q=${search}`,
+          headers: {
+            Authorization: 'Token ' + token,
+          },
+        });
+        setSearch(res.data);
+        setSongs(res.data.songs)
+        setArtists(res.data.artists);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getSearch();
+  }, [search]);
   
   return(
     <ScrollView
