@@ -236,10 +236,10 @@ class SearchView(APIView):
             })
 
         if artists:
-            artist_serializer = UserSerializer(artists, many=True)
+            artist_serializer = UserSerializer(artists, many=True,context={'request': request})
             song_ids = Song.objects.filter(artist_id__in=artists).values_list('id', flat=True)
             songs = Song.objects.filter(id__in=song_ids)
-            song_serializer = SongSerializer(songs, many=True)
+            song_serializer = SongSerializer(songs, many=True,context={'request': request})
             return Response({
                 'songs': song_serializer.data,
                 'artists': artist_serializer.data
