@@ -7,12 +7,13 @@ import MoodItem from "../../components/Moods/Moods/MoodItem";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getToken } from "../../auth/auth";
 import axios from 'axios';
+import ArtistItem from "../../components/Artists/ArtistItem";
 
 const renderSong = ({item}) => {
   return <MoodItem id={item.id} name={item.name} cover={item.cover} />
 }
 const renderArtist = ({item}) => {
-  return <MoodItem id={item.id} name={item.first_name +" " + item.last_name}  cover={item.profile} />
+  return <ArtistItem id={item.id} name={item.first_name +" " + item.last_name}  cover={item.profile} />
 }
 
 const SearchScreen = () => {
@@ -100,17 +101,13 @@ const SearchScreen = () => {
   }, [search]);
   
   return(
-    <ScrollView
-    stickyHeaderIndices={[0]}
-    contentcontainerstyles = {styles.contentContainer}
+    <SafeAreaView>
+    <ScrollView 
     refreshControl={
       <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       >
-    <StatusBar barStyle="dark-content" backgroundColor="#fff" />    
-    <SafeAreaView>
-
+        <View style={styles.searchContainer}>
       <View style={styles.search}>
-      <View>
       <TextInput
         placeholder="Search"
         value={search}
@@ -142,8 +139,10 @@ const SearchScreen = () => {
       horizontal
       showsHorizontalScrollIndicator={false}
       />
-      </SafeAreaView>
+
       </ScrollView>
+      </SafeAreaView>
+      
   )
 }
 
