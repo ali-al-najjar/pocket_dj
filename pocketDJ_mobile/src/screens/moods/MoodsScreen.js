@@ -8,7 +8,6 @@ import { getToken } from "../../auth/auth";
 import axios from 'axios';
 
 const renderItem = ({item}) => {
-  console.log("Rendering item with ID:", item.image);
   return <MoodItem id={item.id} name={item.name} cover={item.cover} />
 }
 

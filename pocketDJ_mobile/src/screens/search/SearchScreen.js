@@ -26,7 +26,10 @@ const SearchScreen = () => {
     cover:""
   })
   const [search, setSearch] = useState('');
-
+  const [searchResult, setSearchResult] = useState({
+    songs: [],
+    artists: []
+  });
 
   const handleSearch = (text) => {
     setSearch(text);
@@ -35,6 +38,7 @@ const SearchScreen = () => {
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
+      setSearch("")
       setRefreshing(false);
       getArtists();
       getSongs();
@@ -79,6 +83,10 @@ const SearchScreen = () => {
 
   useEffect(() => {
     const getSearch = async () => {
+      if (search ==""){
+        getArtists();
+        getSongs();
+      }
       try {
         const res = await axios({
           method: 'GET',
@@ -87,7 +95,8 @@ const SearchScreen = () => {
             Authorization: 'Token ' + token,
           },
         });
-        setSearch(res.data);
+        setSearchResult(res.data);
+        console.log(res.data)
         setSongs(res.data.songs)
         setArtists(res.data.artists);
       } catch (err) {
@@ -112,7 +121,7 @@ const SearchScreen = () => {
       <TextInput
         placeholder="Search"
         value={search}
-        onChangeText={handleSearch}
+        onChangeText={(text)=>{setSearch(text)}}
       />
       </View>
       </View>
