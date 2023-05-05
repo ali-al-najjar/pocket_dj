@@ -1,4 +1,4 @@
-import { React,View, Text,Image, FlatList, ScrollView,RefreshControl,TextInput} from "react-native";
+import { React,View, Text,Image, FlatList, ScrollView,RefreshControl,TextInput,StatusBar} from "react-native";
 import styles from './styles';
 import constants from '../../constants/styles';
 import {useState, useEffect,useCallback} from 'react';
@@ -80,14 +80,15 @@ const SearchScreen = () => {
   }, []);
   
   return(
-    
     <ScrollView
+    stickyHeaderIndices={[0]}
     contentcontainerstyles = {styles.contentContainer}
     refreshControl={
       <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       >
+    <StatusBar barStyle="dark-content" backgroundColor="#fff" />    
     <SafeAreaView>
-      <SafeAreaView style={styles.topSafeArea} >
+
       <View style={styles.search}>
       <View>
       <TextInput
@@ -102,7 +103,6 @@ const SearchScreen = () => {
         source={{uri:latest_song.cover}}
         style={styles.songImageContainer}
       />
-      </SafeAreaView>
       <View style={styles.h1_view}>
       <Text style={styles.h1_text}>What are you up to?</Text>
       </View>
@@ -124,6 +124,8 @@ const SearchScreen = () => {
       />
       </SafeAreaView>
       </ScrollView>
+      
+      
       
   )
 }

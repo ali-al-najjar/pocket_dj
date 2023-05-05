@@ -2,13 +2,14 @@ import MoodsScreen from "../screens/moods/MoodsScreen";
 import RemixesScreen from "../screens/remixes/RemixesScreen";
 import SearchScreen from "../screens/search/SearchScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import Colors from "../constants/colors";
 import ProfileScreen from "../screens/profile/ProfileScreen";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 
 const TabStack = () => {
