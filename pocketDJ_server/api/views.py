@@ -220,7 +220,7 @@ class SearchView(APIView):
     def get(self, request, format=None):
         query = request.GET.get('q')
         if not query:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response({'songs': [],'artists': []})
 
         songs = Song.objects.filter(Q(name__icontains=query))
         artists = User.objects.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query), role="Artist")
