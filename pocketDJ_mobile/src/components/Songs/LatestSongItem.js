@@ -4,10 +4,10 @@ import { useNavigation } from "@react-navigation/native";
 
 
 
-const LatestSongItem = ({id , name ,cover}) => {
+const LatestSongItem = ({id , Name ,Cover,ArtistName}) => {
   const navigation = useNavigation();
 
-  const handleArtist=()=>{
+  const handleLatestSong=()=>{
     navigation.navigate('Player', {
       title: name,
       image: { uri: cover },
@@ -15,12 +15,13 @@ const LatestSongItem = ({id , name ,cover}) => {
   }
   
   return (
-    <TouchableOpacity onPress={handleArtist}>
+    <TouchableOpacity onPress={handleLatestSong}>
     <ImageBackground 
-    source={{ uri: cover }}
+    source={{ uri: Cover }}
     imageStyle={{ borderRadius: 10}}
-    style = {[styles.song_item, { borderRadius: 5 }]}>
-    <Text style={styles.song_item_name}>{name}</Text>
+    style = {[styles.latest_song_item, { borderRadius: 5 }]}>
+    <Text style={styles.latest_artist_name}>{ArtistName}</Text>
+    <Text style={styles.latest_song_item_name}>{Name}</Text>
     </ImageBackground>
     </TouchableOpacity>
   )

@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 const SongItem = ({id , name ,cover}) => {
   const navigation = useNavigation();
 
-  const handleArtist=()=>{
+  const handleSong=()=>{
     navigation.navigate('Player', {
       title: name,
       image: { uri: cover },
@@ -15,7 +15,7 @@ const SongItem = ({id , name ,cover}) => {
   }
   
   return (
-    <TouchableOpacity onPress={handleArtist}>
+    <TouchableOpacity onPress={handleSong}>
     <ImageBackground 
     source={{ uri: cover }}
     imageStyle={{ borderRadius: 10}}

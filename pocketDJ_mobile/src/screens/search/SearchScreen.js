@@ -26,7 +26,8 @@ const SearchScreen = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [latest_song, setLatestSong] = useState({
     name:"",
-    cover:""
+    cover:"",
+    artist_name:""
   })
   const [search, setSearch] = useState('');
   const [searchResult, setSearchResult] = useState([]);
@@ -55,7 +56,7 @@ const SearchScreen = () => {
         },
       });
       setSongs(res.data);
-      setLatestSong({name: res.data[0].name, cover:res.data[0].cover} )
+      setLatestSong({name: res.data[0].name, cover:res.data[0].cover ,artist_name: res.data[0].artist_name+ ' ' +res.data[0].artist_last_name})
     } catch (err) {
       console.log(err);
     }
@@ -92,7 +93,6 @@ const SearchScreen = () => {
           },
         });
         setSearchResult(res.data);
-        console.log(res.data)
         setSongs(res.data.songs)
         setArtists(res.data.artists);
       } catch (err) {
@@ -117,7 +117,7 @@ const SearchScreen = () => {
       />
       </View>
       </View>
-      <LatestSongItem id={latest_song.id} name={latest_song.name} cover={latest_song.cover} />
+      <LatestSongItem id={latest_song.id} Name={latest_song.name} Cover={latest_song.cover} ArtistName={latest_song.artist_name} />
       <View style={styles.h1_view}>
       <Text style={styles.h1_text}>Our Artists</Text>
       </View>
