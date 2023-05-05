@@ -5,12 +5,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
-import Button from "../../components/Button/Button";
+import Button from "../Button/Button";
 import Colors from "../../constants/colors";
 import Slider from '@react-native-community/slider'
 
 
-const AudioPlayer = () => {
+const SongPlayer = () => {
   const navigation = useNavigation();
   const [isPlaying, setIsPlaying] = useState(false);
   
@@ -59,4 +59,4 @@ const AudioPlayer = () => {
   )
 }
 
-export default AudioPlayer;
+export default SongPlayer;
