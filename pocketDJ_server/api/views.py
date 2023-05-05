@@ -222,8 +222,8 @@ class SearchView(APIView):
         if not query:
             return Response({'songs': [],'artists': []})
 
-        songs = Song.objects.filter(Q(name__icontains=query))
-        artists = User.objects.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query), role="Artist")
+        songs = Song.objects.filter(Q(name__icontains=query),isDeleted=True)
+        artists = User.objects.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query), role="Artist",isDeleted=True)
 
         if songs:
             song_serializer = SongSerializer(songs, many=True,context={'request': request})
@@ -238,7 +238,7 @@ class SearchView(APIView):
         if artists:
             artist_serializer = UserSerializer(artists, many=True,context={'request': request})
             song_ids = Song.objects.filter(artist_id__in=artists).values_list('id', flat=True)
-            songs = Song.objects.filter(id__in=song_ids)
+            songs = Song.objects.filter(id__in=song_ids,isDeleted=True)
             song_serializer = SongSerializer(songs, many=True,context={'request': request})
             return Response({
                 'songs': song_serializer.data,
