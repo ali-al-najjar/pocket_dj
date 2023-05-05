@@ -9,6 +9,7 @@ import { getToken } from "../../auth/auth";
 import axios from 'axios';
 import ArtistItem from "../../components/Artists/ArtistItem";
 import SongItem from "../../components/Songs/SongItem";
+import LatestSongItem from "../../components/Songs/LatestSongItem";
 
 const renderSong = ({item}) => {
   return <SongItem id={item.id} name={item.name} cover={item.cover} />
@@ -116,13 +117,9 @@ const SearchScreen = () => {
       />
       </View>
       </View>
-      <Text>{latest_song.name}</Text>
-      <Image 
-        source={{uri:latest_song.cover}}
-        style={styles.songImageContainer}
-      />
+      <LatestSongItem id={latest_song.id} name={latest_song.name} cover={latest_song.cover} />
       <View style={styles.h1_view}>
-      <Text style={styles.h1_text}>What are you up to?</Text>
+      <Text style={styles.h1_text}>Our Artists</Text>
       </View>
     <FlatList 
     style={styles.flatlist}
@@ -132,6 +129,9 @@ const SearchScreen = () => {
     horizontal
     showsHorizontalScrollIndicator={false}
     />
+    <View style={styles.h1_view}>
+    <Text style={styles.h1_text}>Our Songs</Text>
+    </View>
     <FlatList 
       style={styles.flatlist}
       data= {songs}

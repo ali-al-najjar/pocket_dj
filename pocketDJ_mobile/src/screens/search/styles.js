@@ -18,6 +18,17 @@ const styles = StyleSheet.create({
       padding:10,
       marginTop:10,
       width:'90%'
+  },
+  h1_view:{
+    margin:10,
+    paddingBottom:5,
+    borderBottomWidth:5,
+    borderBottomColor:Colors.secondaryColor,
+    width:'40%'
+  },
+  h1_text:{
+    fontSize:24,
+    fontWeight:'bold'
   }
 });
 
