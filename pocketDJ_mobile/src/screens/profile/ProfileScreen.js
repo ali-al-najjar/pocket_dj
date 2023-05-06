@@ -39,7 +39,9 @@ const ProfileScreen = () => {
     setLastName(text)
   }
 
-
+  const handleLogout = () =>{
+    
+  }
 
   const handleSubmit = () => {
     const data = new FormData();
@@ -171,6 +173,7 @@ const ProfileScreen = () => {
   
   <View ><Text className={styles.messageText}>{message}</Text></View>
   <Button title="Submit Updates" onPress={handleSubmit} />
+  <Button title="Log out" onPress={handleLogout} />
   </View>
   </View>
   )}
