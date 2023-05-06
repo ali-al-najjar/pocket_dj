@@ -160,8 +160,12 @@ class CreateRemix(generics.CreateAPIView):
     serializer_class = RemixSerializer
 
 class GetRemixes(generics.ListAPIView):
-    queryset = Remix.objects.filter(isDeleted=True)
     serializer_class = RemixSerializer
+    authentication_classes = [TokenAuthentication,]
+
+    def get_queryset(self):
+        user_id = self.request.user.id
+        return Remix.objects.filter(user_id=user_id, isDeleted=True)
 
 class DeleteRemix(generics.UpdateAPIView):
     authentication_classes = (TokenAuthentication,)
