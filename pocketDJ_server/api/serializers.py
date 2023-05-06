@@ -16,10 +16,14 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from rest_framework.serializers import SerializerMethodField
 
 class UserSerializer(serializers.ModelSerializer):
+  songs = serializers.SerializerMethodField()
   class Meta:
     model = User
-    fields = ["id","username", "first_name", "last_name", "email","profile"]
+    fields = ["id","username", "first_name", "last_name", "email","profile","songs"]
 
+  def get_songs(self, obj):
+    songs = Song.objects.filter(artist=obj)
+    return SongSerializer(songs, many=True).data 
 
 class RegisterSerializer(serializers.ModelSerializer):
   username = serializers.CharField(
