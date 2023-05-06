@@ -16,7 +16,7 @@ export const HomeStack = () => {
     <Stack.Navigator>
       <Stack.Screen name="Back" component={LoginScreen} options={{headerShown: false}}/>
       <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown: true, headerStyle: {backgroundColor: Colors.primaryColor},headerTintColor: Colors.white,}}/>
-      <Stack.Screen name="Pick your mood" component={TabStack} options={{headerShown: false}}/>
+      <Stack.Screen name="Pick your mood" component={TabStack} options={{headerShown: true,headerStyle: {backgroundColor: Colors.primaryColor},headerTintColor: Colors.white,headerTitle: '',headerLeft: null,gestureEnabled: false}}/>
       <Stack.Screen name="Profile" component={TabStack} options={{headerShown: true}}/>
       <Stack.Screen name="Player" component={PlayerScreen} options={{headerShown: true,headerStyle: {backgroundColor: Colors.primaryColor},headerTintColor: Colors.white,headerTitle: '',headerBackTitle: 'Back',}}/>
       <Stack.Screen name="Artist Player" component={SongsScreen} options={{headerShown: true,headerStyle: {backgroundColor: Colors.primaryColor},headerTintColor: Colors.white,headerTitle: '',headerBackTitle: 'Back',}}/>

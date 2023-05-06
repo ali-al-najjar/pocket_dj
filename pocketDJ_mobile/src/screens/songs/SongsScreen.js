@@ -37,7 +37,6 @@ const SongsScreen = () => {
   }
   return(
     <>
-    <SafeAreaView style={{ flex: 1, marginBottom: 0 }} edges={[]}>
     <FlatList 
       style={styles.flatList}
       ListHeaderComponent ={header}
@@ -53,7 +52,6 @@ const SongsScreen = () => {
             navigation.navigate("Search");}}
         />}
       />
-    </SafeAreaView>
     </>
   )
 }

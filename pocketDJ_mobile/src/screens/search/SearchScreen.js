@@ -99,7 +99,6 @@ const SearchScreen = () => {
   }, [search]);
   
   return(
-    <SafeAreaView>
     <ScrollView 
     refreshControl={
       <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
@@ -138,7 +137,6 @@ const SearchScreen = () => {
       />
 
       </ScrollView>
-      </SafeAreaView>
       
   )
 }
