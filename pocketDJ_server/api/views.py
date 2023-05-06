@@ -31,6 +31,12 @@ class IsArtist(permissions.BasePermission):
             return request.user.role == "Artist"
         return False
     
+class IsUser(permissions.BasePermission):
+    def has_permission(self, request, view):
+        if request.user.is_authenticated:
+            return request.user.role == "User"
+        return False
+    
 class GetUsers(generics.ListAPIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAdmin,)
@@ -103,6 +109,8 @@ class CreateSong(generics.CreateAPIView):
     serializer_class = SongSerializer
 
 class GetSongs(generics.ListAPIView):
+    authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsUser,)
     queryset = Song.objects.filter(isDeleted=True)
     serializer_class = SongSerializer
     
@@ -161,11 +169,12 @@ class CreateRemix(generics.CreateAPIView):
 
 class GetRemixes(generics.ListAPIView):
     authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsUser,)
     serializer_class = RemixSerializer
 
     def get_queryset(self):
-        user_id = self.request.user.id
+        user_id = self.request.user
+        print(user_id)
         return Remix.objects.filter(user_id=user_id, isDeleted=True)
 
 class DeleteRemix(generics.UpdateAPIView):

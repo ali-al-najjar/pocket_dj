@@ -1,4 +1,5 @@
 from django.urls import path
+from rest_framework.authtoken import views
 from .views import UserDetails,RegisterUser,CreateSong,CreateMood,CreateRemix,CreateRequest,GetUsers,GetArtists,GetSongs,GetRemixes,GetRequests,GetMoods,DeleteSong,DeleteMood,DeleteRemix,DeleteRequest,DeleteUser,UpdateUserProfile,SearchView
 urlpatterns = [
   path('search', SearchView.as_view()),
@@ -21,4 +22,5 @@ urlpatterns = [
   # path('favorites/', GetFavorites.as_view()),
   path('requests/', GetRequests.as_view()),
   path('moods/', GetMoods.as_view()),
+
 ]

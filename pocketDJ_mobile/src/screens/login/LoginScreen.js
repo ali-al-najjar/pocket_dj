@@ -10,6 +10,7 @@ import axios from "axios";
 import { storeToken } from "../../auth/auth"
 import { useDispatch } from "react-redux";
 import { setUser } from '../../redux/slices/userSlice'
+import { setToken } from "../../redux/slices/userAuthSlice";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -41,6 +42,7 @@ const LoginScreen = () => {
           setError("");
           storeToken(res.data.token);
           dispatch(setUser(res.data.user));
+          dispatch(setToken(res.data.token))
           navigation.navigate("Pick your mood")
         })
         .catch((err=>{

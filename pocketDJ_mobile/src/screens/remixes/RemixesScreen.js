@@ -8,16 +8,18 @@ import EmptyState from "../../components/EmptyState/emptyState";
 import { getToken } from "../../auth/auth";
 import axios from 'axios';
 import {useState, useEffect,useCallback} from 'react';
+import { useSelector } from 'react-redux';
 
 const renderItem = ({item}) => {
   return <RemixItem id={item.id} title={item.name} date={item.date} />}
 
 const RemixesScreen = () => {
   const navigation = useNavigation();
-  
+  const token = useSelector(state => state.token.token);
+  // const token = getToken();
   const [responses, setResponses] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
-  const [token, setToken] = useState(getToken())
+  // const [token, setToken] = useState(getToken())
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -28,22 +30,18 @@ const RemixesScreen = () => {
   }, []);
 
   const getRemixes = async () => {
-    console.log(token._j)
-    try {
-      const res = await axios({
-        method: 'GET',
-        url: 'http://192.168.1.127:8000/remixes',
-        headers: {
-          Authorization: 'Token ' + token._j,
-        },
-      });
-      setResponses(res.data);
-      console.log(res.data);
-    } catch (err) {
-      console.log(err);
+    console.log(token)
+      await axios.get('http://192.168.1.127:8000/remixes',{
+        headers: {Authorization: 'Token '+ token
+        ,}
+      })
+      .then((res)=>{
+        setResponses(res.data);
+        console.log(res.data);
+      }).catch((err)=>{
+      console.log(err.request.response)});
       
     }
-  };
 
   useEffect(() => {
     getRemixes();

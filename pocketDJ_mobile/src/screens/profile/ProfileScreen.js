@@ -46,6 +46,7 @@ const ProfileScreen = () => {
   const handleSubmit = () => {
     const data = new FormData();
     if (first_name !== original_first_name) {
+      
       data.append("first_name", first_name);
     }
     if (last_name !== original_last_name) {
