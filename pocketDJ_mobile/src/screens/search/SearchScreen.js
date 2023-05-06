@@ -1,4 +1,4 @@
-import { React,View, Text,Image, FlatList, ScrollView,RefreshControl,TextInput,StatusBar} from "react-native";
+import { React,View, Text,Image, FlatList, ScrollView,RefreshControl,TextInput} from "react-native";
 import styles from './styles';
 import {useState, useEffect,useCallback} from 'react';
 import { SafeAreaView } from "react-native-safe-area-context";
