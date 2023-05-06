@@ -7,7 +7,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import EmptyState from "../../components/EmptyState/emptyState";
 
 const renderItem = ({item}) => {
-  console.log("Rendering item with ID:", item.id);
   return <RemixItem id={item.id} title={item.title} mood={item.mood} date={item.date} />}
 
 const RemixesScreen = () => {
@@ -23,7 +22,6 @@ const RemixesScreen = () => {
   }
   return(
     <>
-    <SafeAreaView style={{ flex: 1, marginBottom: 0 }} edges={[]}>
     <FlatList 
       style={styles.flatList}
       ListHeaderComponent ={header}
@@ -39,7 +37,6 @@ const RemixesScreen = () => {
       keyExtractor={item => item.id}
       renderItem = {renderItem}
       />
-    </SafeAreaView>
     </>
   )
 }

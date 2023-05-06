@@ -35,7 +35,8 @@ uploadContainer:{
 },
 header:{
   width:'90%',
-  marginLeft:'2%'
+  marginLeft:'2%',
+  marginTop:"2%"
 }
 
 

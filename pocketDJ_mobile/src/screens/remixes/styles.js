@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
     borderBottomWidth :6,
     borderBottomColor: Colors.secondaryColor,
     width:'90%',
-    marginLeft:10
+    marginLeft:10,
+    marginTop:10
 
   },
   h1_text:{

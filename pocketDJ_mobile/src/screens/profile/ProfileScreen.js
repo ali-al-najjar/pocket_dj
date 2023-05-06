@@ -121,7 +121,6 @@ const ProfileScreen = () => {
 
   console.log(user)
   return (
-  <SafeAreaView>
   <View style = {styles.profileContainer} >
   <View style={styles.header}>
   <View style={constants.h1_view}>
@@ -174,7 +173,6 @@ const ProfileScreen = () => {
   <Button title="Submit Updates" onPress={handleSubmit} />
   </View>
   </View>
-  </SafeAreaView>
   )}
 
 export default ProfileScreen;
