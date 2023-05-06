@@ -1,4 +1,4 @@
-import { View, Text,FlatList} from "react-native";
+import { ImageBackground,View, Text,FlatList} from "react-native";
 import styles from './styles';
 import { useNavigation } from "@react-navigation/native";
 import RemixItem from "../../components/Remix/RemixItem";
@@ -28,11 +28,11 @@ const SongsScreen = () => {
   const navigation = useNavigation();
   const header = () =>{
     return (
-    <View>
-    <View style={styles.h1_view}>
-    <Text style={styles.h1_text}>Artist Songs</Text>
-    </View>
-    </View>
+      <ImageBackground 
+      source={{ uri: ArtistImage.uri }}
+      style = {styles.artist_image}>
+      <Text style={styles.artist_item_name}>{ArtistTitle}</Text>
+      </ImageBackground>
     )
   }
   return(
