@@ -13,9 +13,8 @@ const SongItem = ({id , name ,cover,audio,duration}) => {
       title: name,
       image: { uri: cover },
       AudioURL: {audio},
-      duration: {duration}
+      Duration: {duration}
       });
-      console.log(audio)
   }
   
   return (
