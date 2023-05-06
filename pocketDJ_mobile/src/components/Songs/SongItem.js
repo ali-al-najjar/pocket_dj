@@ -1,17 +1,21 @@
 import { ImageBackground, Text, TouchableOpacity, View } from "react-native"
+import Video from "react-native-video";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 
 
-const SongItem = ({id , name ,cover}) => {
+const SongItem = ({id , name ,cover,audio,duration}) => {
   const navigation = useNavigation();
 
   const handleSong=()=>{
     navigation.navigate('Player', {
       title: name,
       image: { uri: cover },
+      AudioURL: {audio},
+      duration: {duration}
       });
+      console.log(audio)
   }
   
   return (

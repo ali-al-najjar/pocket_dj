@@ -9,7 +9,7 @@ import SongItem from "../../components/Songs/SongItem";
 import LatestSongItem from "../../components/Songs/LatestSongItem";
 
 const renderSong = ({item}) => {
-  return <SongItem id={item.id} name={item.name} cover={item.cover} />
+  return <SongItem id={item.id} name={item.name} cover={item.cover} audio={item.link} duration ={item.duration}/>
 }
 const renderArtist = ({item}) => {
   return <ArtistItem id={item.id} name={item.first_name +" " + item.last_name}  cover={item.profile} songs={item.songs} />

@@ -9,11 +9,6 @@ const styles = StyleSheet.create({
   audioScreenContainer:{
     alignItems:'center'
   },
-  container:{
-    width:360,
-    alignItems:'center',
-    justifyContent:'center'
-  },
   progressBar:{
     flexDirection:'row',
     width:360

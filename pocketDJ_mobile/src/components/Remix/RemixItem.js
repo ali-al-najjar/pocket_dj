@@ -2,6 +2,7 @@ import { Text, TouchableOpacity, View } from "react-native"
 import styles from "./styles";
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
+import {AudioPlayer} from 'react-native-simple-audio-player';
 
 const RemixItem = ({id , title, mood,date}) => {
   const navigation = useNavigation();
@@ -12,6 +13,7 @@ const RemixItem = ({id , title, mood,date}) => {
       <Text style={styles.remixMood}>{mood}</Text>
       <Text style={styles.remixDate}>{date}</Text>
       </View>
+
       <TouchableOpacity onPress={() => {}}>
       <View style={styles.play_icon}>
       <FontAwesome5 name="play" size={24} color="#87F966" />

@@ -1,4 +1,5 @@
 import { SliderComponent, Text, TouchableOpacity, View } from "react-native"
+import Video from "react-native-video";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -10,7 +11,7 @@ import Colors from "../../constants/colors";
 import Slider from '@react-native-community/slider'
 
 
-const SongPlayer = () => {
+const SongPlayer = (AudioURL) => {
   const navigation = useNavigation();
   const [isPlaying, setIsPlaying] = useState(false);
   
@@ -38,7 +39,6 @@ const SongPlayer = () => {
       <Text style={styles.progressBarCounterStart}>3:50</Text>
     </View>
     <View style={styles.audio_player}>
-
     <TouchableOpacity>
     <Ionicons name="ios-play-back-circle-outline" size={70} color={Colors.black} />
     </TouchableOpacity>
@@ -48,6 +48,7 @@ const SongPlayer = () => {
           ) : (
             <Ionicons name="ios-play-circle-outline" size={120} color={Colors.black} />
           )}
+    
     </TouchableOpacity>
     <TouchableOpacity>
     <Ionicons name="ios-play-forward-circle-outline" size={70} color={Colors.black} />
@@ -55,6 +56,7 @@ const SongPlayer = () => {
     </View>
     <Button title="Save" onPress={() => console.log("Your Remix is saved")} />
     </View>
+
     </SafeAreaView>
   )
 }

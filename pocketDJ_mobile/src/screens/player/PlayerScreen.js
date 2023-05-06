@@ -8,12 +8,16 @@ import { useRoute } from '@react-navigation/native';
 const PlayerScreen = () => {
   const [moodTitle, setMoodTitle] = useState('');
   const [moodImage, setMoodImage] = useState('');
+  const [AudioFile, setAudioFile] = useState('');
+  const [Songduration, setDuration] = useState('');
   const route = useRoute();
-  const { title, image } = route.params;
+  const { title, image, AudioURL, duration} = route.params;
 
   useEffect(() => {
     setMoodTitle(title);
     setMoodImage(image);
+    setAudioFile(AudioURL);
+    setDuration(duration);
     }, []);
 
 
@@ -26,7 +30,10 @@ const PlayerScreen = () => {
   <View style={styles.mood_title}>
     <Text style={styles.mood_title_text}>{moodTitle}</Text>
   </View>
-  <RemixPlayer />
+  <RemixPlayer
+  AudioURL = {AudioURL}
+  duration = {Songduration}
+   />
   </SafeAreaView>
 
   )}
