@@ -4,13 +4,14 @@ import { useNavigation } from "@react-navigation/native";
 
 
 
-const ArtistItem = ({id , name ,cover}) => {
+const ArtistItem = ({id , name ,cover,songs}) => {
   const navigation = useNavigation();
 
   const handleArtist=()=>{
-    navigation.navigate('Player', {
+    navigation.navigate('Artist Player', {
       title: name,
       image: { uri: cover },
+      songs: songs
       });
   }
   

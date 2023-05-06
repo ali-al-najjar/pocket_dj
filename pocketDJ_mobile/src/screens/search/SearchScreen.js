@@ -12,7 +12,7 @@ const renderSong = ({item}) => {
   return <SongItem id={item.id} name={item.name} cover={item.cover} />
 }
 const renderArtist = ({item}) => {
-  return <ArtistItem id={item.id} name={item.first_name +" " + item.last_name}  cover={item.profile} />
+  return <ArtistItem id={item.id} name={item.first_name +" " + item.last_name}  cover={item.profile} songs={item.songs} />
 }
 
 const SearchScreen = () => {

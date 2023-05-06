@@ -33,8 +33,7 @@ const RemixesScreen = () => {
         description={"This page will show all your saved remixes"}
         buttonName={"Create"}
         onPress={()=> {
-          console.log("Button pressed!");
-          navigation.navigate("Pick your mood");}}
+          navigation.navigate("Create");}}
       />}
       data= {DUMMY_DATA}
       keyExtractor={item => item.id}
