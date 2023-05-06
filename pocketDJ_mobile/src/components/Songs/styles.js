@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   song_item_name:{
     color:Colors.white,
     fontSize:15,
-    backgroundColor:Colors.rgbaPrimary,
+    backgroundColor:Colors.primaryColor,
     padding:10,
     marginBottom:10,
     width:"85%",
@@ -27,11 +27,32 @@ const styles = StyleSheet.create({
   latest_song_item_name:{
     color:Colors.white,
     fontSize:15,
-    backgroundColor:Colors.rgbaPrimary,
+    backgroundColor:Colors.primaryColor,
     padding:10,
-    marginBottom:10,
-    width:"85%",
+    width:'150%',
+    borderBottomRadius:10
   },
+  latest_artist_name:{
+    color:Colors.white,
+    fontSize:20,
+    backgroundColor:Colors.black,
+    padding:10,
+    width:'150%'
+
+  },
+  latest_song:{
+    color:Colors.white,
+    fontSize:20,
+    padding:10,
+    backgroundColor:Colors.black,
+    fontWeight:'bold',
+    width:'150%'
+  },
+  typewriter:{
+    padding:10,
+  },
+  latest_items:{
+  }
 });
 
 export default styles;

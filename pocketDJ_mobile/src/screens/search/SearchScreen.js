@@ -1,9 +1,6 @@
 import { React,View, Text,Image, FlatList, ScrollView,RefreshControl,TextInput,StatusBar} from "react-native";
 import styles from './styles';
-import constants from '../../constants/styles';
 import {useState, useEffect,useCallback} from 'react';
-import { useNavigation } from "@react-navigation/native";
-import MoodItem from "../../components/Moods/Moods/MoodItem";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getToken } from "../../auth/auth";
 import axios from 'axios';
@@ -19,7 +16,6 @@ const renderArtist = ({item}) => {
 }
 
 const SearchScreen = () => {
-  const navigation = useNavigation();
   const token = getToken();
   const [songs, setSongs] = useState([]);
   const [artists, setArtists] = useState([]);
