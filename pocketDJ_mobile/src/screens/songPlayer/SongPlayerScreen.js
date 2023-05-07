@@ -10,7 +10,6 @@ const SongPlayerScreen = () => {
   const [moodTitle, setMoodTitle] = useState('');
   const [moodImage, setMoodImage] = useState('');
   const [AudioFile, setAudioFile] = useState('');
-  const [Songduration, setDuration] = useState('');
   const route = useRoute();
   const { title, image, AudioURL} = route.params;
 
@@ -18,8 +17,6 @@ const SongPlayerScreen = () => {
     setMoodTitle(title);
     setMoodImage(image);
     setAudioFile(AudioURL);
-    // setDuration(duration);
-    console.log(AudioURL)
     }, []);
 
 
@@ -34,7 +31,6 @@ const SongPlayerScreen = () => {
   </View>
   <SongPlayer
   AudioURL = {AudioURL}
-  duration = {Songduration}
    />
   </SafeAreaView>
 
