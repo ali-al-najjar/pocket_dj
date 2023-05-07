@@ -3,17 +3,12 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   audio_player:{
     flexDirection:'row',
+    justifyContent:'center',
     alignItems:'center',
     gap:40,
   },
   audioScreenContainer:{
-    alignItems:'center'
-  },
-  container:{
-    width:360,
     alignItems:'center',
-    justifyContent:'center',
-    gap:10
   },
   progressBar:{
     flexDirection:'row',
@@ -21,7 +16,7 @@ const styles = StyleSheet.create({
   },
   progressBarCounter:{
     flexDirection:'row',
-    width:360,
+    width:315,
     justifyContent:'space-between'
   }
 });

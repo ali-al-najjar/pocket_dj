@@ -8,10 +8,10 @@ import Button from "../Button/Button";
 import Colors from "../../constants/colors";
 import Slider from '@react-native-community/slider';
 
-const RemixPlayer = ({ AudioURL }) => {
+const SongPlayer = ({ AudioURL }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState(null);
-  const [duration, setDuration] = useState(null);
+  const [duration, setDuration] = useState(0);
   const [position, setPosition] = useState(0);
   const [audio, setAudio] = useState(null);
 
@@ -49,12 +49,20 @@ const RemixPlayer = ({ AudioURL }) => {
         console.error('Audio file URL is null or undefined');
         return;
       }
-      const { sound } = await Audio.Sound.createAsync({ uri: audio });
+      // const updatePosition = () => {
+      //   // setDuration(sound.durationMillis / 1000);
+      //   setPosition(positionMillis / 1000);
+      // };
+      const { sound } = await Audio.Sound.createAsync({ uri: audio }, {shouldPlay: true });
+      // console.log(sound.setOnPlaybackStatusSuccess(durationMillis))
+      // console.log(sound.setOnPlaybackStatusSuccess(positionMillis))
       setSound(sound);
+      console.log(sound)
       await sound.playAsync();
       setIsPlaying(true);
+      
     }
-  };
+  };  
 
   const stop = async () => {
     if (sound) {
@@ -68,20 +76,24 @@ const RemixPlayer = ({ AudioURL }) => {
   const handleSeekBar = (value) => {
     setPosition(value);
     sound.setPositionAsync(value * 1000);
+    
   };
   
   return (
     <SafeAreaView style={styles.audioScreenContainer}>
       <View style={styles.container}>
         <View>
-        <Slider
+          <Slider
+            style = {styles.progressBar}
             minimumValue={0}
             maximumValue={duration}
             value={position}
             onValueChange={handleSeekBar}
+            maximumTrackTintColor={Colors.primaryColor}
+            minimumTrackTintColor={Colors.black}
           />
         </View>
-        <View style={styles.progressBarCounter}>
+        <View style={styles.progressBar}>
           <Text style={styles.progressBarCounter}>{position}</Text>
           <Text style={styles.progressBarCounter}>{duration}</Text>
         </View>
@@ -105,4 +117,5 @@ const RemixPlayer = ({ AudioURL }) => {
   );
 };
 
-export default RemixPlayer;
+
+export default SongPlayer;
