@@ -13,7 +13,7 @@ const MoodsSelectList = ({value, onChange }) => {
     try {
       const res = await axios({
         method: 'GET',
-        url: `${base_url}}/moods`,
+        url: `${base_url}/moods`,
         headers: {
           Authorization: 'Token ' + token,
         },

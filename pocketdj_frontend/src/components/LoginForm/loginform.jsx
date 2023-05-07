@@ -59,9 +59,9 @@ const handleUsername=(e)=>{
             dispatch(setRole(res.data.role));
             navigator("/admin/users")
           }
-            else (
-              setError(`Access Denied.`)
-            )
+            else {
+              setError(`Access Denied.`);
+            }
           })
           .catch((err=>{
             console.log(err.request.response);
