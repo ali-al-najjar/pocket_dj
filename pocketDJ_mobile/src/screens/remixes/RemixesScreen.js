@@ -16,6 +16,8 @@ const renderItem = ({item}) => {
 const RemixesScreen = () => {
   const navigation = useNavigation();
   const token = useSelector(state => state.token.token);
+  const user= useSelector(state =>state.user)
+  const user_id = user.id
   const [responses, setResponses] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   const onRefresh = useCallback(() => {
@@ -28,7 +30,8 @@ const RemixesScreen = () => {
 
   const getRemixes = async () => {
     console.log(token)
-      await axios.get('http://192.168.1.127:8000/remixes',{
+    console.log(user_id)
+      await axios.get(`http://192.168.1.127:8000/remixes/?user_id=${user_id}`,{
         headers: { 'Authorization': `Token ${token}`,
       }
       })
