@@ -8,7 +8,7 @@ const LatestSongItem = ({id , Name ,Cover,ArtistName,audio}) => {
   const navigation = useNavigation();
 
   const handleLatestSong=()=>{
-    navigation.navigate('Player', {
+    navigation.navigate('Song Player', {
       title: Name,
       image: { uri: Cover },
       AudioURL: {audio},

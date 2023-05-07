@@ -9,7 +9,7 @@ const SongItem = ({id , name ,cover,audio,duration}) => {
   const navigation = useNavigation();
 
   const handleSong=()=>{
-    navigation.navigate('Player', {
+    navigation.navigate('Song Player', {
       title: name,
       image: { uri: cover },
       AudioURL: {audio},
