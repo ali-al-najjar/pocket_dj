@@ -9,8 +9,10 @@ import SongItem from "../../components/Songs/SongItem";
 import LatestSongItem from "../../components/Songs/LatestSongItem";
 
 const renderSong = ({item}) => {
-  return <SongItem id={item.id} name={item.name} cover={item.cover} audio={item.link} duration ={item.duration}/>
-}
+  return (
+    <SongItem id={item.id} name={item.name} cover={item.cover} audio={item.link}/>
+  
+)}
 const renderArtist = ({item}) => {
   return <ArtistItem id={item.id} name={item.first_name +" " + item.last_name}  cover={item.profile} songs={item.songs} />
 }
@@ -23,7 +25,8 @@ const SearchScreen = () => {
   const [latest_song, setLatestSong] = useState({
     name:"",
     cover:"",
-    artist_name:""
+    artist_name:"",
+    audio:""
   })
   const [search, setSearch] = useState('');
   const [searchResult, setSearchResult] = useState([]);
@@ -52,7 +55,8 @@ const SearchScreen = () => {
         },
       });
       setSongs(res.data);
-      setLatestSong({name: res.data[0].name, cover:res.data[0].cover ,artist_name: res.data[0].artist_name+ ' ' +res.data[0].artist_last_name})
+      setLatestSong({name: res.data[0].name, cover:res.data[0].cover ,artist_name: res.data[0].artist_name+ ' ' +res.data[0].artist_last_name,audio: res.data[0].link})
+      console.log(latest_song.audio)
     } catch (err) {
       console.log(err);
     }
@@ -112,7 +116,7 @@ const SearchScreen = () => {
       />
       </View>
       </View>
-      <LatestSongItem id={latest_song.id} Name={latest_song.name} Cover={latest_song.cover} ArtistName={latest_song.artist_name} />
+      <LatestSongItem id={latest_song.id} Name={latest_song.name} Cover={latest_song.cover} ArtistName={latest_song.artist_name} audio={latest_song.audio}/>
       <View style={styles.h1_view}>
       <Text style={styles.h1_text}>Our Artists</Text>
       </View>

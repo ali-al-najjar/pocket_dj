@@ -2,7 +2,6 @@ import { Text, TouchableOpacity, View } from "react-native"
 import styles from "./styles";
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
-import {AudioPlayer} from 'react-native-simple-audio-player';
 
 const RemixItem = ({id , title, mood,date}) => {
   const navigation = useNavigation();

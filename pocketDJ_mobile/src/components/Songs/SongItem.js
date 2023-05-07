@@ -5,15 +5,14 @@ import { useNavigation } from "@react-navigation/native";
 
 
 
-const SongItem = ({id , name ,cover,audio,duration}) => {
+const SongItem = ({id , name , cover, audio}) => {
   const navigation = useNavigation();
-
+  console.log(name)
   const handleSong=()=>{
-    navigation.navigate('Player', {
+    navigation.navigate('Song Player', {
       title: name,
       image: { uri: cover },
       AudioURL: {audio},
-      Duration: {duration}
       });
   }
   

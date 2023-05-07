@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   audio_player:{
     flexDirection:'row',
     alignItems:'center',
-    gap:40
+    gap:40,
   },
   audioScreenContainer:{
     alignItems:'center'
@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
   container:{
     width:360,
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    gap:10
   },
   progressBar:{
     flexDirection:'row',
