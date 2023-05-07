@@ -116,8 +116,8 @@ class GetRemixes(APIView):
     def get(self, request):
         user_id = request.query_params.get('user_id')  # get user_id from the request URL
         user = User.objects.get(id=user_id)
-        remixes = Remix.objects.filter(user=user)
-        serializer = RemixSerializer(remixes, many=True)
+        remixes = Remix.objects.filter(user=user,)
+        serializer = RemixSerializer(remixes, many=True,context={'request': request})
         return Response(serializer.data)
 
 class RegisterUser(generics.CreateAPIView):
