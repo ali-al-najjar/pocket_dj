@@ -16,11 +16,8 @@ const renderItem = ({item}) => {
 const RemixesScreen = () => {
   const navigation = useNavigation();
   const token = useSelector(state => state.token.token);
-  // const token = getToken();
   const [responses, setResponses] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
-  // const [token, setToken] = useState(getToken())
-
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
@@ -32,17 +29,17 @@ const RemixesScreen = () => {
   const getRemixes = async () => {
     console.log(token)
       await axios.get('http://192.168.1.127:8000/remixes',{
-        headers: {Authorization: 'Token '+ token
-        ,}
+        headers: { 'Authorization': `Token ${token}`,
+      }
       })
       .then((res)=>{
         setResponses(res.data);
         console.log(res.data);
       }).catch((err)=>{
-      console.log(err.request.response)});
+      console.log(err.request)});
       
     }
-
+    
   useEffect(() => {
     getRemixes();
   }, []);
