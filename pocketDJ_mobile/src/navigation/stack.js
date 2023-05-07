@@ -3,6 +3,7 @@ import LoginScreen from '../screens/login/LoginScreen';
 import RegisterScreen from '../screens/register/RegisterScreen';
 import TabStack from './TabStack';
 import PlayerScreen from '../screens/player/PlayerScreen';
+import SongPlayerScreen from '../screens/songPlayer/SongPlayerScreen';
 import SongsScreen from '../screens/songs/SongsScreen';
 import Colors from '../constants/colors';
 import ProfileScreen from '../screens/profile/ProfileScreen';
@@ -22,6 +23,8 @@ export const HomeStack = () => {
 
 
       <Stack.Screen name="Player" component={PlayerScreen} options={{headerShown: true,headerStyle: {backgroundColor: Colors.primaryColor},headerTintColor: Colors.white,headerTitle: '',headerBackTitle: 'Back', }}/>
+
+      <Stack.Screen name="Song Player" component={SongPlayerScreen} options={{headerShown: true,headerStyle: {backgroundColor: Colors.primaryColor},headerTintColor: Colors.white,headerTitle: '',headerBackTitle: 'Back', }}/>
 
       <Stack.Screen name="Artist Player" component={SongsScreen} options={{headerShown: true,headerStyle: {backgroundColor: Colors.primaryColor},headerTintColor: Colors.white,headerTitle: '',headerBackTitle: 'Back',}}/>
     </Stack.Navigator>
