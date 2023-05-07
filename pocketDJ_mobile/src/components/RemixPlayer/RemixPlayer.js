@@ -87,17 +87,17 @@ const RemixPlayer = ({ AudioURL }) => {
         </View>
         <View style={styles.audio_player}>
           <TouchableOpacity>
-            <Ionicons name="ios-play-back-circle-outline" size={70} color={Colors.black} />
+            <Ionicons name="ios-play-back-circle-outline" size={60} color={Colors.black} />
           </TouchableOpacity>
           <TouchableOpacity onPress={togglePlayer}>
             {isPlaying ? (
-              <Ionicons name="ios-pause-circle-outline" size={120} color={Colors.black} />
+              <Ionicons name="ios-pause-circle-outline" size={90} color={Colors.primaryColor} />
             ) : (
-              <Ionicons name="ios-play-circle-outline" size={120} color={Colors.black} />
+              <Ionicons name="ios-play-circle-outline" size={90} color={Colors.black} />
             )}
           </TouchableOpacity>
           <TouchableOpacity>
-            <Ionicons name="ios-play-forward-circle-outline" size={70} color={Colors.black} />
+            <Ionicons name="ios-play-forward-circle-outline" size={60} color={Colors.black} />
           </TouchableOpacity>
         </View>
         <Button title="Save" onPress={() => console.log("Your Remix is saved")} />

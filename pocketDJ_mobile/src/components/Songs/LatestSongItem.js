@@ -4,13 +4,14 @@ import { useNavigation } from "@react-navigation/native";
 import Typewriter from 'react-native-typewriter';
 
 
-const LatestSongItem = ({id , Name ,Cover,ArtistName}) => {
+const LatestSongItem = ({id , Name ,Cover,ArtistName,AudioURL}) => {
   const navigation = useNavigation();
 
   const handleLatestSong=()=>{
     navigation.navigate('Player', {
-      title: name,
-      image: { uri: cover },
+      title: Name,
+      image: { uri: Cover },
+      AudioURL: {AudioURL},
       });
   }
   
