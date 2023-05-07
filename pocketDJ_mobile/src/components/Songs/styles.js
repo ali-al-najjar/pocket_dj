@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
     backgroundColor:Colors.primaryColor,
     padding:10,
     width:'150%',
-    borderBottomRadius:10
   },
   latest_artist_name:{
     color:Colors.white,
