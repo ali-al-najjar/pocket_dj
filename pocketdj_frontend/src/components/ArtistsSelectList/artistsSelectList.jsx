@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const base_url = process.env.REACT_APP_API_URL
+
 const ArtistsSelectList = ({ value, onChange }) => {
   const [artists, setArtists] = useState([]);
   const [selectedArtist, setSelectedArtist] = useState({ id: null, name: "" });
@@ -10,7 +12,7 @@ const ArtistsSelectList = ({ value, onChange }) => {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://192.168.1.127:8000/artists',
+        url: `${base_url}/artists`,
         headers: {
           Authorization: 'Token ' + token,
         },

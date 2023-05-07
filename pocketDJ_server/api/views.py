@@ -109,8 +109,11 @@ class UserDetails(APIView):
     serializer = UserSerializer(user,context={'request': request})
     return Response(serializer.data)
 
+from django.http import HttpResponse
 
 class GetRemixes(APIView):
+    response = HttpResponse()
+    response['Cross-Origin-Opener-Policy'] = 'unsafe-none'
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 

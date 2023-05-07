@@ -49,27 +49,27 @@ const RemixPlayer = ({ AudioURL }) => {
       setIsPlaying(true);
     };
     loadAudio();
-  }, [AudioURL]);
+  }, [AudioURL.audio]);
 
   
 
-  useEffect(() => {
-    const updatePosition = (status) => {
-      if (status.isLoaded && status.isPlaying) {
-        setPosition(status.positionMillis / 1000);
-      }
-    };
+  // useEffect(() => {
+  //   const updatePosition = (status) => {
+  //     if (status.isLoaded && status.isPlaying) {
+  //       setPosition(status.positionMillis / 1000);
+  //     }
+  //   };
 
-    if (sound) {
-      sound.setOnPlaybackStatusUpdate(updatePosition);
-    }
+  //   if (sound) {
+  //     sound.setOnPlaybackStatusUpdate(updatePosition);
+  //   }
 
-    return () => {
-      if (sound) {
-        sound.setOnPlaybackStatusUpdate(null);
-      }
-    };
-  }, [sound]);
+  //   return () => {
+  //     if (sound) {
+  //       sound.setOnPlaybackStatusUpdate(null);
+  //     }
+  //   };
+  // }, [sound]);
 
   const togglePlayer = async () => {
     if (sound) {
@@ -97,15 +97,27 @@ const RemixPlayer = ({ AudioURL }) => {
   };
   }
   const stop = async () => {
+    console.log(sound)
     if (sound) {
+      console.log("I am here")
       await sound.stopAsync();
       await sound.unloadAsync();
-      setSound(null);
+      // setSound(null);
       setIsPlaying(false);
       setDuration(0);
       setPosition(0);
     }
   };
+
+  useEffect(()=>{
+    return ()=>{
+      console.log("closing")
+      stop()}
+  },[])
+
+  useEffect(()=>{
+      console.log("sound:",sound)
+  },[sound])
 
   const handleSeekBar = (duration) => {
     setPosition(duration);

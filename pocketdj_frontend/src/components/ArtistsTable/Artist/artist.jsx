@@ -3,6 +3,8 @@ import axios from "axios";
 import Button from '../../Button/button';
 import './artist.css';
 
+const base_url = process.env.REACT_APP_API_URL
+
 const Artist = ({user_id, first_name , last_name, email}) => {
   const token = localStorage.getItem('token');
   const [deleted, setDeleted] = useState(false);
@@ -14,7 +16,7 @@ const Artist = ({user_id, first_name , last_name, email}) => {
       try {
         const res = await axios({
           method: 'Put',
-          url: `http://192.168.1.127:8000/user/delete/${user_id}`,
+          url: `${base_url}/user/delete/${user_id}`,
           headers: {
             Authorization: 'Token ' + token,
           },

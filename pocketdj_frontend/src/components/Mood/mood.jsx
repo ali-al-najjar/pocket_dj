@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const base_url = process.env.REACT_APP_API_URL
+
 const RegisterForm = () => {
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
@@ -68,7 +70,7 @@ const handleProfile = (event) => {
           data.append("role", "Artist");
           data.append("profile", profile);
           
-          axios.post("http://192.168.1.127:8000/register",data,{
+          axios.post(`${base_url}}/register`,data,{
             headers: {
               "Content-Type": "multipart/form-data"
             }

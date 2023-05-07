@@ -10,6 +10,7 @@ import { setUser } from '../../redux/slices/UserDetailSlice';
 import { setToken } from '../../redux/slices/UserAuthSlice';
 import { setRole } from "../../redux/slices/UserRoleSlice";
 
+const base_url = process.env.REACT_APP_API_URL
 
 const LoginForm = ({role}) => {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const handleUsername=(e)=>{
             username: username,
             password: password
           };
-          axios.post("http://192.168.1.127:8000/login",data,{
+          axios.post(`${base_url}/login`,data,{
             headers: {
               'Content-Type': 'application/json'
             }

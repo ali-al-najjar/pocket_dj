@@ -3,6 +3,8 @@ import axios from 'axios';
 import MoodItem from './MoodItem/moodItem';
 import './moods.css'
 
+const base_url = process.env.REACT_APP_API_URL
+
 const Moods = () => {
   const [responses, setResponses] = useState([]);
 
@@ -11,7 +13,7 @@ const Moods = () => {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://192.168.1.127:8000/moods',
+        url: `${base_url}/moods`,
         headers: {
           Authorization: 'Token ' + token,
         },

@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 
 const client = process.env.REACT_APP_CLIENT_KEY
 const secret = process.env.REACT_APP_CLIENT_SECRET
+const base_url = process.env.REACT_APP_API_URL
 
 const UploadSong = () => {
   const user = useSelector((state) => state.user);
@@ -195,7 +196,7 @@ const UploadSong = () => {
         "valence" : valence,
         "camelot" : camelot
       }
-      axios.post("http://192.168.1.127:8000/song/create",data,{
+      axios.post(`${base_url}/song/create`,data,{
         headers: {
           Authorization: 'Token ' + token,
           "Content-Type": "multipart/form-data"

@@ -3,6 +3,8 @@ import axios from 'axios';
 import Song from './Song/song';
 import './songs.css'
 
+const base_url = process.env.REACT_APP_API_URL
+
 const Songs = () => {
   const [responses, setResponses] = useState([]);
 
@@ -11,7 +13,7 @@ const Songs = () => {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://192.168.1.127:8000/songs',
+        url: `${base_url}/songs`,
         headers: {
           Authorization: 'Token ' + token,
         },

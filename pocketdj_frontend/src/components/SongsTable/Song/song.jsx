@@ -3,6 +3,8 @@ import axios from "axios";
 import Button from '../../Button/button';
 import './song.css';
 
+const base_url = process.env.REACT_APP_API_URL
+
 const Song = ({song_id, name , artist_name}) => {
   const token = localStorage.getItem('token');
   const [deleted, setDeleted] = useState(false);
@@ -14,7 +16,7 @@ const Song = ({song_id, name , artist_name}) => {
       try {
         const res = await axios({
           method: 'Put',
-          url: `http://192.168.1.127:8000/song/delete/${song_id}`,
+          url: `${base_url}/song/delete/${song_id}`,
           headers: {
             Authorization: 'Token ' + token,
           },

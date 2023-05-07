@@ -21,7 +21,7 @@ export const HomeStack = () => {
       <Stack.Screen name="Profile" component={TabStack} options={{headerShown: true,headerStyle: {backgroundColor: Colors.primaryColor},headerTitle: 'Update Your Profile',headerTintColor: Colors.white}}/>
 
 
-      <Stack.Screen name="Player" component={PlayerScreen} options={{headerShown: true,headerStyle: {backgroundColor: Colors.primaryColor},headerTintColor: Colors.white,headerTitle: '',headerBackTitle: 'Back',}}/>
+      <Stack.Screen name="Player" component={PlayerScreen} options={{headerShown: true,headerStyle: {backgroundColor: Colors.primaryColor},headerTintColor: Colors.white,headerTitle: '',headerBackTitle: 'Back', }}/>
 
       <Stack.Screen name="Artist Player" component={SongsScreen} options={{headerShown: true,headerStyle: {backgroundColor: Colors.primaryColor},headerTintColor: Colors.white,headerTitle: '',headerBackTitle: 'Back',}}/>
     </Stack.Navigator>

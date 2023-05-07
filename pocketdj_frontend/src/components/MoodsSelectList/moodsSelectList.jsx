@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const base_url = process.env.REACT_APP_API_URL
+
 const MoodsSelectList = ({value, onChange }) => {
   const [moods, setMoods] = useState([]);
   const [selectedMood, setSelectedMood] = useState("");
@@ -11,7 +13,7 @@ const MoodsSelectList = ({value, onChange }) => {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://192.168.1.127:8000/moods',
+        url: `${base_url}}/moods`,
         headers: {
           Authorization: 'Token ' + token,
         },

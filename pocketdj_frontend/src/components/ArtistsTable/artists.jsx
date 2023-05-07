@@ -3,6 +3,8 @@ import axios from 'axios';
 import Artist from './Artist/artist';
 import './artists.css'
 
+const base_url = process.env.REACT_APP_API_URL
+
 const Artists = () => {
   const [responses, setResponses] = useState([]);
 
@@ -11,7 +13,7 @@ const Artists = () => {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://192.168.1.127:8000/artists',
+        url: `${base_url}/artists`,
         headers: {
           Authorization: 'Token ' + token,
         },

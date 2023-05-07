@@ -4,6 +4,7 @@ import { useState ,useEffect } from 'react';
 import Input from "../Input/input";
 import './profile.css'
 import { useSelector } from 'react-redux';
+const base_url = process.env.REACT_APP_API_URL
 
 const ProfileInput = () => {
 const user = useSelector((state) => state.user);
@@ -57,7 +58,7 @@ const user = useSelector((state) => state.user);
       data.append("username", username);
     }
 
-    if (data.has("first_name") || data.has("last_name") || data.has("profile") || data.has("username")) {axios.put("http://192.168.1.127:8000/update/profile",data,{
+    if (data.has("first_name") || data.has("last_name") || data.has("profile") || data.has("username")) {axios.put(`${base_url}/update/profile`,data,{
       headers: {
         Authorization: 'Token ' + token,
         "Content-Type": "multipart/form-data"

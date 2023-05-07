@@ -4,6 +4,8 @@ import './uploadMood.css'
 import {useState } from "react";
 import axios from "axios"
 
+const base_url = process.env.REACT_APP_API_URL
+
 const UploadMood = () => {
   const token = localStorage.getItem('token');
   const [name, setName] = useState("");
@@ -28,7 +30,7 @@ const UploadMood = () => {
             data.append("name", name);
             data.append("cover", cover);
             
-            axios.post("http://192.168.1.127:8000/mood/create",data,{
+            axios.post(`${base_url}/mood/create`,data,{
               headers: {
                 Authorization: 'Token ' + token,
                 "Content-Type": "multipart/form-data"

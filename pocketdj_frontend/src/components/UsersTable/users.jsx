@@ -3,15 +3,18 @@ import axios from 'axios';
 import User from './User/user';
 import './users.css'
 
+const base_url = process.env.REACT_APP_API_URL
+
 const Users = () => {
   const [responses, setResponses] = useState([]);
-
+  console.log(base_url)
   const token = localStorage.getItem('token');
   const getUsers = async () => {
+    console.log(base_url)
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://192.168.1.127:8000/users',
+        url: `${base_url}/users`,
         headers: {
           Authorization: 'Token ' + token,
         },
