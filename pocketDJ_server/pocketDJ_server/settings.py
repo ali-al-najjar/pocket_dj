@@ -21,13 +21,15 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '192.168.1.127'
+    '192.168.1.127',
+    'exp://192.168.1.127:19000'
     ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,7 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'api',
-    'corsheaders',
+    
 ]
 
 REST_FRAMEWORK = {
@@ -57,10 +59,10 @@ REST_FRAMEWORK = {
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -157,7 +159,4 @@ MEDIA_URL = '/media/'
 # # For music
 # MUSIC_ROOT = os.path.join(BASE_DIR, 'media/music')
 
-
 CORS_ORIGIN_ALLOW_ALL = True
-
-CORS_ALLOW_ALL_ORIGINS = True

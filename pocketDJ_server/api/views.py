@@ -109,18 +109,13 @@ class UserDetails(APIView):
     serializer = UserSerializer(user,context={'request': request})
     return Response(serializer.data)
 
-from django.http import HttpResponse
-
 class GetRemixes(APIView):
-    response = HttpResponse()
-    response['Cross-Origin-Opener-Policy'] = 'unsafe-none'
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        user_id = self.request.user.id
+        user_id = request.query_params.get('user_id')  # get user_id from the request URL
         user = User.objects.get(id=user_id)
-        print(user)
         remixes = Remix.objects.filter(user=user)
         serializer = RemixSerializer(remixes, many=True)
         return Response(serializer.data)
