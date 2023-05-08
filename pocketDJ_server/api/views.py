@@ -108,6 +108,8 @@ class UserDetails(APIView):
     user = User.objects.get(id=request.user.id)
     serializer = UserSerializer(user,context={'request': request})
     return Response(serializer.data)
+  
+from django.db.models import F
 
 class GetRemixes(APIView):
     authentication_classes = (TokenAuthentication,)
@@ -116,7 +118,7 @@ class GetRemixes(APIView):
     def get(self, request):
         user_id = request.query_params.get('user_id')  # get user_id from the request URL
         user = User.objects.get(id=user_id)
-        remixes = Remix.objects.filter(user=user,)
+        remixes = Remix.objects.filter(user=user).order_by(F('date').desc())
         serializer = RemixSerializer(remixes, many=True,context={'request': request})
         return Response(serializer.data)
 
@@ -314,10 +316,10 @@ def generate_mixed_song(songs, user_id):
 
     if len(songs) == 1:
         mixed_songs_file = songs[0].link.path
-        mixed_song = Remix.objects.create(name="Mixed Songs", link=mixed_songs_file, user_id=user_id, date=timezone.now(), isDeleted=True)
+        mixed_song = Remix.objects.create(name=mood.name, link=mixed_songs_file, user_id=user_id, date=timezone.now(), mood=mood,isDeleted=True)
     else:
-        mixed_songs_file = f'mix/{mood}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.mp3'
-        mixed_song = Remix.objects.create(name="Mixed Songs", link=mixed_songs_file, user_id=user_id, date=timezone.now(), mood=mood ,isDeleted=True)
+        mixed_songs_file = f'mix/{mood.name}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.mp3'
+        mixed_song = Remix.objects.create(name=f'{mood.name}__{datetime.now().strftime("%d/%m/%Y")}', link=mixed_songs_file, user_id=user_id, date=timezone.now(), mood=mood ,isDeleted=True)
 
         mix = AudioSegment.empty()
         for i, song in enumerate(songs):
