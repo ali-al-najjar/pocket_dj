@@ -116,7 +116,7 @@ class GetRemixes(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        user_id = request.query_params.get('user_id')  # get user_id from the request URL
+        user_id = request.query_params.get('user_id')
         user = User.objects.get(id=user_id)
         remixes = Remix.objects.filter(user=user).order_by(F('date').desc())
         serializer = RemixSerializer(remixes, many=True,context={'request': request})
@@ -282,6 +282,8 @@ class SearchView(APIView):
             'artists': []
     })
 
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 class SongListView(APIView):
     permission_classes = [AllowAny]
@@ -323,7 +325,6 @@ def generate_mixed_song(songs, user_id):
 
         mix = AudioSegment.empty()
         for i, song in enumerate(songs):
-            # Load the song using pydub and convert to the required format
             song_audio = AudioSegment.from_file(song.link.path)
             if song.link.name.split('.')[-1] != 'mp3':
                 song_audio.export(f"{song.link.path.split('.')[0]}.mp3", format='mp3')
@@ -331,10 +332,8 @@ def generate_mixed_song(songs, user_id):
                 os.remove(f"{song.link.path.split('.')[0]}.mp3")
 
             if i > 0:
-                # Fade out the last few seconds of the previous song
                 mix = mix.fade_out(5000)
             if i < len(songs) - 1:
-                # Fade in the first few seconds of the next song
                 next_song_audio = AudioSegment.from_file(songs[i+1].link.path)
                 if songs[i+1].link.name.split('.')[-1] != 'mp3':
                     next_song_audio.export(f"{songs[i+1].link.path.split('.')[0]}.mp3", format='mp3')
