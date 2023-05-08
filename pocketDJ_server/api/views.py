@@ -244,8 +244,8 @@ class DeleteRequest(generics.UpdateAPIView):
 
 
 class SearchView(APIView):
+
     permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
-    
     def get_queryset(self):
         return User.objects.none()
     
