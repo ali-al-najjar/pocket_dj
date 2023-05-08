@@ -44,6 +44,7 @@ const RemixesScreen = () => {
     
   useEffect(() => {
     getRemixes();
+    console.log(responses)
   }, []);
 
   const header = () =>{
@@ -71,7 +72,7 @@ const RemixesScreen = () => {
           navigation.navigate("Create");}}
       />}
       data= {responses}
-      keyExtractor={item => item.id}
+      keyExtractor={(item,index)=> index}
       renderItem = {renderItem}
       />
     </>

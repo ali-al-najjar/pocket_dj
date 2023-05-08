@@ -2,6 +2,7 @@ import { ImageBackground, Text, TouchableOpacity, View } from "react-native"
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import Typewriter from 'react-native-typewriter';
+import { useEffect } from "react";
 
 
 const LatestSongItem = ({id , Name , Cover, ArtistName, Audio, Duration}) => {
@@ -11,10 +12,15 @@ const LatestSongItem = ({id , Name , Cover, ArtistName, Audio, Duration}) => {
     navigation.navigate('Song Player', {
       title: Name,
       image: { uri: Cover },
-      AudioURL: {Audio},
+      AudioURL: {audio:Audio},
       Duration : {durationinMillis}
       });
   }
+  
+  useEffect(()=>{
+    console.log("Audio", Audio)
+    console.log("duration", durationinMillis , Duration)
+  },[Audio])
   
   return (
     <TouchableOpacity onPress={handleLatestSong}>

@@ -18,10 +18,6 @@ const ProfileScreen = () => {
   const dispatch = useDispatch();
   const [selectedImage, setSelectedImage] = useState(null);
   const [profile,setProfile] = useState(user.profile)
-  const [original_first_name, setOriginalFirstName] = useState(user.first_name);
-  const [original_last_name, setOriginalLastName] = useState(user.last_name);
-  const [original_username, setOriginalUsername] = useState(user.username);
-  const [original_profile, setOriginalProfile] = useState(user.profile);
   const [first_name, setFirstName] = useState(user.first_name);
   const [last_name, setLastName] = useState(user.last_name);
   const [username, setUsername] = useState(user.username)
@@ -45,17 +41,16 @@ const ProfileScreen = () => {
 
   const handleSubmit = () => {
     const data = new FormData();
-    if (first_name !== original_first_name) {
-      
+    if (first_name !== user.first_name) {
       data.append("first_name", first_name);
     }
-    if (last_name !== original_last_name) {
+    if (last_name !== user.last_name) {
       data.append("last_name", last_name);
     }
-    if (profile !== original_profile) {
+    if (profile !== user.profile) {
       data.append("profile", profile);
     }
-    if (username!== original_username) {
+    if (username!== user.username) {
       data.append("username", username);
     }
 
@@ -121,8 +116,10 @@ const ProfileScreen = () => {
     
   }
 
+  useEffect(()=>{
+    console.log(first_name,last_name,username)
+  },[first_name,last_name,username])
 
-  console.log(user)
   return (
   <View style = {styles.profileContainer} >
   <View style={styles.header}>
@@ -155,19 +152,19 @@ const ProfileScreen = () => {
   <View style={styles.updateInputs}>
   <Text>First Name</Text>
   <TextInput style={constants.textInput}
-          placeholder={user.first_name}
+          // placeholder={user.first_name}
           onChangeText={updateFirstName}
           value={first_name}
         />
       <Text>Last Name</Text>
       <TextInput style={constants.textInput}
-          placeholder={user.last_name}
+          // placeholder={user.last_name}
           onChangeText={updateLastName}
           value={last_name}
         />
         <Text>Username</Text>
           <TextInput style={constants.textInput}
-          placeholder={user.username}
+          // placeholder={user.username}
           onChangeText={updateUsername}
           value={username}
         />

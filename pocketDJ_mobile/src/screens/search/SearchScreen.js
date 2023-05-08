@@ -22,15 +22,7 @@ const SearchScreen = () => {
   const [songs, setSongs] = useState([]);
   const [artists, setArtists] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
-  const [last_item , setLastItem] = useState([])
-  const [latest_song, setLatestSong] = useState({
-    id:"",
-    name:"",
-    cover:"",
-    artist_name:"",
-    audio:"",
-    duration:""
-  })
+  const [latest_song, setLatestSong] = useState();
   const [search, setSearch] = useState('');
   const [searchResult, setSearchResult] = useState([]);
 
@@ -63,9 +55,6 @@ const SearchScreen = () => {
         },
       });
       setSongs(res.data);
-      console.log(songs);
-      setLastItem(songs[songs.length-1])
-      setLatestSong({id:last_item.id ,name: last_item.name, cover:last_item.cover ,artist_name: last_item.artist_name+ ' ' +last_item.artist_last_name,audio: last_item.link})
     } catch (err) {
       console.log(err);
     }
@@ -111,6 +100,14 @@ const SearchScreen = () => {
     getSearch();
   }, [search]);
   
+  useEffect(()=>{
+    if (songs.length > 0){
+      const last_item = songs[songs.length-1]
+      setLatestSong({id: last_item.id ,name: last_item.name, cover:last_item.cover , artist_name: last_item.artist_name+ ' ' +last_item.artist_last_name, audio: last_item.link, duration:last_item.duration})
+    }
+  },[songs])
+
+
   return(
     <ScrollView 
     refreshControl={
@@ -125,7 +122,7 @@ const SearchScreen = () => {
       />
       </View>
       </View>
-      <LatestSongItem id={latest_song.id} Name={latest_song.name} Cover={latest_song.cover} ArtistName={latest_song.artist_name} Audio={latest_song.audio} Duration={parseFloat(latest_song.duration)}/>
+      {latest_song && <LatestSongItem id={latest_song.id} Name={latest_song.name} Cover={latest_song.cover} ArtistName={latest_song.artist_name} Audio={latest_song.audio} Duration={parseFloat(latest_song.duration)}/>}
       <View style={styles.h1_view}>
       <Text style={styles.h1_text}>Our Artists</Text>
       </View>
