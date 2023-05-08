@@ -10,7 +10,7 @@ import LatestSongItem from "../../components/Songs/LatestSongItem";
 
 const renderSong = ({item}) => {
   return (
-    <SongItem id={item.id} name={item.name} cover={item.cover} audio={item.link}/>
+    <SongItem id={item.id} name={item.name} cover={item.cover} audio={item.link} duration={parseFloat(item.duration)}/>
   
 )}
 const renderArtist = ({item}) => {
@@ -59,6 +59,7 @@ const SearchScreen = () => {
       });
       
       setSongs(res.data);
+      console.log(songs)
       setLastItem(songs[songs.length-1])
       setLatestSong({name: last_item.name, cover:last_item.cover ,artist_name: last_item.artist_name+ ' ' +last_item.artist_last_name,audio: last_item.link})
     } catch (err) {

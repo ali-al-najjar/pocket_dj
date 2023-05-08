@@ -8,7 +8,7 @@ import Button from "../Button/Button";
 import Colors from "../../constants/colors";
 import Slider from '@react-native-community/slider';
 
-const SongPlayer = ({ AudioURL }) => {
+const SongPlayer = ({ AudioURL,Duration }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState(null);
   const [duration, setDuration] = useState(0);
@@ -24,6 +24,7 @@ const SongPlayer = ({ AudioURL }) => {
     };
   }, [sound]);
 
+
   useEffect(() => {
     if (sound) {
       sound.setOnPlaybackStatusUpdate(null);
@@ -33,7 +34,26 @@ const SongPlayer = ({ AudioURL }) => {
       setIsPlaying(false);
     }
     setAudio(AudioURL.audio);
+    
   }, [AudioURL]);
+
+  useEffect(() => {
+    if (sound) {
+      sound.setOnPlaybackStatusUpdate(async (status) => {
+        if (status.isLoaded) {
+          setPosition(await status.positionMillis / 1000);
+          setIsPlaying(status.isPlaying);
+        }
+      });
+      
+    }
+  }, [sound]);
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  };
 
   const togglePlayer = async () => {
     if (sound) {
@@ -43,23 +63,20 @@ const SongPlayer = ({ AudioURL }) => {
       } else {
         await sound.playAsync();
         setIsPlaying(true);
+        console.log(position)
       }
     } else {
       if (!audio) {
         console.error('Audio file URL is null or undefined');
         return;
       }
-      // const updatePosition = () => {
-      //   // setDuration(sound.durationMillis / 1000);
-      //   setPosition(positionMillis / 1000);
-      // };
       const { sound } = await Audio.Sound.createAsync({ uri: audio }, {shouldPlay: true });
-      // console.log(sound.setOnPlaybackStatusSuccess(durationMillis))
-      // console.log(sound.setOnPlaybackStatusSuccess(positionMillis))
       setSound(sound);
       console.log(sound)
       await sound.playAsync();
       setIsPlaying(true);
+      setDuration(Duration / 1000);
+      console.log('duration',duration)
       
     }
   };  
@@ -76,7 +93,6 @@ const SongPlayer = ({ AudioURL }) => {
   const handleSeekBar = (value) => {
     setPosition(value);
     sound.setPositionAsync(value * 1000);
-    
   };
   
   return (
@@ -85,7 +101,7 @@ const SongPlayer = ({ AudioURL }) => {
         <View>
           <Slider
             style = {styles.progressBar}
-            minimumValue={0}
+            minimumValue={position}
             maximumValue={duration}
             value={position}
             onValueChange={handleSeekBar}
@@ -94,8 +110,8 @@ const SongPlayer = ({ AudioURL }) => {
           />
         </View>
         <View style={styles.progressBar}>
-          <Text style={styles.progressBarCounter}>{position}</Text>
-          <Text style={styles.progressBarCounter}>{duration}</Text>
+          <Text style={styles.progressBarCounter}>{formatTime(position)}</Text>
+          <Text style={styles.progressBarCounter}>{formatTime(duration)}</Text>
         </View>
         <View style={styles.audio_player}>
           <TouchableOpacity>
