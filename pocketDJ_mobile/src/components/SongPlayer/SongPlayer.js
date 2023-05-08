@@ -63,7 +63,6 @@ const SongPlayer = ({ AudioURL,Duration }) => {
       } else {
         await sound.playAsync();
         setIsPlaying(true);
-        console.log(position)
       }
     } else {
       if (!audio) {
@@ -72,7 +71,6 @@ const SongPlayer = ({ AudioURL,Duration }) => {
       }
       const { sound } = await Audio.Sound.createAsync({ uri: audio }, {shouldPlay: true });
       setSound(sound);
-      console.log(sound)
       await sound.playAsync();
       setIsPlaying(true);
       setDuration(Duration / 1000);
@@ -112,7 +110,7 @@ const SongPlayer = ({ AudioURL,Duration }) => {
           <Text style={styles.progressBarCounter}>{formatTime(duration)}</Text>
         </View>
         <View style={styles.audio_player}>
-          <TouchableOpacity>
+          <TouchableOpacity >
             <Ionicons name="ios-play-back-circle-outline" size={60} color={Colors.black} />
           </TouchableOpacity>
           <TouchableOpacity onPress={togglePlayer}>

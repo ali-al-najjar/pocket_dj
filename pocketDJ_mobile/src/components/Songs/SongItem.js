@@ -7,7 +7,6 @@ import { useNavigation } from "@react-navigation/native";
 
 const SongItem = ({id , name , cover, audio,duration}) => {
   const navigation = useNavigation();
-  console.log(name)
   const durationinMillis =  Math.ceil(duration * 60000)
   const handleSong=()=>{
     navigation.navigate('Song Player', {
@@ -16,7 +15,6 @@ const SongItem = ({id , name , cover, audio,duration}) => {
       AudioURL: {audio},
       Duration : {durationinMillis}
       });
-    console.log(durationinMillis)
   }
   
   return (

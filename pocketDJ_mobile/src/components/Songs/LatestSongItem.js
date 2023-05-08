@@ -4,14 +4,15 @@ import { useNavigation } from "@react-navigation/native";
 import Typewriter from 'react-native-typewriter';
 
 
-const LatestSongItem = ({id , Name ,Cover,ArtistName,audio}) => {
+const LatestSongItem = ({id , Name , Cover, ArtistName, Audio, Duration}) => {
   const navigation = useNavigation();
-
+  const durationinMillis =  Math.ceil(Duration * 60000)
   const handleLatestSong=()=>{
     navigation.navigate('Song Player', {
       title: Name,
       image: { uri: Cover },
-      AudioURL: {audio},
+      AudioURL: {Audio},
+      Duration : {durationinMillis}
       });
   }
   
@@ -23,7 +24,7 @@ const LatestSongItem = ({id , Name ,Cover,ArtistName,audio}) => {
     style = {[styles.latest_song_item, { borderRadius: 5 }]}>
     <Typewriter
       style={styles.typewriter}
-      typing={2}
+      typing={1}
       maxDelay={50}
       minDelay={20}
     >
@@ -33,8 +34,6 @@ const LatestSongItem = ({id , Name ,Cover,ArtistName,audio}) => {
     <Text style={styles.latest_song_item_name}>{Name}</Text>
     </View>
     </Typewriter>
-    
-    
     </ImageBackground>
     </TouchableOpacity>
   )

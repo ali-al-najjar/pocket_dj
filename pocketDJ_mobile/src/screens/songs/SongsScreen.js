@@ -6,10 +6,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import EmptyState from "../../components/EmptyState/emptyState";
 import { useRoute } from '@react-navigation/native';
 import {useState,useEffect} from 'react';
-
+import SongItem from "../../components/Songs/SongItem";
 
 const renderItem = ({item}) => {
-  return <RemixItem id={item.id} title={item.name}/>}
+  return <SongItem id={item.id} name={item.name} cover={item.cover} audio={item.link} duration={parseFloat(item.duration)}/>}
 
 const SongsScreen = () => {
   const [ArtistTitle, setArtistTitle] = useState('');
@@ -24,7 +24,7 @@ const SongsScreen = () => {
     setArtistImage(image);
     setArtistSongs(songs);
     }, []);
-
+  console.log(ArtistSongs)
   const navigation = useNavigation();
   const header = () =>{
     return (

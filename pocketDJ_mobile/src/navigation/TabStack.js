@@ -16,11 +16,7 @@ const TabStack = () => {
   const Tabs = createBottomTabNavigator();
   return (
     <Tabs.Navigator 
-    screenOptions={{ headerShown: false }}
-    tabBarOptions={{
-      activeTintColor: Colors.primaryColor,
-      inactiveTintColor: Colors.black
-    }}>
+    screenOptions={{ headerShown: false,tabBarActiveTintColor: Colors.primaryColor,tabBarInactiveTintColor: Colors.black}}>
 
       <Tabs.Screen
         name="Create"

@@ -16,18 +16,20 @@ const renderSong = ({item}) => {
 const renderArtist = ({item}) => {
   return <ArtistItem id={item.id} name={item.first_name +" " + item.last_name}  cover={item.profile} songs={item.songs} />
 }
+const token = getToken();
 
 const SearchScreen = () => {
-  const token = getToken();
   const [songs, setSongs] = useState([]);
   const [artists, setArtists] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   const [last_item , setLastItem] = useState([])
   const [latest_song, setLatestSong] = useState({
+    id:"",
     name:"",
     cover:"",
     artist_name:"",
-    audio:""
+    audio:"",
+    duration:""
   })
   const [search, setSearch] = useState('');
   const [searchResult, setSearchResult] = useState([]);
@@ -36,6 +38,11 @@ const SearchScreen = () => {
     setSearch(text);
   };
 
+  useEffect(()=>{
+    getSongs();
+    getArtists();
+  },[])
+
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
@@ -43,8 +50,6 @@ const SearchScreen = () => {
       setRefreshing(false);
       getArtists();
       getSongs();
-      setLastItem();
-      setLatestSong();
     }, 1000);
   }, []);
 
@@ -57,16 +62,16 @@ const SearchScreen = () => {
           Authorization: 'Token ' + token._j,
         },
       });
-      
       setSongs(res.data);
-      console.log(songs)
+      console.log(songs);
       setLastItem(songs[songs.length-1])
-      setLatestSong({name: last_item.name, cover:last_item.cover ,artist_name: last_item.artist_name+ ' ' +last_item.artist_last_name,audio: last_item.link})
+      setLatestSong({id:last_item.id ,name: last_item.name, cover:last_item.cover ,artist_name: last_item.artist_name+ ' ' +last_item.artist_last_name,audio: last_item.link})
     } catch (err) {
       console.log(err);
     }
-  };
 
+  };
+  
   const getArtists = async () => {
     try {
       const res = await axios({
@@ -83,11 +88,11 @@ const SearchScreen = () => {
   };
 
   useEffect(() => {
+    console.log(token)
     const getSearch = async () => {
       if (search ==""){
         getSongs();
         getArtists();
-        
       }
       try {
         const res = await axios({
@@ -102,6 +107,7 @@ const SearchScreen = () => {
         console.log(err);
       }
     };
+    
     getSearch();
   }, [search]);
   
@@ -119,7 +125,7 @@ const SearchScreen = () => {
       />
       </View>
       </View>
-      <LatestSongItem id={latest_song.id} Name={latest_song.name} Cover={latest_song.cover} ArtistName={latest_song.artist_name} audio={latest_song.audio}/>
+      <LatestSongItem id={latest_song.id} Name={latest_song.name} Cover={latest_song.cover} ArtistName={latest_song.artist_name} Audio={latest_song.audio} Duration={parseFloat(latest_song.duration)}/>
       <View style={styles.h1_view}>
       <Text style={styles.h1_text}>Our Artists</Text>
       </View>
