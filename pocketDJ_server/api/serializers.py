@@ -91,6 +91,7 @@ class MoodSerializer(serializers.ModelSerializer):
 
 class RemixSerializer(serializers.ModelSerializer):
    mood_name = serializers.CharField(source='mood.name', read_only=True)
+   cover = serializers.CharField(source='mood.cover',read_only=True,)
    class Meta:
       model = Remix
-      fields = ('name', 'date', 'isDeleted','link', 'mood_id', 'mood_name')
+      fields = ('name', 'date', 'isDeleted','link', 'mood_id', 'mood_name','cover')
