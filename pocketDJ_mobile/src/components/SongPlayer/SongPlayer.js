@@ -76,7 +76,6 @@ const SongPlayer = ({ AudioURL,Duration }) => {
       await sound.playAsync();
       setIsPlaying(true);
       setDuration(Duration / 1000);
-      console.log('duration',duration)
       
     }
   };  
@@ -100,8 +99,7 @@ const SongPlayer = ({ AudioURL,Duration }) => {
       <View style={styles.container}>
         <View>
           <Slider
-            style = {styles.progressBar}
-            minimumValue={position}
+            minimumValue={0}
             maximumValue={duration}
             value={position}
             onValueChange={handleSeekBar}
