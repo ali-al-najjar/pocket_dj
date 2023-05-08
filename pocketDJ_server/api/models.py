@@ -48,6 +48,7 @@ class Remix(models.Model):
     name = models.CharField(max_length=255)
     link = models.FileField(upload_to='mix/',blank=True)
     date = models.DateTimeField("date published")
+    mood = models.ForeignKey(Mood,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     isDeleted = models.BooleanField(default=True)
 
