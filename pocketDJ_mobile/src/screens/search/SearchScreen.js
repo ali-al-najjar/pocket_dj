@@ -22,6 +22,7 @@ const SearchScreen = () => {
   const [songs, setSongs] = useState([]);
   const [artists, setArtists] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
+  const [last_item , setLastItem] = useState([])
   const [latest_song, setLatestSong] = useState({
     name:"",
     cover:"",
@@ -42,6 +43,8 @@ const SearchScreen = () => {
       setRefreshing(false);
       getArtists();
       getSongs();
+      setLastItem();
+      setLatestSong();
     }, 1000);
   }, []);
 
@@ -51,12 +54,13 @@ const SearchScreen = () => {
         method: 'GET',
         url: 'http://192.168.1.127:8000/songs',
         headers: {
-          Authorization: 'Token ' + token,
+          Authorization: 'Token ' + token._j,
         },
       });
+      
       setSongs(res.data);
-      setLatestSong({name: res.data[0].name, cover:res.data[0].cover ,artist_name: res.data[0].artist_name+ ' ' +res.data[0].artist_last_name,audio: res.data[0].link})
-      console.log(latest_song.audio)
+      setLastItem(songs[songs.length-1])
+      setLatestSong({name: last_item.name, cover:last_item.cover ,artist_name: last_item.artist_name+ ' ' +last_item.artist_last_name,audio: last_item.link})
     } catch (err) {
       console.log(err);
     }
@@ -68,7 +72,7 @@ const SearchScreen = () => {
         method: 'GET',
         url: 'http://192.168.1.127:8000/artists',
         headers: {
-          Authorization: 'Token ' + token,
+          Authorization: 'Token ' + token._j,
         },
       });
       setArtists(res.data);
@@ -88,9 +92,7 @@ const SearchScreen = () => {
         const res = await axios({
           method: 'GET',
           url: `http://192.168.1.127:8000/search?q=${search}`,
-          headers: {
-            Authorization: 'Token ' + token,
-          },
+
         });
         setSearchResult(res.data);
         setSongs(res.data.songs)
