@@ -308,9 +308,6 @@ class SongListView(APIView):
         return Response(response_data)
 
 
-from pydub import AudioSegment
-import os
-
 def generate_mixed_song(songs, user_id):
     mixed_songs_file = None
     mood = songs[0].mood
@@ -320,7 +317,7 @@ def generate_mixed_song(songs, user_id):
         mixed_song = Remix.objects.create(name="Mixed Songs", link=mixed_songs_file, user_id=user_id, date=timezone.now(), isDeleted=True)
     else:
         mixed_songs_file = f'mix/{mood}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.mp3'
-        mixed_song = Remix.objects.create(name="Mixed Songs", link=mixed_songs_file, user_id=user_id, date=timezone.now(), isDeleted=True)
+        mixed_song = Remix.objects.create(name="Mixed Songs", link=mixed_songs_file, user_id=user_id, date=timezone.now(), mood=mood ,isDeleted=True)
 
         mix = AudioSegment.empty()
         for i, song in enumerate(songs):
