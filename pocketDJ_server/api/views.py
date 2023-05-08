@@ -2,29 +2,28 @@ from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import UserSerializer,RegisterSerializer,SongSerializer,MoodSerializer,RemixSerializer,RequestSerializer
-from .models import User
-from .models import Song
-from .models import Remix
-from .models import Request
-from .models import Mood
+from .models import User, Song, Remix, Request, Mood
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import generics , status
 from rest_framework.permissions import IsAuthenticated,DjangoModelPermissionsOrAnonReadOnly
 from rest_framework import permissions
 from django.db.models import Q
 import random
-from pydub import AudioSegment
-from pydub.utils import make_chunks
-from pydub.silence import detect_silence, split_on_silence, detect_nonsilent
+# from pydub import AudioSegment
+# from pydub.utils import make_chunks
+# from pydub.silence import detect_silence, split_on_silence, detect_nonsilent
 import os
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
 from datetime import datetime
-import librosa
-import librosa.display
+# import librosa
+# import librosa.display
 import numpy as np
 import soundfile as sf
+from rest_framework import status
+import ffmpeg
+import subprocess
 
 class IsAdmin(permissions.BasePermission):
     def has_permission(self, request, view):
@@ -137,7 +136,7 @@ class CreateSong(generics.CreateAPIView):
 class GetSongs(generics.ListAPIView):
     authentication_classes = (TokenAuthentication,)
     # permission_classes = (IsUser,)
-    queryset = Song.objects.filter(isDeleted=True)
+    queryset = Song.objects.filter(isDeleted=True,)
     serializer_class = SongSerializer
     
 class DeleteSong(generics.UpdateAPIView):
@@ -285,6 +284,7 @@ class SearchView(APIView):
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
+
 class SongListView(APIView):
     permission_classes = [AllowAny]
 
@@ -313,37 +313,17 @@ class SongListView(APIView):
 
 
 def generate_mixed_song(songs, user_id):
-    mixed_songs_file = None
     mood = songs[0].mood
+    song_paths = [song.link.path for song in songs]
 
     if len(songs) == 1:
-        mixed_songs_file = songs[0].link.path
-        mixed_song = Remix.objects.create(name=mood.name, link=mixed_songs_file, user_id=user_id, date=timezone.now(), mood=mood,isDeleted=True)
+        mixed_song_path = songs[0].link.path
+        mixed_song = Remix.objects.create(name=mood.name, link=mixed_song_path, user_id=user_id, date=timezone.now(), mood=mood, isDeleted=True)
     else:
-        mixed_songs_file = f'mix/{mood.name}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.mp3'
-        mixed_song = Remix.objects.create(name=f'{mood.name}__{datetime.now().strftime("%d/%m/%Y")}', link=mixed_songs_file, user_id=user_id, date=timezone.now(), mood=mood ,isDeleted=True)
+        mixed_song_path = f'mix/{mood.name}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.mp3'
+        cmd = ['ffmpeg', '-i', f'concat:{"|".join(song_paths)}', '-filter_complex', 'amix=inputs=2', '-ac', '2', '-ab', '192k', '-f', 'mp3', mixed_song_path]
+        subprocess.run(cmd)
 
-        mix = AudioSegment.empty()
-        for i, song in enumerate(songs):
-            song_audio = AudioSegment.from_file(song.link.path)
-            if song.link.name.split('.')[-1] != 'mp3':
-                song_audio.export(f"{song.link.path.split('.')[0]}.mp3", format='mp3')
-                song_audio = AudioSegment.from_file(f"{song.link.path.split('.')[0]}.mp3")
-                os.remove(f"{song.link.path.split('.')[0]}.mp3")
-
-            if i > 0:
-                mix = mix.fade_out(5000)
-            if i < len(songs) - 1:
-                next_song_audio = AudioSegment.from_file(songs[i+1].link.path)
-                if songs[i+1].link.name.split('.')[-1] != 'mp3':
-                    next_song_audio.export(f"{songs[i+1].link.path.split('.')[0]}.mp3", format='mp3')
-                    next_song_audio = AudioSegment.from_file(f"{songs[i+1].link.path.split('.')[0]}.mp3")
-                    os.remove(f"{songs[i+1].link.path.split('.')[0]}.mp3")
-                song_audio = song_audio.fade_in(10000) + next_song_audio[:20000]
-                
-            mix = mix + song_audio
-
-        mix.export(mixed_song.link.path, format='mp3')
+        mixed_song = Remix.objects.create(name=f'{mood.name}__{datetime.now().strftime("%d/%m/%Y")}', link=mixed_song_path, user_id=user_id, date=timezone.now(), mood=mood ,isDeleted=True)
 
     return mixed_song
-
