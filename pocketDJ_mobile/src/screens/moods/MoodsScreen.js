@@ -1,6 +1,6 @@
-import { View, Text,Image, FlatList,StatusBar} from "react-native";
+import { View, Text,Image, FlatList,RefreshControl} from "react-native";
 import styles from './styles';
-import {useState, useEffect} from 'react';
+import {useState, useEffect,useCallback} from 'react';
 import { useNavigation } from "@react-navigation/native";
 import MoodItem from "../../components/Moods/Moods/MoodItem";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -14,7 +14,16 @@ const renderItem = ({item}) => {
 const MoodsScreen = () => {
   const navigation = useNavigation();
   const token = getToken();
+  const [refreshing, setRefreshing] = useState(false);
   const [responses, setResponses] = useState([]);
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+      getMoods();
+    }, 1000);
+  }, []);
 
   const getMoods = async () => {
     try {
@@ -52,6 +61,8 @@ const MoodsScreen = () => {
   }
   return(
     <FlatList 
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       ListHeaderComponent ={header}
       style={styles.flatlist}
       data= {responses}
