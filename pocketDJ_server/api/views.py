@@ -133,7 +133,6 @@ class CreateSong(generics.CreateAPIView):
 
 class GetSongs(generics.ListAPIView):
     authentication_classes = (TokenAuthentication,)
-    # permission_classes = (IsUser,)
     queryset = Song.objects.filter(isDeleted=True,)
     serializer_class = SongSerializer
     

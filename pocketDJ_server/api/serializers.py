@@ -22,8 +22,9 @@ class UserSerializer(serializers.ModelSerializer):
     fields = ["id","username", "first_name", "last_name", "email","profile","songs"]
 
   def get_songs(self, obj):
+    request = self.context.get('request')
     songs = Song.objects.filter(artist=obj)
-    return SongSerializer(songs, many=True,).data 
+    return SongSerializer(songs, many=True,context={'request': request}).data 
 
 class RegisterSerializer(serializers.ModelSerializer):
   username = serializers.CharField(
