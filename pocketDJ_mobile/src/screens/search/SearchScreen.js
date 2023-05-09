@@ -1,7 +1,6 @@
-import { React,View, Text,Image, FlatList, ScrollView,RefreshControl,TextInput,ActivityIndicator} from "react-native";
+import { React,View, Text,Image, FlatList, ScrollView,RefreshControl,TextInput} from "react-native";
 import styles from './styles';
 import {useState, useEffect,useCallback} from 'react';
-import { SafeAreaView } from "react-native-safe-area-context";
 import { getToken } from "../../auth/auth";
 import axios from 'axios';
 import ArtistItem from "../../components/Artists/ArtistItem";
@@ -25,7 +24,7 @@ const SearchScreen = () => {
   const [latest_song, setLatestSong] = useState();
   const [search, setSearch] = useState('');
   const [searchResult, setSearchResult] = useState([]);
-  const [loading, setLoading] = useState(true);
+  
   
   const handleSearch = (text) => {
     setSearch(text);

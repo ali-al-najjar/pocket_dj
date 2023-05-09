@@ -1,10 +1,9 @@
-import { SliderComponent, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { Audio } from 'expo-av';
 import styles from "./styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from '@expo/vector-icons';
 import { useState, useEffect } from 'react';
-import Button from "../Button/Button";
 import Colors from "../../constants/colors";
 import Slider from '@react-native-community/slider';
 

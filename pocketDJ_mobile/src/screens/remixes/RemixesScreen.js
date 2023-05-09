@@ -1,11 +1,8 @@
 import { View, Text,FlatList,RefreshControl} from "react-native";
 import styles from './styles';
 import { useNavigation } from "@react-navigation/native";
-import { DUMMY_DATA } from "../../../data/remixes";
 import RemixItem from "../../components/Remix/RemixItem";
-import { SafeAreaView } from "react-native-safe-area-context";
 import EmptyState from "../../components/EmptyState/emptyState";
-import { getToken } from "../../auth/auth";
 import axios from 'axios';
 import {useState, useEffect,useCallback} from 'react';
 import { useSelector } from 'react-redux';
