@@ -5,6 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 import { getToken } from "../../../auth/auth";
 import axios from 'axios';
 // import RemixItem from "../../components/Remix/RemixItem";
+import { Alert } from 'react-native';
+import Colors from "../../../constants/colors";
 
 const MoodItem = ({id , name ,cover}) => {
 
@@ -37,7 +39,30 @@ const MoodItem = ({id , name ,cover}) => {
     .catch((err=>{
       // setLoading(false);
       console.log(err.request.response);
-      console.log(token)
+      Alert.alert(
+        'Unlucky!',
+        'New Songs will be added soon for this item',
+        [
+          {
+            text: 'OK',
+            onPress: () => console.log('OK pressed'),
+            style: 'cancel'
+          }
+        ],{
+        backgroundColor: Colors.rgbaPrimary,
+        color: 'black',
+        titleStyle: {
+          fontSize: 24,
+          fontWeight: 'bold',
+          textAlign: 'center',
+          color: 'red'
+        },
+        messageStyle: {
+          fontSize: 16,
+          textAlign: 'center',
+          color: 'black'
+        }
+      });
     }))
   }
 
