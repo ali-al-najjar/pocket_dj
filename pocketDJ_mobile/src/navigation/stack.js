@@ -4,7 +4,7 @@ import RegisterScreen from '../screens/register/RegisterScreen';
 import TabStack from './TabStack';
 import PlayerScreen from '../screens/player/PlayerScreen';
 import SongPlayerScreen from '../screens/songPlayer/SongPlayerScreen';
-import ArtistProfile from '../screens/songs/SongsScreen';
+import ArtistProfile from '../screens/artist/ArtistScreen'
 import Colors from '../constants/colors';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 

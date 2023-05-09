@@ -15,7 +15,9 @@ const SongItem = ({id , name , cover, audio,duration}) => {
       Duration : {durationinMillis}
       });
   }
-  
+  console.log(cover)
+  console.log(audio)
+  console.log(durationinMillis)
   return (
     <TouchableOpacity onPress={handleSong}>
     <ImageBackground 

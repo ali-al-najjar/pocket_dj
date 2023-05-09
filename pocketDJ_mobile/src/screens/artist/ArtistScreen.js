@@ -8,13 +8,16 @@ import { useRoute } from '@react-navigation/native';
 import {useState,useEffect} from 'react';
 import SongItem from "../../components/Songs/SongItem";
 
-const renderItem = ({item}) => {
-  return <SongItem id={item.id} name={item.name} cover={item.cover} audio={item.link} duration={parseFloat(item.duration)}/>}
+const renderSong = ({item}) => {
+  return (
+    <SongItem id={item.id} name={item.name} cover={item.cover} audio={item.link} duration={parseFloat(item.duration)}/>
+  
+)}
 
-const SongsScreen = () => {
+const ArtistScreen = () => {
   const [ArtistTitle, setArtistTitle] = useState('');
   const [ArtistImage, setArtistImage] = useState('');
-  const [ArtistSongs, setArtistSongs] = useState([]);
+  // const [ArtistSongs, setArtistSongs] = useState([]);
   const route = useRoute();
   const { title, image, songs } = route.params;
 
@@ -22,9 +25,10 @@ const SongsScreen = () => {
   useEffect(() => {
     setArtistTitle(title);
     setArtistImage(image);
-    setArtistSongs(songs);
+    // setArtistSongs(songs);
+    console.log(songs);
     }, []);
-  console.log(ArtistSongs)
+
   const navigation = useNavigation();
   const header = () =>{
     return (
@@ -40,9 +44,10 @@ const SongsScreen = () => {
     <FlatList 
       style={styles.flatList}
       ListHeaderComponent ={header}
-      data= {ArtistSongs}
+      data= {songs}
       keyExtractor={item => item.id}
-      renderItem = {renderItem}
+      renderItem = {renderSong}
+      numColumns={2}
       ListEmptyComponent={
         <EmptyState     
           title={"Coming Soon!"}
@@ -56,4 +61,4 @@ const SongsScreen = () => {
   )
 }
 
-export default SongsScreen;
+export default ArtistScreen;
