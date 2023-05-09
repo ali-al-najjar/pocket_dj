@@ -51,6 +51,7 @@ class Remix(models.Model):
     mood = models.ForeignKey(Mood,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     isDeleted = models.BooleanField(default=True)
+    duration = models.DecimalField(max_digits=15, decimal_places=10,blank=True)
 
 
 class Favorites(models.Model):
