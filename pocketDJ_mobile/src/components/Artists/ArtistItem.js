@@ -8,7 +8,7 @@ const ArtistItem = ({id , name ,cover,songs}) => {
   const navigation = useNavigation();
 
   const handleArtist=()=>{
-    navigation.navigate('Artist Player', {
+    navigation.navigate('Artist Profile', {
       title: name,
       image: { uri: cover },
       songs: songs
