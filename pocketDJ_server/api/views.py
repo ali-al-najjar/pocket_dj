@@ -325,22 +325,28 @@ def generate_mixed_song(songs, user_id):
                 song_audio = AudioSegment.from_file(f"{song.link.path.split('.')[0]}.mp3")
                 os.remove(f"{song.link.path.split('.')[0]}.mp3")
 
+            # Crossfade with previous song if not first song
             if i > 0:
-                mix = mix.fade_out(5000)
+                mix = mix.append(song_audio.fade_in(60000), crossfade=20000)
+            else:
+                mix = song_audio
+
+            # Fade out at end of song if not last song
             if i < len(songs) - 1:
                 next_song_audio = AudioSegment.from_file(songs[i+1].link.path)
                 if songs[i+1].link.name.split('.')[-1] != 'mp3':
                     next_song_audio.export(f"{songs[i+1].link.path.split('.')[0]}.mp3", format='mp3')
                     next_song_audio = AudioSegment.from_file(f"{songs[i+1].link.path.split('.')[0]}.mp3")
                     os.remove(f"{songs[i+1].link.path.split('.')[0]}.mp3")
-                song_audio = song_audio.fade_in(60000) + next_song_audio[:60000]
-                
-            mix = mix + song_audio
-            duration_minutes += song_audio.duration_seconds / 60  # increment duration_minutes
-            mixed_songs_file = f'mix/{mood.name}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.mp3'
-        mixed_song = Remix.objects.create(name=f'{mood.name}-Remix', link=mixed_songs_file, user_id=user_id, date=timezone.now(), mood=mood,duration=duration_minutes ,isDeleted=True)
+
+                mix = mix.fade_out(20000).append(next_song_audio[:60000].fade_in(5000), crossfade=20000)
+
+        duration_minutes = mix.duration_seconds / 60
+        mixed_songs_file = f'mix/{mood.name}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.mp3'
+        mixed_song = Remix.objects.create(name=f'{mood.name}-Remix', link=mixed_songs_file, user_id=user_id, date=timezone.now(), mood=mood, duration=duration_minutes ,isDeleted=True)
 
         mix.export(mixed_song.link.path, format='mp3')
 
     return mixed_song
+
 
