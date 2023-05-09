@@ -310,15 +310,14 @@ class SongListView(APIView):
 def generate_mixed_song(songs, user_id):
     mixed_songs_file = None
     mood = songs[0].mood
-    duration_minutes = None  # Initialize to None
-    
-    if len(songs) == 1:
-        mixed_songs_file = songs[0].link.path
-    else:
-        mixed_songs_file = f'mix/{mood.name}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.mp3'
+    duration_minutes = 0  # initialize duration_minutes outside the for loop
 
+    if len(songs) == 1:
+        mixed_songs_file = songs[0].link
+        duration = songs[0].duration
+        mixed_song = Remix.objects.create(name=f'{mood.name}-Remix', link=mixed_songs_file, user_id=user_id, date=timezone.now(), mood=mood,isDeleted=True,duration=duration)
+    else:
         mix = AudioSegment.empty()
-        duration = 0  # Initialize duration to zero
         for i, song in enumerate(songs):
             song_audio = AudioSegment.from_file(song.link.path)
             if song.link.name.split('.')[-1] != 'mp3':
@@ -334,17 +333,14 @@ def generate_mixed_song(songs, user_id):
                     next_song_audio.export(f"{songs[i+1].link.path.split('.')[0]}.mp3", format='mp3')
                     next_song_audio = AudioSegment.from_file(f"{songs[i+1].link.path.split('.')[0]}.mp3")
                     os.remove(f"{songs[i+1].link.path.split('.')[0]}.mp3")
-                song_audio = song_audio.fade_in(20000) + next_song_audio[:20000]
-
+                song_audio = song_audio.fade_in(60000) + next_song_audio[:60000]
+                
             mix = mix + song_audio
-            duration += song_audio.duration_seconds  # Add the duration of the current song to the total duration
+            duration_minutes += song_audio.duration_seconds / 60  # increment duration_minutes
+            mixed_songs_file = f'mix/{mood.name}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.mp3'
+        mixed_song = Remix.objects.create(name=f'{mood.name}-Remix', link=mixed_songs_file, user_id=user_id, date=timezone.now(), mood=mood,duration=duration_minutes ,isDeleted=True)
 
-        mix.export(mixed_songs_file, format='mp3')
-        duration = duration * 1000  # milliseconds
-        duration_minutes = duration / (1000 * 60)  # Convert to minutes as a float
-    print(mixed_songs_file)
-    mixed_song = Remix.objects.create(name=mood.name, link=mixed_songs_file, user_id=user_id, date=timezone.now(), mood=mood,duration=duration_minutes, isDeleted=True)
-    mixed_song.link = mixed_songs_file
-    mixed_song.save()    
+        mix.export(mixed_song.link.path, format='mp3')
+
     return mixed_song
 
