@@ -47,6 +47,7 @@ const LoginScreen = () => {
         })
         .catch((err=>{
           console.log(err.request.response);
+          setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Invalid Credentials. Try again!</Text></View>)
         }))
         
     }else(setError(<View style={constants.error_container}><MaterialIcons name="error-outline" size={24} color="red" /><Text style={constants.error}>Your password is malformed</Text></View>))
