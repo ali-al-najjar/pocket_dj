@@ -3,13 +3,15 @@ import styles from "./styles";
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 
-const RemixItem = ({id , title, mood, date, audio, cover}) => {
+const RemixItem = ({id , title, mood, date, audio, cover,duration}) => {
   const navigation = useNavigation();
+  const durationinMillis =  Math.ceil(duration * 60000)
   const handleRemix=()=>{
     navigation.navigate('Song Player', {
       title: title,
       image: { uri: `http://192.168.1.127:8000/media/${cover}` },
       AudioURL: {audio},
+      Duration: {durationinMillis}
       });
   }
 

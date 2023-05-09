@@ -11,7 +11,7 @@ import {useState, useEffect,useCallback} from 'react';
 import { useSelector } from 'react-redux';
 
 const renderItem = ({item}) => {
-  return <RemixItem id={item.id} title={item.name} date={item.date} mood={item.mood_name} audio={item.link} cover={item.cover}/>}
+  return <RemixItem id={item.id} title={item.name} date={item.date} mood={item.mood_name} audio={item.link} cover={item.cover} duration={parseFloat(item.duration)}/>}
 
 const RemixesScreen = () => {
   const navigation = useNavigation();

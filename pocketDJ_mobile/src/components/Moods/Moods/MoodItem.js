@@ -1,12 +1,16 @@
-import { ImageBackground, Text, TouchableOpacity, View } from "react-native"
+import { ImageBackground, Text, TouchableOpacity, View ,ActivityIndicator} from "react-native"
+import {useState, useEffect,useCallback} from 'react';
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { getToken } from "../../../auth/auth";
 import axios from 'axios';
+// import RemixItem from "../../components/Remix/RemixItem";
 
 const MoodItem = ({id , name ,cover}) => {
-  const navigation = useNavigation();
 
+  const navigation = useNavigation();
+  // const [loading, setLoading] = useState(true);
+  // const [remix, setRemix] = useState();
   // const handleMood=()=>{
   //   navigation.navigate('Player', {
   //     title: name,
@@ -25,10 +29,13 @@ const MoodItem = ({id , name ,cover}) => {
       }
     })
     .then((res)=>{
+      // setLoading(false);
+      console.log(res.status)
       console.log(res.data);
       
     })
     .catch((err=>{
+      // setLoading(false);
       console.log(err.request.response);
       console.log(token)
     }))
@@ -42,6 +49,7 @@ const MoodItem = ({id , name ,cover}) => {
     style = {[styles.mood, { borderRadius: 5 }]}>
     <Text style={styles.mood_text}>{name}</Text>
     </ImageBackground>
+    {/* {loading ? <ActivityIndicator size="large" color="#0000ff" /> : <RemixItem id={remix.id} title={remix.name} date={remix.date} mood={item.mood_name} audio={item.link} cover={item.cover} duration={parseFloat(item.duration)}/>} */}
     </TouchableOpacity>
   )
 }
