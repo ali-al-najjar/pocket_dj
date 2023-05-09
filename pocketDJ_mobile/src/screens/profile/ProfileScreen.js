@@ -1,6 +1,6 @@
 import { View, Text,Image,TextInput,TouchableOpacity, ScrollView} from "react-native";
 import styles from './styles';
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
 import { useSelector , useDispatch } from "react-redux";
 import Button from "../../components/Button/Button";
 import constants from "../../constants/styles"
@@ -16,6 +16,7 @@ import { setUser } from '../../redux/slices/userSlice'
 const ProfileScreen = () => {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const [selectedImage, setSelectedImage] = useState(null);
   const [profile,setProfile] = useState(user.profile)
   const [first_name, setFirstName] = useState(user.first_name);
@@ -33,10 +34,6 @@ const ProfileScreen = () => {
   }
   const updateLastName = (text) =>{
     setLastName(text)
-  }
-
-  const handleLogout = () =>{
-    
   }
 
   const handleSubmit = () => {
@@ -116,11 +113,12 @@ const ProfileScreen = () => {
     
   }
 
-  useEffect(()=>{
-    console.log(first_name,last_name,username)
-  },[first_name,last_name,username])
+  // useEffect(()=>{
+  //   console.log(first_name,last_name,username)
+  // },[first_name,last_name,username])
 
   return (
+  <ScrollView>
   <View style = {styles.profileContainer} >
   <View style={styles.header}>
   <View style={constants.h1_view}>
@@ -152,28 +150,26 @@ const ProfileScreen = () => {
   <View style={styles.updateInputs}>
   <Text>First Name</Text>
   <TextInput style={constants.textInput}
-          // placeholder={user.first_name}
           onChangeText={updateFirstName}
           value={first_name}
         />
       <Text>Last Name</Text>
       <TextInput style={constants.textInput}
-          // placeholder={user.last_name}
           onChangeText={updateLastName}
           value={last_name}
         />
         <Text>Username</Text>
           <TextInput style={constants.textInput}
-          // placeholder={user.username}
           onChangeText={updateUsername}
           value={username}
         />
   
   <View ><Text className={styles.messageText}>{message}</Text></View>
   <Button title="Submit Updates" onPress={handleSubmit} />
-  <Button title="Log out" onPress={handleLogout} />
+  <Button title="Log out" onPress={()=> {navigation.navigate("Back");}} />
   </View>
   </View>
+  </ScrollView>
   )}
 
 export default ProfileScreen;
