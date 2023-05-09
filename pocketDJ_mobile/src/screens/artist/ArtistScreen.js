@@ -32,11 +32,16 @@ const ArtistScreen = () => {
   const navigation = useNavigation();
   const header = () =>{
     return (
+      <View style= {styles.artist}>
       <ImageBackground 
       source={{ uri: ArtistImage.uri }}
+      imageStyle={{ borderRadius: 10}}
       style = {styles.artist_image}>
+      <View style={styles.artist_name}>
       <Text style={styles.artist_item_name}>{ArtistTitle}</Text>
+      </View>
       </ImageBackground>
+      </View>
     )
   }
   return(
