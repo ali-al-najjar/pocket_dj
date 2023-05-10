@@ -76,18 +76,18 @@
 
 ###  Pocket DJAI is built using the following technologies:
 
-- This project uses the [React Native app development framework](https://reactnative.dev/). Flutter is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
-- For persistent storage (database), the app uses the [Hive](https://hivedb.dev/) package which allows the app to create a custom storage schema and save it to a local database.
-- To send local push notifications, the app uses the [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications) package which supports Android, iOS, and macOS.
-  - 🚨 Currently, notifications aren't working on macOS. This is a known issue that we are working to resolve!
-- The app uses the font ["Work Sans"](https://fonts.google.com/specimen/Work+Sans) as its main font, and the design of the app adheres to the material design guidelines.
+- This project uses the [React Native app development framework](https://reactnative.dev/). React Native is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
+- For persistent storage (database), the app uses the [MySQL](https://www.mysql.com/) package which allows the app to create a custom storage schema and save it to a local database.
+- To create the mixes, the app uses ["Django"](https://www.djangoproject.com/) framework in integration with ["Pydub"](https://pydub.com/) which is an audio library, to generate the mix.
+- The app uses the font ["Urbanist"](https://fonts.google.com/specimen/Urbanist) as its main font, and the design of the app adheres to the material design guidelines.
+- The images of the Moods available on the app were generated using ["DeepAI"](https://deepai.org/machine-learning-model/text2img).
 
 <br><br>
 
 <!-- How to run -->
 <img src="./readme/title6.svg"/>
 
-> To set up Coffee Express locally, follow these steps:
+> To set up Pocket DJAI locally, follow these steps:
 
 ### Prerequisites
 
@@ -101,10 +101,10 @@ This is an example of how to list things you need to use the software and how to
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at [Spotify API](https://developer.spotify.com/documentation/web-api)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/aliynajjar/pocket_dj.git
    ```
 3. Install NPM packages
    ```sh
@@ -115,4 +115,4 @@ _Below is an example of how you can instruct your audience on installing and set
    const API_KEY = 'ENTER YOUR API';
    ```
 
-Now, you should be able to run Coffee Express locally and explore its features.
+Now, you should be able to run Pocket DJAI locally and explore its features.
