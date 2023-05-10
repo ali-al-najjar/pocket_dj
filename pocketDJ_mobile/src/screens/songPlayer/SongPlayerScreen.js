@@ -12,7 +12,7 @@ const SongPlayerScreen = () => {
   const [AudioFile, setAudioFile] = useState('');
   const route = useRoute();
   const { title, image, AudioURL, Duration} = route.params;
-  console.log('Title',title , "Image", image , "AudioURL",AudioURL, "Duration" , Duration)
+
   useEffect(() => {
     setMoodTitle(title);
     setMoodImage(image);
