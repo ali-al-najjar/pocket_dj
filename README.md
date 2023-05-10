@@ -37,7 +37,6 @@
 | ---| ---| ---|
 | ![Landing](./readme/demo/WireFrameLoginMobile.png) | ![fsdaf](./readme/demo/WireFrameregisterMobile.png) | ![fsdaf](./readme/demo/WireFrameMoodsMobile.png) |
 | Search screen  | Remixes screen |  Player screen |
-| ---| ---| ---|
 | ![Landing](./readme/demo/WireFrameSearchMobile.png) | ![fsdaf](./readme/demo/WireFrameRemixesMobile.png) | ![fsdaf](./readme/demo/WireFramePlayerMobile.png) |
 
 ### Wireframes Frontend Artist
@@ -50,7 +49,6 @@
 | ---| ---| ---| ---|
 | ![Landing](./readme/demo/WireframeLoginAdmin.png) | ![fsdaf](./readme/demo/WireframeArtistsAdmin.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
 | View All Moods screen  | Upload Song screen |  Upload Mood screen | 
-| ---| ---| ---| 
 | ![Landing](./readme/demo/WireframeLoginAdmin.png) | ![fsdaf](./readme/demo/WireframeArtistsAdmin.png) | ![fsdaf](./readme/demo/1440x1024.png) |
 
 ### Mockups Mobile
