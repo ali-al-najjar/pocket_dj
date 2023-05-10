@@ -78,9 +78,10 @@
 
 - This project uses the [React Native app development framework](https://reactnative.dev/). React Native is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
 - For persistent storage (database), the app uses the [MySQL](https://www.mysql.com/) package which allows the app to create a custom storage schema and save it to a local database.
-- To create the mixes, the app uses ["Django"](https://www.djangoproject.com/) framework in integration with ["Pydub"](https://pydub.com/) which is an audio library, to generate the mix.
-- The app uses the font ["Urbanist"](https://fonts.google.com/specimen/Urbanist) as its main font, and the design of the app adheres to the material design guidelines.
-- The images of the Moods available on the app were generated using ["DeepAI"](https://deepai.org/machine-learning-model/text2img).
+- To create the mixes, the app uses [Django](https://www.djangoproject.com/) framework in integration with [Pydub](https://pydub.com/) which is an audio library, to generate the mix.
+- The app uses the font [Urbanist](https://fonts.google.com/specimen/Urbanist) as its main font, and the design of the app adheres to the material design guidelines.
+- The images of the Moods available on the app were generated using [DeepAI](https://deepai.org/machine-learning-model/text2img).
+- The app is integrated with [Spotify API](https://developer.spotify.com/documentation/web-api) to retreive songs details. 
 
 <br><br>
 
