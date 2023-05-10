@@ -20,9 +20,10 @@
 - As an artist I want to have a profile so I can link my social media platforms.
 - As an artist I want to be able to view all my songs so that I can edit them.
 - As an admin I want to upload songs so that I can add to the songs library.
-- As an admin I want to approve songs uploaded by the artists so that I can manage the data on the app.
 - As an admin I want to view all the songs uploaded so that I can monitor my data.
 - As an admin I want to view all the users so that I can monitor my registered users.
+- As an admin I want upload moods so that I can add to the moods library.
+- As an admin I want to view all the moods uploaded so that I can monitor my data.
 
 <br><br>
 
@@ -50,19 +51,22 @@
 | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
 
 ### Mockups Mobile
-| Home screen  | Menu Screen | Order Screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| Login screen  | Register screen | Moods screen | Loading screen |
+| ---| ---| ---| ---|
+| ![Landing](./readme/demo/LoginScreen.png) | ![fsdaf](./readme/demo/RegisterScreen.png) | ![fsdaf](./readme/demo/MoodsScreen.png)| ![fsdaf](./readme/demo/Loading.png) |
+| Search screen  | Song Player Screen | Remixes Screen | Profile Screen |
+| ![Landing](./readme/demo/Search.png) | ![fsdaf](./readme/demo/SongPlayerScreen.png) | ![fsdaf](./readme/demo/RemixesScreen.png) | ![fsdaf](./readme/demo/EditProfileScreen.png) |
 
-### Mockups Frontend
-| Home screen  | Menu Screen | Order Screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+### Mockups Artist Frontend
+| Login screen  | Register screen |  Upload Song screen | Edit Profile screen
+| ---| ---| ---| ---|
+| ![Landing](./readme/demo/ArtistLandingpage.png) | ![fsdaf](./readme/demo/ArtistRegisterpage.png) | ![fsdaf](./readme/demo/ArtistUploadSong.png) | ![fsdaf](./readme/demo/ArtistProfile.png) |
 
-### Mockups Backend
-| Home screen  | Menu Screen | Order Screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+
+### Mockeups Admin Frontend
+| Login screen  | View All Users screen |  View all Artists screen | View all Songs screen | Upload Mood screen | Upload Song screen
+| ---| ---| ---| ---| ---| ---|
+| ![Landing](./readme/demo/AdminLandingpage.png) | ![fsdaf](./readme/demo/admin-allusers.png) | ![fsdaf](./readme/demo/admin-allartists.png) | ![fsdaf](./readme/demo/admin-allsongs.png) | ![fsdaf](./readme/demo/adminUploadMood.png) | ![fsdaf](./readme/demo/adminUploadSong.png) |
 
 <br><br>
 
