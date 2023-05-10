@@ -56,11 +56,10 @@
 | ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
 
 ### Artist Screens (Web)
-| Login screen  | Register screen |  Landing screen |
+| Login screen  | Register screen |  Upload Song screen | Edit Profile screen
 | ---| ---| ---|
-| ![Landing](./readme/demo/Artist-Landingpage.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
-| Home screen  | Menu Screen | Order Screen |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| ![Landing](./readme/demo/ArtistLandingpage.png) | ![fsdaf](./readme/demo/ArtistRegisterpage.png) | ![fsdaf](./readme/demo/ArtistUploadSong.png) | ![fsdaf](./readme/demo/ArtistProfile.png) |
+
 
 ### Admin Screens (Web)
 | Login screen  | View All Users screen |  View all Artists screen | View all Songs screen | Upload Mood screen | Upload Song screen
