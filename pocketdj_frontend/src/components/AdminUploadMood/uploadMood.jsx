@@ -29,6 +29,7 @@ const UploadMood = () => {
             const data = new FormData();
             data.append("name", name);
             data.append("cover", cover);
+            data.append("isDeleted" , true)
             
             axios.post(`${base_url}/mood/create`,data,{
               headers: {
