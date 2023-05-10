@@ -40,15 +40,15 @@
 | ---| ---| ---|
 | ![Landing](./readme/demo/WireFrameSearchMobile.png) | ![fsdaf](./readme/demo/WireFrameRemixesMobile.png) | ![fsdaf](./readme/demo/WireFramePlayerMobile.png) |
 
-### Wireframes Frontend
+### Wireframes Frontend Artist
 | Login screen  | Register screen |  Landing screen | Profile Screen
 | ---| ---| ---| ---|
 | ![Landing](./readme/demo/WireframeLoginArtist.png) | ![fsdaf](./readme/demo/WireframeRegisterArtist.png) | ![fsdaf](./readme/demo/WireframeUploadArtist.png) | ![fsdaf](./readme/demo/WireframeProfileArtist.png) |
 
-### Wireframes Backend
+### Wireframes Frontend Admin
 | Login screen  | Register screen |  Landing screen |
 | ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| ![Landing](./readme/demo/WireframeLoginAdmin.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
 
 ### Mockups Mobile
 | Login screen  | Register screen | Moods screen | Loading screen |
