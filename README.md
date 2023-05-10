@@ -65,9 +65,11 @@
 
 
 ### Mockups Admin Frontend
-| Login screen  | View All Users screen |  View all Artists screen | View all Songs screen | Upload Mood screen | Upload Song screen
+| Login screen  | View All Users screen |  View all Artists screen | View all Songs screen | 
 | ---| ---| ---| ---| ---| ---|
-| ![Landing](./readme/demo/AdminLandingpage.png) | ![fsdaf](./readme/demo/admin-allusers.png) | ![fsdaf](./readme/demo/admin-allartists.png) | ![fsdaf](./readme/demo/admin-allsongs.png) | ![fsdaf](./readme/demo/adminUploadMood.png) | ![fsdaf](./readme/demo/adminUploadSong.png) |
+| ![Landing](./readme/demo/AdminLandingpage.png) | ![fsdaf](./readme/demo/admin-allusers.png) | ![fsdaf](./readme/demo/admin-allartists.png) | ![fsdaf](./readme/demo/admin-allsongs.png) |
+|View all Moods | Upload Mood screen | Upload Song screen |
+| ![Landing](./readme/demo/admin-allmoods.png) | ![fsdaf](./readme/demo/adminUploadMood.png) | ![fsdaf](./readme/demo/adminUploadSong.png)
 
 <br><br>
 
@@ -90,9 +92,11 @@
 
 
 ### Admin Screens (Web)
-| Login screen  | View All Users screen |  View all Artists screen | View all Songs screen | Upload Mood screen | Upload Song screen
+| Login screen  | View All Users screen |  View all Artists screen | View all Songs screen | 
 | ---| ---| ---| ---| ---| ---|
-| ![Landing](./readme/demo/AdminLandingpage.png) | ![fsdaf](./readme/demo/admin-allusers.png) | ![fsdaf](./readme/demo/admin-allartists.png) | ![fsdaf](./readme/demo/admin-allsongs.png) | ![fsdaf](./readme/demo/adminUploadMood.png) | ![fsdaf](./readme/demo/adminUploadSong.png) |
+| ![Landing](./readme/demo/AdminLandingpage.png) | ![fsdaf](./readme/demo/admin-allusers.png) | ![fsdaf](./readme/demo/admin-allartists.png) | ![fsdaf](./readme/demo/admin-allsongs.png) |
+|View all Moods | Upload Mood screen | Upload Song screen |
+| ![Landing](./readme/demo/admin-allmoods.png) | ![fsdaf](./readme/demo/adminUploadMood.png) | ![fsdaf](./readme/demo/adminUploadSong.png)
 
 <br><br>
 
