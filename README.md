@@ -42,7 +42,7 @@
 
 ### Wireframes Frontend
 | Login screen  | Register screen |  Landing screen | Profile Screen
-| ---| ---| ---|
+| ---| ---| ---| ---|
 | ![Landing](./readme/demo/WireframeLoginArtist.png) | ![fsdaf](./readme/demo/WireframeRegisterArtist.png) | ![fsdaf](./readme/demo/WireframeUploadArtist.png) | ![fsdaf](./readme/demo/WireframeProfileArtist.png) |
 
 ### Wireframes Backend
