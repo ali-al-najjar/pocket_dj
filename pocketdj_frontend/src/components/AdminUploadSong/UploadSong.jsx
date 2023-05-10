@@ -65,7 +65,7 @@ const UploadSong = () => {
           })
           .then(async response => {
             setDanceability(response.data.danceability);
-            setDuration(response.data.duration_ms);
+            setDuration((response.data.duration_ms / 60000).toFixed(8));
             setEnergy(response.data.energy);
             setInstrumentalness(response.data.instrumentalness);
             setKey(response.data.key);

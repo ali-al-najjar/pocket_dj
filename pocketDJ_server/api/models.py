@@ -15,13 +15,15 @@ class Mood(models.Model):
     name = models.CharField(max_length=255)
     cover = models.ImageField(upload_to='images/covers/', blank=True)
     isDeleted = models.BooleanField(default=True)
+    low_danceability = models.DecimalField(max_digits=15, decimal_places=10,blank=True)
+    high_danceability = models.DecimalField(max_digits=15, decimal_places=10,blank=True)
 
 class Song(models.Model):
     name = models.CharField(max_length=255)
     cover = models.ImageField(upload_to='images/covers/', blank=True)
     link = models.FileField(upload_to='audio/',blank=True)
     danceability= models.DecimalField(max_digits=15, decimal_places=10,blank=True)
-    duration = models.DecimalField(max_digits=15, decimal_places=10,blank=True)
+    duration = models.DecimalField(max_digits=30, decimal_places=10,blank=True)
     energy = models.DecimalField(max_digits=15, decimal_places=10,blank=True)
     instrumentalness = models.DecimalField(max_digits=15, decimal_places=10,blank=True)
     key = models.IntegerField(blank=True)
