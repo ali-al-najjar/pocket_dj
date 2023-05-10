@@ -294,7 +294,7 @@ class SongListView(APIView):
         except ObjectDoesNotExist:
             return Response({'error': 'Mood not found'}, status=status.HTTP_404_NOT_FOUND)
 
-        songs = Song.objects.filter(mood=mood)
+        songs = Song.objects.filter(mood=mood, danceability__range=(mood.low_danceability, mood.high_danceability))
 
         if not songs:
             return Response({'error': 'No songs found for this mood'}, status=status.HTTP_404_NOT_FOUND)

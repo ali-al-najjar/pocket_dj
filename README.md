@@ -33,11 +33,9 @@
 > We designed Pocket DJAI using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes Mobile
-| Login screen  | Register screen |  Landing screen |
+| Login screen  | Register screen |  Landing screen | Search screen  | Remixes screen |  Player screen |
 | ---| ---| ---|
-| ![Landing](./readme/demo/WireFrameLoginMobile.png) | ![fsdaf](./readme/demo/WireFrameregisterMobile.png) | ![fsdaf](./readme/demo/WireFrameMoodsMobile.png) |
-| Search screen  | Remixes screen |  Player screen |
-| ![Landing](./readme/demo/WireFrameSearchMobile.png) | ![fsdaf](./readme/demo/WireFrameRemixesMobile.png) | ![fsdaf](./readme/demo/WireFramePlayerMobile.png) |
+| ![Landing](./readme/demo/WireFrameLoginMobile.png) | ![fsdaf](./readme/demo/WireFrameregisterMobile.png) | ![fsdaf](./readme/demo/WireFrameMoodsMobile.png) | ![fsdaf](./readme/demo/WireFrameSearchMobile.png) | ![fsdaf](./readme/demo/WireFrameRemixesMobile.png) | ![fsdaf](./readme/demo/WireFramePlayerMobile.png) |
 
 ### Wireframes Frontend Artist
 | Login screen  | Register screen |  Landing screen | Profile Screen
