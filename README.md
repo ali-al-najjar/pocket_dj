@@ -46,9 +46,12 @@
 | ![Landing](./readme/demo/WireframeLoginArtist.png) | ![fsdaf](./readme/demo/WireframeRegisterArtist.png) | ![fsdaf](./readme/demo/WireframeUploadArtist.png) | ![fsdaf](./readme/demo/WireframeProfileArtist.png) |
 
 ### Wireframes Frontend Admin
-| Login screen  | Register screen |  Landing screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/WireframeLoginAdmin.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| Login screen  | View All Artists screen |  View All Users screen | View All Songs screen
+| ---| ---| ---| ---|
+| ![Landing](./readme/demo/WireframeLoginAdmin.png) | ![fsdaf](./readme/demo/WireframeArtistsAdmin.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| View All Moods screen  | Upload Song screen |  Upload Mood screen | 
+| ---| ---| ---| 
+| ![Landing](./readme/demo/WireframeLoginAdmin.png) | ![fsdaf](./readme/demo/WireframeArtistsAdmin.png) | ![fsdaf](./readme/demo/1440x1024.png) |
 
 ### Mockups Mobile
 | Login screen  | Register screen | Moods screen | Loading screen |
