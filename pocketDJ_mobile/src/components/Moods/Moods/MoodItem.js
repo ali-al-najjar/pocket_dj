@@ -51,13 +51,11 @@ const MoodItem = ({ id, name, cover }) => {
   useEffect(() => {
     if (mix) {
       const durationinMillis = Math.ceil(mix.duration * 60000);
-      const audio = mix.link;
-      const cover = mix.cover;
       navigation.navigate('Song Player', {
         title: mix.name,
-        image: cover,
-        AudioURL: audio,
-        Duration: durationinMillis,
+        image: {uri : `http://192.168.1.127:8000/media/${mix.cover}`},
+        AudioURL: {audio : mix.link },
+        Duration: {durationinMillis : durationinMillis},
       });
     }
   }, [mix]);
