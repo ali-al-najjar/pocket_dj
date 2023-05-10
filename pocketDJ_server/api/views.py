@@ -301,7 +301,7 @@ class SongListView(APIView):
 
         mixed_song = generate_mixed_song(songs, user_id=user_id)
 
-        response_data = RemixSerializer(mixed_song, many=False).data
+        response_data = RemixSerializer(mixed_song, many=False,context={'request': request}).data
 
         return Response(response_data)
 
