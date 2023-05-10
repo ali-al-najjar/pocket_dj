@@ -1,7 +1,7 @@
 import Navigation from "../../../components/Navigation/navigation";
 import Moods from "../../../components/MoodsTable/moods";
 import './moods.css';
-import { useState } from 'react';
+import { useState,useEffect} from 'react';
 import Button from "../../../components/Button/button";
 import AddModal from "../../../components/Modal/modal";
 import UploadMood from "../../../components/AdminUploadMood/uploadMood";
@@ -16,7 +16,11 @@ const ViewAllMoods = () => {
   
     const handleCloseModal = () => {
       setIsModalOpen(false);
+      window.location.reload();
     };
+
+
+
 
     return (
         <div className="profile_container">

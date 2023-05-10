@@ -16,6 +16,7 @@ const ViewAllSongs = () => {
   
     const handleCloseModal = () => {
       setIsModalOpen(false);
+      window.location.reload();
     };
 
     return (

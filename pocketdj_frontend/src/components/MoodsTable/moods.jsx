@@ -9,7 +9,7 @@ const Moods = () => {
   const [responses, setResponses] = useState([]);
 
   const token = localStorage.getItem('token');
-  const getSongs = async () => {
+  const getMoods = async () => {
     try {
       const res = await axios({
         method: 'GET',
@@ -25,7 +25,7 @@ const Moods = () => {
   };
 
   useEffect(() => {
-    getSongs();
+    getMoods();
   }, []);
 
   return (
