@@ -34,7 +34,7 @@
 
 ### Wireframes Mobile
 | Login screen  | Register screen |  Landing screen | Search screen  | Remixes screen |  Player screen |
-| ---| ---| ---|
+| ---| ---| ---| ---| ---| ---|
 | ![Landing](./readme/demo/WireFrameLoginMobile.png) | ![fsdaf](./readme/demo/WireFrameregisterMobile.png) | ![fsdaf](./readme/demo/WireFrameMoodsMobile.png) | ![fsdaf](./readme/demo/WireFrameSearchMobile.png) | ![fsdaf](./readme/demo/WireFrameRemixesMobile.png) | ![fsdaf](./readme/demo/WireFramePlayerMobile.png) |
 
 ### Wireframes Frontend Artist
