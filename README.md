@@ -90,14 +90,6 @@
 
 > To set up Pocket DJAI locally, follow these steps:
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
 ### Installation
 
 1. Get a free API Key at [Spotify API](https://developer.spotify.com/documentation/web-api)
@@ -145,5 +137,23 @@ This is an example of how to list things you need to use the software and how to
       python
       from django.core.management.utils import get_random_secret_key
       print(get_random_secret_key())
+   ```
+   To prepare the database:
+   ```python
+      python manage.py makemigrations
+      python manage.py migrate
+
+### Initialization
+1. Frontend: Inside the pocketdj_frontend folder
+   ```npm
+   npm start
+   ```
+2. Mobile: Inside the pocketDJ_mobile folder
+   ```npm
+   npx expo start
+   ```
+3. Backend: Inside the pocketDJ_server folder
+   ```python
+   python manage.py runserver
    ```
 Now, you should be able to run Pocket DJAI locally and explore its features.
