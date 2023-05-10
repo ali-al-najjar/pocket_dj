@@ -97,8 +97,7 @@
    ```sh
    git clone https://github.com/aliynajjar/pocket_dj.git
    ```
-3. Frontend: Navigate inside pocketdj_frontend folder
-   Install NPM packages 
+3. Frontend: Open a command prompt and navigate inside pocketdj_frontend folder to install NPM packages
    ```sh
    npm install
    ```
@@ -109,13 +108,11 @@
    REACT_APP_CLIENT_SECRET = 'Enter your secret key'
    REACT_APP_API_URL = 'Enter your URL'
    ```
-4. Mobile: Navigate inside pocketDJ_mobile folder
-   Install NPM packages 
+4. Mobile: Open a command prompt and navigate inside pocketDJ_mobile folder to install NPM packages
    ```sh
    npm install
    ```
-5. Backend: Navigate inside pocketDJ_server folder
-   Install Django packages 
+5. Backend: Open a command prompt and navigate inside pocketDJ_server folder to install Django packages 
    ```sh
    pip install -r requirements.txt
    ```
