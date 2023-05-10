@@ -57,7 +57,7 @@
 
 ### Artist Screens (Web)
 | Login screen  | Register screen |  Upload Song screen | Edit Profile screen
-| ---| ---| ---|
+| ---| ---| ---| ---|
 | ![Landing](./readme/demo/ArtistLandingpage.png) | ![fsdaf](./readme/demo/ArtistRegisterpage.png) | ![fsdaf](./readme/demo/ArtistUploadSong.png) | ![fsdaf](./readme/demo/ArtistProfile.png) |
 
 
