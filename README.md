@@ -100,20 +100,50 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
 1. Get a free API Key at [Spotify API](https://developer.spotify.com/documentation/web-api)
 2. Clone the repo
    ```sh
    git clone https://github.com/aliynajjar/pocket_dj.git
    ```
-3. Install NPM packages
+3. Frontend: Navigate inside pocketdj_frontend folder
+   Install NPM packages 
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+   Create a `.env` file inside the folder
+   Enter your Spotify keys and your server url
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   REACT_APP_CLIENT_KEY= 'Enter your client key'
+   REACT_APP_CLIENT_SECRET = 'Enter your secret key'
+   REACT_APP_API_URL = 'Enter your URL'
    ```
+4. Mobile: Navigate inside pocketDJ_mobile folder
+   Install NPM packages 
+   ```sh
+   npm install
+   ```
+5. Backend: Navigate inside pocketDJ_server folder
+   Install Django packages 
+   ```sh
+   pip install -r requirements.txt
+   ```
+   Create a `.env` file inside the folder
+   Enter your database credentials
+   ```js
+      DATABASE_ENGINE=django.db.backends.mysql
+      DATABASE_NAME='database_name'
+      DATABASE_USER='database_username'
+      DATABASE_PASSWORD='database_password'
+      DATABASE_HOST='127.0.0.1' #for local environment
+      DATABASE_PORT='database_port'
 
+      BASE_URL='your base url' 
+      SECRET_KEY = 'you django secret keye'
+   ```
+   To generate a django secret key.
+   ```python
+      python
+      from django.core.management.utils import get_random_secret_key
+      print(get_random_secret_key())
+   ```
 Now, you should be able to run Pocket DJAI locally and explore its features.
