@@ -16,7 +16,19 @@ const styles = StyleSheet.create({
     backgroundColor:Colors.rgbaPrimary,
     padding:10,
     width:120,
-    textAlign:'center'
+    textAlign:'center',
+  },
+  indicator:{
+    backgroundColor:Colors.rgbaPrimary,
+    width:120,
+    borderBottomRightRadius:10,
+    borderBottomLeftRadius:10
+  },
+  indicator_text:{
+    fontSize:10,
+    color:Colors.white,
+    fontWeight:'bold',
+    padding:5
   }
 });
 

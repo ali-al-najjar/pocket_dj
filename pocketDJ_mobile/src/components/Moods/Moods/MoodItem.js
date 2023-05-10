@@ -67,7 +67,13 @@ const MoodItem = ({ id, name, cover }) => {
         imageStyle={{ borderRadius: 10 }}
         style={[styles.mood, { borderRadius: 5 }]}>
         <Text style={styles.mood_text}>{name}</Text>
-        {showIndicator ? <ActivityIndicator size="large" color="#0000ff" /> : null}
+        {showIndicator ?
+        <View style={styles.indicator}>
+        <ActivityIndicator size="large" color={Colors.black}/>
+        <Text style={styles.indicator_text}>Remix is being prepared!</Text>
+        </View> : null}
+        
+        
       </ImageBackground>
     </TouchableOpacity>
   )
