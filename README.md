@@ -49,11 +49,11 @@
 > Using the wireframes and mockups as a guide, we implemented the Pocket DJAI app with the following features:
 
 ### User Screens (Mobile)
-| Login screen  | Register screen | Landing screen | Loading screen |
+| Login screen  | Register screen | Moods screen | Loading screen |
 | ---| ---| ---| ---|
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
-| Home screen  | Menu Screen | Order Screen | Checkout Screen |
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
+| ![Landing](./readme/demo/LoginScreen.png) | ![fsdaf](./readme/demo/RegisterScreen.png) | ![fsdaf](./readme/demo/MoodsScreen.gif) | ![fsdaf](./readme/demo/Loading.png) |
+| Search screen  | Song Player Screen | Song Player in Action | Remixes Screen | Profile Screen |
+| ![Landing](./readme/demo/Search.gif) | ![fsdaf](./readme/demo/SongPlayerScreen.png) | ![fsdaf](./readme/demo/SongPlayer.gif) | ![fsdaf](./readme/demo/RemixesScreen.png) | ![fsdaf](./readme/demo/EditProfileScreen.png) |
 
 ### Artist Screens (Web)
 | Login screen  | Register screen |  Upload Song screen | Edit Profile screen
@@ -65,8 +65,6 @@
 | Login screen  | View All Users screen |  View all Artists screen | View all Songs screen | Upload Mood screen | Upload Song screen
 | ---| ---| ---| ---| ---| ---|
 | ![Landing](./readme/demo/AdminLandingpage.png) | ![fsdaf](./readme/demo/admin-allusers.png) | ![fsdaf](./readme/demo/admin-allartists.png) | ![fsdaf](./readme/demo/admin-allsongs.png) | ![fsdaf](./readme/demo/adminUploadMood.png) | ![fsdaf](./readme/demo/adminUploadSong.png) |
-<!-- | Home screen  | Menu Screen | Order Screen |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | -->
 
 <br><br>
 
