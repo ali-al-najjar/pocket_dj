@@ -349,7 +349,7 @@ def generate_mixed_song(songs, user_id):
                 os.remove(f"{song.link.path.split('.')[0]}.mp3")
 
             if i > 0:
-                mix = mix.append(song_audio.fade_out(30000),crossfade=15000)
+                mix = mix.append(song_audio.fade_in(30000),crossfade=20000)
             else:
                 mix = song_audio
 
