@@ -17,7 +17,6 @@ const PlayerScreen = () => {
     setMoodTitle(title);
     setMoodImage(image);
     setAudioFile(AudioURL);
-    // setDuration(duration);
     console.log(AudioURL)
     }, []);
 

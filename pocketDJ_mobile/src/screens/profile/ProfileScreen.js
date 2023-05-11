@@ -112,11 +112,7 @@ const ProfileScreen = () => {
     }
     
   }
-
-  // useEffect(()=>{
-  //   console.log(first_name,last_name,username)
-  // },[first_name,last_name,username])
-
+  
   return (
   <ScrollView>
   <View style = {styles.profileContainer} >
