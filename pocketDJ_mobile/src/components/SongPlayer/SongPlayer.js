@@ -90,6 +90,20 @@ const SongPlayer = ({ AudioURL,Duration }) => {
     setPosition(value);
     sound.setPositionAsync(value * 1000);
   };
+
+  const handlePlayBack = () => {
+    const newPosition = position - 10; // Move back by 10 seconds
+    const newPositionSeconds = Math.max(newPosition, 0); // Ensure new position is not negative
+    setPosition(newPositionSeconds);
+    sound.setPositionAsync(newPositionSeconds * 1000);
+  };
+  
+  const handlePlayForward = () => {
+    const newPosition = position + 10; // Move forward by 10 seconds
+    const newPositionSeconds = Math.min(newPosition, duration); // Ensure new position is not greater than duration
+    setPosition(newPositionSeconds);
+    sound.setPositionAsync(newPositionSeconds * 1000);
+  };
   
   return (
     <SafeAreaView style={styles.audioScreenContainer}>
@@ -109,7 +123,7 @@ const SongPlayer = ({ AudioURL,Duration }) => {
           <Text style={styles.progressBarCounter}>{formatTime(duration)}</Text>
         </View>
         <View style={styles.audio_player}>
-          <TouchableOpacity >
+          <TouchableOpacity onPress={handlePlayBack}>
             <Ionicons name="ios-play-back-circle-outline" size={60} color={Colors.black} />
           </TouchableOpacity>
           <TouchableOpacity onPress={togglePlayer}>
@@ -119,7 +133,7 @@ const SongPlayer = ({ AudioURL,Duration }) => {
               <Ionicons name="ios-play-circle-outline" size={90} color={Colors.black} />
             )}
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handlePlayForward}>
             <Ionicons name="ios-play-forward-circle-outline" size={60} color={Colors.black} />
           </TouchableOpacity>
         </View>
