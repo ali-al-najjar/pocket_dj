@@ -295,11 +295,9 @@ class SongListView(APIView):
         except ObjectDoesNotExist:
             return Response({'error': 'Mood not found'}, status=status.HTTP_404_NOT_FOUND)
 
-        songs = Song.objects.filter(mood=mood, danceability__range=(mood.low_danceability, mood.high_danceability)).order_by('?')
-        selected_song = songs.first()
+        songs = Song.objects.filter(mood=mood, danceability__range=(mood.low_danceability, mood.high_danceability))
 
-        if not selected_song:
-            return Response({'error': 'No songs found for this mood'}, status=status.HTTP_404_NOT_FOUND)
+        selected_song = random.choice(songs)
 
         camelot_regex = r'(\d+)([AB])'
         match = re.match(camelot_regex, selected_song.camelot)
@@ -326,9 +324,7 @@ class SongListView(APIView):
 
         response_data = RemixSerializer(mixed_song, many=False, context={'request': request}).data
 
-        return Response(response_data) 
-
-
+        return Response(response_data)
 
 def generate_mixed_song(songs, user_id):
     mixed_songs_file = None
