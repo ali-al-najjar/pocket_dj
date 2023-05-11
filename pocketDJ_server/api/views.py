@@ -8,7 +8,6 @@ from rest_framework import generics , status
 from rest_framework.permissions import IsAuthenticated,DjangoModelPermissionsOrAnonReadOnly
 from rest_framework import permissions
 from django.db.models import Q
-import random
 from pydub import AudioSegment
 from pydub.utils import make_chunks
 from pydub.silence import detect_silence, split_on_silence, detect_nonsilent
@@ -23,6 +22,7 @@ from rest_framework import status
 from django.conf import settings
 import math
 import re
+import random
 
 class IsAdmin(permissions.BasePermission):
     def has_permission(self, request, view):
@@ -295,8 +295,8 @@ class SongListView(APIView):
         except ObjectDoesNotExist:
             return Response({'error': 'Mood not found'}, status=status.HTTP_404_NOT_FOUND)
 
-        songs = Song.objects.filter(mood=mood, danceability__range=(mood.low_danceability, mood.high_danceability))
-        selected_song = songs[0] if songs else None
+        songs = Song.objects.filter(mood=mood, danceability__range=(mood.low_danceability, mood.high_danceability)).order_by('?')
+        selected_song = songs.first()
 
         if not selected_song:
             return Response({'error': 'No songs found for this mood'}, status=status.HTTP_404_NOT_FOUND)
@@ -326,7 +326,8 @@ class SongListView(APIView):
 
         response_data = RemixSerializer(mixed_song, many=False, context={'request': request}).data
 
-        return Response(response_data)
+        return Response(response_data) 
+
 
 
 def generate_mixed_song(songs, user_id):
