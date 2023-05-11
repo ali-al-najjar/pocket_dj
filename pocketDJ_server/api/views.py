@@ -23,6 +23,7 @@ from django.conf import settings
 import math
 import re
 import random
+from decimal import Decimal
 
 class IsAdmin(permissions.BasePermission):
     def has_permission(self, request, view):
@@ -298,7 +299,12 @@ class SongListView(APIView):
         songs = Song.objects.filter(mood=mood, danceability__range=(mood.low_danceability, mood.high_danceability))
 
         selected_song = random.choice(songs)
+        selected_tempo = selected_song.tempo
 
+        songs = Song.objects.filter(mood=mood, 
+                             danceability__range=(mood.low_danceability, mood.high_danceability),
+                             tempo__range=(selected_tempo - Decimal('5.0'), selected_tempo + Decimal('5.0')))
+        
         camelot_regex = r'(\d+)([AB])'
         match = re.match(camelot_regex, selected_song.camelot)
         if not match:
