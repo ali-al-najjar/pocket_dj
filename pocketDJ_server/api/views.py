@@ -22,6 +22,7 @@ import soundfile as sf
 from rest_framework import status
 from django.conf import settings
 import math
+import re
 
 class IsAdmin(permissions.BasePermission):
     def has_permission(self, request, view):
@@ -295,21 +296,48 @@ class SongListView(APIView):
             return Response({'error': 'Mood not found'}, status=status.HTTP_404_NOT_FOUND)
 
         songs = Song.objects.filter(mood=mood, danceability__range=(mood.low_danceability, mood.high_danceability))
+        selected_song = songs[0] if songs else None
 
-        if not songs:
+        if not selected_song:
             return Response({'error': 'No songs found for this mood'}, status=status.HTTP_404_NOT_FOUND)
 
-        mixed_song = generate_mixed_song(songs, user_id=user_id)
+        camelot_regex = r'(\d+)([AB])'
+        match = re.match(camelot_regex, selected_song.camelot)
+        if not match:
+            return Response({'error': 'Invalid camelot value'}, status=status.HTTP_400_BAD_REQUEST)
+        selected_key = match.group(1)
+        selected_mode = match.group(2)
+        matching_camelots = []
+        if selected_mode == 'A':
+            if selected_key != '12':
+                matching_camelots.append(str(int(selected_key) + 1) + 'A')
+            matching_camelots.append(selected_key + 'B')
+        else:
+            if selected_key != '1':
+                matching_camelots.append(str(int(selected_key) - 1) + 'B')
+            matching_camelots.append(selected_key + 'A')
 
-        response_data = RemixSerializer(mixed_song, many=False,context={'request': request}).data
+        matching_songs = Song.objects.filter(mood=mood, camelot__in=matching_camelots)
+
+        if not matching_songs:
+            matching_songs = [selected_song]
+        else:
+            matching_songs = list(matching_songs)
+            matching_songs.append(selected_song)
+
+        mixed_song = generate_mixed_song(matching_songs, user_id=user_id)
+
+        response_data = RemixSerializer(mixed_song, many=False, context={'request': request}).data
 
         return Response(response_data)
+
+
 
 
 def generate_mixed_song(songs, user_id):
     mixed_songs_file = None
     mood = songs[0].mood
-    duration_minutes = 0  # initialize duration_minutes outside the for loop
+    duration_minutes = 0
 
     if len(songs) == 1:
         mixed_songs_file = songs[0].link
