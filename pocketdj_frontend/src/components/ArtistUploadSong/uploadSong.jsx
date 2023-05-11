@@ -1,7 +1,7 @@
 import Button from "../Button/button";
 import Input from "../Input/input";
 import '../AdminUploadSong/UploadSong.css'
-import {useState } from "react";
+import {useEffect, useState } from "react";
 import axios from "axios"
 import MoodsSelectList from "../MoodsSelectList/moodsSelectList";
 import { useSelector } from 'react-redux';
@@ -34,6 +34,25 @@ const UploadSong = () => {
   const[error,setError]=useState("");
   const [selectedArtist, setSelectedArtist] = useState({ id: null, name: "" });
   const [selectedMood, setSelectedMood] = useState({ id: null, name: "" });
+  const Usertoken =localStorage.getItem('token');
+  const [first_name, setFirstName] = useState();
+  const [last_name, setLastName] = useState();
+
+  const getUserDetails = async() =>{
+    try {
+    const res = await axios({
+      method: 'get',
+      url: `http://192.168.1.127:8000/get-details`,
+      headers: {
+        Authorization: 'Token ' + Usertoken,
+      },
+    });
+    setFirstName(res.data.first_name);
+    setLastName(res.data.last_name);
+  } catch (err) {
+    console.log(err);
+  }
+  }
 
   const getDetails = async (e) =>{
   e.preventDefault()
@@ -47,7 +66,7 @@ const UploadSong = () => {
       const token = response.data.access_token
       await axios.get('https://api.spotify.com/v1/search', {
           params: {
-            q: `track:${name} artist:${user.first_name}" "${user.last_name}`,
+            q: `track:${name} artist:${first_name}" "${last_name}`,
             type: 'track',
             market: 'US',
             limit: 1
@@ -77,7 +96,7 @@ const UploadSong = () => {
             setTimeSignature(response.data.time_signature);
             setValence(response.data.valence);
             handleFirstButtonClick();
-            
+            setMessage("You're ready to submit.")
           })
           .catch(error => {
             console.log(error);
@@ -211,6 +230,9 @@ const UploadSong = () => {
       
       
   }
+  useEffect(() => {
+    getUserDetails();
+  }, []);
 
   return (
     <div className="profile_page">
