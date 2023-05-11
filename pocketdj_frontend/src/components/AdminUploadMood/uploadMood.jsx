@@ -1,7 +1,7 @@
 import Button from "../Button/button";
 import Input from "../Input/input";
 import './uploadMood.css'
-import {useState } from "react";
+import {useEffect, useState } from "react";
 import axios from "axios"
 
 const base_url = process.env.REACT_APP_API_URL
@@ -29,19 +29,22 @@ const UploadMood = () => {
 
   const handleLowChange = (e) => {
     const { value } = e.target;
-    const regex = /^[0-9]*\.?[0-9]{0,2}$/;
+    const regex = /^0*(?:\.\d{1,7})?$/;
     if (regex.test(value) && Number(value) <= Number(high_danceability)) {
       setLowValue(value);
+      setMessage('')
     }
   };
-
   const handleHighChange = (e) => {
     const { value } = e.target;
-    const regex = /^[0-9]*\.?[0-9]{0,2}$/;
+    const regex = /^0*(?:\.\d{1,7})?|1\.0{0,7}$/;
     if (regex.test(value) && Number(value) >= Number(low_danceability)) {
       setHighValue(value);
-    }
+      setMessage('')
+    }else{
+    setMessage('High Danceability cannot be lower then Low Danceability')}
   };
+
 
   const handleSubmit = () =>{
             const data = new FormData();
@@ -50,7 +53,7 @@ const UploadMood = () => {
             data.append("isDeleted" , true);
             data.append("low_danceability", low_danceability);
             data.append("high_danceability", high_danceability);
-            
+            console.log(low_danceability,high_danceability)
             axios.post(`${base_url}/mood/create`,data,{
               headers: {
                 Authorization: 'Token ' + token,
@@ -75,6 +78,7 @@ const UploadMood = () => {
     <img className='song_cover'src={coverURL}/>
       <Input name="Mood Cover" type ="file" onChange={handleCover} />
       <Input name="Mood Name" type ="text" onChange={handleName} />
+      <p> Danceability should be between 0 and 1</p>
       <Input name="Low Danceability" type ="text" onChange={handleLowChange} />
       <Input name="High Danceability" type ="text" onChange={handleHighChange} />
       <Button className ={"button"} name ={'Submit'} onSubmit={handleSubmit}/>
