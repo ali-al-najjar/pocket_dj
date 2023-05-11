@@ -1,8 +1,6 @@
 import { ImageBackground,View, Text,FlatList} from "react-native";
 import styles from './styles';
 import { useNavigation } from "@react-navigation/native";
-import RemixItem from "../../components/Remix/RemixItem";
-import { SafeAreaView } from "react-native-safe-area-context";
 import EmptyState from "../../components/EmptyState/emptyState";
 import { useRoute } from '@react-navigation/native';
 import {useState,useEffect} from 'react';
@@ -17,7 +15,6 @@ const renderSong = ({item}) => {
 const ArtistScreen = () => {
   const [ArtistTitle, setArtistTitle] = useState('');
   const [ArtistImage, setArtistImage] = useState('');
-  // const [ArtistSongs, setArtistSongs] = useState([]);
   const route = useRoute();
   const { title, image, songs } = route.params;
 
@@ -25,7 +22,6 @@ const ArtistScreen = () => {
   useEffect(() => {
     setArtistTitle(title);
     setArtistImage(image);
-    // setArtistSongs(songs);
     console.log(songs);
     }, []);
 
