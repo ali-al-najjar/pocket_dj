@@ -93,15 +93,15 @@ const SongPlayer = ({ AudioURL,Duration }) => {
   };
 
   const handlePlayBack = () => {
-    const newPosition = position - 10; // Move back by 10 seconds
-    const newPositionSeconds = Math.max(newPosition, 0); // Ensure new position is not negative
+    const newPosition = position - 10;
+    const newPositionSeconds = Math.max(newPosition, 0);
     setPosition(newPositionSeconds);
     sound.setPositionAsync(newPositionSeconds * 1000);
   };
   
   const handlePlayForward = () => {
-    const newPosition = position + 10; // Move forward by 10 seconds
-    const newPositionSeconds = Math.min(newPosition, duration); // Ensure new position is not greater than duration
+    const newPosition = position + 10;
+    const newPositionSeconds = Math.min(newPosition, duration);
     setPosition(newPositionSeconds);
     sound.setPositionAsync(newPositionSeconds * 1000);
   };
