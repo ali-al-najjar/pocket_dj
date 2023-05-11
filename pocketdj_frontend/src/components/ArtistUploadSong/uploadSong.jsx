@@ -37,6 +37,7 @@ const UploadSong = () => {
   const Usertoken =localStorage.getItem('token');
   const [first_name, setFirstName] = useState();
   const [last_name, setLastName] = useState();
+  const [id, setId] = useState();
 
   const getUserDetails = async() =>{
     try {
@@ -49,6 +50,7 @@ const UploadSong = () => {
     });
     setFirstName(res.data.first_name);
     setLastName(res.data.last_name);
+    setId(res.data.id)
   } catch (err) {
     console.log(err);
   }
@@ -200,7 +202,7 @@ const UploadSong = () => {
         "cover" : cover,
         "link" : link,
         "mood" : selectedMood.id,
-        "artist" : user.id,
+        "artist" : id,
         "danceability" : danceability,
         "duration"  : duration,
         "energy" : energy,
