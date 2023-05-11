@@ -26,8 +26,6 @@ const RemixesScreen = () => {
   }, []);
 
   const getRemixes = async () => {
-    console.log(token)
-    console.log(user_id)
       await axios.get(`http://192.168.1.127:8000/remixes/?user_id=${user_id}`,{
         headers: { 'Authorization': `Token ${token}`,
       }
@@ -41,7 +39,6 @@ const RemixesScreen = () => {
     
   useEffect(() => {
     getRemixes();
-    console.log(responses)
   }, []);
 
   const header = () =>{

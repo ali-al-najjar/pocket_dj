@@ -22,7 +22,6 @@ const ArtistScreen = () => {
   useEffect(() => {
     setArtistTitle(title);
     setArtistImage(image);
-    console.log(songs);
     }, []);
 
   const navigation = useNavigation();
