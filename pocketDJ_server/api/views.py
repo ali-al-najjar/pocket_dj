@@ -320,18 +320,13 @@ class SongListView(APIView):
         matching_songs = Song.objects.filter(mood=mood, camelot__in=matching_camelots)
 
         if not matching_songs:
-            matching_songs = [selected_song]
-        else:
-            matching_songs = list(matching_songs)
-            matching_songs.append(selected_song)
+            matching_songs = Song.objects.filter(mood=mood, camelot=selected_song.camelot)
 
         mixed_song = generate_mixed_song(matching_songs, user_id=user_id)
 
         response_data = RemixSerializer(mixed_song, many=False, context={'request': request}).data
 
         return Response(response_data)
-
-
 
 
 def generate_mixed_song(songs, user_id):
@@ -353,7 +348,7 @@ def generate_mixed_song(songs, user_id):
                 os.remove(f"{song.link.path.split('.')[0]}.mp3")
 
             if i > 0:
-                mix = mix.append(song_audio.fade_in(30000),crossfade=30000)
+                mix = mix.append(song_audio.fade_out(30000),crossfade=15000)
             else:
                 mix = song_audio
 
