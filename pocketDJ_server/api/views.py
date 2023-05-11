@@ -310,10 +310,14 @@ class SongListView(APIView):
             if selected_key != '12':
                 matching_camelots.append(str(int(selected_key) + 1) + 'A')
             matching_camelots.append(selected_key + 'B')
+            if selected_key != '1':
+                matching_camelots.append(str(int(selected_key) - 1) + 'B')
         else:
             if selected_key != '1':
                 matching_camelots.append(str(int(selected_key) - 1) + 'B')
             matching_camelots.append(selected_key + 'A')
+            if selected_key != '12':
+                matching_camelots.append(str(int(selected_key) + 1) + 'A')
 
         matching_songs = Song.objects.filter(mood=mood, camelot__in=matching_camelots)
 
