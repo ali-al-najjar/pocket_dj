@@ -300,10 +300,14 @@ class SongListView(APIView):
 
         selected_song = random.choice(songs)
         selected_tempo = selected_song.tempo
-
+        print(selected_tempo)
+        tempo_lower = selected_tempo - Decimal('5')
+        tempo_upper = selected_tempo + Decimal('5')
         songs = Song.objects.filter(mood=mood, 
-                             danceability__range=(mood.low_danceability, mood.high_danceability),
-                             tempo__range=(selected_tempo - Decimal('5.0'), selected_tempo + Decimal('5.0')))
+                                    danceability__range=(mood.low_danceability, mood.high_danceability),
+                                    tempo__range=(tempo_lower, tempo_upper))
+        for song in songs:
+            print(song.tempo)
         
         camelot_regex = r'(\d+)([AB])'
         match = re.match(camelot_regex, selected_song.camelot)
@@ -355,7 +359,7 @@ def generate_mixed_song(songs, user_id):
                 os.remove(f"{song.link.path.split('.')[0]}.mp3")
 
             if i > 0:
-                mix = mix.append(song_audio.fade_in(30000),crossfade=20000)
+                mix = mix.append(song_audio.fade_out(20000),crossfade=20000)
             else:
                 mix = song_audio
 
