@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState, useEffect } from 'react';
 import Colors from "../../constants/colors";
 import Slider from '@react-native-community/slider';
+import { LogBox } from 'react-native';
 
 const SongPlayer = ({ AudioURL,Duration }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -104,7 +105,7 @@ const SongPlayer = ({ AudioURL,Duration }) => {
     setPosition(newPositionSeconds);
     sound.setPositionAsync(newPositionSeconds * 1000);
   };
-  
+  LogBox.ignoreAllLogs();
   return (
     <SafeAreaView style={styles.audioScreenContainer}>
       <View style={styles.container}>

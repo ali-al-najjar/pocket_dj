@@ -4,10 +4,12 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {store} from './src/redux/store'
 import { Provider } from 'react-redux'
+import { LogBox } from 'react-native';
+
 
 
 export default function App() {
-  
+  LogBox.ignoreAllLogs();
   return (
     <Provider store={store}>
     <NavigationContainer>
