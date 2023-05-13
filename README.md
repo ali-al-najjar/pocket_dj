@@ -83,6 +83,11 @@
 | Search screen  | Moods screen | Remixes Screen | Profile Screen |
 | ![Landing](./readme/demo/search.gif) | ![fsdaf](./readme/demo/moods.gif) | ![fsdaf](./readme/demo/remixes.gif) | ![fsdaf](./readme/demo/profile.gif) |
 
+### Landing Screen (Web)
+| Login screen  |
+| ---| 
+| ![Landing](./readme/demo/landing.gif) | 
+
 ### Artist Screens (Web)
 | Login screen  | Register screen |  Upload Song screen | Edit Profile screen
 | ---| ---| ---| ---|
