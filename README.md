@@ -79,7 +79,7 @@
 ### User Screens (Mobile)
 | Login screen  | Register screen | Song Player Screen | Loading screen |
 | ---| ---| ---| ---|
-| ![Landing](./readme/demo/LoginScreen.png) | ![fsdaf](./readme/demo/RegisterScreen.png) | [fsdaf](./readme/demo/SongPlayerScreen.png)| ![fsdaf](./readme/demo/Loading.png) |
+| ![Landing](./readme/demo/LoginScreen.png) | ![fsdaf](./readme/demo/RegisterScreen.png) | ![fsdaf](./readme/demo/SongPlayerScreen.png)| ![fsdaf](./readme/demo/Loading.png) |
 | Search screen  | Moods screen | Remixes Screen | Profile Screen |
 | ![Landing](./readme/demo/search.gif) | ![fsdaf](./readme/demo/moods.gif) | ![fsdaf](./readme/demo/remixes.gif) | ![fsdaf](./readme/demo/profile.gif) |
 
