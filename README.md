@@ -77,11 +77,11 @@
 > Using the wireframes and mockups as a guide, we implemented the Pocket DJAI app with the following features:
 
 ### User Screens (Mobile)
-| Login screen  | Register screen | Moods screen | Loading screen |
+| Login screen  | Register screen | Song Player Screen | Loading screen |
 | ---| ---| ---| ---|
-| ![Landing](./readme/demo/LoginScreen.png) | ![fsdaf](./readme/demo/RegisterScreen.png) | ![fsdaf](./readme/demo/MoodsScreen.png)| ![fsdaf](./readme/demo/Loading.png) |
-| Search screen  | Song Player Screen | Remixes Screen | Profile Screen |
-| ![Landing](./readme/demo/search.gif) | ![fsdaf](./readme/demo/SongPlayerScreen.png) | ![fsdaf](./readme/demo/remixes.gif) | ![fsdaf](./readme/demo/profile.gif) |
+| ![Landing](./readme/demo/LoginScreen.png) | ![fsdaf](./readme/demo/RegisterScreen.png) | [fsdaf](./readme/demo/SongPlayerScreen.png)| ![fsdaf](./readme/demo/Loading.png) |
+| Search screen  | Moods screen | Remixes Screen | Profile Screen |
+| ![Landing](./readme/demo/search.gif) | ![fsdaf](./readme/demo/moods.gif) | ![fsdaf](./readme/demo/remixes.gif) | ![fsdaf](./readme/demo/profile.gif) |
 
 ### Artist Screens (Web)
 | Login screen  | Register screen |  Upload Song screen | Edit Profile screen
