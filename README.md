@@ -51,11 +51,9 @@
  
 
 ### Mockups Mobile
-| Login screen  | Register screen | Moods screen | Loading screen |
-| ---| ---| ---| ---|
-| ![Landing](./readme/demo/LoginScreen.png) | ![fsdaf](./readme/demo/RegisterScreen.png) | ![fsdaf](./readme/demo/MoodsScreen.png)| ![fsdaf](./readme/demo/Loading.png) |
-| Search screen  | Song Player Screen | Remixes Screen | Profile Screen |
-| ![Landing](./readme/demo/Search.png) | ![fsdaf](./readme/demo/SongPlayerScreen.png) | ![fsdaf](./readme/demo/RemixesScreen.png) | ![fsdaf](./readme/demo/EditProfileScreen.png) |
+| Login screen  | Register screen | Moods screen | Search screen  | Song Player Screen | Remixes Screen |
+| ---| ---| ---| ---| ---| ---|
+| ![Landing](./readme/demo/LoginScreen.png) | ![fsdaf](./readme/demo/RegisterScreen.png) | ![fsdaf](./readme/demo/MoodsScreen.png)| ![fsdaf](./readme/demo/Loading.png) | ![fsdaf](./readme/demo/Search.png) | ![fsdaf](./readme/demo/SongPlayerScreen.png) | ![fsdaf](./readme/demo/RemixesScreen.png) |
 
 ### Mockups Artist Frontend
 | Login screen  | Register screen |  Upload Song screen | Edit Profile screen
@@ -64,11 +62,9 @@
 
 
 ### Mockups Admin Frontend
-| Login screen  | View All Users screen |  View all Artists screen | View all Songs screen | 
-| ---| ---| ---| ---|
-| ![Landing](./readme/demo/AdminLandingpage.png) | ![fsdaf](./readme/demo/admin-allusers.png) | ![fsdaf](./readme/demo/admin-allartists.png) | ![fsdaf](./readme/demo/admin-allsongs.png) |
-|View all Moods | Upload Mood screen | Upload Song screen |
-| ![Landing](./readme/demo/admin-allmoods.png) | ![fsdaf](./readme/demo/adminUploadMood.png) | ![fsdaf](./readme/demo/adminUploadSong.png)
+| Login screen  | View All Users screen |  View all Artists screen | View all Songs screen | View all Moods | Upload Mood screen | Upload Song screen |
+| ---| ---| ---| ---| ---| ---| ---|
+| ![Landing](./readme/demo/AdminLandingpage.png) | ![fsdaf](./readme/demo/admin-allusers.png) | ![fsdaf](./readme/demo/admin-allartists.png) | ![fsdaf](./readme/demo/admin-allsongs.png) | ![fsdaf](./readme/demo/admin-allmoods.png) | ![fsdaf](./readme/demo/adminUploadMood.png) | ![fsdaf](./readme/demo/adminUploadSong.png)
 
 <br><br>
 
