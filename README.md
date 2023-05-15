@@ -103,7 +103,7 @@
 <br><br>
 
 ### Listen to Mix generated from Pocket DJAI:
->> [Party Mix] (./readme/demo/party.mp3)
+>> [Landing] (./readme/demo/party.mp3)
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
 
