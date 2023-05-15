@@ -73,10 +73,12 @@
 
 > Using the wireframes and mockups as a guide, we implemented the Pocket DJAI app with the following features:
 
+> Pocket DJAI GIFs:
+
 ### User Screens (Mobile)
-| Login screen  | Register screen | Song Player Screen | Loading screen |
+| Loading screen | Login screen | Register screen | Song Player Screen |
 | ---| ---| ---| ---|
-| ![Landing](./readme/demo/LoginScreen.png) | ![fsdaf](./readme/demo/RegisterScreen.png) | ![fsdaf](./readme/demo/SongPlayerScreen.png)| ![fsdaf](./readme/demo/Loading.png) |
+| ![Landing](./readme/demo/Loading.png) | ![fsdaf](./readme/demo/login.gif) | ![fsdaf](./readme/demo/register.gif) | ![fsdaf](./readme/demo/songplayer.mp4)||
 | Search screen  | Moods screen | Remixes Screen | Profile Screen |
 | ![Landing](./readme/demo/search.gif) | ![fsdaf](./readme/demo/moods.gif) | ![fsdaf](./readme/demo/remixes.gif) | ![fsdaf](./readme/demo/profile.gif) |
 
@@ -124,7 +126,7 @@
 1. Get a free API Key at [Spotify API](https://developer.spotify.com/documentation/web-api)
 2. Clone the repo
    ```sh
-   git clone https://github.com/aliynajjar/pocket_dj.git
+   git clone https://github.com/ali-al-najjar/pocket_dj
    ```
 3. Frontend: Open a command prompt and navigate inside pocketdj_frontend folder to install NPM packages
    ```sh
