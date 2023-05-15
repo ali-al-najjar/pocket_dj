@@ -10,15 +10,17 @@
 > Pocket DJAI aims to produce a continuous flow of songs mixed based on Mood, Camelot ,Beat and Danceability.
 
 ### User Stories
-- As a user I want to register so that I have an account on the website.
-- As a user I want to log in so that i can benefit from playing the full songs.
-- As a user I want to choose the genre and the mood of the songs so that I can listen to what I want.
+- As a user I want to choose the mood of the songs so that I can listen to what I want.
 - As a user I want to be able to save the remixes generated so that I can use them in the future.
 - As a user I want to be able to play, stop and pause the songs so that I can control the flow.
 - As a user I want to be able to search songs and artists so that I can pick any song / artist I want.
+
+### Artist Stories
 - As an artist I want to upload songs so that I can add my songs to my profile.
-- As an artist I want to have a profile so I can link my social media platforms.
+- As an artist I want to have a profile so I can edit my information.
 - As an artist I want to be able to view all my songs so that I can edit them.
+
+### Admin Stories
 - As an admin I want to upload songs so that I can add to the songs library.
 - As an admin I want to view all the songs uploaded so that I can monitor my data.
 - As an admin I want to view all the users so that I can monitor my registered users.
@@ -43,11 +45,10 @@
 | ![Landing](./readme/demo/WireframeLoginArtist.png) | ![fsdaf](./readme/demo/WireframeRegisterArtist.png) | ![fsdaf](./readme/demo/WireframeUploadArtist.png) | ![fsdaf](./readme/demo/WireframeProfileArtist.png) |
 
 ### Wireframes Frontend Admin
-| Login screen  | View All Artists screen |  View All Users screen | View All Songs screen
-| ---| ---| ---| ---|
-| ![Landing](./readme/demo/WireframeLoginAdmin.png) | ![fsdaf](./readme/demo/WireframeArtistsAdmin.png) | ![fsdaf](./readme/demo/WireframeUsersAdmin.png) | ![fsdaf](./readme/demo/WireframeSongsAdmin.png) |
-| View All Moods screen  | Upload Song screen |  Upload Mood screen | 
-| ![Landing](./readme/demo/WireframeMoodsAdmin.png) | ![fsdaf](./readme/demo/WireframeUploadAdmin.png) | ![fsdaf](./readme/demo/WireframeMoodAdmin.png) |
+| Login screen  | View All Artists screen |  View All Users screen | View All Songs screen | View All Moods screen  | Upload Song screen |  Upload Mood screen |
+| ---| ---| ---| ---| ---| ---| ---|
+| ![Landing](./readme/demo/WireframeLoginAdmin.png) | ![fsdaf](./readme/demo/WireframeArtistsAdmin.png) | ![fsdaf](./readme/demo/WireframeUsersAdmin.png) | ![fsdaf](./readme/demo/WireframeSongsAdmin.png) | ![fsdaf](./readme/demo/WireframeMoodsAdmin.png) | ![fsdaf](./readme/demo/WireframeUploadAdmin.png) | ![fsdaf](./readme/demo/WireframeMoodAdmin.png) |
+ 
 
 ### Mockups Mobile
 | Login screen  | Register screen | Moods screen | Loading screen |
