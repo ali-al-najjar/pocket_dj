@@ -11,7 +11,6 @@
 
 ### User Stories
 - As a user I want to choose the mood of the songs so that I can listen to what I want.
-- As a user I want to be able to save the remixes generated so that I can use them in the future.
 - As a user I want to be able to play, stop and pause the songs so that I can control the flow.
 - As a user I want to be able to search songs and artists so that I can pick any song / artist I want.
 
@@ -22,10 +21,8 @@
 
 ### Admin Stories
 - As an admin I want to upload songs so that I can add to the songs library.
-- As an admin I want to view all the songs uploaded so that I can monitor my data.
-- As an admin I want to view all the users so that I can monitor my registered users.
+- As an admin I want to view all the users, artists, moods, and songs uploaded so that I can monitor my data.
 - As an admin I want upload moods so that I can add to the moods library.
-- As an admin I want to view all the moods uploaded so that I can monitor my data.
 
 <br><br>
 
